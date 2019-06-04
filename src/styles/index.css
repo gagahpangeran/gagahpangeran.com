@@ -30,3 +30,15 @@ h5,
 h6 {
   font-family: "Noto Sans", sans-serif;
 }
+
+h1 {
+  font-size: 44px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+h3 {
+  font-size: 32px;
+}

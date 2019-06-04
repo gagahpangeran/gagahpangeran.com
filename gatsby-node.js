@@ -2,37 +2,33 @@ const path = require("path");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+  const BlogPostTemplate = path.resolve(`./src/templates/post.js`);
 
-  const createPostPage = new Promise((resolve, reject) => {
-    const query = graphql(`
-      {
-        allWordpressPost {
-          edges {
-            node {
-              id
-              slug
-            }
+  return graphql(`
+    {
+      allWordpressPost {
+        edges {
+          node {
+            slug
+            id
           }
         }
       }
-    `);
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors;
+    }
 
-    query.then(result => {
-      if (result.errors) {
-        console.error(results.errors);
-        reject(result.error);
-      }
+    const BlogPosts = result.data.allWordpressPost.edges;
 
-      const postEdges = result.data.allWordpressPost.edges;
-
-      postEdges.forEach(edge => {
-        createPage({
-          path: `/${edge.node.slug}`,
-          component: path.resolve(`./src/templates/post.js`),
-          context: {
-            id: edge.node.id,
-          },
-        });
+    BlogPosts.forEach(post => {
+      createPage({
+        path: `/${post.node.slug}`,
+        component: BlogPostTemplate,
+        context: {
+          id: post.node.id,
+        },
       });
     });
   });

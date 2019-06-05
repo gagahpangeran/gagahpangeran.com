@@ -40,6 +40,6 @@ Using gatsby and wordpress to build my blog
 
 ### SEO
 
-- [ ] Dynamic Title for Page
-- [ ] Dynamic Desc for Page
+- [x] Dynamic Title for Page
+- [x] Dynamic Desc for Page
 - [ ] Dynamic Image thumbnail for Page

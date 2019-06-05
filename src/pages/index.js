@@ -30,7 +30,7 @@ export const pageQuery = graphql`
           title
           excerpt
           slug
-          date(formatString: "D MMM YYYY, HH.mm")
+          date
           thumbnail
         }
       }

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import getDate from "../utils/time";
 
 const PostSection = styled.section`
   background: #f4f4f4;
@@ -51,7 +52,7 @@ export default function PostThumbnail({
         <Link to={`${slug}/`}>
           <PostTitle>{title}</PostTitle>
         </Link>
-        <PostDate>{date}</PostDate>
+        <PostDate>{getDate(date)}</PostDate>
         <div dangerouslySetInnerHTML={{ __html: excerpt }} />
       </PostContent>
     </PostSection>

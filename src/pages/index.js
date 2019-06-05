@@ -1,8 +1,10 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+
+import PostThumbnail from "../components/post-thumbnail";
 
 const IndexPage = ({ data }) => (
   <Layout>
@@ -10,17 +12,11 @@ const IndexPage = ({ data }) => (
     <h1>Gagah Pangeran Rosfatiputra</h1>
     <h3>Part Time Student, Full Time Learner</h3>
 
-    {data.allWordpressPost.edges.map(({ node }) => (
-      <div key={node.id}>
-        <Link to={`${node.slug}/`}>
-          <h4>
-            <span dangerouslySetInnerHTML={{ __html: node.title }} /> -{" "}
-            {node.date}
-          </h4>
-        </Link>
-        <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-      </div>
-    ))}
+    <main>
+      {data.allWordpressPost.edges.map(({ node }) => (
+        <PostThumbnail key={node.id} {...node} />
+      ))}
+    </main>
   </Layout>
 );
 
@@ -34,7 +30,8 @@ export const pageQuery = graphql`
           title
           excerpt
           slug
-          date(formatString: "DD MMMM YYYY")
+          date(formatString: "D MMM YYYY, HH.mm")
+          thumbnail
         }
       }
     }

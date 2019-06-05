@@ -20,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Gagah Pangeran Rosfatiputra`,
+        short_name: `GPR`,
         start_url: `/`,
         background_color: `#000000`,
         theme_color: `#000000`,

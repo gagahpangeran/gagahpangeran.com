@@ -11,6 +11,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
+const Footer = styled.footer`
+  text-align: center;
+  margin: 20px 0;
+`;
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -26,6 +31,12 @@ const Layout = ({ children }) => (
       <>
         <Navbar />
         <Wrapper>{children}</Wrapper>
+        <Footer>
+          <h6>
+            &copy; {new Date().getFullYear()} -{" "}
+            <a href="https://gagahpangeran.com">GPR</a>
+          </h6>
+        </Footer>
       </>
     )}
   />

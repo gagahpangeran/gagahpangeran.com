@@ -22,6 +22,10 @@ a:hover {
   color: #0e96da;
 }
 
+main {
+  margin: 40px 0;
+}
+
 h1,
 h2,
 h3,

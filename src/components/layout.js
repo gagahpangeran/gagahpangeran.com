@@ -8,7 +8,7 @@ import "../styles/index.css";
 
 const Wrapper = styled.div`
   max-width: 720px;
-  margin: 0 auto;
+  margin: 64px auto 0;
 `;
 
 const Footer = styled.footer`

@@ -24,16 +24,27 @@ const NavContent = styled.div`
 `;
 
 const NavLogo = styled.div`
-  width: 50%;
+  img {
+    filter: grayscale(100%);
+    transition: filter 0.2s ease-in-out;
+
+    &:hover {
+      filter: none;
+    }
+  }
 `;
 
 const NavLink = styled.div`
   width: 50%;
-  text-align: right;
+  display: flex;
+  margin-left: 8px;
 
   a {
+    display: block;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 24px;
+    color: #aaa;
+    margin: 0 12px;
   }
 `;
 
@@ -70,7 +81,12 @@ export default function Navbar() {
           </Link>
         </NavLogo>
         <NavLink>
-          <a href="https://gagahpangeran.com/">ABOUT</a>
+          <a href="https://gagahpangeran.com/">
+            <i class="fas fa-user" />
+          </a>
+          <a href="https://github.com/gagahpangeran">
+            <i class="fab fa-github" />
+          </a>
         </NavLink>
       </NavContent>
     </Nav>

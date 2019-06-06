@@ -9,7 +9,7 @@ const PostSection = styled.section`
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
-  transition: 0.2s;
+  transition: box-shadow 0.2s;
   align-items: flex-start;
 
   &:hover {

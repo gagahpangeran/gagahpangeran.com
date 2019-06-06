@@ -13,6 +13,10 @@ const Nav = styled.nav`
   transition: 0.2s ease-in-out;
   box-shadow: ${props =>
     props.isShow && !props.isTop ? "0 0 3px 3px rgba(0, 0, 0, 0.1)" : "none"};
+
+  @media screen and (max-width: 500px) {
+    height: 48px;
+  }
 `;
 
 const NavContent = styled.div`
@@ -25,6 +29,10 @@ const NavContent = styled.div`
   @media screen and (max-width: 720px) {
     padding: 0 16px;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 0 8px;
+  }
 `;
 
 const NavLogo = styled.div`
@@ -34,6 +42,10 @@ const NavLogo = styled.div`
 
     &:hover {
       filter: none;
+    }
+
+    @media screen and (max-width: 500px) {
+      height: 32px;
     }
   }
 `;
@@ -49,12 +61,20 @@ const NavLink = styled.div`
     font-size: 24px;
     color: #aaa;
     margin: 0 12px;
+
+    @media screen and (max-width: 500px) {
+      margin: 0 4px;
+    }
   }
 
   svg {
     height: 24px;
     fill: #aaa;
     transition: fill 0.2s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      height: 20px;
+    }
 
     &:hover {
       fill: #0e96da;

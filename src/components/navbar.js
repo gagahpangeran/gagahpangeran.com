@@ -48,8 +48,11 @@ const NavLogo = styled.div`
   a {
     display: block;
 
-    &:hover img {
-      filter: none;
+    &:hover,
+    &:active {
+      img {
+        filter: none;
+      }
     }
   }
 `;
@@ -80,8 +83,11 @@ const NavLink = styled.div`
       margin: 0 4px;
     }
 
-    &:hover svg {
-      fill: #0e96da;
+    &:hover,
+    &:active {
+      svg {
+        fill: #0e96da;
+      }
     }
   }
 `;

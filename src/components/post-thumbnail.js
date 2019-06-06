@@ -5,13 +5,10 @@ import getDate from "../utils/time";
 
 const PostSection = styled.section`
   background: #f4f4f4;
-  display: flex;
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s;
-  align-items: flex-start;
-  position: relative;
 
   &:hover {
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -19,6 +16,14 @@ const PostSection = styled.section`
 
   @media screen and (max-width: 500px) {
     padding: 12px;
+  }
+`;
+
+const PostHeader = styled.div`
+  display: flex;
+  align-items: flex-start;
+
+  @media screen and (max-width: 500px) {
     align-items: center;
   }
 `;
@@ -65,6 +70,14 @@ const PostSummary = styled.div`
   }
 `;
 
+const PostSummaryMobile = styled.div`
+  margin-top: 4px;
+
+  @media screen and (min-width: 501px) {
+    display: none;
+  }
+`;
+
 export default function PostThumbnail({
   title,
   slug,
@@ -74,16 +87,19 @@ export default function PostThumbnail({
 }) {
   return (
     <PostSection>
-      <Link to={`${slug}/`}>
-        <PostImg src={thumbnail} alt={title} />
-      </Link>
-      <PostContent>
+      <PostHeader>
         <Link to={`${slug}/`}>
-          <PostTitle>{title}</PostTitle>
+          <PostImg src={thumbnail} alt={title} />
         </Link>
-        <PostDate>{getDate(date)}</PostDate>
-        <PostSummary dangerouslySetInnerHTML={{ __html: excerpt }} />
-      </PostContent>
+        <PostContent>
+          <Link to={`${slug}/`}>
+            <PostTitle>{title}</PostTitle>
+          </Link>
+          <PostDate>{getDate(date)}</PostDate>
+          <PostSummary dangerouslySetInnerHTML={{ __html: excerpt }} />
+        </PostContent>
+      </PostHeader>
+      <PostSummaryMobile dangerouslySetInnerHTML={{ __html: excerpt }} />
     </PostSection>
   );
 }

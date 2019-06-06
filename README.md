@@ -16,7 +16,10 @@ Using gatsby and wordpress to build my blog
 - Post Page
   - [x] Desktop
   - [x] Mobile
-- Comment
+- 404 Page
+  - [x] Desktop
+  - [x] Mobile
+- Category and Tag Page
   - [ ] Desktop
   - [ ] Mobile
 - Search
@@ -28,13 +31,10 @@ Using gatsby and wordpress to build my blog
 - Related Post
   - [ ] Desktop
   - [ ] Mobile
-- Category and Tag Page
-  - [ ] Desktop
-  - [ ] Mobile
-- 404 Page
-  - [ ] Desktop
-  - [ ] Mobile
 - Pagination
+  - [ ] Desktop
+  - [ ] Mobile
+- Comment
   - [ ] Desktop
   - [ ] Mobile
 

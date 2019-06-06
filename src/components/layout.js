@@ -14,6 +14,11 @@ const Wrapper = styled.div`
 const Footer = styled.footer`
   text-align: center;
   margin: 20px 0;
+
+  span {
+    color: #0177b0;
+    cursor: pointer;
+  }
 `;
 
 const Layout = ({ children }) => (
@@ -34,7 +39,18 @@ const Layout = ({ children }) => (
         <Footer>
           <h6>
             &copy; {new Date().getFullYear()} -{" "}
-            <a href="https://gagahpangeran.com">GPR</a>
+            <a href="https://gagahpangeran.com">GPR</a> -{" "}
+            <span
+              onClick={() => {
+                window.scroll({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Go To Top
+            </span>
           </h6>
         </Footer>
       </>

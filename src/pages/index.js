@@ -31,6 +31,14 @@ export const pageQuery = graphql`
           excerpt
           slug
           date
+          categories {
+            name
+            slug
+          }
+          tags {
+            name
+            slug
+          }
           featured_media {
             localFile {
               childImageSharp {

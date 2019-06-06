@@ -71,6 +71,8 @@ const PostDate = styled.time`
 `;
 
 const PostSummary = styled.div`
+  font-size: 18px;
+
   @media screen and (max-width: 500px) {
     display: none;
   }
@@ -84,11 +86,34 @@ const PostSummaryMobile = styled.div`
   }
 `;
 
+const PostCatTag = styled.div`
+  margin: 4px 0;
+  font-size: 18px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+
+  a {
+    margin-right: 4px;
+  }
+`;
+
+const getCatTag = (categories, tags) => {
+  return categories
+    .map(category => (
+      <Link to={`/category/${category.slug}/`}>#{category.name}</Link>
+    ))
+    .concat(tags.map(tag => <Link to={`/tag/${tag.slug}/`}>#{tag.name}</Link>));
+};
+
 export default function PostThumbnail({
   title,
   slug,
   date,
   excerpt,
+  categories,
+  tags,
   featured_media,
 }) {
   return (
@@ -103,6 +128,7 @@ export default function PostThumbnail({
           </Link>
           <PostDate>{getDate(date)}</PostDate>
           <PostSummary dangerouslySetInnerHTML={{ __html: excerpt }} />
+          <PostCatTag>{getCatTag(categories, tags)}</PostCatTag>
         </PostContent>
       </PostHeader>
       <PostSummaryMobile dangerouslySetInnerHTML={{ __html: excerpt }} />

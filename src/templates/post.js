@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "@emotion/styled";
 
@@ -74,6 +74,58 @@ const PostHeader = styled(Img)`
   }
 `;
 
+const PostCatTag = styled.div`
+  font-size: 20px;
+  margin-top: 12px;
+`;
+
+const CatTag = styled(Link)`
+  color: #fff;
+  padding: 4px 12px;
+  margin-right: 12px;
+  border-radius: 4px;
+  transition: background 0.2s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &.cat {
+    background: #b10004;
+
+    &:hover,
+    &:active {
+      background: #e60d12;
+    }
+  }
+
+  &.tag {
+    background: #f95600;
+
+    &:hover,
+    &:active {
+      background: #f98d00;
+    }
+  }
+`;
+
+const getCatTag = (categories, tags) => {
+  return categories
+    .map(category => (
+      <CatTag className="cat" to={`/category/${category.slug}/`}>
+        {category.name}
+      </CatTag>
+    ))
+    .concat(
+      tags.map(tag => (
+        <CatTag className="tag" to={`/tag/${tag.slug}/`}>
+          {tag.name}
+        </CatTag>
+      ))
+    );
+};
+
 export default ({ data }) => {
   const post = data.wordpressPost;
   const desc = post.excerpt.substring(3, post.excerpt.length - 4);
@@ -88,6 +140,7 @@ export default ({ data }) => {
             <ClockIcon />
             {getDate(post.date)}
           </PostDate>
+          <PostCatTag>{getCatTag(post.categories, post.tags)}</PostCatTag>
           <PostHeader {...post.featured_media.localFile.childImageSharp} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
@@ -104,6 +157,14 @@ export const pageQuery = graphql`
       excerpt
       content
       image
+      categories {
+        name
+        slug
+      }
+      tags {
+        name
+        slug
+      }
       featured_media {
         localFile {
           childImageSharp {

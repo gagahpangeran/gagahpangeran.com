@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gpr-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Using wordpress and gatsby to build my blog",
+  "version": "0.3.0",
+  "author": "GPR <gagahpangeran@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.11",

@@ -10,6 +10,7 @@ const Nav = styled.nav`
   position: fixed;
   top: ${props => (props.isShow ? "0" : "-64px")};
   left: 0;
+  z-index: 9999999;
   transition: 0.2s ease-in-out;
   box-shadow: ${props =>
     props.isShow && !props.isTop ? "0 0 3px 3px rgba(0, 0, 0, 0.1)" : "none"};
@@ -39,6 +40,7 @@ const NavLogo = styled.div`
   img {
     filter: grayscale(100%);
     transition: filter 0.2s ease-in-out;
+    height: 40px;
 
     @media screen and (max-width: 500px) {
       height: 32px;

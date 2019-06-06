@@ -9,16 +9,26 @@ import getDate from "../utils/time";
 const PostArticle = styled.article`
   img {
     max-width: 100%;
+    height: auto;
     border-radius: 20px;
   }
 
   p {
     font-size: 20px;
     margin: 16px 0;
+
+    @media screen and (max-width: 500px) {
+      font-size: 18px;
+      margin: 12px 0;
+    }
   }
 
   figure {
     margin: 20px 0;
+
+    @media screen and (max-width: 500px) {
+      margin: 16px 0;
+    }
   }
 
   figcaption {
@@ -30,6 +40,10 @@ const PostArticle = styled.article`
 const PostTitle = styled.h1`
   color: #0177b0;
   margin-bottom: 12px;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 4px;
+  }
 `;
 
 const PostDate = styled.time`
@@ -38,13 +52,25 @@ const PostDate = styled.time`
   display: flex;
   align-items: center;
 
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
+
   svg {
     height: 24px;
+
+    @media screen and (max-width: 500px) {
+      height: 20px;
+    }
   }
 `;
 
 const PostHeader = styled.img`
   margin: 20px 0;
+
+  @media screen and (max-width: 500px) {
+    margin: 12px 0;
+  }
 `;
 
 export default ({ data }) => {

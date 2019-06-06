@@ -12,10 +12,10 @@ Using gatsby and wordpress to build my blog
 
 - Index Page
   - [x] Desktop
-  - [ ] Mobile
+  - [x] Mobile
 - Post Page
   - [x] Desktop
-  - [ ] Mobile
+  - [x] Mobile
 - Comment
   - [ ] Desktop
   - [ ] Mobile

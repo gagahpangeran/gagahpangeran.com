@@ -10,7 +10,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={post.title} description={desc} />
+      <SEO title={post.title} description={desc} thumbnail={post.image} />
       <div>
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
         <h3>{getDate(post.date)}</h3>
@@ -27,6 +27,7 @@ export const pageQuery = graphql`
       date
       excerpt
       content
+      image
     }
   }
 `;

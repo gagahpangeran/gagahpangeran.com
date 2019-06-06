@@ -42,4 +42,4 @@ Using gatsby and wordpress to build my blog
 
 - [x] Dynamic Title for Page
 - [x] Dynamic Desc for Page
-- [ ] Dynamic Image thumbnail for Page
+- [x] Dynamic Image thumbnail for Page

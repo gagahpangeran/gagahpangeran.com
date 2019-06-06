@@ -5,6 +5,8 @@ module.exports = {
     title: `Gagah Pangeran Rosfatiputra`,
     description: `Part Time Student, Full Time Learner`,
     author: `@gagahpangeran_`,
+    image: "logo.png",
+    siteUrl: "https://blog.gagahpangeran.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

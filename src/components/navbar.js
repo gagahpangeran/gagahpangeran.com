@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import Logo from "../images/nav-logo.png";
 
 const Nav = styled.nav`
@@ -40,12 +40,16 @@ const NavLogo = styled.div`
     filter: grayscale(100%);
     transition: filter 0.2s ease-in-out;
 
-    &:hover {
-      filter: none;
-    }
-
     @media screen and (max-width: 500px) {
       height: 32px;
+    }
+  }
+
+  a {
+    display: block;
+
+    &:hover img {
+      filter: none;
     }
   }
 `;
@@ -54,6 +58,16 @@ const NavLink = styled.div`
   width: 50%;
   display: flex;
   margin-left: 8px;
+
+  svg {
+    height: 24px;
+    fill: #aaa;
+    transition: fill 0.2s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      height: 20px;
+    }
+  }
 
   a {
     display: block;
@@ -65,18 +79,8 @@ const NavLink = styled.div`
     @media screen and (max-width: 500px) {
       margin: 0 4px;
     }
-  }
 
-  svg {
-    height: 24px;
-    fill: #aaa;
-    transition: fill 0.2s ease-in-out;
-
-    @media screen and (max-width: 500px) {
-      height: 20px;
-    }
-
-    &:hover {
+    &:hover svg {
       fill: #0e96da;
     }
   }

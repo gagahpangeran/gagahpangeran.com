@@ -17,6 +17,7 @@ const PostArticle = styled.article`
   p {
     font-size: 20px;
     margin: 16px 0;
+    line-height: 150%;
 
     @media screen and (max-width: 500px) {
       font-size: 18px;

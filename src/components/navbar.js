@@ -21,6 +21,10 @@ const NavContent = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 720px) {
+    padding: 0 16px;
+  }
 `;
 
 const NavLogo = styled.div`

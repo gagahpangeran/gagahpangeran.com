@@ -11,29 +11,58 @@ const PostSection = styled.section`
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s;
   align-items: flex-start;
+  position: relative;
 
   &:hover {
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 12px;
+    align-items: center;
   }
 `;
 
 const PostImg = styled.img`
   border-radius: 16px;
+
+  @media screen and (max-width: 500px) {
+    width: 80px;
+  }
 `;
 
 const PostContent = styled.div`
   margin-left: 20px;
+
+  @media screen and (max-width: 500px) {
+    margin-left: 12px;
+  }
 `;
 
 const PostTitle = styled.h4`
   line-height: 100%;
   margin: -4px 0 8px;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 0;
+  }
 `;
 
 const PostDate = styled.time`
   font-weight: bold;
   margin: 4px 0;
   display: block;
+
+  @media screen and (max-width: 500px) {
+    font-size: 14px;
+    margin: 0;
+  }
+`;
+
+const PostSummary = styled.div`
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 export default function PostThumbnail({
@@ -53,7 +82,7 @@ export default function PostThumbnail({
           <PostTitle>{title}</PostTitle>
         </Link>
         <PostDate>{getDate(date)}</PostDate>
-        <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+        <PostSummary dangerouslySetInnerHTML={{ __html: excerpt }} />
       </PostContent>
     </PostSection>
   );

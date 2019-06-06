@@ -9,6 +9,14 @@ import "../styles/index.css";
 const Wrapper = styled.div`
   max-width: 720px;
   margin: 64px auto 0;
+
+  @media screen and (max-width: 720px) {
+    padding: 0 16px;
+  }
+
+  @media screen and (max-width: 720px) {
+    padding: 0 8px;
+  }
 `;
 
 const Footer = styled.footer`

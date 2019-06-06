@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Img from "gatsby-image";
 import styled from "@emotion/styled";
 
 import Layout from "../components/layout";
@@ -65,7 +66,7 @@ const PostDate = styled.time`
   }
 `;
 
-const PostHeader = styled.img`
+const PostHeader = styled(Img)`
   margin: 20px 0;
 
   @media screen and (max-width: 500px) {
@@ -87,7 +88,7 @@ export default ({ data }) => {
             <ClockIcon />
             {getDate(post.date)}
           </PostDate>
-          <PostHeader src={post.image} alt={post.title} />
+          <PostHeader {...post.featured_media.localFile.childImageSharp} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
       </main>
@@ -103,6 +104,21 @@ export const pageQuery = graphql`
       excerpt
       content
       image
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              base64
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+        }
+      }
     }
   }
 `;

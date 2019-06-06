@@ -38,7 +38,13 @@ module.exports = {
         protocol: process.env.WORDPRESS_PROTOCOL,
         hostingWPCOM: process.env.WORDPRESS_HOSTING_WPCOM === "true",
         useACF: process.env.WORDPRESS_USE_ACF === "true",
-        includedRoutes: ["**/posts", "**/pages", "**/tags"],
+        includedRoutes: [
+          "**/posts",
+          "**/pages",
+          "**/tags",
+          "**/categories",
+          "**/media",
+        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

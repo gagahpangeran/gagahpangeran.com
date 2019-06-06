@@ -31,7 +31,21 @@ export const pageQuery = graphql`
           excerpt
           slug
           date
-          thumbnail
+          featured_media {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                }
+              }
+            }
+          }
         }
       }
     }

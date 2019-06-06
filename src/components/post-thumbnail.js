@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
+
 import getDate from "../utils/time";
 
 const PostSection = styled.section`
@@ -28,11 +30,15 @@ const PostHeader = styled.div`
   }
 `;
 
-const PostImg = styled.img`
+const PostImg = styled(Img)`
+  object-fit: cover;
   border-radius: 16px;
+  width: 150px;
+  height: 150px;
 
   @media screen and (max-width: 500px) {
     width: 80px;
+    height: 80px;
   }
 `;
 
@@ -83,13 +89,13 @@ export default function PostThumbnail({
   slug,
   date,
   excerpt,
-  thumbnail,
+  featured_media,
 }) {
   return (
     <PostSection>
       <PostHeader>
         <Link to={`${slug}/`}>
-          <PostImg src={thumbnail} alt={title} />
+          <PostImg {...featured_media.localFile.childImageSharp} />
         </Link>
         <PostContent>
           <Link to={`${slug}/`}>

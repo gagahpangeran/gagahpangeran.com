@@ -34,9 +34,10 @@ Using gatsby and wordpress to build my blog
 - Pagination
   - [ ] Desktop
   - [ ] Mobile
-- Comment
-  - [ ] Desktop
-  - [ ] Mobile
+- Comment (Using Disqus)
+  - [x] Desktop and Mobile
+- Share Button
+  - [x] Desktop and mobile
 
 ### SEO
 

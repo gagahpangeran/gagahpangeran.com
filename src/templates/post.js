@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Comment from "../components/comment";
 import getDate from "../utils/time";
 
 const PostArticle = styled.article`
@@ -146,6 +147,7 @@ export default ({ data }) => {
           <PostHeader {...image} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
+        <Comment title={post.title} slug={post.slug} />
       </main>
     </Layout>
   );

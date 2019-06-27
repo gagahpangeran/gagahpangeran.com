@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import ShareButton from "../components/share-button";
 import Comment from "../components/comment";
 import getDate from "../utils/time";
 
@@ -128,8 +129,8 @@ const getCatTag = (categories, tags) => {
     );
 };
 
-export default ({ data }) => {
-  const post = data.wordpressPost;
+export default function Post(props) {
+  const post = props.data.wordpressPost;
   const desc = post.excerpt.substring(3, post.excerpt.length - 4);
   const image = post.featured_media.localFile.childImageSharp;
 
@@ -144,14 +145,29 @@ export default ({ data }) => {
             {getDate(post.date)}
           </PostDate>
           <PostCatTag>{getCatTag(post.categories, post.tags)}</PostCatTag>
+          <ShareButton
+            url={props.location.href}
+            title={post.title}
+            via="gagahpangeran_"
+            quote={desc}
+            hashtags={[...post.categories, ...post.tags].map(data => data.name)}
+          />
           <PostHeader {...image} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
+        <ShareButton
+          url={props.location.href}
+          title={post.title}
+          via="gagahpangeran_"
+          quote={desc}
+          hashtags={[...post.categories, ...post.tags].map(data => data.name)}
+          bottom
+        />
         <Comment title={post.title} slug={post.slug} />
       </main>
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
   query($id: String!) {

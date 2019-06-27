@@ -116,13 +116,17 @@ const CatTag = styled(Link)`
 const getCatTag = (categories, tags) => {
   return categories
     .map(category => (
-      <CatTag className="cat" to={`/category/${category.slug}/`}>
+      <CatTag
+        key={category.name}
+        className="cat"
+        to={`/category/${category.slug}/`}
+      >
         {category.name}
       </CatTag>
     ))
     .concat(
       tags.map(tag => (
-        <CatTag className="tag" to={`/tag/${tag.slug}/`}>
+        <CatTag key={tag.name} className="tag" to={`/tag/${tag.slug}/`}>
           {tag.name}
         </CatTag>
       ))
@@ -155,14 +159,14 @@ export default function Post(props) {
           <PostHeader {...image} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
-        <ShareButton
+        {/* <ShareButton
           url={props.location.href}
           title={post.title}
           via="gagahpangeran_"
           quote={desc}
           hashtags={[...post.categories, ...post.tags].map(data => data.name)}
           bottom
-        />
+        /> */}
         <Comment title={post.title} slug={post.slug} />
       </main>
     </Layout>

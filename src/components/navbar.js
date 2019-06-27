@@ -101,7 +101,7 @@ export default function Navbar() {
       let currentPosition =
         window.pageYOffset || document.documentElement.scrollTop;
 
-      setShow(prevPosition > currentPosition);
+      setShow(prevPosition >= currentPosition);
       setTop(window.scrollY === 0);
 
       prevPosition = currentPosition;

@@ -104,9 +104,17 @@ const PostCatTag = styled.div`
 const getCatTag = (categories, tags) => {
   return categories
     .map(category => (
-      <Link to={`/category/${category.slug}/`}>#{category.name}</Link>
+      <Link key={category.name} to={`/category/${category.slug}/`}>
+        #{category.name}
+      </Link>
     ))
-    .concat(tags.map(tag => <Link to={`/tag/${tag.slug}/`}>#{tag.name}</Link>));
+    .concat(
+      tags.map(tag => (
+        <Link key={tag.name} to={`/tag/${tag.slug}/`}>
+          #{tag.name}
+        </Link>
+      ))
+    );
 };
 
 export default function PostThumbnail({

@@ -28,8 +28,8 @@ function SEO({ description, lang, meta, title, thumbnail }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage =
-    thumbnail || `${site.siteMetadata.siteUrl}/${site.siteMetadata.image}`;
+  const metaImage = `${site.siteMetadata.siteUrl}${thumbnail ||
+    site.siteMetadata.image}`;
   const metaTitle = `${title} | ${site.siteMetadata.title}`;
 
   return (

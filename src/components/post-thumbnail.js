@@ -18,6 +18,7 @@ const PostSection = styled.section`
 
   @media screen and (max-width: 500px) {
     padding: 12px;
+    margin: 0 -8px;
   }
 `;
 
@@ -96,6 +97,7 @@ const PostCatTag = styled.div`
 
   a {
     margin-right: 4px;
+    display: inline-block;
   }
 `;
 

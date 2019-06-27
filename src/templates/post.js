@@ -130,10 +130,11 @@ const getCatTag = (categories, tags) => {
 export default ({ data }) => {
   const post = data.wordpressPost;
   const desc = post.excerpt.substring(3, post.excerpt.length - 4);
+  const image = post.featured_media.localFile.childImageSharp;
 
   return (
     <Layout>
-      <SEO title={post.title} description={desc} thumbnail={post.image} />
+      <SEO title={post.title} description={desc} thumbnail={image.fluid.src} />
       <main>
         <PostArticle>
           <PostTitle>{post.title}</PostTitle>
@@ -142,7 +143,7 @@ export default ({ data }) => {
             {getDate(post.date)}
           </PostDate>
           <PostCatTag>{getCatTag(post.categories, post.tags)}</PostCatTag>
-          <PostHeader {...post.featured_media.localFile.childImageSharp} />
+          <PostHeader {...image} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
       </main>
@@ -157,7 +158,6 @@ export const pageQuery = graphql`
       date
       excerpt
       content
-      image
       categories {
         name
         slug

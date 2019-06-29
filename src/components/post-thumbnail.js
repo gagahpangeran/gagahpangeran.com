@@ -11,6 +11,7 @@ const PostSection = styled.section`
   border-radius: 20px;
   box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s;
+  margin: 20px 0;
 
   &:hover {
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
@@ -18,7 +19,7 @@ const PostSection = styled.section`
 
   @media screen and (max-width: 500px) {
     padding: 12px;
-    margin: 0 -8px;
+    margin: 20px -8px;
   }
 `;
 

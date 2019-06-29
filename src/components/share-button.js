@@ -15,7 +15,6 @@ import {
 
 const ShareButtonLayout = styled.div`
   margin: 16px 0;
-  padding: 16px 0;
   text-align: ${props => (props.bottom ? "center" : "left")};
   border-top: ${props => (props.bottom ? "1px solid #000" : "none")};
 

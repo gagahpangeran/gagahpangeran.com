@@ -80,6 +80,10 @@ const PostHeader = styled(Img)`
 const PostCatTag = styled.div`
   font-size: 20px;
   margin-top: 12px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 16px;
+  }
 `;
 
 const PostBody = styled.div`
@@ -112,6 +116,8 @@ const CatTag = styled(Link)`
   margin-right: 12px;
   border-radius: 4px;
   transition: background 0.2s ease-in-out;
+  display: inline-block;
+  margin-bottom: 12px;
 
   &:hover {
     color: #fff;
@@ -134,6 +140,11 @@ const CatTag = styled(Link)`
     &:active {
       background: #f98d00;
     }
+  }
+
+  @media screen and (max-width: 500px) {
+    margin-right: 8px;
+    margin-bottom: 8px;
   }
 `;
 

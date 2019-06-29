@@ -170,7 +170,7 @@ const getCatTag = (categories, tags) => {
 
 export default function Post(props) {
   const post = props.data.wordpressPost;
-  const desc = post.excerpt.substring(3, post.excerpt.length - 4);
+  const desc = post.excerpt.substring(3, post.excerpt.length - 5);
   const image = post.featured_media.localFile.childImageSharp;
 
   return (

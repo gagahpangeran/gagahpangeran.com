@@ -93,11 +93,25 @@ const PostCatTag = styled.div`
   font-size: 18px;
 
   @media screen and (max-width: 500px) {
-    font-size: 16px;
+    display: none;
   }
 
   a {
     margin-right: 4px;
+    display: inline-block;
+  }
+`;
+
+const PostCatTagMobile = styled.div`
+  margin-top: 4px;
+  font-size: 16px;
+
+  @media screen and (min-width: 501px) {
+    display: none;
+  }
+
+  a {
+    margin-right: 8px;
     display: inline-block;
   }
 `;
@@ -142,6 +156,7 @@ export default function PostThumbnail({
           <PostCatTag>{getCatTag(categories, tags)}</PostCatTag>
         </PostContent>
       </PostHeader>
+      <PostCatTagMobile>{getCatTag(categories, tags)}</PostCatTagMobile>
       <PostSummaryMobile dangerouslySetInnerHTML={{ __html: excerpt }} />
     </PostSection>
   );

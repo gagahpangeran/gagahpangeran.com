@@ -21,6 +21,7 @@ function SEO({ description, lang, meta, title, thumbnail }) {
             author
             siteUrl
             image
+            googleAnalytics
           }
         }
       }
@@ -79,6 +80,10 @@ function SEO({ description, lang, meta, title, thumbnail }) {
         {
           name: `twitter:image`,
           content: metaImage,
+        },
+        {
+          name: `google-site-verification`,
+          content: site.siteMetadata.googleAnalytics,
         },
       ].concat(meta)}
     />

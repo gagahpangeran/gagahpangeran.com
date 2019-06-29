@@ -7,6 +7,7 @@ module.exports = {
     author: `@gagahpangeran_`,
     image: "/logo.png",
     siteUrl: "https://blog.gagahpangeran.com",
+    googleAnalytics: process.env.GOOGLE_ANALYTICS,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

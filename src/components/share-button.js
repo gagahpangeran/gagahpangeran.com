@@ -11,10 +11,6 @@ import {
   TelegramIcon,
   RedditShareButton,
   RedditIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  LineShareButton,
-  LineIcon,
 } from "react-share";
 
 const ShareButtonLayout = styled.div`
@@ -30,10 +26,6 @@ const ShareButtonLayout = styled.div`
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-
-    @media screen and (max-width: 500px) {
-      margin-right: 4px;
-    }
   }
 `;
 
@@ -42,44 +34,32 @@ export default function ShareButton(props) {
     <ShareButtonLayout bottom={false || props.bottom}>
       <button>
         <FacebookShareButton {...props}>
-          <FacebookIcon size={36} />
+          <FacebookIcon size={props.size} />
         </FacebookShareButton>
       </button>
 
       <button>
         <TwitterShareButton {...props}>
-          <TwitterIcon size={36} />
+          <TwitterIcon size={props.size} />
         </TwitterShareButton>
       </button>
 
       <button>
         <LinkedinShareButton {...props}>
-          <LinkedinIcon size={36} />
+          <LinkedinIcon size={props.size} />
         </LinkedinShareButton>
       </button>
 
       <button>
         <TelegramShareButton {...props}>
-          <TelegramIcon size={36} />
+          <TelegramIcon size={props.size} />
         </TelegramShareButton>
       </button>
 
       <button>
         <RedditShareButton {...props}>
-          <RedditIcon size={36} />
+          <RedditIcon size={props.size} />
         </RedditShareButton>
-      </button>
-
-      <button>
-        <WhatsappShareButton {...props}>
-          <WhatsappIcon size={36} />
-        </WhatsappShareButton>
-      </button>
-
-      <button>
-        <LineShareButton {...props}>
-          <LineIcon size={36} />
-        </LineShareButton>
       </button>
     </ShareButtonLayout>
   );

@@ -155,6 +155,7 @@ export default function Post(props) {
             via="gagahpangeran_"
             quote={desc}
             hashtags={[...post.categories, ...post.tags].map(data => data.name)}
+            size={48}
           />
           <PostHeader {...image} />
           <div dangerouslySetInnerHTML={{ __html: post.content }} />

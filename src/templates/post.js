@@ -82,6 +82,30 @@ const PostCatTag = styled.div`
   margin-top: 12px;
 `;
 
+const PostBody = styled.div`
+  .aligncenter {
+    text-align: center;
+  }
+
+  .vglnk {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .red-text {
+    color: red;
+  }
+
+  .wp-block-code {
+    max-width: 100%;
+    background: #ccc;
+    overflow-x: auto;
+    padding: 8px;
+  }
+`;
+
 const CatTag = styled(Link)`
   color: #fff;
   padding: 4px 12px;
@@ -158,7 +182,7 @@ export default function Post(props) {
             size={48}
           />
           <PostHeader {...image} />
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <PostBody dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
         {/* <ShareButton
           url={props.location.href}

@@ -111,3 +111,12 @@ h6 {
     font-size: 12px;
   }
 }
+
+hr {
+  margin: 32px 0;
+}
+
+iframe {
+  margin: 32px auto;
+  display: block;
+}

@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
-import styled from "@emotion/styled";
+
+import styled from "../utils/styled";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
@@ -42,7 +43,6 @@ const PostArticle = styled.article`
 `;
 
 const PostTitle = styled.h1`
-  color: #0177b0;
   margin-bottom: 12px;
 
   @media screen and (max-width: 500px) {
@@ -55,6 +55,7 @@ const PostDate = styled.time`
   font-size: 20px;
   display: flex;
   align-items: center;
+  color: ${props => props.theme.gray.light};
 
   @media screen and (max-width: 500px) {
     font-size: 16px;
@@ -62,6 +63,7 @@ const PostDate = styled.time`
 
   svg {
     height: 24px;
+    fill: ${props => props.theme.gray.light};
 
     @media screen and (max-width: 500px) {
       height: 20px;
@@ -87,6 +89,10 @@ const PostCatTag = styled.div`
 `;
 
 const PostBody = styled.div`
+  h2 {
+    color: ${props => props.theme.gray.light};
+  }
+
   .aligncenter {
     text-align: center;
   }
@@ -99,19 +105,20 @@ const PostBody = styled.div`
   }
 
   .red-text {
-    color: red;
+    color: ${props => props.theme.green};
   }
 
   .wp-block-code {
     max-width: 100%;
-    background: #ccc;
+    background: ${props => props.theme.background.dark};
+    color: ${props => props.theme.gray.light};
     overflow-x: auto;
     padding: 8px;
   }
 `;
 
 const CatTag = styled(Link)`
-  color: #fff;
+  color: ${props => props.theme.white};
   padding: 4px 12px;
   margin-right: 12px;
   border-radius: 4px;
@@ -125,21 +132,11 @@ const CatTag = styled(Link)`
   }
 
   &.cat {
-    background: #b10004;
-
-    &:hover,
-    &:active {
-      background: #e60d12;
-    }
+    background: ${props => props.theme.green};
   }
 
   &.tag {
-    background: #f95600;
-
-    &:hover,
-    &:active {
-      background: #f98d00;
-    }
+    background: ${props => props.theme.purple};
   }
 
   @media screen and (max-width: 500px) {

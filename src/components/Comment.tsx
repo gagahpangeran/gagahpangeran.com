@@ -1,6 +1,6 @@
 import React from "react";
 import { DiscussionEmbed } from "disqus-react";
-import styled from "@emotion/styled";
+import styled from "../utils/styled";
 
 const CommentLayout = styled.section`
   margin: 40px 0 20px;

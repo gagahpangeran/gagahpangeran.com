@@ -1,21 +1,15 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "../utils/styled";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 import getDate from "../utils/time";
 
 const PostSection = styled.section`
-  background: #f4f4f4;
-  padding: 20px;
+  background: ${props => props.theme.background.dark};
+  padding: 32px;
   border-radius: 20px;
-  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s;
   margin: 20px 0;
-
-  &:hover {
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
-  }
 
   @media screen and (max-width: 500px) {
     padding: 12px;
@@ -54,7 +48,11 @@ const PostContent = styled.div`
 
 const PostTitle = styled.h4`
   line-height: 100%;
-  margin: -4px 0 8px;
+  margin-bottom: 12px;
+
+  a {
+    color: ${props => props.theme.purple};
+  }
 
   @media screen and (max-width: 500px) {
     margin-top: 0;
@@ -63,8 +61,9 @@ const PostTitle = styled.h4`
 
 const PostDate = styled.time`
   font-weight: bold;
-  margin: 4px 0;
+  margin: 8px 0;
   display: block;
+  color: ${props => props.theme.gray.light};
 
   @media screen and (max-width: 500px) {
     font-size: 14px;
@@ -89,7 +88,7 @@ const PostSummaryMobile = styled.div`
 `;
 
 const PostCatTag = styled.div`
-  margin: 4px 0;
+  margin: 8px 0;
   font-size: 18px;
 
   @media screen and (max-width: 500px) {
@@ -97,8 +96,9 @@ const PostCatTag = styled.div`
   }
 
   a {
-    margin-right: 4px;
+    margin-right: 8px;
     display: inline-block;
+    color: ${props => props.theme.green};
   }
 `;
 
@@ -163,9 +163,9 @@ export default function PostThumbnail({
           <PostImg {...featured_media.localFile.childImageSharp} />
         </Link>
         <PostContent>
-          <Link to={`${slug}/`}>
-            <PostTitle>{title}</PostTitle>
-          </Link>
+          <PostTitle>
+            <Link to={`${slug}/`}>{title}</Link>
+          </PostTitle>
           <PostDate>{getDate(date)}</PostDate>
           <PostSummary dangerouslySetInnerHTML={{ __html: excerpt }} />
           <PostCatTag>{getCatTag(categories, tags)}</PostCatTag>

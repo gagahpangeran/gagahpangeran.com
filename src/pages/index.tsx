@@ -1,24 +1,20 @@
 import React from "react";
 import { graphql } from "gatsby";
-import styled from "@emotion/styled";
+import styled from "../utils/styled";
 
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
 import PostThumbnail from "../components/PostThumbnail";
 
-const PageTitle = styled.h1`
-  color: #b10004;
-`;
-
 const PageDesc = styled.h3`
-  color: #f95600;
+  color: ${props => props.theme.gray.light};
 `;
 
 const IndexPage = ({ data }: { data: any }) => (
   <Layout>
     <SEO title="Blog" />
-    <PageTitle>Gagah Pangeran Rosfatiputra</PageTitle>
+    <h1>Gagah Pangeran Rosfatiputra</h1>
     <PageDesc>Part Time Student, Full Time Learner</PageDesc>
 
     <main>

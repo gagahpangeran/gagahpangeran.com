@@ -1,6 +1,8 @@
 import React from "react";
+import { ThemeProvider } from "emotion-theming";
 import { StaticQuery, graphql } from "gatsby";
-import styled from "@emotion/styled";
+
+import styled, { theme } from "../utils/styled";
 
 import Navbar from "./Navbar";
 import "../styles/index.css";
@@ -36,7 +38,7 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => (
       }
     `}
     render={() => (
-      <>
+      <ThemeProvider theme={theme}>
         <Navbar />
         <Wrapper>{children}</Wrapper>
         <Footer>
@@ -56,7 +58,7 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => (
             </span>
           </h6>
         </Footer>
-      </>
+      </ThemeProvider>
     )}
   />
 );

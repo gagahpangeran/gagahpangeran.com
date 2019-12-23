@@ -11,18 +11,26 @@ const CommentLayout = styled.section`
   }
 `;
 
-const disqusConfig = (slug, title) => {
-  return {
-    shortname: process.env.GATSBY_DISQUS_NAME,
-    config: { identifier: slug, title },
+export default function Comment({
+  slug,
+  title,
+}: {
+  slug: string;
+  title: string;
+}) {
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME as string,
+    config: {
+      identifier: slug,
+      title,
+      url: `https://blog.gagahpangeran.com/${slug}`,
+    },
   };
-};
 
-export default function Comment({ slug, title }) {
   return (
     <CommentLayout>
       <h3>Comments</h3>
-      <DiscussionEmbed {...disqusConfig(slug, title)} />
+      <DiscussionEmbed {...disqusConfig} />
     </CommentLayout>
   );
 }

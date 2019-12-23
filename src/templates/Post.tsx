@@ -3,10 +3,10 @@ import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "@emotion/styled";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import ShareButton from "../components/share-button";
-import Comment from "../components/comment";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
+import ShareButton from "../components/ShareButton";
+import Comment from "../components/Comment";
 import getDate from "../utils/time";
 
 const PostArticle = styled.article`
@@ -148,7 +148,12 @@ const CatTag = styled(Link)`
   }
 `;
 
-const getCatTag = (categories, tags) => {
+interface CategoryTag {
+  name: string;
+  slug: string;
+}
+
+const getCatTag = (categories: CategoryTag[], tags: CategoryTag[]) => {
   return categories
     .map(category => (
       <CatTag
@@ -168,7 +173,7 @@ const getCatTag = (categories, tags) => {
     );
 };
 
-export default function Post(props) {
+export default function Post(props: any) {
   const post = props.data.wordpressPost;
   const desc = post.excerpt.substring(3, post.excerpt.length - 5);
   const image = post.featured_media.localFile.childImageSharp;
@@ -195,14 +200,6 @@ export default function Post(props) {
           <PostHeader {...image} />
           <PostBody dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
-        {/* <ShareButton
-          url={props.location.href}
-          title={post.title}
-          via="gagahpangeran_"
-          quote={desc}
-          hashtags={[...post.categories, ...post.tags].map(data => data.name)}
-          bottom
-        /> */}
         <Comment title={post.title} slug={post.slug} />
       </main>
     </Layout>

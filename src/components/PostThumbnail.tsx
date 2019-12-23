@@ -116,7 +116,22 @@ const PostCatTagMobile = styled.div`
   }
 `;
 
-const getCatTag = (categories, tags) => {
+interface CategoryTag {
+  name: string;
+  slug: string;
+}
+
+interface Props {
+  title: string;
+  slug: string;
+  date: string;
+  excerpt: string;
+  categories: CategoryTag[];
+  tags: CategoryTag[];
+  featured_media: any;
+}
+
+const getCatTag = (categories: CategoryTag[], tags: CategoryTag[]) => {
   return categories
     .map(category => (
       <Link key={category.name} to={`/category/${category.slug}/`}>
@@ -140,7 +155,7 @@ export default function PostThumbnail({
   categories,
   tags,
   featured_media,
-}) {
+}: Props) {
   return (
     <PostSection>
       <PostHeader>

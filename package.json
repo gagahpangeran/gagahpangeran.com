@@ -1,6 +1,6 @@
 {
   "name": "gpr-blog",
-  "private": true,
+  "private": false,
   "description": "Using wordpress and gatsby to build my blog",
   "version": "0.5.0",
   "author": "GPR <gagahpangeran@gmail.com>",
@@ -15,6 +15,8 @@
     "gatsby-plugin-offline": "^3.0.30",
     "gatsby-plugin-react-helmet": "^3.1.18",
     "gatsby-plugin-sharp": "^2.3.10",
+    "gatsby-plugin-tslint": "^0.0.2",
+    "gatsby-plugin-typescript": "^2.1.23",
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-source-wordpress": "^3.1.54",
     "gatsby-transformer-sharp": "^2.3.9",
@@ -26,7 +28,17 @@
     "react-share": "^3.0.1"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-helmet": "^5.0.14",
+    "@types/react-share": "^3.0.3",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.7.3"
   },
   "keywords": [
     "gatsby"
@@ -36,8 +48,10 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
+    "start": "gatsby develop",
     "serve": "gatsby serve",
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --project",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {

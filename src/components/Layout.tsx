@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "@emotion/styled";
 
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import "../styles/index.css";
 
 const Wrapper = styled.div`
@@ -25,7 +24,7 @@ const Footer = styled.footer`
   }
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -36,7 +35,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={() => (
       <>
         <Navbar />
         <Wrapper>{children}</Wrapper>
@@ -61,9 +60,5 @@ const Layout = ({ children }) => (
     )}
   />
 );
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

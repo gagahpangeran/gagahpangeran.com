@@ -2,10 +2,10 @@ import React from "react";
 import { graphql } from "gatsby";
 import styled from "@emotion/styled";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 
-import PostThumbnail from "../components/post-thumbnail";
+import PostThumbnail from "../components/PostThumbnail";
 
 const PageTitle = styled.h1`
   color: #b10004;
@@ -15,14 +15,14 @@ const PageDesc = styled.h3`
   color: #f95600;
 `;
 
-const IndexPage = ({ data }) => (
+const IndexPage = ({ data }: { data: any }) => (
   <Layout>
     <SEO title="Blog" />
     <PageTitle>Gagah Pangeran Rosfatiputra</PageTitle>
     <PageDesc>Part Time Student, Full Time Learner</PageDesc>
 
     <main>
-      {data.allWordpressPost.edges.map(({ node }) => (
+      {data.allWordpressPost.edges.map(({ node }: { node: any }) => (
         <PostThumbnail key={node.id} {...node} />
       ))}
     </main>

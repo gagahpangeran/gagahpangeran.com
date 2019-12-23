@@ -1,6 +1,6 @@
-const moment = require("moment");
+import moment from "moment";
 
-export default function getDate(date) {
+export default function getDate(date: string) {
   return moment(date)
     .utcOffset(7)
     .format("D MMM YYYY, HH.mm");

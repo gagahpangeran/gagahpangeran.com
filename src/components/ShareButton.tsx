@@ -15,8 +15,7 @@ import {
 
 const ShareButtonLayout = styled.div`
   margin: 16px 0;
-  text-align: ${props => (props.bottom ? "center" : "left")};
-  border-top: ${props => (props.bottom ? "1px solid #000" : "none")};
+  text-align: left;
 
   button {
     background: none;
@@ -28,9 +27,18 @@ const ShareButtonLayout = styled.div`
   }
 `;
 
-export default function ShareButton(props) {
+interface Props {
+  url: string;
+  title: string;
+  via: string;
+  quote: string;
+  hashtags: string[];
+  size: number;
+}
+
+export default function ShareButton(props: Props) {
   return (
-    <ShareButtonLayout bottom={false || props.bottom}>
+    <ShareButtonLayout>
       <button>
         <FacebookShareButton {...props}>
           <FacebookIcon size={props.size} />

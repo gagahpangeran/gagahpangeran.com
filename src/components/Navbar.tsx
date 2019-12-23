@@ -98,7 +98,7 @@ export default function Navbar() {
     let prevPosition = window.pageYOffset || document.documentElement.scrollTop;
 
     const handler = () => {
-      let currentPosition =
+      const currentPosition =
         window.pageYOffset || document.documentElement.scrollTop;
 
       setShow(prevPosition >= currentPosition);

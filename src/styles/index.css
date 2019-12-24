@@ -126,4 +126,5 @@ hr {
 iframe {
   margin: 32px auto;
   display: block;
+  max-width: 100%;
 }

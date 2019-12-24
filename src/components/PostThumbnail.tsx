@@ -12,8 +12,8 @@ const PostSection = styled.section`
   margin: 20px 0;
 
   @media screen and (max-width: 500px) {
-    padding: 12px;
-    margin: 20px -8px;
+    padding: 20px;
+    margin: 20px -4px;
   }
 `;
 
@@ -22,7 +22,14 @@ const PostHeader = styled.div`
   align-items: flex-start;
 
   @media screen and (max-width: 500px) {
-    align-items: center;
+    flex-direction: column;
+  }
+
+  .img-link {
+    @media screen and (max-width: 500px) {
+      display: block;
+      width: 100%;
+    }
   }
 `;
 
@@ -33,16 +40,16 @@ const PostImg = styled(Img)`
   height: 150px;
 
   @media screen and (max-width: 500px) {
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: auto;
   }
 `;
 
 const PostContent = styled.div`
-  margin-left: 20px;
+  margin-left: 24px;
 
   @media screen and (max-width: 500px) {
-    margin-left: 12px;
+    margin-left: 0;
   }
 `;
 
@@ -55,7 +62,7 @@ const PostTitle = styled.h4`
   }
 
   @media screen and (max-width: 500px) {
-    margin-top: 0;
+    margin-top: 16px;
   }
 `;
 
@@ -67,52 +74,21 @@ const PostDate = styled.time`
 
   @media screen and (max-width: 500px) {
     font-size: 14px;
-    margin: 0;
   }
 `;
 
 const PostSummary = styled.div`
   font-size: 18px;
-
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
-`;
-
-const PostSummaryMobile = styled.div`
-  margin-top: 4px;
-
-  @media screen and (min-width: 501px) {
-    display: none;
-  }
 `;
 
 const PostCatTag = styled.div`
   margin: 8px 0;
   font-size: 18px;
 
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
-
   a {
     margin-right: 8px;
     display: inline-block;
     color: ${props => props.theme.green};
-  }
-`;
-
-const PostCatTagMobile = styled.div`
-  margin-top: 4px;
-  font-size: 16px;
-
-  @media screen and (min-width: 501px) {
-    display: none;
-  }
-
-  a {
-    margin-right: 8px;
-    display: inline-block;
   }
 `;
 
@@ -159,7 +135,7 @@ export default function PostThumbnail({
   return (
     <PostSection>
       <PostHeader>
-        <Link to={`${slug}/`}>
+        <Link className="img-link" to={`${slug}/`}>
           <PostImg {...featured_media.localFile.childImageSharp} />
         </Link>
         <PostContent>
@@ -171,8 +147,6 @@ export default function PostThumbnail({
           <PostCatTag>{getCatTag(categories, tags)}</PostCatTag>
         </PostContent>
       </PostHeader>
-      <PostCatTagMobile>{getCatTag(categories, tags)}</PostCatTagMobile>
-      <PostSummaryMobile dangerouslySetInnerHTML={{ __html: excerpt }} />
     </PostSection>
   );
 }

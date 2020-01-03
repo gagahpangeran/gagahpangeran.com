@@ -2,9 +2,8 @@ const path = require("path");
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
-  const BlogPostTemplate = path.resolve(`./src/templates/Post.tsx`);
-  const CategoryTemplate = path.resolve(`./src/templates/Category.tsx`);
-  const TagTemplate = path.resolve(`./src/templates/Tag.tsx`);
+  const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
+  const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
 
   return graphql(`
     {
@@ -42,10 +41,19 @@ exports.createPages = ({ graphql, actions }) => {
     const Categories = result.data.allWordpressCategory.edges;
     const Tags = result.data.allWordpressTag.edges;
 
+    createPage({
+      path: `/`,
+      component: BlogTemplate,
+      context: {
+        id: "",
+        type: "Blog",
+      },
+    });
+
     BlogPosts.forEach(post => {
       createPage({
         path: `/${post.node.slug}`,
-        component: BlogPostTemplate,
+        component: PostTemplate,
         context: {
           id: post.node.id,
         },
@@ -55,9 +63,10 @@ exports.createPages = ({ graphql, actions }) => {
     Categories.forEach(category => {
       createPage({
         path: `/category/${category.node.slug}`,
-        component: CategoryTemplate,
+        component: BlogTemplate,
         context: {
           id: category.node.id,
+          type: "Category",
         },
       });
     });
@@ -65,9 +74,10 @@ exports.createPages = ({ graphql, actions }) => {
     Tags.forEach(tag => {
       createPage({
         path: `/tag/${tag.node.slug}`,
-        component: TagTemplate,
+        component: BlogTemplate,
         context: {
           id: tag.node.id,
+          type: "Tag",
         },
       });
     });

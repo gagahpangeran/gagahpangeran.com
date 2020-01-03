@@ -20,8 +20,8 @@ Using gatsby and wordpress to build my blog
   - [x] Desktop
   - [x] Mobile
 - Category and Tag Page
-  - [ ] Desktop
-  - [ ] Mobile
+  - [x] Desktop
+  - [x] Mobile
 - Search
   - [ ] Desktop
   - [ ] Mobile

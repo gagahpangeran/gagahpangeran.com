@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import Img from "gatsby-image";
 
@@ -145,6 +145,10 @@ const CatTag = styled(Link)`
   }
 `;
 
+const ShareLink = styled.a`
+  cursor: pointer;
+`;
+
 interface CategoryTag {
   name: string;
   slug: string;
@@ -175,6 +179,8 @@ export default function Post(props: any) {
   const desc = post.excerpt.substring(3, post.excerpt.length - 5);
   const image = post.featured_media.localFile.childImageSharp;
 
+  const [isShareOpen, openShare] = useState(false);
+
   return (
     <Layout>
       <SEO title={post.title} description={desc} thumbnail={image.fluid.src} />
@@ -186,14 +192,21 @@ export default function Post(props: any) {
             {getDate(post.date)}
           </PostDate>
           <PostCatTag>{getCatTag(post.categories, post.tags)}</PostCatTag>
-          <ShareButton
-            url={props.location.href}
-            title={post.title}
-            via="gagahpangeran_"
-            quote={desc}
-            hashtags={[...post.categories, ...post.tags].map(data => data.name)}
-            size={48}
-          />
+          <ShareLink onClick={() => openShare(!isShareOpen)}>
+            Share This Post
+          </ShareLink>
+          {isShareOpen && (
+            <ShareButton
+              url={props.location.href}
+              title={post.title}
+              via="gagahpangeran_"
+              quote={desc}
+              hashtags={[...post.categories, ...post.tags].map(
+                data => data.name
+              )}
+              size={48}
+            />
+          )}
           <PostHeader {...image} />
           <PostBody dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>

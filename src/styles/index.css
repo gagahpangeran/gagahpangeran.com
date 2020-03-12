@@ -128,3 +128,7 @@ iframe {
   display: block;
   max-width: 100%;
 }
+
+strong {
+  font-weight: bolder;
+}

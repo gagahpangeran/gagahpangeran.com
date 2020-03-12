@@ -40,6 +40,17 @@ const PostArticle = styled.article`
     font-weight: bold;
     color: #555;
   }
+
+  ul,
+  ol {
+    list-style: disc;
+    font-size: 20px;
+    margin-left: 20px;
+
+    li {
+      margin-bottom: 8px;
+    }
+  }
 `;
 
 const PostTitle = styled.h1`

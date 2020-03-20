@@ -54,6 +54,8 @@ export default function Blog({
     pageContext.type
   );
 
+  console.log(pageContext);
+
   return (
     <Layout>
       <SEO title={title} description={desc} />
@@ -70,7 +72,7 @@ export default function Blog({
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query($id: String!, $skip: Int!, $limit: Int!) {
     wordpressCategory(id: { eq: $id }) {
       name
     }
@@ -90,6 +92,8 @@ export const pageQuery = graphql`
     allCategoryPost: allWordpressPost(
       filter: { categories: { elemMatch: { id: { eq: $id } } } }
       sort: { order: DESC, fields: [date] }
+      limit: $limit
+      skip: $skip
     ) {
       ...postDetail
     }
@@ -97,6 +101,8 @@ export const pageQuery = graphql`
     allTagPost: allWordpressPost(
       filter: { tags: { elemMatch: { id: { eq: $id } } } }
       sort: { order: DESC, fields: [date] }
+      limit: $limit
+      skip: $skip
     ) {
       ...postDetail
     }

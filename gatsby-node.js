@@ -37,48 +37,67 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors;
     }
 
-    const BlogPosts = result.data.allWordpressPost.edges;
-    const Categories = result.data.allWordpressCategory.edges;
-    const Tags = result.data.allWordpressTag.edges;
+    const blogPosts = result.data.allWordpressPost.edges;
+    const categories = result.data.allWordpressCategory.edges;
+    const tags = result.data.allWordpressTag.edges;
 
-    createPage({
-      path: `/`,
-      component: BlogTemplate,
-      context: {
-        id: "",
-        type: "Blog",
-      },
+    const postsPerPage = 5;
+    const numPages = Math.ceil(blogPosts.length / postsPerPage);
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      const suffixPage = i === 0 ? "" : `/page/${i + 1}`;
+
+      createPage({
+        path: `/${suffixPage}`,
+        component: BlogTemplate,
+        context: {
+          id: "",
+          type: "Blog",
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          page: i + 1,
+          numPages
+        }
+      });
+
+      categories.forEach(category => {
+        createPage({
+          path: `/category/${category.node.slug}/${suffixPage}`,
+          component: BlogTemplate,
+          context: {
+            id: category.node.id,
+            type: "Category",
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            page: i + 1,
+            numPages
+          }
+        });
+      });
+
+      tags.forEach(tag => {
+        createPage({
+          path: `/tag/${tag.node.slug}/${suffixPage}`,
+          component: BlogTemplate,
+          context: {
+            id: tag.node.id,
+            type: "Tag",
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            page: i + 1,
+            numPages
+          }
+        });
+      });
     });
 
-    BlogPosts.forEach(post => {
+    blogPosts.forEach(post => {
       createPage({
         path: `/${post.node.slug}`,
         component: PostTemplate,
         context: {
-          id: post.node.id,
-        },
-      });
-    });
-
-    Categories.forEach(category => {
-      createPage({
-        path: `/category/${category.node.slug}`,
-        component: BlogTemplate,
-        context: {
-          id: category.node.id,
-          type: "Category",
-        },
-      });
-    });
-
-    Tags.forEach(tag => {
-      createPage({
-        path: `/tag/${tag.node.slug}`,
-        component: BlogTemplate,
-        context: {
-          id: tag.node.id,
-          type: "Tag",
-        },
+          id: post.node.id
+        }
       });
     });
   });

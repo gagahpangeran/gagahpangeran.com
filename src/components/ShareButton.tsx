@@ -10,7 +10,7 @@ import {
   TelegramShareButton,
   TelegramIcon,
   RedditShareButton,
-  RedditIcon,
+  RedditIcon
 } from "react-share";
 
 const ShareButtonLayout = styled.div`

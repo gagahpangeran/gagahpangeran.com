@@ -130,7 +130,7 @@ export default function PostThumbnail({
   excerpt,
   categories,
   tags,
-  featured_media,
+  featured_media
 }: Props) {
   return (
     <PostSection>

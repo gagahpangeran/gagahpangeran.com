@@ -19,7 +19,7 @@ const resolveData = (data: any, type: string) => {
         pageDesc: "Part Time Student, Full Time Learner",
         title: "Blog",
         desc: "Part Time Student, Full Time Learner",
-        post: data.allPost.edges,
+        post: data.allPost.edges
       };
     case "Category":
       return {
@@ -27,7 +27,7 @@ const resolveData = (data: any, type: string) => {
         pageDesc: `Show All Posts Under Category "${data.wordpressCategory.name}"`,
         title: `Category "${data.wordpressCategory.name}"`,
         desc: `All Posts Under Category "${data.wordpressCategory.name}"`,
-        post: data.allCategoryPost.edges,
+        post: data.allCategoryPost.edges
       };
     case "Tag":
       return {
@@ -35,7 +35,7 @@ const resolveData = (data: any, type: string) => {
         pageDesc: `Show All Posts Under Tag "${data.wordpressTag.name}"`,
         title: `Tag "${data.wordpressTag.name}"`,
         desc: `All Posts Under Tag "${data.wordpressTag.name}"`,
-        post: data.allTagPost.edges,
+        post: data.allTagPost.edges
       };
     default:
       return data;
@@ -44,7 +44,7 @@ const resolveData = (data: any, type: string) => {
 
 export default function Blog({
   data,
-  pageContext,
+  pageContext
 }: {
   data: any;
   pageContext: any;
@@ -79,7 +79,11 @@ export const pageQuery = graphql`
       name
     }
 
-    allPost: allWordpressPost(sort: { fields: [date], order: DESC }) {
+    allPost: allWordpressPost(
+      sort: { fields: [date], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       ...postDetail
     }
 

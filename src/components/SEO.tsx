@@ -22,7 +22,7 @@ function SEO({
   lang = "en",
   meta = [],
   title,
-  thumbnail = "",
+  thumbnail = ""
 }: Props) {
   const { site } = useStaticQuery(
     graphql`
@@ -49,55 +49,55 @@ function SEO({
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           property: `og:title`,
-          content: metaTitle,
+          content: metaTitle
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: `website`
         },
         {
           property: `og:image`,
-          content: metaImage,
+          content: metaImage
         },
         {
           name: `twitter:card`,
-          content: `summary_large_image`,
+          content: `summary_large_image`
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author
         },
         {
           name: `twitter:title`,
-          content: metaTitle,
+          content: metaTitle
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: metaDescription
         },
         {
           name: `twitter:image`,
-          content: metaImage,
+          content: metaImage
         },
         {
           name: `google-site-verification`,
-          content: site.siteMetadata.googleAnalytics,
-        },
+          content: site.siteMetadata.googleAnalytics
+        }
       ].concat(meta)}
     />
   );

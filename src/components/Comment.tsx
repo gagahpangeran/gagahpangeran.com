@@ -13,7 +13,7 @@ const CommentLayout = styled.section`
 
 export default function Comment({
   slug,
-  title,
+  title
 }: {
   slug: string;
   title: string;
@@ -23,8 +23,8 @@ export default function Comment({
     config: {
       identifier: slug,
       title,
-      url: `https://blog.gagahpangeran.com/${slug}`,
-    },
+      url: `https://blog.gagahpangeran.com/${slug}`
+    }
   };
 
   return (

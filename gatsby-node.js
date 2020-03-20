@@ -13,6 +13,16 @@ exports.createPages = ({ graphql, actions }) => {
             slug
             id
           }
+          previous {
+            slug
+            id
+            title
+          }
+          next {
+            slug
+            id
+            title
+          }
         }
       }
       allWordpressCategory {
@@ -86,7 +96,9 @@ exports.createPages = ({ graphql, actions }) => {
         path: `/${post.node.slug}`,
         component: PostTemplate,
         context: {
-          id: post.node.id
+          id: post.node.id,
+          prev: post.previous,
+          next: post.next
         }
       });
     });

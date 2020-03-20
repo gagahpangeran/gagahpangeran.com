@@ -180,6 +180,26 @@ const ShareLink = styled.a`
   cursor: pointer;
 `;
 
+const PrevNextPost = styled.div`
+  display: flex;
+  border-top: 1px solid #000;
+  padding-top: 40px;
+  font-size: 20px;
+
+  & > div {
+    width: 50%;
+
+    strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+`;
+
 interface CategoryTag {
   name: string;
   slug: string;
@@ -209,6 +229,8 @@ export default function Post(props: any) {
   const post = props.data.wordpressPost;
   const desc = post.excerpt.substring(3, post.excerpt.length - 5);
   const image = post.featured_media.localFile.childImageSharp;
+
+  const { prev, next } = props.pageContext;
 
   const [isShareOpen, openShare] = useState(false);
 
@@ -241,6 +263,24 @@ export default function Post(props: any) {
           <PostHeader {...image} />
           <PostBody dangerouslySetInnerHTML={{ __html: post.content }} />
         </PostArticle>
+        <PrevNextPost>
+          <div>
+            {prev && (
+              <>
+                <strong>{`< Previous Post`}</strong>
+                <Link to={`/${prev.slug}`}>{prev.title}</Link>
+              </>
+            )}
+          </div>
+          <div>
+            {next && (
+              <>
+                <strong>{`Next Post >`}</strong>
+                <Link to={`/${next.slug}`}>{next.title}</Link>
+              </>
+            )}
+          </div>
+        </PrevNextPost>
         <Comment title={post.title} slug={post.slug} />
       </main>
     </Layout>

@@ -32,8 +32,8 @@ Using gatsby and wordpress to build my blog
   - [ ] Desktop
   - [ ] Mobile
 - Pagination
-  - [ ] Desktop
-  - [ ] Mobile
+  - [x] Desktop
+  - [x] Mobile
 - Comment (Using Disqus)
   - [x] Desktop and Mobile
 - Share Button

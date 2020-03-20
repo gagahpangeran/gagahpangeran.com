@@ -2,7 +2,7 @@
   "name": "gpr-blog",
   "private": false,
   "description": "Using wordpress and gatsby to build my blog",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "GPR <gagahpangeran@gmail.com>",
   "dependencies": {
     "@emotion/core": "^10.0.28",

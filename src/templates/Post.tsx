@@ -50,6 +50,24 @@ const PostArticle = styled.article`
     li {
       margin-bottom: 8px;
     }
+
+    &.dialogue {
+      background: ${props => props.theme.background.dark};
+      color: ${props => props.theme.green};
+      list-style: "> ";
+      padding: 8px 16px 8px 24px;
+      margin: 0 16px;
+      border-radius: 8px;
+    }
+  }
+
+  .center {
+    margin: 20px 0;
+
+    > * {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
   }
 `;
 

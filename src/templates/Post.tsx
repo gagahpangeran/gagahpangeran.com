@@ -67,6 +67,8 @@ const PostArticle = styled.article`
     > * {
       margin-left: auto !important;
       margin-right: auto !important;
+      min-width: auto !important;
+      max-width: 100% !important;
     }
   }
 `;

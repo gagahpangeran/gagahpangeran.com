@@ -42,13 +42,11 @@ exports.createPages = ({ graphql, actions }) => {
     const tags = result.data.allWordpressTag.edges;
 
     const postsPerPage = 5;
-    const numPages = Math.ceil(blogPosts.length / postsPerPage);
+    const numBlogPages = Math.ceil(blogPosts.length / postsPerPage);
 
-    Array.from({ length: numPages }).forEach((_, i) => {
-      const suffixPage = i === 0 ? "" : `/page/${i + 1}`;
-
+    Array.from({ length: numBlogPages }).forEach((_, i) => {
       createPage({
-        path: `/${suffixPage}`,
+        path: i === 0 ? `/` : `/page/${i + 1}`,
         component: BlogTemplate,
         context: {
           id: "",
@@ -56,38 +54,30 @@ exports.createPages = ({ graphql, actions }) => {
           limit: postsPerPage,
           skip: i * postsPerPage,
           page: i + 1,
-          numPages
+          numPages: numBlogPages
         }
       });
+    });
 
-      categories.forEach(category => {
-        createPage({
-          path: `/category/${category.node.slug}/${suffixPage}`,
-          component: BlogTemplate,
-          context: {
-            id: category.node.id,
-            type: "Category",
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            page: i + 1,
-            numPages
-          }
-        });
+    categories.forEach(category => {
+      createPage({
+        path: `category/${category.node.slug}`,
+        component: BlogTemplate,
+        context: {
+          id: category.node.id,
+          type: "Category"
+        }
       });
+    });
 
-      tags.forEach(tag => {
-        createPage({
-          path: `/tag/${tag.node.slug}/${suffixPage}`,
-          component: BlogTemplate,
-          context: {
-            id: tag.node.id,
-            type: "Tag",
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            page: i + 1,
-            numPages
-          }
-        });
+    tags.forEach(tag => {
+      createPage({
+        path: `tag/${tag.node.slug}`,
+        component: BlogTemplate,
+        context: {
+          id: tag.node.id,
+          type: "Tag"
+        }
       });
     });
 

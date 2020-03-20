@@ -26,7 +26,7 @@ const Footer = styled.footer`
   }
 `;
 
-const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => (
+const Layout = ({ children }: { children: any }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {

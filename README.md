@@ -26,8 +26,8 @@ Using gatsby and wordpress to build my blog
   - [ ] Desktop
   - [ ] Mobile
 - Next Prev Post
-  - [ ] Desktop
-  - [ ] Mobile
+  - [x] Desktop
+  - [x] Mobile
 - Related Post
   - [ ] Desktop
   - [ ] Mobile

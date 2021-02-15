@@ -1,9 +1,9 @@
 {
   "name": "gpr-blog",
-  "private": false,
-  "description": "Using wordpress and gatsby to build my blog",
-  "version": "0.6.0",
-  "author": "GPR <gagahpangeran@gmail.com>",
+  "private": true,
+  "description": "GPR's blog built using Gatsby and Markdown",
+  "version": "0.1.0",
+  "author": "GPR <gpr@gagahpangeran.com>",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
@@ -31,6 +31,8 @@
     "@types/react-dom": "^16.9.5",
     "@types/react-helmet": "^5.0.15",
     "@types/react-share": "^3.0.3",
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4",
     "prettier": "^1.19.1",
     "tslint": "^6.1.0",
     "tslint-config-prettier": "^1.18.0",
@@ -46,12 +48,22 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write {src,content}/**/*.{ts,tsx,md}",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
-    "lint": "tslint --project",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"No Test!\""
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,md}": [
+      "prettier --write"
+    ]
+  },
+
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "repository": {
     "type": "git",

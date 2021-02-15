@@ -7,7 +7,6 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "disqus-react": "^1.0.7",
     "emotion-theming": "^10.0.27",
     "gatsby": "^2.19.49",
     "gatsby-cli": "^2.10.13",

@@ -7,7 +7,6 @@ import styled from "../utils/styled";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
-import Comment from "../components/Comment";
 import getDate from "../utils/time";
 
 const PostArticle = styled.article`
@@ -281,7 +280,6 @@ export default function Post(props: any) {
             )}
           </div>
         </PrevNextPost>
-        <Comment title={post.title} slug={post.slug} />
       </main>
     </Layout>
   );

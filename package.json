@@ -46,7 +46,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{ts,tsx}",
+    "format": "prettier --write {src,content}/**/*.{ts,tsx,md}",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",

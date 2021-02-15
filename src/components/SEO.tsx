@@ -34,7 +34,6 @@ function SEO({
             author
             siteUrl
             image
-            googleAnalytics
           }
         }
       }
@@ -93,10 +92,6 @@ function SEO({
         {
           name: `twitter:image`,
           content: metaImage
-        },
-        {
-          name: `google-site-verification`,
-          content: site.siteMetadata.googleAnalytics
         }
       ].concat(meta)}
     />

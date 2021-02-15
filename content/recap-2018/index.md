@@ -58,12 +58,12 @@ Compfest ngoding lagi. Tapi gue belajar banyak hal saat di Compfest, dari mulai
 cara ngoding yang baik, mulai menggunakan (dan menjadi budak) VS Code, dan
 tentunya karena Front-End [website COMPFEST](https://compfest.id/) menggunakan
 React.js, gue juga harus berurusan dengan javascript. Mungkin kalau ada yg
-bertanya apa yg salah dengan javascript, jawabannya adalah ‘banyak’. Silakan
+bertanya apa yg salah dengan javascript, jawabannya adalah 'banyak'. Silakan
 cari di google satu-satu atau bisa langsung
 [klik ini](https://lmgtfy.app/?t=i&q=javascript+meme). Salah satu hal yang
 paling gak terlupakan di IT Dev Compfest adalah rasa senang saat nge-Bully Fata,
 Manager IT Dev. Berikut adalah gambar yang bagus dan siapa tau ke-index google
-buat keyword ‘Fata Nugraha’.
+buat keyword 'Fata Nugraha'.
 
 <!-- TODO : Insert Fata image -->
 

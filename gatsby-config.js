@@ -1,11 +1,9 @@
-require("dotenv").config();
-
 module.exports = {
   siteMetadata: {
     title: `Gagah Pangeran Rosfatiputra`,
     description: `Part Time Student, Full Time Learner`,
     author: `@gagahpangeran_`,
-    image: "/logo.png",
+    image: "logo.png",
     siteUrl: "https://blog.gagahpangeran.com",
   },
   plugins: [
@@ -16,6 +14,36 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content`,
+        name: `content`
+      }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 480,
+              showCaptions: true
+            }
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -30,22 +58,6 @@ module.exports = {
         theme_color: `#000000`,
         display: `minimal-ui`,
         icon: `src/images/logo.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        baseUrl: process.env.WORDPRESS_BASE_URL,
-        protocol: process.env.WORDPRESS_PROTOCOL,
-        hostingWPCOM: process.env.WORDPRESS_HOSTING_WPCOM === "true",
-        useACF: process.env.WORDPRESS_USE_ACF === "true",
-        includedRoutes: [
-          "**/posts",
-          "**/pages",
-          "**/tags",
-          "**/categories",
-          "**/media",
-        ],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

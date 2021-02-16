@@ -1,0 +1,28 @@
+.post-card {
+  background: var(--bg-dark);
+  border-radius: 20px;
+  margin: 20px 0;
+
+  &__info {
+    padding: 24px;
+
+    &__title {
+      margin-bottom: 12px;
+
+      a {
+        color: var(--purple);
+      }
+    }
+
+    &__date {
+      font-weight: bold;
+      color: var(--gray-light);
+      display: block;
+    }
+
+    &__summary {
+      font-size: 20px;
+      margin-top: 12px;
+    }
+  }
+}

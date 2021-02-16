@@ -47,7 +47,7 @@ Make sure your Notebook is connected by looking at the green check mark in the
 top right corner. Just click on 'connecting' next to the editing button if it's
 not connected. If you hover on the green check mark, you can see your resource.
 
-<!-- TODO: Insert image -->
+![Google Colab Resource](./google-colab-resource.png "RAM and Disk")
 
 I get 12 GB RAM and 49 GB Disk, that's pretty good for a cloud computer. You can
 do anything in google colab for 12 hours, after that the session is over and
@@ -86,7 +86,7 @@ authorization code:', then click enter.
 
 If you succeed, you will see your drive in the sidebar by expand 'drive' folder.
 
-<!-- TODO: insert image -->
+![Gdrive Mount on Google Colab](./img/gdrive-google-colab.png)
 
 ## Download Your File
 

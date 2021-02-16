@@ -50,4 +50,15 @@
       margin: 12px 0;
     }
   }
+
+  figure {
+    text-align: center;
+  }
+
+  figcaption {
+    margin: 12px 0;
+    font-weight: bold;
+    color: var(--gray-dark);
+    font-style: italic;
+  }
 }

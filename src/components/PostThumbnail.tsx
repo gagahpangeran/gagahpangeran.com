@@ -3,8 +3,6 @@ import styled from "../utils/styled";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
-import getDate from "../utils/time";
-
 const PostSection = styled.section`
   background: ${props => props.theme.background.dark};
   padding: 32px;
@@ -142,7 +140,7 @@ export default function PostThumbnail({
           <PostTitle>
             <Link to={`${slug}/`}>{title}</Link>
           </PostTitle>
-          <PostDate>{getDate(date)}</PostDate>
+          <PostDate>{date}</PostDate>
           <PostSummary dangerouslySetInnerHTML={{ __html: excerpt }} />
           <PostCatTag>{getCatTag(categories, tags)}</PostCatTag>
         </PostContent>

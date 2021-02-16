@@ -1,0 +1,39 @@
+.pagination {
+  text-align: center;
+  display: flex;
+
+  &__paging {
+    background: var(--bg-dark);
+    display: flex;
+    margin: 0 auto;
+    padding: 16px;
+    border-radius: 8px;
+
+    &__number {
+      border: 2px solid var(--green);
+      margin: 0 8px;
+
+      a {
+        color: var(--green);
+        display: block;
+        padding: 8px 16px;
+
+        &:hover {
+          text-decoration: none;
+          background: var(--green);
+          color: var(--bg-dark);
+        }
+      }
+
+      &.active {
+        background: var(--green);
+        pointer-events: none;
+        cursor: default;
+
+        a {
+          color: var(--bg-dark);
+        }
+      }
+    }
+  }
+}

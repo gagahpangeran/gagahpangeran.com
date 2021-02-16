@@ -1,0 +1,39 @@
+.navbar {
+  background-color: var(--bg-light);
+  height: 64px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+
+  @media screen and (max-width: 500px) {
+    height: 48px;
+  }
+
+  &__content {
+    max-width: 720px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 720px) {
+      padding: 0 16px;
+    }
+
+    &__link {
+      display: flex;
+      margin-right: 20px;
+
+      a {
+        display: block;
+        font-weight: bold;
+
+        @media screen and (max-width: 500px) {
+          margin: 0 4px;
+        }
+      }
+    }
+  }
+}

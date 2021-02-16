@@ -1,0 +1,26 @@
+.category-tags {
+  font-size: 20px;
+  margin-top: 12px;
+
+  &__link {
+    color: var(--white);
+    padding: 4px 12px;
+    margin-right: 12px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+
+    &:hover {
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    &.category {
+      background: var(--green);
+    }
+
+    &.tag {
+      background: var(--purple);
+    }
+  }
+}

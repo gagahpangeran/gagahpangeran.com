@@ -1,6 +1,7 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { PostTemplate } from "../../types/generated-types";
+import CategoryTags from "../components/CategoryTags";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
@@ -26,6 +27,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
             <ClockIcon />
             {date}
           </time>
+          <CategoryTags category={category} tags={tags} />
           <ShareButton link={`${siteUrl}/${slug}`} />
           <div
             className="post__body"

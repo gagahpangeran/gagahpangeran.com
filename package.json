@@ -5,11 +5,8 @@
   "version": "0.1.0",
   "author": "GPR <gpr@gagahpangeran.com>",
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
     "@fontsource/lato": "^4.2.1",
     "@fontsource/noto-sans": "^4.2.1",
-    "emotion-theming": "^10.0.27",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-catch-links": "^2.10.0",

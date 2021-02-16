@@ -2,7 +2,6 @@ module.exports = {
   siteMetadata: {
     title: `Gagah Pangeran Rosfatiputra`,
     description: `Part Time Student, Full Time Learner`,
-    author: `@gagahpangeran_`,
     image: "logo.png",
     siteUrl: "https://blog.gagahpangeran.com"
   },

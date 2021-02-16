@@ -26,7 +26,6 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
           siteMetadata {
             title
             description
-            author
             siteUrl
             image
           }

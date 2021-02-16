@@ -11,7 +11,6 @@ export interface SiteMetaData_site_siteMetadata {
   __typename: "SiteSiteMetadata";
   title: string | null;
   description: string | null;
-  author: string | null;
   siteUrl: string | null;
   image: string | null;
 }

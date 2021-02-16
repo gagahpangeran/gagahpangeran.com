@@ -1,6 +1,19 @@
 @import "~@fontsource/noto-sans/index.css";
 @import "~@fontsource/lato/index.css";
 
+:root {
+  --bg-dark: #16161a;
+  --bg-light: #242629;
+  --black: #010101;
+  --gray-dark: #72757e;
+  --gray-light: #94a1b2;
+  --white: #fffffe;
+  --green: #2cb67d;
+  --purple: #7f5af0;
+  --blue-dark: #0177b0;
+  --blue-light: #0e96da;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,20 +22,20 @@
 body {
   font-size: 16px;
   font-family: "Lato", sans-serif;
-  background: #242629;
-  color: #fffffe;
+  background: var(--bg-light);
+  color: var(--white);
 }
 
 a {
   text-decoration: none;
-  color: #0177b0;
+  color: var(--blue-dark);
   transition: all 0.2s ease-in-out;
 }
 
 a:hover,
 a:active {
   text-decoration: underline;
-  color: #0e96da;
+  color: var(--blue-light);
 }
 
 main {
@@ -138,7 +151,7 @@ footer {
   margin: 20px 0;
 
   span {
-    color: #0177b0;
+    color: var(--blue-dark);
     cursor: pointer;
   }
 }

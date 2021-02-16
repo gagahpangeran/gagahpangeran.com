@@ -25,7 +25,7 @@ sudah menempati kontrakan baru tersebut.
 
 Jadi apa itu Misan Evergarden?
 
-<!-- TODO: Insert Misan Evergarden image -->
+![Misan Evergarden](./img/misan-evergarden.jpg "Delapan Orang Terpilih")
 
 Secara singkat sih Misan itu nama jalan di mana kontrakan kami berada. Lalu
 kebetulan sama pemiliknya, kontrakan tersebut dinamakan Misan Garden. Kebetulan
@@ -65,7 +65,7 @@ paling gak terlupakan di IT Dev Compfest adalah rasa senang saat nge-Bully Fata,
 Manager IT Dev. Berikut adalah gambar yang bagus dan siapa tau ke-index google
 buat keyword 'Fata Nugraha'.
 
-<!-- TODO : Insert Fata image -->
+![Fata Nugraha](./img/fata-nugraha.jpg "Fata Nugraha Manager IT Dev")
 
 Kepanitiaan selanjutnya adalah Siwak. Jadi Siwak itu kepanjangannya adalah… (oke
 gue lupa), intinya Siwak itu acara yang mirip tafakur alam (kalo kalian tau). Di
@@ -110,7 +110,7 @@ AFA. Semoga di tahun 2019 ini disela-sela kesibukan gue masih bisa datang ke
 berbagai event tersebut. Kalo dilihat yang paling terdekat sih Comifuro 12 bulan
 Februari nanti.
 
-<!-- TODO: insert Misan GJUI image -->
+![Misan GJUI](./img/misan-gjui.jpg "GJUI bersama Misan, sebelum semester 3 menyerang")
 
 ## Main gitar, menulis, dan nonton anime berkurang, serta ngoding dan membaca manga yang meningkat
 
@@ -139,7 +139,7 @@ Credit Roll of the Fool (Hyouka 2), Another I dan II, serta I Want to Eat Your
 Pancreas. Di akhir tahun kemarin juga gue beli box set Monogatari series 1st
 season di Amazon. Jadilah gue banyak utang baca novel yang harus gue lunasi.
 
-<!-- TODO: insert Novel Image -->
+![Novel](./img/novel.jpg "Banyak yang harus dibaca")
 
 Harapan gue sih bisa lebih sering main gitar, baca novel, dan nulis lagi. Kalo
 nonton anime bisa lah pas liburan.
@@ -159,7 +159,7 @@ regional aja, karena katanya regional Jakarta itu terkenal enak-enak makanannya.
 Ternyata benar, makanannya memang enak-enak. Jadi karena target kami sudah
 tercapai, kami gak menyesal meskipun gak juara di regional ini.
 
-<!-- TODO: insert kuhaku image -->
+![Kuhaku ICPC](./img/kuhaku-icpc.jpg "Tim Kuhaku siap makan-makan")
 
 Lomba yang selanjutnya gue ikuti adalah Capture The Flag yang diselenggarakan
 oleh Ristek Fasilkom UI dalam rangkaian acara Ristek Festival. Tim gue terdiri
@@ -171,6 +171,8 @@ Rey belum tau apa itu nc (netcat). Tapi takdir berkata lain, tim kami juara 1
 meskipun persiapannya retard.
 
 <!-- TODO: insert CTF image -->
+
+![CTF Ristek](./img/ctf-ristek.jpg "Wajah bahagia meskipun retard")
 
 Tahun kemaren di Pekan Ristek gue udah juara 3 di lomba Code in the Dark sama
 IPSC. Jadi mungkin di 2019 ini udah gabisa ikut lomba apapun karena regulasinya

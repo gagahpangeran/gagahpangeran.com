@@ -17,13 +17,7 @@ interface Props {
   thumbnail?: string;
 }
 
-function SEO({
-  description = "",
-  lang = "en",
-  meta = [],
-  title,
-  thumbnail = ""
-}: Props) {
+function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -40,9 +34,10 @@ function SEO({
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const metaImage = `${site.siteMetadata.siteUrl}${thumbnail ||
-    site.siteMetadata.image}`;
+  const metaDescription = description ?? site.siteMetadata.description;
+  const metaImage = `${site.siteMetadata.siteUrl}/${
+    thumbnail ?? site.siteMetadata.image
+  }`;
   const metaTitle = `${title} | ${site.siteMetadata.title}`;
 
   return (

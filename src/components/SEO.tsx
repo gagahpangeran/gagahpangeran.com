@@ -8,6 +8,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import { SiteMetaData } from "../../types/generated-types";
 
 interface Props {
   description?: string;
@@ -18,9 +19,9 @@ interface Props {
 }
 
 function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
-  const { site } = useStaticQuery(
+  const { site }: SiteMetaData = useStaticQuery(
     graphql`
-      query {
+      query SiteMetaData {
         site {
           siteMetadata {
             title
@@ -34,11 +35,11 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
     `
   );
 
-  const metaDescription = description ?? site.siteMetadata.description;
-  const metaImage = `${site.siteMetadata.siteUrl}/${
-    thumbnail ?? site.siteMetadata.image
+  const metaDescription = description ?? site?.siteMetadata?.description ?? "";
+  const metaImage = `${site?.siteMetadata?.siteUrl}/${
+    thumbnail ?? site?.siteMetadata?.image
   }`;
-  const metaTitle = `${title} | ${site.siteMetadata.title}`;
+  const metaTitle = `${title} | ${site?.siteMetadata?.title}`;
 
   return (
     <Helmet
@@ -46,7 +47,7 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
         lang
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${site?.siteMetadata?.title}`}
       meta={[
         {
           name: `description`,
@@ -71,10 +72,6 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
         {
           name: `twitter:card`,
           content: `summary_large_image`
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author
         },
         {
           name: `twitter:title`,

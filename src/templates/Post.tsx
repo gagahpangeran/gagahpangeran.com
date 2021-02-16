@@ -1,13 +1,8 @@
-import React, { useState } from "react";
-import { graphql, Link } from "gatsby";
-import Img from "gatsby-image";
-
-import styled from "../utils/styled";
-
+import { graphql, PageProps } from "gatsby";
+import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import ShareButton from "../components/ShareButton";
-import getDate from "../utils/time";
+import styled from "../utils/styled";
 
 const PostArticle = styled.article`
   img {
@@ -101,23 +96,6 @@ const PostDate = styled.time`
   }
 `;
 
-const PostHeader = styled(Img)`
-  margin: 20px 0;
-
-  @media screen and (max-width: 500px) {
-    margin: 12px 0;
-  }
-`;
-
-const PostCatTag = styled.div`
-  font-size: 20px;
-  margin-top: 12px;
-
-  @media screen and (max-width: 500px) {
-    font-size: 16px;
-  }
-`;
-
 const PostBody = styled.div`
   h2 {
     color: ${props => props.theme.gray.light};
@@ -147,173 +125,41 @@ const PostBody = styled.div`
   }
 `;
 
-const CatTag = styled(Link)`
-  color: ${props => props.theme.white};
-  padding: 4px 12px;
-  margin-right: 12px;
-  border-radius: 4px;
-  transition: background 0.2s ease-in-out;
-  display: inline-block;
-  margin-bottom: 12px;
-
-  &:hover {
-    color: #fff;
-    text-decoration: none;
-  }
-
-  &.cat {
-    background: ${props => props.theme.green};
-  }
-
-  &.tag {
-    background: ${props => props.theme.purple};
-  }
-
-  @media screen and (max-width: 500px) {
-    margin-right: 8px;
-    margin-bottom: 8px;
-  }
-`;
-
-const ShareLink = styled.a`
-  cursor: pointer;
-`;
-
-const PrevNextPost = styled.div`
-  display: flex;
-  border-top: 1px solid #000;
-  padding-top: 40px;
-  font-size: 20px;
-
-  & > div {
-    width: 50%;
-
-    strong {
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    &:last-child {
-      text-align: right;
-    }
-  }
-`;
-
-interface CategoryTag {
-  name: string;
-  slug: string;
-}
-
-const getCatTag = (categories: CategoryTag[], tags: CategoryTag[]) => {
-  return categories
-    .map(category => (
-      <CatTag
-        key={category.name}
-        className="cat"
-        to={`/category/${category.slug}/`}
-      >
-        {category.name}
-      </CatTag>
-    ))
-    .concat(
-      tags.map(tag => (
-        <CatTag key={tag.name} className="tag" to={`/tag/${tag.slug}/`}>
-          {tag.name}
-        </CatTag>
-      ))
-    );
-};
-
-export default function Post(props: any) {
-  const post = props.data.wordpressPost;
-  const desc = post.excerpt.substring(3, post.excerpt.length - 5);
-  const image = post.featured_media.localFile.childImageSharp;
-
-  const { prev, next } = props.pageContext;
-
-  const [isShareOpen, openShare] = useState(false);
+const Post: React.FC<PageProps<any>> = ({ data }) => {
+  const { post } = data;
 
   return (
     <Layout>
-      <SEO title={post.title} description={desc} thumbnail={image.fluid.src} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.description ?? post.excerpt}
+      />
       <main>
         <PostArticle>
-          <PostTitle>{post.title}</PostTitle>
+          <PostTitle>{post.frontmatter.title}</PostTitle>
           <PostDate>
             <ClockIcon />
-            {getDate(post.date)}
+            {post.frontmatter.date}
           </PostDate>
-          <PostCatTag>{getCatTag(post.categories, post.tags)}</PostCatTag>
-          <ShareLink onClick={() => openShare(!isShareOpen)}>
-            Share This Post
-          </ShareLink>
-          {isShareOpen && (
-            <ShareButton
-              url={props.location.href}
-              title={post.title}
-              via="gagahpangeran_"
-              quote={desc}
-              hashtags={[...post.categories, ...post.tags].map(
-                data => data.name
-              )}
-              size={48}
-            />
-          )}
-          <PostHeader {...image} />
-          <PostBody dangerouslySetInnerHTML={{ __html: post.content }} />
+          <PostBody dangerouslySetInnerHTML={{ __html: post.html }} />
         </PostArticle>
-        <PrevNextPost>
-          <div>
-            {prev && (
-              <>
-                <strong>{`< Previous Post`}</strong>
-                <Link to={`/${prev.slug}`}>{prev.title}</Link>
-              </>
-            )}
-          </div>
-          <div>
-            {next && (
-              <>
-                <strong>{`Next Post >`}</strong>
-                <Link to={`/${next.slug}`}>{next.title}</Link>
-              </>
-            )}
-          </div>
-        </PrevNextPost>
       </main>
     </Layout>
   );
-}
+};
+
+export default Post;
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    wordpressPost(id: { eq: $id }) {
-      title
-      date
-      excerpt
-      content
-      categories {
-        name
-        slug
-      }
-      tags {
-        name
-        slug
-      }
-      featured_media {
-        localFile {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              base64
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-            }
-          }
-        }
+  query PostById($id: String!) {
+    post: markdownRemark(id: { eq: $id }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        description
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }

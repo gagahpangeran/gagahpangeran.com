@@ -5,6 +5,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
+  const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
 
   const result = await graphql(`
     query GatsbyNode {
@@ -40,6 +41,20 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: PostTemplate,
       context: {
         id: post.id
+      }
+    });
+  });
+
+  const postPerPage = 5;
+  const numPages = Math.ceil(posts.length / postPerPage);
+
+  Array.from({ length: numPages }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? "/" : `/${index + 1}`,
+      component: BlogTemplate,
+      context: {
+        limit: postPerPage,
+        skip: index * postPerPage
       }
     });
   });

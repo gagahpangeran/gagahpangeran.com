@@ -31,6 +31,48 @@ export interface SiteMetaData {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: BlogTemplate
+// ====================================================
+
+export interface BlogTemplate_posts_nodes_fields {
+  __typename: "MarkdownRemarkFields";
+  slug: string | null;
+}
+
+export interface BlogTemplate_posts_nodes_frontmatter {
+  __typename: "MarkdownRemarkFrontmatter";
+  title: string | null;
+  description: string | null;
+  date: any | null;
+}
+
+export interface BlogTemplate_posts_nodes {
+  __typename: "MarkdownRemark";
+  excerpt: string | null;
+  fields: BlogTemplate_posts_nodes_fields | null;
+  frontmatter: BlogTemplate_posts_nodes_frontmatter | null;
+}
+
+export interface BlogTemplate_posts {
+  __typename: "MarkdownRemarkConnection";
+  nodes: BlogTemplate_posts_nodes[];
+}
+
+export interface BlogTemplate {
+  posts: BlogTemplate_posts;
+}
+
+export interface BlogTemplateVariables {
+  skip?: number | null;
+  limit?: number | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: PostTemplate
 // ====================================================
 

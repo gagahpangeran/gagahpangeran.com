@@ -31,29 +31,46 @@ export interface SiteMetaData {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL query operation: PostById
+// GraphQL query operation: PostTemplate
 // ====================================================
 
-export interface PostById_post_frontmatter {
+export interface PostTemplate_post_fields {
+  __typename: "MarkdownRemarkFields";
+  slug: string | null;
+}
+
+export interface PostTemplate_post_frontmatter {
   __typename: "MarkdownRemarkFrontmatter";
   title: string | null;
   description: string | null;
   date: any | null;
 }
 
-export interface PostById_post {
+export interface PostTemplate_post {
   __typename: "MarkdownRemark";
   id: string;
+  fields: PostTemplate_post_fields | null;
   excerpt: string | null;
   html: string | null;
-  frontmatter: PostById_post_frontmatter | null;
+  frontmatter: PostTemplate_post_frontmatter | null;
 }
 
-export interface PostById {
-  post: PostById_post | null;
+export interface PostTemplate_site_siteMetadata {
+  __typename: "SiteSiteMetadata";
+  siteUrl: string | null;
 }
 
-export interface PostByIdVariables {
+export interface PostTemplate_site {
+  __typename: "Site";
+  siteMetadata: PostTemplate_site_siteMetadata | null;
+}
+
+export interface PostTemplate {
+  post: PostTemplate_post | null;
+  site: PostTemplate_site | null;
+}
+
+export interface PostTemplateVariables {
   id: string;
 }
 

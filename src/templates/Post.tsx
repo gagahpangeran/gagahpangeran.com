@@ -1,15 +1,17 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import { PostById } from "../../types/generated-types";
+import { PostTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
-const Post: React.FC<PageProps<PostById>> = ({ data }) => {
-  const { post } = data;
+const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
+  const { post, site } = data;
   const title = post?.frontmatter?.title ?? "";
   const description = post?.frontmatter?.description ?? post?.excerpt ?? "";
   const date = post?.frontmatter?.date;
   const html = post?.html ?? "";
+  const slug = post?.fields?.slug ?? "";
+  const siteUrl = site?.siteMetadata?.siteUrl ?? "";
 
   return (
     <Layout>
@@ -34,15 +36,24 @@ const Post: React.FC<PageProps<PostById>> = ({ data }) => {
 export default Post;
 
 export const pageQuery = graphql`
-  query PostById($id: String!) {
+  query PostTemplate($id: String!) {
     post: markdownRemark(id: { eq: $id }) {
       id
+      fields {
+        slug
+      }
       excerpt(pruneLength: 160)
       html
       frontmatter {
         title
         description
         date(formatString: "MMMM DD, YYYY")
+      }
+    }
+
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

@@ -1,106 +1,60 @@
-const path = require("path");
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
+
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
-  const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
 
-  return graphql(`
-    {
-      allWordpressPost {
-        edges {
-          node {
+  const result = await graphql(`
+    query GatsbyNode {
+      allMarkdownRemark(limit: 1000) {
+        nodes {
+          id
+          fields {
             slug
-            id
-          }
-          previous {
-            slug
-            id
-            title
-          }
-          next {
-            slug
-            id
-            title
-          }
-        }
-      }
-      allWordpressCategory {
-        edges {
-          node {
-            slug
-            id
-          }
-        }
-      }
-      allWordpressTag {
-        edges {
-          node {
-            slug
-            id
           }
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors;
-    }
+  `);
 
-    const blogPosts = result.data.allWordpressPost.edges;
-    const categories = result.data.allWordpressCategory.edges;
-    const tags = result.data.allWordpressTag.edges;
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `There was an error when loading blog posts`,
+      results.errors
+    );
+    return;
+  }
 
-    const postsPerPage = 5;
-    const numBlogPages = Math.ceil(blogPosts.length / postsPerPage);
+  const posts = result.data.allMarkdownRemark.nodes;
 
-    Array.from({ length: numBlogPages }).forEach((_, i) => {
-      createPage({
-        path: i === 0 ? `/` : `/page/${i + 1}`,
-        component: BlogTemplate,
-        context: {
-          id: "",
-          type: "Blog",
-          limit: postsPerPage,
-          skip: i * postsPerPage,
-          page: i + 1,
-          numPages: numBlogPages
-        }
-      });
-    });
+  if (posts.length <= 0) {
+    reporter.warn(`There is no posts!`);
+    return;
+  }
 
-    categories.forEach(category => {
-      createPage({
-        path: `category/${category.node.slug}`,
-        component: BlogTemplate,
-        context: {
-          id: category.node.id,
-          type: "Category"
-        }
-      });
-    });
-
-    tags.forEach(tag => {
-      createPage({
-        path: `tag/${tag.node.slug}`,
-        component: BlogTemplate,
-        context: {
-          id: tag.node.id,
-          type: "Tag"
-        }
-      });
-    });
-
-    blogPosts.forEach(post => {
-      createPage({
-        path: `/${post.node.slug}`,
-        component: PostTemplate,
-        context: {
-          id: post.node.id,
-          prev: post.previous,
-          next: post.next
-        }
-      });
+  posts.forEach(post => {
+    createPage({
+      path: post.fields.slug,
+      component: PostTemplate,
+      context: {
+        id: post.id
+      }
     });
   });
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value
+    });
+  }
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { PostTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import ShareButton from "../components/ShareButton";
 
 const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
   const { post, site } = data;
@@ -23,6 +24,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
             <ClockIcon />
             {date}
           </time>
+          <ShareButton link={`${siteUrl}/${slug}`} />
           <div
             className="post__body"
             dangerouslySetInnerHTML={{ __html: html }}

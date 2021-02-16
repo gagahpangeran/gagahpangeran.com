@@ -1,9 +1,9 @@
 import { graphql, PageProps } from "gatsby";
+import { FluidObject } from "gatsby-image";
 import React from "react";
 import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
-import PostThumbnail from "../components/PostThumbnail.old";
 import SEO from "../components/SEO";
 
 const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
@@ -17,13 +17,23 @@ const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
 
       <main>
         {posts.map(post => {
+          const id = post.id;
           const title = post.frontmatter?.title ?? "";
           const date = post.frontmatter?.date ?? "";
           const excerpt = post.frontmatter?.description ?? post.excerpt ?? "";
           const slug = post.fields?.slug ?? "";
+          const image = post.frontmatter?.featuredImage?.childImageSharp
+            ?.fluid as FluidObject;
 
           return (
-            <PostCard title={title} date={date} excerpt={excerpt} slug={slug} />
+            <PostCard
+              key={id}
+              title={title}
+              date={date}
+              excerpt={excerpt}
+              slug={slug}
+              image={image}
+            />
           );
         })}
       </main>
@@ -41,6 +51,7 @@ export const pageQuery = graphql`
       limit: $limit
     ) {
       nodes {
+        id
         excerpt(pruneLength: 160)
         fields {
           slug
@@ -49,6 +60,13 @@ export const pageQuery = graphql`
           title
           description
           date(formatString: "MMMM DD, YYYY")
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

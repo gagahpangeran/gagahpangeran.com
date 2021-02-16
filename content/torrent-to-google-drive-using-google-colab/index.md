@@ -4,6 +4,7 @@ date: "2019-07-29T20:59:00+07:00"
 description:
   "Have you ever thought of downloading a Torrent and saving it directly to
   Google Drive? I found one of the tricks, using Google Colab."
+featuredImage: ./img/torrent-to-gdrive.png
 ---
 
 Have you ever thought of downloading a Torrent and saving it directly to Google

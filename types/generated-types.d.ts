@@ -38,15 +38,39 @@ export interface BlogTemplate_posts_nodes_fields {
   slug: string | null;
 }
 
+export interface BlogTemplate_posts_nodes_frontmatter_featuredImage_childImageSharp_fluid {
+  __typename: "ImageSharpFluid";
+  base64: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+}
+
+export interface BlogTemplate_posts_nodes_frontmatter_featuredImage_childImageSharp {
+  __typename: "ImageSharp";
+  fluid: BlogTemplate_posts_nodes_frontmatter_featuredImage_childImageSharp_fluid | null;
+}
+
+export interface BlogTemplate_posts_nodes_frontmatter_featuredImage {
+  __typename: "File";
+  /**
+   * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
+   */
+  childImageSharp: BlogTemplate_posts_nodes_frontmatter_featuredImage_childImageSharp | null;
+}
+
 export interface BlogTemplate_posts_nodes_frontmatter {
   __typename: "MarkdownRemarkFrontmatter";
   title: string | null;
   description: string | null;
   date: any | null;
+  featuredImage: BlogTemplate_posts_nodes_frontmatter_featuredImage | null;
 }
 
 export interface BlogTemplate_posts_nodes {
   __typename: "MarkdownRemark";
+  id: string;
   excerpt: string | null;
   fields: BlogTemplate_posts_nodes_fields | null;
   frontmatter: BlogTemplate_posts_nodes_frontmatter | null;

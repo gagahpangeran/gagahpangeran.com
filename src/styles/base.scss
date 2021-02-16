@@ -132,3 +132,22 @@ iframe {
 strong {
   font-weight: bolder;
 }
+
+footer {
+  text-align: center;
+  margin: 20px 0;
+
+  span {
+    color: #0177b0;
+    cursor: pointer;
+  }
+}
+
+.wrapper {
+  max-width: 720px;
+  margin: 64px auto 0;
+
+  @media screen and (max-width: 720px) {
+    padding: 0 16px;
+  }
+}

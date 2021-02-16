@@ -13,6 +13,8 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
   const html = post?.html ?? "";
   const slug = post?.fields?.slug ?? "";
   const siteUrl = site?.siteMetadata?.siteUrl ?? "";
+  const category = post?.frontmatter?.category ?? null;
+  const tags = post?.frontmatter?.tags ?? [];
 
   return (
     <Layout>
@@ -50,6 +52,8 @@ export const pageQuery = graphql`
         title
         description
         date(formatString: "MMMM DD, YYYY")
+        category
+        tags
       }
     }
 

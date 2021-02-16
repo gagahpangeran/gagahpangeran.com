@@ -109,6 +109,8 @@ export interface PostTemplate_post_frontmatter {
   title: string | null;
   description: string | null;
   date: any | null;
+  category: string | null;
+  tags: (string | null)[] | null;
 }
 
 export interface PostTemplate_post {

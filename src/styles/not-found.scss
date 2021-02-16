@@ -1,0 +1,19 @@
+.not-found {
+  &__desc {
+    color: var(--gray-light);
+  }
+
+  &__link {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin: 16px 0;
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+}

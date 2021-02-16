@@ -1426,6 +1426,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/lato@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.2.1.tgz#6bc81159b0d762bf72dc750afac228f3529e8a5b"
+  integrity sha512-prsPmSttIWKF52AK6fNbe1a/wT3Rm5ho2qwegXlU0Qu72dksQIjGrttDtuvs3OlXdlmYXFTmLKOWQKwBMAsMmQ==
+
+"@fontsource/noto-sans@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.2.1.tgz#074e02b25cd30eceb3a7909bf334a814220e7110"
+  integrity sha512-G2ZbQ9rNq4HrREbRKGjutJrRlrTSWUbl1CRjdlldV1Jkx15bM45gZJ2nOnkVMJRVWvUGEsSTw9rXF0AtafpFVQ==
+
 "@graphql-tools/batch-execute@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-execute/-/batch-execute-7.0.0.tgz#e79d11bd5b39f29172f6ec2eafa71103c6a6c85b"

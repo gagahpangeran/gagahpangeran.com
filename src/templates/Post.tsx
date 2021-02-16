@@ -1,5 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
+import { PostById } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import styled from "../utils/styled";
@@ -125,23 +126,24 @@ const PostBody = styled.div`
   }
 `;
 
-const Post: React.FC<PageProps<any>> = ({ data }) => {
+const Post: React.FC<PageProps<PostById>> = ({ data }) => {
   const { post } = data;
+  const title = post?.frontmatter?.title ?? "";
+  const description = post?.frontmatter?.description ?? post?.excerpt ?? "";
+  const date = post?.frontmatter?.date;
+  const html = post?.html ?? "";
 
   return (
     <Layout>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description ?? post.excerpt}
-      />
+      <SEO title={title} description={description} />
       <main>
         <PostArticle>
-          <PostTitle>{post.frontmatter.title}</PostTitle>
+          <PostTitle>{title}</PostTitle>
           <PostDate>
             <ClockIcon />
-            {post.frontmatter.date}
+            {date}
           </PostDate>
-          <PostBody dangerouslySetInnerHTML={{ __html: post.html }} />
+          <PostBody dangerouslySetInnerHTML={{ __html: html }} />
         </PostArticle>
       </main>
     </Layout>

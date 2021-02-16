@@ -4,7 +4,7 @@ module.exports = {
     description: `Part Time Student, Full Time Learner`,
     author: `@gagahpangeran_`,
     image: "logo.png",
-    siteUrl: "https://blog.gagahpangeran.com",
+    siteUrl: "https://blog.gagahpangeran.com"
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -12,8 +12,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -49,6 +49,16 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-typescript`,
     {
+      resolve: "gatsby-plugin-codegen",
+      options: {
+        localSchemaFile: `./types/schema.json`,
+        watch: process.env.NODE_ENV === "development",
+        addTypename: true,
+        output: `./types/generated-types.d.ts`,
+        outputFlat: true
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gagah Pangeran Rosfatiputra`,
@@ -57,11 +67,11 @@ module.exports = {
         background_color: `#000000`,
         theme_color: `#000000`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
-      },
-    },
+        icon: `src/images/logo.png` // This path is relative to the root of the site.
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-  ],
+  ]
 };

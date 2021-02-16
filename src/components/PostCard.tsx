@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import Img, { FluidObject } from "gatsby-image";
 import React from "react";
+import CategoryTags from "./CategoryTags";
 
 interface Props {
   title: string;
@@ -8,9 +9,19 @@ interface Props {
   excerpt: string;
   slug: string;
   image: FluidObject;
+  category: string | null;
+  tags: (string | null)[];
 }
 
-const PostCard = ({ title, date, excerpt, slug, image }: Props) => {
+const PostCard = ({
+  title,
+  date,
+  excerpt,
+  slug,
+  image,
+  category,
+  tags
+}: Props) => {
   return (
     <section className="post-card">
       <div className="post-card__thumbnail">
@@ -28,6 +39,7 @@ const PostCard = ({ title, date, excerpt, slug, image }: Props) => {
           <Link to={slug}>{title}</Link>
         </h4>
         <time className="post-card__info__date">{date}</time>
+        <CategoryTags category={category} tags={tags} />
         <div
           className="post-card__info__summary"
           dangerouslySetInnerHTML={{ __html: excerpt }}

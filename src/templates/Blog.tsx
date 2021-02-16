@@ -22,6 +22,8 @@ const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
           const date = post.frontmatter?.date ?? "";
           const excerpt = post.frontmatter?.description ?? post.excerpt ?? "";
           const slug = post.fields?.slug ?? "";
+          const category = post.frontmatter?.category ?? null;
+          const tags = post.frontmatter?.tags ?? [];
           const image = post.frontmatter?.featuredImage?.childImageSharp
             ?.fluid as FluidObject;
 
@@ -33,6 +35,8 @@ const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
               excerpt={excerpt}
               slug={slug}
               image={image}
+              category={category}
+              tags={tags}
             />
           );
         })}
@@ -60,6 +64,8 @@ export const pageQuery = graphql`
           title
           description
           date(formatString: "MMMM DD, YYYY")
+          category
+          tags
           featuredImage {
             childImageSharp {
               fluid(maxWidth: 800) {

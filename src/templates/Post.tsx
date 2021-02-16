@@ -3,128 +3,6 @@ import React from "react";
 import { PostById } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import styled from "../utils/styled";
-
-const PostArticle = styled.article`
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-  }
-
-  p {
-    font-size: 20px;
-    margin: 16px 0;
-    line-height: 150%;
-
-    @media screen and (max-width: 500px) {
-      font-size: 18px;
-      margin: 12px 0;
-    }
-  }
-
-  figure {
-    margin: 20px 0;
-
-    @media screen and (max-width: 500px) {
-      margin: 16px 0;
-    }
-  }
-
-  figcaption {
-    font-weight: bold;
-    color: #555;
-  }
-
-  ul,
-  ol {
-    list-style: disc;
-    font-size: 20px;
-    margin-left: 20px;
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    &.dialogue {
-      background: ${props => props.theme.background.dark};
-      color: ${props => props.theme.green};
-      list-style: "> ";
-      padding: 8px 16px 8px 24px;
-      margin: 0 16px;
-      border-radius: 8px;
-    }
-  }
-
-  .center {
-    margin: 20px 0;
-
-    > * {
-      margin-left: auto !important;
-      margin-right: auto !important;
-      min-width: auto !important;
-      max-width: 100% !important;
-    }
-  }
-`;
-
-const PostTitle = styled.h1`
-  margin-bottom: 12px;
-
-  @media screen and (max-width: 500px) {
-    margin-bottom: 4px;
-  }
-`;
-
-const PostDate = styled.time`
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  color: ${props => props.theme.gray.light};
-
-  @media screen and (max-width: 500px) {
-    font-size: 16px;
-  }
-
-  svg {
-    height: 24px;
-    fill: ${props => props.theme.gray.light};
-
-    @media screen and (max-width: 500px) {
-      height: 20px;
-    }
-  }
-`;
-
-const PostBody = styled.div`
-  h2 {
-    color: ${props => props.theme.gray.light};
-  }
-
-  .aligncenter {
-    text-align: center;
-  }
-
-  .vglnk {
-    pointer-events: none;
-    cursor: default;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .red-text {
-    color: ${props => props.theme.green};
-  }
-
-  .wp-block-code {
-    max-width: 100%;
-    background: ${props => props.theme.background.dark};
-    color: ${props => props.theme.gray.light};
-    overflow-x: auto;
-    padding: 8px;
-  }
-`;
 
 const Post: React.FC<PageProps<PostById>> = ({ data }) => {
   const { post } = data;
@@ -137,14 +15,17 @@ const Post: React.FC<PageProps<PostById>> = ({ data }) => {
     <Layout>
       <SEO title={title} description={description} />
       <main>
-        <PostArticle>
-          <PostTitle>{title}</PostTitle>
-          <PostDate>
+        <article className="post">
+          <h1 className="post__title">{title}</h1>
+          <time className="post__date">
             <ClockIcon />
             {date}
-          </PostDate>
-          <PostBody dangerouslySetInnerHTML={{ __html: html }} />
-        </PostArticle>
+          </time>
+          <div
+            className="post__body"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </article>
       </main>
     </Layout>
   );

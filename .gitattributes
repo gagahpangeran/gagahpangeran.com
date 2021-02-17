@@ -1,3 +1,2 @@
 types/generated-types.d.ts linguist-generated=true
 types/schema.json linguist-generated=true
-content/**/*.md linguist-detectable=true

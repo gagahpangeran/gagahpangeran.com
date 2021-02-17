@@ -58,6 +58,14 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         category
         tags
+        featuredImage {
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
 

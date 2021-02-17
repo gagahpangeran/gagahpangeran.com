@@ -106,6 +106,32 @@ export interface PostTemplate_post_fields {
   slug: string | null;
 }
 
+export interface PostTemplate_post_frontmatter_featuredImage_childImageSharp_fluid {
+  __typename: "ImageSharpFluid";
+  base64: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+}
+
+export interface PostTemplate_post_frontmatter_featuredImage_childImageSharp {
+  __typename: "ImageSharp";
+  fluid: PostTemplate_post_frontmatter_featuredImage_childImageSharp_fluid | null;
+}
+
+export interface PostTemplate_post_frontmatter_featuredImage {
+  __typename: "File";
+  /**
+   * Copy file to static directory and return public url to it
+   */
+  publicURL: string | null;
+  /**
+   * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
+   */
+  childImageSharp: PostTemplate_post_frontmatter_featuredImage_childImageSharp | null;
+}
+
 export interface PostTemplate_post_frontmatter {
   __typename: "MarkdownRemarkFrontmatter";
   title: string | null;
@@ -113,6 +139,7 @@ export interface PostTemplate_post_frontmatter {
   date: any | null;
   category: string | null;
   tags: (string | null)[] | null;
+  featuredImage: PostTemplate_post_frontmatter_featuredImage | null;
 }
 
 export interface PostTemplate_post {

@@ -33,6 +33,10 @@
       font-weight: bold;
       color: var(--gray-light);
       display: block;
+
+      span {
+        margin-left: 8px;
+      }
     }
 
     &__summary {

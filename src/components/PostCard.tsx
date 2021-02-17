@@ -1,3 +1,5 @@
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import Img, { FluidObject } from "gatsby-image";
 import React from "react";
@@ -38,7 +40,10 @@ const PostCard = ({
         <h4 className="post-card__info__title">
           <Link to={slug}>{title}</Link>
         </h4>
-        <time className="post-card__info__date">{date}</time>
+        <time className="post-card__info__date">
+          <FontAwesomeIcon icon={faClock} />
+          <span>{date}</span>
+        </time>
         <CategoryTags category={category} tags={tags} />
         <div
           className="post-card__info__summary"

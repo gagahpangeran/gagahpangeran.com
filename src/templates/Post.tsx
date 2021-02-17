@@ -28,7 +28,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
             {date}
           </time>
           <CategoryTags category={category} tags={tags} />
-          <ShareButton link={`${siteUrl}/${slug}`} />
+          <ShareButton link={`${siteUrl}${slug}`} />
           <div
             className="post__body"
             dangerouslySetInnerHTML={{ __html: html }}

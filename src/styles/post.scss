@@ -18,13 +18,8 @@
       font-size: 16px;
     }
 
-    svg {
-      height: 24px;
-      fill: var(--gray-light);
-
-      @media screen and (max-width: 500px) {
-        height: 20px;
-      }
+    span {
+      margin-left: 8px;
     }
   }
 

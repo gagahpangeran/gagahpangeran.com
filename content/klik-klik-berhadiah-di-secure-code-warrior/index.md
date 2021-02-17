@@ -24,9 +24,9 @@ Devops Days Jakarta. Gue langsung nanya ke
 [Gio](https://twitter.com/giovanismid) karena biasanya dia tahu soal ginian.
 Ternyata Gio udah daftar sama [Nuga](https://twitter.com/nux_99).
 
-<!-- TODO: DevOpsDays Jakarta image -->
+![DevOpsDays Jakarta](./img/devopsday.jpg)
 
-<!-- TODO: Secure Code Warrior image -->
+![Secure Code Warrior](./img/scw-poster.jpg)
 
 Gue cukup tertarik untuk ikut setelah melihat video tentang apa itu SCW. Hal
 yang gue dapet abis nonton videonya adalah kayaknya format lombanya mirip CTF
@@ -61,6 +61,8 @@ Kenapa Kuhaku?
 
 Ya kalo kalian pernah nonton anime No Game No Life pasti tahu kalo Kuhaku itu
 adalah nama lain dari duo Sora dan Shiro.
+
+![Kuhaku](./img/kuhaku.jpeg "Sora dan Shiro sebagai Kuhaku")
 
 ## Sebelum Penyisihan
 
@@ -113,7 +115,7 @@ bertuliskan nama kami dan dikasih masker. Jadi sekarang untuk dapat masker aja
 kami harus tukar dengan kartu identitas kami ya. Selangka itukah masker saat
 ini?
 
-<!-- TODO: SCW Cek Suhu image -->
+![SCW Cek Suhu](./img/scw-cek-suhu.png "Cek suhu sampe pake pakaian anti-biohazard")
 
 Hal yang pertama kali kita bertiga lakukan saat masuk ke dalam adalah pergi ke
 WC. Abis keluar dari WC kemudian belok ke kantin. Kalo dilihat kantinnya cukup
@@ -189,7 +191,17 @@ gimana caranya coba cari videonya di yutup atau cobain langsung di platform-nya
 Kami diberikan kesempatan untuk nyobain platform-nya dan ngerjain soal latihan.
 Kami coba pilih bahasa Python dan framework Django. SCW
 
-<!-- TODO : So much image here -->
+![SCW](./img/scw1.png "Soal pertama babak 1, disuruh cari bagian mana yang ada sql injection vulnerability. Ada beberapa pilihan yang ditandai pake tanda seru warna kuning.")
+
+![SCW](./img/scw2.png "Abis dicari-cari, akhirnya ketemu trus pilih deh.")
+
+![SCW](./img/scw3.png "Klik next dan jawabannya benar.")
+
+![SCW](./img/scw4.png "Babak selanjutnya adalah disuruh ngebenerin vuln yang tadi.")
+
+![SCW](./img/scw5.png "Ada pilihan 4 solusi, pilih salah satu.")
+
+![SCW](./img/scw6.png "Coba pilih solusi satu dan benar.")
 
 Ya jadi seperti yang bisa dilihat kalo pada dasarnya lomba ini klik-klik doang.
 Tapi gak asal klik karena kami harus tahu vuln-nya gimana dan gimana cara
@@ -278,7 +290,7 @@ tidak masuk 5 besar.
 
 Hasil akhir scoreboard penyisihan seperti ini.
 
-<!-- TODO: Hasil akhir image -->
+![Scoreboard Penyisihan](./img/scoreboard-penyisihan.png "Hasil Akhir Penyisihan. Tim Gue-Distra : Kuhaku. Tim Greg-Kusuman : Devoops. Tim Gio-Nuga : SCWPenuhMakna #SocialCodeWarrior.")
 
 ## Setelah Penyisihan
 
@@ -303,7 +315,7 @@ Sorenya abis sprint review gue nanya ke Distra apakah kita lolos ke final apa
 enggak. Mungkin aja kan tiba-tiba ada 5 tim yang tiba-tiba naik di atas tim
 kita. Ternyata tim Kuhaku lolos ke final.
 
-<!-- TODO: IG Image -->
+[![Lolos Ke Final](./img/ig1.png)](https://www.instagram.com/p/B9ZVdgUAT-o)
 
 ## Sebelum Final
 
@@ -351,11 +363,10 @@ Abis selesai penjelasan teknis ada waktu buat latihan sebentar di platform SCW
 lagi. Trus tiba-tiba ada mas-mas cameraman nyamerin gue dan Distra, katanya
 minta tolong mau shooting bentar buat video dokumentasi.
 
-<!-- TODO: SCW Shooting image -->
+![SCW Shooting](./img/scw-shooting.jpg "Dilarang berjabat tangan untuk menghindari penularan virus corona.")
 
-Video lengkap dokumentasi ada di IGTV DevOpsDays Jakarta yang gue embed berikut.
-
-<!-- TODO: IG Video -->
+Video lengkap dokumentasinya ada di
+[IGTV DevOpsDays Jakarta](https://www.instagram.com/tv/B9q9mFyAmhZ).
 
 ## Final
 
@@ -373,7 +384,7 @@ aja tiba-tiba ada virus menular masuk ke badan gue.
 Gue langsung aja ngasih masker yang tadi pagi dikasih pas registrasi, karena
 emang gue gak terlalu butuh.
 
-<!-- TODO: SCW Masker -->
+![SCW Masker](./img/scw-masker.jpg "Pakailah masker untuk mencegah penularan virus berbahaya.")
 
 Gak banyak yang bisa diceritain pas ngerjain soal final. Paling cuma Distra yang
 lagi-lagi bolak balik ke WC karena beser.
@@ -389,7 +400,7 @@ R.O.P peringkat 1, Devoops peringkat 2, dan Kuhaku peringkat 3. Selisih skor
 antara peringkat 1 dan 2 cukup tipis. Kalo kata salah satu anggota tim R.O.P,
 sebelum waktu habis mereka jawab soal ngasal dan ternyata benar.
 
-<!-- TODO: Final Scoreboard -->
+![Final Scoreboard](./img/fina-scoreboard.png)
 
 ## Setelah Final
 
@@ -413,9 +424,9 @@ Distra sambil lihat layar laptop ngasih tahu gue, “Belgia”
 Yak, dan memang benar itu jawabannya. Gue pun mendapatkan flashdisk berukuran 64
 GB.
 
-<!-- TODO: SCW Kuis -->
+![SCW Kuis](./img/scw-kuis "Menjawab kuis dengan contekan")
 
-<!-- TODO: SCW Flashdisk -->
+![SCW Flashdisk](./img/scw-fd.jpg "Ya lumayan lah dapat flashdisk.")
 
 Abis itu ada penyerahan bingkisan tas berisi kaos dan stiker, foto-foto finalis,
 dan pengumuman pemenang. Tentu saja pemenangnya sesuai scoreboard yang sudah
@@ -465,13 +476,13 @@ di dunia ngoding.
 Abis sesi tersebut selesai, lalu dilanjut penyerahan hadiah buat pemenang Secure
 Code Warrior. Kita dipanggil satu-satu ke depan buat penyerahan hadiah.
 
-<!-- TODO: SCW Menang -->
+![SCW Menang](./img/scw-menang "Dapat juara 3")
 
-<!-- TODO: Foto bareng -->
+![Foto Bareng](./img/scw-bareng.jpg "Foto bareng tiga pemenang")
 
 Di IG DevOpsDays yang dipake malah foto gue lagi ngelihat entah kemana.
 
-<!-- TODO : IG lagi -->
+[![Bingung](./img/ig2.png "Gue (paling kiri) sedang melihat masa depan")](https://www.instagram.com/p/B9nW-V3AGhG)
 
 Abis foto-foto, kita memutuskan untuk langsung balik karena hadiahnya nanti akan
 ditransfer.

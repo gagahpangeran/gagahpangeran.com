@@ -1,6 +1,7 @@
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, PageProps } from "gatsby";
+import Img, { FluidObject } from "gatsby-image";
 import React from "react";
 import { PostTemplate } from "../../types/generated-types";
 import CategoryTags from "../components/CategoryTags";
@@ -18,6 +19,9 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
   const siteUrl = site?.siteMetadata?.siteUrl ?? "";
   const category = post?.frontmatter?.category ?? null;
   const tags = post?.frontmatter?.tags ?? [];
+  const image = post?.frontmatter?.featuredImage?.childImageSharp
+    ?.fluid as FluidObject;
+  const imageUrl = post?.frontmatter?.featuredImage?.publicURL ?? "";
 
   return (
     <Layout>
@@ -31,6 +35,9 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
           </time>
           <CategoryTags category={category} tags={tags} />
           <ShareButton link={`${siteUrl}${slug}`} />
+          <a href={imageUrl} target="_blank" rel="noopener">
+            <Img fluid={image} alt={title} title={title} />
+          </a>
           <div
             className="post__body"
             dangerouslySetInnerHTML={{ __html: html }}

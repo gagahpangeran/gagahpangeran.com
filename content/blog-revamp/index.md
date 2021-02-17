@@ -32,4 +32,4 @@ for the comment itself, I'll thinking about it in the future.
 And also for now, I private the repo of this blog until I finish the revamp and
 fix.
 
-Cheers!
+Cheers

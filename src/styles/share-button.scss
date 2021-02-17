@@ -1,0 +1,44 @@
+.share-button {
+  font-weight: bold;
+
+  summary {
+    color: var(--blue-light);
+    cursor: pointer;
+  }
+
+  & > div {
+    padding: 0 18px;
+  }
+
+  &__desc {
+    margin: 12px 0;
+  }
+
+  &__link {
+    & > * {
+      display: inline-block;
+    }
+
+    input {
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px 0 0 4px;
+      width: calc(90% - 2 * 8px);
+    }
+
+    button {
+      width: 10%;
+      border: none;
+      background-color: var(--green);
+      color: var(--white);
+      padding: 4px 8px;
+      border-radius: 0 4px 4px 0;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+  &__notice {
+    margin-top: 12px;
+  }
+}

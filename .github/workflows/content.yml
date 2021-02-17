@@ -1,6 +1,8 @@
 name: Update Post Content
 on:
   push:
+    branches:
+      - master
     paths:
       - "content/**"
 
@@ -15,7 +17,8 @@ jobs:
           fetch-depth: 0
 
       - name: Checkout to latest tags
-        run: git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
+        run: |
+          - git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
 
       - name: Get latest change in content directory from master branch
         run: git checkout master content/

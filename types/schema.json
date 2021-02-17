@@ -16593,6 +16593,16 @@
               "defaultValue": null
             },
             {
+              "name": "backgroundColor",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "linkImagesToOriginal",
               "description": "",
               "type": {
@@ -16618,16 +16628,6 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "BooleanQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "backgroundColor",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -17096,6 +17096,16 @@
               "defaultValue": null
             },
             {
+              "name": "backgroundColor",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "linkImagesToOriginal",
               "description": "",
               "type": {
@@ -17121,16 +17131,6 @@
               "type": {
                 "kind": "INPUT_OBJECT",
                 "name": "BooleanQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "backgroundColor",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
                 "ofType": null
               },
               "defaultValue": null
@@ -18020,6 +18020,18 @@
               "deprecationReason": null
             },
             {
+              "name": "backgroundColor",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "linkImagesToOriginal",
               "description": null,
               "args": [],
@@ -18050,18 +18062,6 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "backgroundColor",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -18602,6 +18602,18 @@
               "deprecationReason": null
             },
             {
+              "name": "backgroundColor",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "linkImagesToOriginal",
               "description": null,
               "args": [],
@@ -18632,18 +18644,6 @@
               "type": {
                 "kind": "SCALAR",
                 "name": "Boolean",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "backgroundColor",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -20078,6 +20078,12 @@
               "deprecationReason": null
             },
             {
+              "name": "pluginCreator___pluginOptions___backgroundColor",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "pluginCreator___pluginOptions___linkImagesToOriginal",
               "description": null,
               "isDeprecated": false,
@@ -20091,12 +20097,6 @@
             },
             {
               "name": "pluginCreator___pluginOptions___sizeByPixelDensity",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pluginCreator___pluginOptions___backgroundColor",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -25309,6 +25309,12 @@
               "deprecationReason": null
             },
             {
+              "name": "pluginOptions___plugins___pluginOptions___backgroundColor",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "pluginOptions___plugins___pluginOptions___linkImagesToOriginal",
               "description": null,
               "isDeprecated": false,
@@ -25322,12 +25328,6 @@
             },
             {
               "name": "pluginOptions___plugins___pluginOptions___sizeByPixelDensity",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pluginOptions___plugins___pluginOptions___backgroundColor",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -25417,6 +25417,12 @@
               "deprecationReason": null
             },
             {
+              "name": "pluginOptions___backgroundColor",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "pluginOptions___linkImagesToOriginal",
               "description": null,
               "isDeprecated": false,
@@ -25430,12 +25436,6 @@
             },
             {
               "name": "pluginOptions___sizeByPixelDensity",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "pluginOptions___backgroundColor",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

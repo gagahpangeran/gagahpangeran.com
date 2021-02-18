@@ -45,10 +45,8 @@ jobs:
       - name: Build app
         run: yarn build
 
-      - name: Install netlify-cli
-        run: yarn global add netlify-cli@3.8.0
-
       - name: Deploy to netlify
+        uses: netlify/actions/cli@master
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

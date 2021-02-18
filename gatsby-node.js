@@ -9,12 +9,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query GatsbyNode {
-      allMarkdownRemark(limit: 1000) {
+      allPosts: allMarkdownRemark(limit: 1000) {
         nodes {
           id
           fields {
             slug
           }
+        }
+      }
+
+      allCategories: allMarkdownRemark {
+        group(field: frontmatter___category) {
+          fieldValue
+        }
+      }
+
+      allTags: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          fieldValue
         }
       }
     }
@@ -28,7 +40,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  const posts = result.data.allMarkdownRemark.nodes;
+  const posts = result.data.allPosts.nodes;
+  const categories = result.data.allCategories.group;
+  const tags = result.data.allTags.group;
 
   if (posts.length <= 0) {
     reporter.warn(`There is no posts!`);
@@ -54,7 +68,30 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: BlogTemplate,
       context: {
         limit: postPerPage,
-        skip: index * postPerPage
+        skip: index * postPerPage,
+        type: "Index"
+      }
+    });
+  });
+
+  categories.forEach(category => {
+    createPage({
+      path: `category/${category.fieldValue.toLowerCase()}`,
+      component: BlogTemplate,
+      context: {
+        filterValue: category.fieldValue,
+        type: "Category"
+      }
+    });
+  });
+
+  tags.forEach(tags => {
+    createPage({
+      path: `tag/${tags.fieldValue.toLowerCase()}`,
+      component: BlogTemplate,
+      context: {
+        filterValue: tags.fieldValue,
+        type: "Tag"
       }
     });
   });

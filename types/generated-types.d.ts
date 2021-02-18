@@ -83,13 +83,116 @@ export interface BlogTemplate_posts {
   nodes: BlogTemplate_posts_nodes[];
 }
 
+export interface BlogTemplate_categories_nodes_fields {
+  __typename: "MarkdownRemarkFields";
+  slug: string | null;
+}
+
+export interface BlogTemplate_categories_nodes_frontmatter_featuredImage_childImageSharp_fluid {
+  __typename: "ImageSharpFluid";
+  base64: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+}
+
+export interface BlogTemplate_categories_nodes_frontmatter_featuredImage_childImageSharp {
+  __typename: "ImageSharp";
+  fluid: BlogTemplate_categories_nodes_frontmatter_featuredImage_childImageSharp_fluid | null;
+}
+
+export interface BlogTemplate_categories_nodes_frontmatter_featuredImage {
+  __typename: "File";
+  /**
+   * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
+   */
+  childImageSharp: BlogTemplate_categories_nodes_frontmatter_featuredImage_childImageSharp | null;
+}
+
+export interface BlogTemplate_categories_nodes_frontmatter {
+  __typename: "MarkdownRemarkFrontmatter";
+  title: string | null;
+  description: string | null;
+  date: any | null;
+  category: string | null;
+  tags: (string | null)[] | null;
+  featuredImage: BlogTemplate_categories_nodes_frontmatter_featuredImage | null;
+}
+
+export interface BlogTemplate_categories_nodes {
+  __typename: "MarkdownRemark";
+  id: string;
+  excerpt: string | null;
+  fields: BlogTemplate_categories_nodes_fields | null;
+  frontmatter: BlogTemplate_categories_nodes_frontmatter | null;
+}
+
+export interface BlogTemplate_categories {
+  __typename: "MarkdownRemarkConnection";
+  nodes: BlogTemplate_categories_nodes[];
+}
+
+export interface BlogTemplate_tags_nodes_fields {
+  __typename: "MarkdownRemarkFields";
+  slug: string | null;
+}
+
+export interface BlogTemplate_tags_nodes_frontmatter_featuredImage_childImageSharp_fluid {
+  __typename: "ImageSharpFluid";
+  base64: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+}
+
+export interface BlogTemplate_tags_nodes_frontmatter_featuredImage_childImageSharp {
+  __typename: "ImageSharp";
+  fluid: BlogTemplate_tags_nodes_frontmatter_featuredImage_childImageSharp_fluid | null;
+}
+
+export interface BlogTemplate_tags_nodes_frontmatter_featuredImage {
+  __typename: "File";
+  /**
+   * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
+   */
+  childImageSharp: BlogTemplate_tags_nodes_frontmatter_featuredImage_childImageSharp | null;
+}
+
+export interface BlogTemplate_tags_nodes_frontmatter {
+  __typename: "MarkdownRemarkFrontmatter";
+  title: string | null;
+  description: string | null;
+  date: any | null;
+  category: string | null;
+  tags: (string | null)[] | null;
+  featuredImage: BlogTemplate_tags_nodes_frontmatter_featuredImage | null;
+}
+
+export interface BlogTemplate_tags_nodes {
+  __typename: "MarkdownRemark";
+  id: string;
+  excerpt: string | null;
+  fields: BlogTemplate_tags_nodes_fields | null;
+  frontmatter: BlogTemplate_tags_nodes_frontmatter | null;
+}
+
+export interface BlogTemplate_tags {
+  __typename: "MarkdownRemarkConnection";
+  nodes: BlogTemplate_tags_nodes[];
+}
+
 export interface BlogTemplate {
   posts: BlogTemplate_posts;
+  categories: BlogTemplate_categories;
+  tags: BlogTemplate_tags;
 }
 
 export interface BlogTemplateVariables {
   skip?: number | null;
   limit?: number | null;
+  filterValue?: string | null;
 }
 
 /* tslint:disable */
@@ -631,6 +734,65 @@ export interface GatsbyImageSharpSizes_withWebp_noBase64 {
   srcWebp: string | null;
   srcSetWebp: string | null;
   sizes: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL fragment: postDetail
+// ====================================================
+
+export interface postDetail_nodes_fields {
+  __typename: "MarkdownRemarkFields";
+  slug: string | null;
+}
+
+export interface postDetail_nodes_frontmatter_featuredImage_childImageSharp_fluid {
+  __typename: "ImageSharpFluid";
+  base64: string | null;
+  aspectRatio: number;
+  src: string;
+  srcSet: string;
+  sizes: string;
+}
+
+export interface postDetail_nodes_frontmatter_featuredImage_childImageSharp {
+  __typename: "ImageSharp";
+  fluid: postDetail_nodes_frontmatter_featuredImage_childImageSharp_fluid | null;
+}
+
+export interface postDetail_nodes_frontmatter_featuredImage {
+  __typename: "File";
+  /**
+   * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
+   */
+  childImageSharp: postDetail_nodes_frontmatter_featuredImage_childImageSharp | null;
+}
+
+export interface postDetail_nodes_frontmatter {
+  __typename: "MarkdownRemarkFrontmatter";
+  title: string | null;
+  description: string | null;
+  date: any | null;
+  category: string | null;
+  tags: (string | null)[] | null;
+  featuredImage: postDetail_nodes_frontmatter_featuredImage | null;
+}
+
+export interface postDetail_nodes {
+  __typename: "MarkdownRemark";
+  id: string;
+  excerpt: string | null;
+  fields: postDetail_nodes_fields | null;
+  frontmatter: postDetail_nodes_frontmatter | null;
+}
+
+export interface postDetail {
+  __typename: "MarkdownRemarkConnection";
+  nodes: postDetail_nodes[];
 }
 
 /* tslint:disable */

@@ -48,29 +48,47 @@ const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
 export default Blog;
 
 export const pageQuery = graphql`
-  query BlogTemplate($skip: Int, $limit: Int) {
+  query BlogTemplate($skip: Int, $limit: Int, $filterValue: String) {
     posts: allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
       skip: $skip
       limit: $limit
     ) {
-      nodes {
-        id
-        excerpt(pruneLength: 160)
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          description
-          date(formatString: "MMMM DD, YYYY")
-          category
-          tags
-          featuredImage {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
+      ...postDetail
+    }
+
+    categories: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: $filterValue } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      ...postDetail
+    }
+
+    tags: allMarkdownRemark(
+      filter: { frontmatter: { tags: { eq: $filterValue } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      ...postDetail
+    }
+  }
+
+  fragment postDetail on MarkdownRemarkConnection {
+    nodes {
+      id
+      excerpt(pruneLength: 160)
+      fields {
+        slug
+      }
+      frontmatter {
+        title
+        description
+        date(formatString: "MMMM DD, YYYY")
+        category
+        tags
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

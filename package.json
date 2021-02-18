@@ -68,7 +68,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
-    "test": "echo \"No Test!\""
+    "test": "jest"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,md}": [

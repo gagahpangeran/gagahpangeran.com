@@ -16553,7 +16553,7 @@
               "defaultValue": null
             },
             {
-              "name": "name",
+              "name": "path",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -16563,7 +16563,7 @@
               "defaultValue": null
             },
             {
-              "name": "path",
+              "name": "name",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -17972,7 +17972,7 @@
               "deprecationReason": null
             },
             {
-              "name": "name",
+              "name": "path",
               "description": null,
               "args": [],
               "type": {
@@ -17984,7 +17984,7 @@
               "deprecationReason": null
             },
             {
-              "name": "path",
+              "name": "name",
               "description": null,
               "args": [],
               "type": {
@@ -20054,13 +20054,13 @@
               "deprecationReason": null
             },
             {
-              "name": "pluginCreator___pluginOptions___name",
+              "name": "pluginCreator___pluginOptions___path",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "pluginCreator___pluginOptions___path",
+              "name": "pluginCreator___pluginOptions___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -25393,13 +25393,13 @@
               "deprecationReason": null
             },
             {
-              "name": "pluginOptions___name",
+              "name": "pluginOptions___path",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "pluginOptions___path",
+              "name": "pluginOptions___name",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

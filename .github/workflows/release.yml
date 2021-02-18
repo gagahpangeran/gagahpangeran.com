@@ -36,7 +36,7 @@ jobs:
         run: yarn build
 
       - name: Install netlify-cli
-        run: yarn global install netlify-cli@3.8.0
+        run: yarn global add netlify-cli@3.8.0
 
       - name: Deploy to netlify
         env:

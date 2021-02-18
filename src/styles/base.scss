@@ -141,17 +141,6 @@ strong {
   font-weight: bolder;
 }
 
-footer {
-  text-align: center;
-  padding: 20px 0;
-  flex-shrink: 0;
-
-  span {
-    color: var(--blue-dark);
-    cursor: pointer;
-  }
-}
-
 .wrapper {
   max-width: 720px;
   margin: 0 auto;

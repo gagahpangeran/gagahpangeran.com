@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 interface Props {
@@ -10,23 +11,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Navbar />
       <div className="wrapper">{children}</div>
-      <footer>
-        <h6>
-          &copy; {new Date().getFullYear()} -{" "}
-          <a href="https://gagahpangeran.com">GPR</a> -{" "}
-          <span
-            onClick={() => {
-              window.scroll({
-                top: 0,
-                left: 0,
-                behavior: "smooth"
-              });
-            }}
-          >
-            Go To Top
-          </span>
-        </h6>
-      </footer>
+      <Footer />
     </>
   );
 };

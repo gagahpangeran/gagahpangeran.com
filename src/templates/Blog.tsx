@@ -6,7 +6,15 @@ import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
 
-const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
+interface PageContext {
+  type: "Index" | "Category" | "Tags";
+  filterValue: string | null;
+}
+
+const Blog: React.FC<PageProps<BlogTemplate, PageContext>> = ({
+  data,
+  pageContext
+}) => {
   const posts = data.posts.nodes;
 
   return (

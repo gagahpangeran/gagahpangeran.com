@@ -1,19 +1,10 @@
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import Img, { FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 import React from "react";
+import { getPostData } from "../utils/helper";
 import CategoryTags from "./CategoryTags";
-
-interface Props {
-  title: string;
-  date: string;
-  excerpt: string;
-  slug: string;
-  image: FluidObject;
-  category: string | null;
-  tags: (string | null)[];
-}
 
 const PostCard = ({
   title,
@@ -23,7 +14,7 @@ const PostCard = ({
   image,
   category,
   tags
-}: Props) => {
+}: ReturnType<typeof getPostData>) => {
   return (
     <section className="post-card">
       <div className="post-card__thumbnail">

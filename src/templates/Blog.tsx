@@ -1,10 +1,10 @@
 import { graphql, PageProps } from "gatsby";
-import { FluidObject } from "gatsby-image";
 import React from "react";
 import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
+import { getPostData } from "../utils/helper";
 
 interface PageContext {
   type: "Index" | "Category" | "Tags";
@@ -24,30 +24,9 @@ const Blog: React.FC<PageProps<BlogTemplate, PageContext>> = ({
       <h2>Part Time Student, Full Time Learner.</h2>
 
       <main>
-        {posts.map(post => {
-          const id = post.id;
-          const title = post.frontmatter?.title ?? "";
-          const date = post.frontmatter?.date ?? "";
-          const excerpt = post.frontmatter?.description ?? post.excerpt ?? "";
-          const slug = post.fields?.slug ?? "";
-          const category = post.frontmatter?.category ?? null;
-          const tags = post.frontmatter?.tags ?? [];
-          const image = post.frontmatter?.featuredImage?.childImageSharp
-            ?.fluid as FluidObject;
-
-          return (
-            <PostCard
-              key={id}
-              title={title}
-              date={date}
-              excerpt={excerpt}
-              slug={slug}
-              image={image}
-              category={category}
-              tags={tags}
-            />
-          );
-        })}
+        {posts.map(post => (
+          <PostCard {...getPostData(post)} />
+        ))}
       </main>
     </Layout>
   );
@@ -62,42 +41,48 @@ export const pageQuery = graphql`
       skip: $skip
       limit: $limit
     ) {
-      ...postDetail
+      nodes {
+        ...PostDetail
+      }
     }
 
     categories: allMarkdownRemark(
       filter: { frontmatter: { category: { eq: $filterValue } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
-      ...postDetail
+      nodes {
+        ...PostDetail
+      }
     }
 
     tags: allMarkdownRemark(
       filter: { frontmatter: { tags: { eq: $filterValue } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
-      ...postDetail
+      nodes {
+        ...PostDetail
+      }
     }
   }
 
-  fragment postDetail on MarkdownRemarkConnection {
-    nodes {
-      id
-      excerpt(pruneLength: 160)
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        description
-        date(formatString: "MMMM DD, YYYY")
-        category
-        tags
-        featuredImage {
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+  fragment PostDetail on MarkdownRemark {
+    id
+    excerpt(pruneLength: 160)
+    html
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      description
+      date(formatString: "MMMM DD, YYYY")
+      category
+      tags
+      featuredImage {
+        publicURL
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
           }
         }
       }

@@ -28,7 +28,7 @@ const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
 
       <main>
         {posts.map(post => (
-          <PostCard {...getPostData(post)} />
+          <PostCard key={post.id} {...getPostData(post)} />
         ))}
       </main>
     </Layout>

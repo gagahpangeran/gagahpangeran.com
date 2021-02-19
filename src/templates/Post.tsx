@@ -37,7 +37,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
           </time>
           <CategoryTags category={category} tags={tags} />
           <ShareButton link={`${siteUrl}${slug}`} />
-          <a href={imageUrl} target="_blank" rel="noopener">
+          <a href={imageUrl} target="_blank" rel="noopener noreferrer">
             <Img fluid={image} alt={title} title={title} />
           </a>
           <div

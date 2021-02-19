@@ -43,7 +43,7 @@ export function getBlogData(
         desc: `All Posts Under Category "${filterValue}"`,
         posts: blogData.categories.nodes
       };
-    case "Tags":
+    case "Tag":
       return {
         pageTitle: filterValue,
         pageDesc: `Show All Posts Under Tag "${filterValue}"`,

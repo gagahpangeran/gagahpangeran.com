@@ -8,7 +8,7 @@ import CategoryTags from "../components/CategoryTags";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
-import { getPostData } from "../utils/helper";
+import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
   const { post, site } = data;

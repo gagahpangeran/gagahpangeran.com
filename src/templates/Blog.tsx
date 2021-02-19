@@ -4,7 +4,7 @@ import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
-import { getBlogData, getPostData } from "../utils/helper";
+import { getBlogData, getPostData } from "../utils/data";
 
 export interface BlogPageContext {
   type: "Index" | "Category" | "Tags";

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import { getPostData } from "../utils/helper";
+import { getPostData } from "../utils/data";
 import CategoryTags from "./CategoryTags";
 
 const PostCard = ({

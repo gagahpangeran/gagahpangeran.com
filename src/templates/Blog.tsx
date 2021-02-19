@@ -4,16 +4,27 @@ import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
-import { getPostData } from "../utils/helper";
+import { getBlogData, getPostData } from "../utils/data";
 
-const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
-  const posts = data.posts.nodes;
+export interface BlogPageContext {
+  type: "Index" | "Category" | "Tag";
+  filterValue: string;
+}
+
+const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
+  data,
+  pageContext
+}) => {
+  const { posts, title, desc, pageTitle, pageDesc } = getBlogData(
+    pageContext,
+    data
+  );
 
   return (
     <Layout>
-      <SEO title="Blog" description="Part Time Student, Full Time Learner" />
-      <h1>GPR's Blog</h1>
-      <h2>Part Time Student, Full Time Learner.</h2>
+      <SEO title={title} description={desc} />
+      <h1>{pageTitle}</h1>
+      <h2>{pageDesc}</h2>
 
       <main>
         {posts.map(post => (
@@ -27,7 +38,7 @@ const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
 export default Blog;
 
 export const pageQuery = graphql`
-  query BlogTemplate($skip: Int, $limit: Int) {
+  query BlogTemplate($skip: Int, $limit: Int, $filterValue: String) {
     posts: allMarkdownRemark(
       sort: { fields: frontmatter___date, order: DESC }
       skip: $skip
@@ -37,28 +48,22 @@ export const pageQuery = graphql`
         ...PostDetail
       }
     }
-  }
 
-  fragment PostDetail on MarkdownRemark {
-    id
-    excerpt(pruneLength: 160)
-    html
-    fields {
-      slug
+    categories: allMarkdownRemark(
+      filter: { frontmatter: { category: { eq: $filterValue } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        ...PostDetail
+      }
     }
-    frontmatter {
-      title
-      description
-      date(formatString: "MMMM DD, YYYY")
-      category
-      tags
-      featuredImage {
-        publicURL
-        childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
-        }
+
+    tags: allMarkdownRemark(
+      filter: { frontmatter: { tags: { eq: $filterValue } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
+      nodes {
+        ...PostDetail
       }
     }
   }

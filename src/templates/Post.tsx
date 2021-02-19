@@ -8,7 +8,7 @@ import CategoryTags from "../components/CategoryTags";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
-import { getPostData } from "../utils/helper";
+import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
   const { post, site } = data;
@@ -61,6 +61,30 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         siteUrl
+      }
+    }
+  }
+
+  fragment PostDetail on MarkdownRemark {
+    id
+    excerpt(pruneLength: 160)
+    html
+    fields {
+      slug
+    }
+    frontmatter {
+      title
+      description
+      date(formatString: "MMMM DD, YYYY")
+      category
+      tags
+      featuredImage {
+        publicURL
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   }

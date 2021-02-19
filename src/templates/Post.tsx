@@ -53,27 +53,7 @@ export default Post;
 export const pageQuery = graphql`
   query PostTemplate($id: String!) {
     post: markdownRemark(id: { eq: $id }) {
-      id
-      fields {
-        slug
-      }
-      excerpt(pruneLength: 160)
-      html
-      frontmatter {
-        title
-        description
-        date(formatString: "MMMM DD, YYYY")
-        category
-        tags
-        featuredImage {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
+      ...postDetail
     }
 
     site {

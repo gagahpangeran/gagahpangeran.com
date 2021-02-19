@@ -55,23 +55,10 @@ export const pageQuery = graphql`
       limit: $limit
     ) {
       nodes {
-        id
-        excerpt(pruneLength: 160)
-        fields {
-          slug
-        }
-        frontmatter {
-          title
-          description
-          date(formatString: "MMMM DD, YYYY")
-          category
-          tags
-          featuredImage {
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+        ...postDetail
+      }
+    }
+  }
 
   fragment postDetail on MarkdownRemark {
     id

@@ -76,7 +76,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   categories.forEach(category => {
     createPage({
-      path: `category/${category.fieldValue.toLowerCase()}`,
+      path: `category/${category.fieldValue.toLowerCase().replace(/ /g, "-")}`,
       component: BlogTemplate,
       context: {
         filterValue: category.fieldValue,
@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   tags.forEach(tag => {
     createPage({
-      path: `tag/${tag.fieldValue.toLowerCase()}`,
+      path: `tag/${tag.fieldValue.toLowerCase().replace(/ /g, "-")}`,
       component: BlogTemplate,
       context: {
         filterValue: tag.fieldValue,

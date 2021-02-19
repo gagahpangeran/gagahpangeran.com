@@ -27,7 +27,7 @@ const CategoryTags = ({ category, tags }: Props) => {
       {list.map(({ type, item }) => (
         <Link
           key={`${type}-${item}`}
-          to={`${type}/${item}`}
+          to={`/${type}/${item.toLowerCase()}`}
           className={`category-tags__link ${type}`}
         >
           {item}

@@ -1,10 +1,10 @@
 import { graphql, PageProps } from "gatsby";
-import { FluidObject } from "gatsby-image";
 import React from "react";
 import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
+import { getPostData } from "../utils/helper";
 
 const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
   const posts = data.posts.nodes;
@@ -16,30 +16,9 @@ const Blog: React.FC<PageProps<BlogTemplate>> = ({ data }) => {
       <h2>Part Time Student, Full Time Learner.</h2>
 
       <main>
-        {posts.map(post => {
-          const id = post.id;
-          const title = post.frontmatter?.title ?? "";
-          const date = post.frontmatter?.date ?? "";
-          const excerpt = post.frontmatter?.description ?? post.excerpt ?? "";
-          const slug = post.fields?.slug ?? "";
-          const category = post.frontmatter?.category ?? null;
-          const tags = post.frontmatter?.tags ?? [];
-          const image = post.frontmatter?.featuredImage?.childImageSharp
-            ?.fluid as FluidObject;
-
-          return (
-            <PostCard
-              key={id}
-              title={title}
-              date={date}
-              excerpt={excerpt}
-              slug={slug}
-              image={image}
-              category={category}
-              tags={tags}
-            />
-          );
-        })}
+        {posts.map(post => (
+          <PostCard {...getPostData(post)} />
+        ))}
       </main>
     </Layout>
   );

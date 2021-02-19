@@ -1,5 +1,6 @@
 import { FluidObject } from "gatsby-image";
-import { PostDetail } from "../../types/generated-types";
+import { BlogTemplate, PostDetail } from "../../types/generated-types";
+import { BlogPageContext } from "../templates/Blog";
 
 export function getPostData(data: PostDetail) {
   const { id, excerpt, html, fields, frontmatter } = data;
@@ -16,4 +17,39 @@ export function getPostData(data: PostDetail) {
     slug: fields?.slug ?? "",
     html: html ?? ""
   };
+}
+
+export function getBlogData(
+  pageContext: BlogPageContext,
+  blogData: BlogTemplate
+) {
+  const { filterValue, type } = pageContext;
+
+  switch (type) {
+    case "Index":
+    default:
+      return {
+        pageTitle: "GPR's Blog",
+        pageDesc: "Part Time Student, Full Time Learner",
+        title: "Blog",
+        desc: "Part Time Student, Full Time Learner",
+        posts: blogData.posts.nodes
+      };
+    case "Category":
+      return {
+        pageTitle: filterValue,
+        pageDesc: `Show All Posts Under Category "${filterValue}"`,
+        title: `Category "${filterValue}"`,
+        desc: `All Posts Under Category "${filterValue}"`,
+        posts: blogData.categories.nodes
+      };
+    case "Tags":
+      return {
+        pageTitle: filterValue,
+        pageDesc: `Show All Posts Under Tag "${filterValue}"`,
+        title: `Tag "${filterValue}"`,
+        desc: `All Posts Under Tag "${filterValue}"`,
+        posts: blogData.tags.nodes
+      };
+  }
 }

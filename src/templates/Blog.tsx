@@ -55,12 +55,12 @@ export const pageQuery = graphql`
       limit: $limit
     ) {
       nodes {
-        ...postDetail
+        ...PostDetail
       }
     }
   }
 
-  fragment postDetail on MarkdownRemark {
+  fragment PostDetail on MarkdownRemark {
     id
     excerpt(pruneLength: 160)
     html
@@ -74,6 +74,7 @@ export const pageQuery = graphql`
       category
       tags
       featuredImage {
+        publicURL
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid

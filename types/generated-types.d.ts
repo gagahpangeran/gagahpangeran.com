@@ -55,6 +55,10 @@ export interface BlogTemplate_posts_nodes_frontmatter_featuredImage_childImageSh
 export interface BlogTemplate_posts_nodes_frontmatter_featuredImage {
   __typename: "File";
   /**
+   * Copy file to static directory and return public url to it
+   */
+  publicURL: string | null;
+  /**
    * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
    */
   childImageSharp: BlogTemplate_posts_nodes_frontmatter_featuredImage_childImageSharp | null;
@@ -123,6 +127,10 @@ export interface PostTemplate_post_frontmatter_featuredImage_childImageSharp {
 
 export interface PostTemplate_post_frontmatter_featuredImage {
   __typename: "File";
+  /**
+   * Copy file to static directory and return public url to it
+   */
+  publicURL: string | null;
   /**
    * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
    */
@@ -636,15 +644,15 @@ export interface GatsbyImageSharpSizes_withWebp_noBase64 {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
-// GraphQL fragment: postDetail
+// GraphQL fragment: PostDetail
 // ====================================================
 
-export interface postDetail_fields {
+export interface PostDetail_fields {
   __typename: "MarkdownRemarkFields";
   slug: string | null;
 }
 
-export interface postDetail_frontmatter_featuredImage_childImageSharp_fluid {
+export interface PostDetail_frontmatter_featuredImage_childImageSharp_fluid {
   __typename: "ImageSharpFluid";
   base64: string | null;
   aspectRatio: number;
@@ -653,36 +661,40 @@ export interface postDetail_frontmatter_featuredImage_childImageSharp_fluid {
   sizes: string;
 }
 
-export interface postDetail_frontmatter_featuredImage_childImageSharp {
+export interface PostDetail_frontmatter_featuredImage_childImageSharp {
   __typename: "ImageSharp";
-  fluid: postDetail_frontmatter_featuredImage_childImageSharp_fluid | null;
+  fluid: PostDetail_frontmatter_featuredImage_childImageSharp_fluid | null;
 }
 
-export interface postDetail_frontmatter_featuredImage {
+export interface PostDetail_frontmatter_featuredImage {
   __typename: "File";
+  /**
+   * Copy file to static directory and return public url to it
+   */
+  publicURL: string | null;
   /**
    * Returns the first child node of type ImageSharp or null if there are no children of given type on this node
    */
-  childImageSharp: postDetail_frontmatter_featuredImage_childImageSharp | null;
+  childImageSharp: PostDetail_frontmatter_featuredImage_childImageSharp | null;
 }
 
-export interface postDetail_frontmatter {
+export interface PostDetail_frontmatter {
   __typename: "MarkdownRemarkFrontmatter";
   title: string | null;
   description: string | null;
   date: any | null;
   category: string | null;
   tags: (string | null)[] | null;
-  featuredImage: postDetail_frontmatter_featuredImage | null;
+  featuredImage: PostDetail_frontmatter_featuredImage | null;
 }
 
-export interface postDetail {
+export interface PostDetail {
   __typename: "MarkdownRemark";
   id: string;
   excerpt: string | null;
   html: string | null;
-  fields: postDetail_fields | null;
-  frontmatter: postDetail_frontmatter | null;
+  fields: PostDetail_fields | null;
+  frontmatter: PostDetail_frontmatter | null;
 }
 
 /* tslint:disable */

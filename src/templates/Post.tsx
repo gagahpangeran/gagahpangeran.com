@@ -53,7 +53,7 @@ export default Post;
 export const pageQuery = graphql`
   query PostTemplate($id: String!) {
     post: markdownRemark(id: { eq: $id }) {
-      ...postDetail
+      ...PostDetail
     }
 
     site {

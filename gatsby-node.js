@@ -85,12 +85,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
-  tags.forEach(tags => {
+  tags.forEach(tag => {
     createPage({
-      path: `tag/${tags.fieldValue.toLowerCase()}`,
+      path: `tag/${tag.fieldValue.toLowerCase()}`,
       component: BlogTemplate,
       context: {
-        filterValue: tags.fieldValue,
+        filterValue: tag.fieldValue,
         type: "Tag"
       }
     });

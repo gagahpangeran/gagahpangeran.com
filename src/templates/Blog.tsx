@@ -4,24 +4,27 @@ import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
-import { getPostData } from "../utils/helper";
+import { getBlogData, getPostData } from "../utils/helper";
 
-interface PageContext {
+export interface BlogPageContext {
   type: "Index" | "Category" | "Tags";
-  filterValue: string | null;
+  filterValue: string;
 }
 
-const Blog: React.FC<PageProps<BlogTemplate, PageContext>> = ({
+const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
   data,
   pageContext
 }) => {
-  const posts = data.posts.nodes;
+  const { posts, title, desc, pageTitle, pageDesc } = getBlogData(
+    pageContext,
+    data
+  );
 
   return (
     <Layout>
-      <SEO title="Blog" description="Part Time Student, Full Time Learner" />
-      <h1>GPR's Blog</h1>
-      <h2>Part Time Student, Full Time Learner.</h2>
+      <SEO title={title} description={desc} />
+      <h1>{pageTitle}</h1>
+      <h2>{pageDesc}</h2>
 
       <main>
         {posts.map(post => (

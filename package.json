@@ -78,8 +78,11 @@
     "test": "jest"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,md}": [
+    "*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix"
     ]
   },
   "husky": {

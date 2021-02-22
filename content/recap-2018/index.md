@@ -5,7 +5,7 @@ description:
   "Recap kehidupan gue selama 2018 kemarin akhirnya ditulis juga. Jadi kali ini
   gue akan menulis tentang apa saja yang gue lakukan di 2018 kemarin."
 featuredImage: ./img/misan-evergarden.jpg
-category: Story
+categories: ["Story"]
 tags: ["Fasilkom", "College"]
 ---
 

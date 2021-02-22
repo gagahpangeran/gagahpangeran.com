@@ -7,7 +7,7 @@ description:
   dengan SJW? Gimana caranya gue bisa menang padahal dikejar-kejar deadline PPL?
   Nah gini ceritanya."
 featuredImage: ./img/scw.png
-category: Story
+categories: ["Story"]
 tags: ["DevOpsDay Jakarta", "Secure Code Warrior"]
 ---
 

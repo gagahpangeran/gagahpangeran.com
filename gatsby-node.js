@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
 
       allCategories: allMarkdownRemark {
-        group(field: frontmatter___category) {
+        group(field: frontmatter___categories) {
           ...GroupInfo
         }
       }

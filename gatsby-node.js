@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const kebabCase = require("lodash.kebabcase");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
@@ -20,22 +22,27 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
       allCategories: allMarkdownRemark {
         group(field: frontmatter___category) {
-          fieldValue
+          ...GroupInfo
         }
       }
 
       allTags: allMarkdownRemark {
         group(field: frontmatter___tags) {
-          fieldValue
+          ...GroupInfo
         }
       }
+    }
+
+    fragment GroupInfo on MarkdownRemarkGroupConnection {
+      fieldValue
+      totalCount
     }
   `);
 
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error when loading blog posts`,
-      results.errors
+      result.errors
     );
     return;
   }
@@ -60,39 +67,48 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 
   const postPerPage = 5;
-  const numPages = Math.ceil(posts.length / postPerPage);
 
-  Array.from({ length: numPages }).forEach((_, index) => {
-    createPage({
-      path: index === 0 ? "/" : `/${index + 1}`,
-      component: BlogTemplate,
-      context: {
-        limit: postPerPage,
-        skip: index * postPerPage,
-        type: "Index"
-      }
+  const createUpdatePage = ({ slug, type, postCount, filterValue }) => {
+    const numPages = Math.ceil(postCount / postPerPage);
+    const path = `${slug}${filterValue ? `/${kebabCase(filterValue)}` : ""}`;
+
+    Array.from({ length: numPages }).forEach((_, index) => {
+      reporter.info(`Creating page ${path}, type ${type}`);
+
+      createPage({
+        path: `${path}/${index === 0 ? "" : `${index + 1}`}`,
+        component: BlogTemplate,
+        context: {
+          limit: postPerPage,
+          skip: index * postPerPage,
+          type,
+          filterValue
+        }
+      });
     });
+  };
+
+  createUpdatePage({
+    slug: "",
+    type: "Index",
+    postCount: posts.length
   });
 
   categories.forEach(category => {
-    createPage({
-      path: `category/${category.fieldValue.toLowerCase().replace(/ /g, "-")}`,
-      component: BlogTemplate,
-      context: {
-        filterValue: category.fieldValue,
-        type: "Category"
-      }
+    createUpdatePage({
+      slug: "category",
+      type: "Category",
+      postCount: category.totalCount,
+      filterValue: category.fieldValue
     });
   });
 
   tags.forEach(tag => {
-    createPage({
-      path: `tag/${tag.fieldValue.toLowerCase().replace(/ /g, "-")}`,
-      component: BlogTemplate,
-      context: {
-        filterValue: tag.fieldValue,
-        type: "Tag"
-      }
+    createUpdatePage({
+      slug: "tag",
+      type: "Tag",
+      postCount: tag.totalCount,
+      filterValue: tag.fieldValue
     });
   });
 };

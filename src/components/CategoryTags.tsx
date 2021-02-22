@@ -1,4 +1,5 @@
 import { Link } from "gatsby";
+import kebabCase from "lodash.kebabcase";
 import React from "react";
 
 interface Props {
@@ -26,8 +27,8 @@ const CategoryTags = ({ category, tags }: Props) => {
     <div className="category-tags">
       {list.map(({ type, item }) => (
         <Link
-          key={`${type}-${item}`}
-          to={`/${type}/${item.toLowerCase().replaceAll(" ", "-")}`}
+          key={`${type}-${kebabCase(item)}`}
+          to={`/${type}/${kebabCase(item)}`}
           className={`category-tags__link ${type}`}
         >
           {item}

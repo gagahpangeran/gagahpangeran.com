@@ -4,7 +4,7 @@ import { graphql, PageProps } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import { PostDetail, PostTemplate } from "../../types/generated-types";
-import CategoryTags from "../components/CategoryTags";
+import CategoryTag from "../components/CategoryTag";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
@@ -17,7 +17,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
     title,
     excerpt,
     date,
-    category,
+    categories,
     tags,
     slug,
     imageUrl,
@@ -35,7 +35,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
             <FontAwesomeIcon icon={faClock} />
             <span>{date}</span>
           </time>
-          <CategoryTags category={category} tags={tags} />
+          <CategoryTag categories={categories} tags={tags} />
           <ShareButton link={`${siteUrl}${slug}`} />
           <a href={imageUrl} target="_blank" rel="noopener noreferrer">
             <Img fluid={image} alt={title} title={title} />
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
       title
       description
       date(formatString: "MMMM DD, YYYY")
-      category
+      categories
       tags
       featuredImage {
         publicURL

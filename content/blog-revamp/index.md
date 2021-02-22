@@ -5,7 +5,7 @@ description:
   "Currently I'm still revamping and fixing this blog after my VPS died and also
   causing this blog's backend, that using wordpress, died."
 featuredImage: ./img/wp-md.png
-category: Story
+categories: ["Story", "Tech"]
 tags: ["Blog Revamp", "Markdown", "Gatsby"]
 ---
 

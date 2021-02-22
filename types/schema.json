@@ -967,26 +967,6 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "port",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "IntQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
-                  "name": "host",
-                  "description": "",
-                  "type": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "StringQueryOperatorInput",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                },
-                {
                   "name": "polyfill",
                   "description": "",
                   "type": {
@@ -2713,7 +2693,7 @@
               "defaultValue": null
             },
             {
-              "name": "category",
+              "name": "categories",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -5988,13 +5968,17 @@
               "deprecationReason": null
             },
             {
-              "name": "category",
+              "name": "categories",
               "description": null,
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -9527,7 +9511,7 @@
               "deprecationReason": null
             },
             {
-              "name": "childrenMarkdownRemark___frontmatter___category",
+              "name": "childrenMarkdownRemark___frontmatter___categories",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -10109,7 +10093,7 @@
               "deprecationReason": null
             },
             {
-              "name": "childMarkdownRemark___frontmatter___category",
+              "name": "childMarkdownRemark___frontmatter___categories",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -15078,30 +15062,6 @@
               "deprecationReason": null
             },
             {
-              "name": "port",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "host",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
               "name": "polyfill",
               "description": null,
               "args": [],
@@ -15291,26 +15251,6 @@
               "defaultValue": null
             },
             {
-              "name": "port",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "IntQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
-              "name": "host",
-              "description": "",
-              "type": {
-                "kind": "INPUT_OBJECT",
-                "name": "StringQueryOperatorInput",
-                "ofType": null
-              },
-              "defaultValue": null
-            },
-            {
               "name": "polyfill",
               "description": "",
               "type": {
@@ -15448,18 +15388,6 @@
             },
             {
               "name": "siteMetadata___siteUrl",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "port",
-              "description": null,
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "host",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -21383,7 +21311,7 @@
               "deprecationReason": null
             },
             {
-              "name": "frontmatter___category",
+              "name": "frontmatter___categories",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

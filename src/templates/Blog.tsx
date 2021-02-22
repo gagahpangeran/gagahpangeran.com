@@ -1,3 +1,6 @@
+// Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
+
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { BlogTemplate } from "../../types/generated-types";

@@ -1,3 +1,6 @@
+// Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
+
 import { FluidObject } from "gatsby-image";
 import { BlogTemplate, PostDetail } from "../../types/generated-types";
 import { BlogPageContext } from "../templates/Blog";

@@ -1,4 +1,7 @@
 ---
+# Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under CC-BY-NC 4.0.
+# Read the LICENSE file inside the 'content' directory for full license text.
+
 title: Klik-klik Berhadiah di Secure Code Warrior
 date: "2020-03-20T18:35:00+07:00"
 description:

@@ -1,9 +1,5 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+// Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
 
 import React from "react";
 import Helmet from "react-helmet";

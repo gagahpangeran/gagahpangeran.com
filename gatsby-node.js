@@ -1,3 +1,6 @@
+// Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);

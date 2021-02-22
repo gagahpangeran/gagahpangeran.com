@@ -1,31 +1,20 @@
-name: Update Post Content
+name: Lint
 on:
   push:
     branches:
       - master
-    paths:
-      - "content/**"
-  workflow_run:
-    workflows: ["Lint", "Test"]
-    types:
-      - completed
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  post:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    name: Update Post
+  lint:
+    name: Lint All
     runs-on: ubuntu-latest
+
     steps:
-      - name: Fetch all tags
+      - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Checkout to latest tags
-        run: git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
-
-      - name: Get latest change in content directory from master branch
-        run: git checkout master content/
 
       - name: Install NodeJS
         uses: actions/setup-node@v1
@@ -53,14 +42,8 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Build app
-        run: yarn build
+      - name: Run linter script
+        run: yarn lint
 
-      - name: Deploy to netlify
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: |
-            deploy --dir=public --prod
+      - name: Run type check script
+        run: yarn type-check

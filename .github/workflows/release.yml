@@ -3,9 +3,14 @@ on:
   push:
     tags:
       - "*"
+  workflow_run:
+    workflows: ["Lint", "Test"]
+    types:
+      - completed
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Build and deploy website
     runs-on: ubuntu-latest
     steps:
@@ -21,12 +26,16 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      - name: Get local node modules directory path
+        id: yarn-node-modules-path
+        run: echo "::set-output name=dir::$(pwd)/node_modules"
+
       - uses: actions/cache@v2
         id: yarn-cache
         with:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            '**/node_modules'
+            ${{ steps.yarn-node-modules-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-

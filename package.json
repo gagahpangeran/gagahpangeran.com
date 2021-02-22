@@ -68,7 +68,12 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "yarn format-prettier && yarn format-eslint",
+    "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format-eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
+    "lint": "yarn lint-prettier && yarn lint-eslint",
+    "lint-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint-eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",

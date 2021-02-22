@@ -7,7 +7,7 @@ interface Props {
   tags: string[];
 }
 
-const CategoriesTags = ({ categories, tags }: Props) => {
+const CategoryTag = ({ categories, tags }: Props) => {
   const list = categories
     .map(item => ({
       type: "category",
@@ -21,12 +21,12 @@ const CategoriesTags = ({ categories, tags }: Props) => {
     );
 
   return (
-    <div className="categories-tags">
+    <div className="category-tag">
       {list.map(({ type, item }) => (
         <Link
           key={`${type}-${kebabCase(item)}`}
           to={`/${type}/${kebabCase(item)}`}
-          className={`categories-tags__link ${type}`}
+          className={`category-tag__link ${type}`}
         >
           {item}
         </Link>
@@ -35,4 +35,4 @@ const CategoriesTags = ({ categories, tags }: Props) => {
   );
 };
 
-export default CategoriesTags;
+export default CategoryTag;

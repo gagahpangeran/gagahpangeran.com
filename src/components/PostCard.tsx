@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import { getPostData } from "../utils/data";
-import CategoriesTags from "./CategoriesTags";
+import CategoryTag from "./CategoryTag";
 
 const PostCard = ({
   title,
@@ -35,7 +35,7 @@ const PostCard = ({
           <FontAwesomeIcon icon={faClock} />
           <span>{date}</span>
         </time>
-        <CategoriesTags categories={categories} tags={tags} />
+        <CategoryTag categories={categories} tags={tags} />
         <div
           className="post-card__info__summary"
           dangerouslySetInnerHTML={{ __html: excerpt }}

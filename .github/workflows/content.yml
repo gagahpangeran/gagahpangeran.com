@@ -5,14 +5,9 @@ on:
       - master
     paths:
       - "content/**"
-  workflow_run:
-    workflows: ["Lint", "Test"]
-    types:
-      - completed
 
 jobs:
   post:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Update Post
     runs-on: ubuntu-latest
     steps:

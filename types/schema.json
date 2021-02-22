@@ -2693,7 +2693,7 @@
               "defaultValue": null
             },
             {
-              "name": "category",
+              "name": "categories",
               "description": "",
               "type": {
                 "kind": "INPUT_OBJECT",
@@ -5968,13 +5968,17 @@
               "deprecationReason": null
             },
             {
-              "name": "category",
+              "name": "categories",
               "description": null,
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -9507,7 +9511,7 @@
               "deprecationReason": null
             },
             {
-              "name": "childrenMarkdownRemark___frontmatter___category",
+              "name": "childrenMarkdownRemark___frontmatter___categories",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -10089,7 +10093,7 @@
               "deprecationReason": null
             },
             {
-              "name": "childMarkdownRemark___frontmatter___category",
+              "name": "childMarkdownRemark___frontmatter___categories",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -21307,7 +21311,7 @@
               "deprecationReason": null
             },
             {
-              "name": "frontmatter___category",
+              "name": "frontmatter___categories",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

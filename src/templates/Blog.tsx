@@ -50,7 +50,7 @@ export const pageQuery = graphql`
     }
 
     categories: allMarkdownRemark(
-      filter: { frontmatter: { category: { eq: $filterValue } } }
+      filter: { frontmatter: { categories: { eq: $filterValue } } }
       sort: { fields: frontmatter___date, order: DESC }
       skip: $skip
       limit: $limit

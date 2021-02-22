@@ -69,7 +69,7 @@ export interface BlogTemplate_posts_nodes_frontmatter {
   title: string | null;
   description: string | null;
   date: any | null;
-  category: string | null;
+  categories: (string | null)[] | null;
   tags: (string | null)[] | null;
   featuredImage: BlogTemplate_posts_nodes_frontmatter_featuredImage | null;
 }
@@ -124,7 +124,7 @@ export interface BlogTemplate_categories_nodes_frontmatter {
   title: string | null;
   description: string | null;
   date: any | null;
-  category: string | null;
+  categories: (string | null)[] | null;
   tags: (string | null)[] | null;
   featuredImage: BlogTemplate_categories_nodes_frontmatter_featuredImage | null;
 }
@@ -179,7 +179,7 @@ export interface BlogTemplate_tags_nodes_frontmatter {
   title: string | null;
   description: string | null;
   date: any | null;
-  category: string | null;
+  categories: (string | null)[] | null;
   tags: (string | null)[] | null;
   featuredImage: BlogTemplate_tags_nodes_frontmatter_featuredImage | null;
 }
@@ -255,7 +255,7 @@ export interface PostTemplate_post_frontmatter {
   title: string | null;
   description: string | null;
   date: any | null;
-  category: string | null;
+  categories: (string | null)[] | null;
   tags: (string | null)[] | null;
   featuredImage: PostTemplate_post_frontmatter_featuredImage | null;
 }
@@ -796,7 +796,7 @@ export interface PostDetail_frontmatter {
   title: string | null;
   description: string | null;
   date: any | null;
-  category: string | null;
+  categories: (string | null)[] | null;
   tags: (string | null)[] | null;
   featuredImage: PostDetail_frontmatter_featuredImage | null;
 }

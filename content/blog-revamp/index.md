@@ -1,4 +1,7 @@
 ---
+# Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under CC-BY-NC 4.0.
+# Read the LICENSE file inside the 'content' directory for full license text.
+
 title: Blog Revamp
 date: "2021-02-17T15:16:00+07:00"
 description:

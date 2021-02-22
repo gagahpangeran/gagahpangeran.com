@@ -1,4 +1,7 @@
 ---
+# Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under CC-BY-NC 4.0.
+# Read the LICENSE file inside the 'content' directory for full license text.
+
 title: Recap 2018
 date: "2019-01-01T20:21:00+07:00"
 description:

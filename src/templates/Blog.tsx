@@ -39,13 +39,11 @@ const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
         ))}
       </main>
 
-      {pageContext.numPages > 0 && (
-        <Pagination
-          path={pageContext.templatePath}
-          numPages={pageContext.numPages}
-          page={pageContext.page}
-        />
-      )}
+      <Pagination
+        path={pageContext.templatePath}
+        numPages={pageContext.numPages}
+        page={pageContext.page}
+      />
     </Layout>
   );
 };

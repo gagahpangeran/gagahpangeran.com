@@ -11,6 +11,10 @@ interface Props {
 }
 
 export default function Pagination({ numPages, page, path }: Props) {
+  if (numPages <= 1) {
+    return null;
+  }
+
   return (
     <div className="pagination">
       <ul className="pagination__paging">

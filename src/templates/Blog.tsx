@@ -83,5 +83,16 @@ export const pageQuery = graphql`
         ...PostDetail
       }
     }
+
+    langs: allMarkdownRemark(
+      filter: { frontmatter: { lang: { eq: $filterValue } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      skip: $skip
+      limit: $limit
+    ) {
+      nodes {
+        ...PostDetail
+      }
+    }
   }
 `;

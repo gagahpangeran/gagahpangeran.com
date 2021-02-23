@@ -11,7 +11,7 @@ import SEO from "../components/SEO";
 import { getBlogData, getPostData } from "../utils/data";
 
 export interface BlogPageContext {
-  type: "Index" | "Category" | "Tag";
+  type: "Index" | "Category" | "Tag" | "Language";
   filterValue: string;
   templatePath: string;
   page: number;

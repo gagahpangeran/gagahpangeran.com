@@ -16,7 +16,8 @@ const PostCard = ({
   slug,
   image,
   categories,
-  tags
+  tags,
+  lang
 }: ReturnType<typeof getPostData>) => {
   return (
     <section className="post-card">
@@ -38,7 +39,7 @@ const PostCard = ({
           <FontAwesomeIcon icon={faClock} />
           <span>{date}</span>
         </time>
-        <PostLabel categories={categories} tags={tags} />
+        <PostLabel categories={categories} tags={tags} lang={lang} />
         <div
           className="post-card__info__summary"
           dangerouslySetInnerHTML={{ __html: excerpt }}

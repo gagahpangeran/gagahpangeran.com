@@ -8,9 +8,10 @@ import React from "react";
 interface Props {
   categories: string[];
   tags: string[];
+  lang: string;
 }
 
-const PostLabel = ({ categories, tags }: Props) => {
+const PostLabel = ({ categories, tags, lang }: Props) => {
   const list = categories
     .map(item => ({
       type: "category",

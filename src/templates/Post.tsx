@@ -39,7 +39,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
             <FontAwesomeIcon icon={faClock} />
             <span>{date}</span>
           </time>
-          <PostLabel categories={categories} tags={tags} />
+          <PostLabel categories={categories} tags={tags} lang={lang} />
           <ShareButton link={`${siteUrl}${slug}`} />
           <a href={imageUrl} target="_blank" rel="noopener noreferrer">
             <Img fluid={image} alt={title} title={title} />

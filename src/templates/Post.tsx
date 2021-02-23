@@ -22,6 +22,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
     date,
     categories,
     tags,
+    lang,
     slug,
     imageUrl,
     image,
@@ -81,6 +82,7 @@ export const pageQuery = graphql`
       date(formatString: "MMMM DD, YYYY")
       categories
       tags
+      lang
       featuredImage {
         publicURL
         childImageSharp {

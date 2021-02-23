@@ -7,7 +7,7 @@ import { graphql, PageProps } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
 import { PostDetail, PostTemplate } from "../../types/generated-types";
-import CategoryTag from "../components/CategoryTag";
+import PostLabel from "../components/PostLabel";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
@@ -38,7 +38,7 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
             <FontAwesomeIcon icon={faClock} />
             <span>{date}</span>
           </time>
-          <CategoryTag categories={categories} tags={tags} />
+          <PostLabel categories={categories} tags={tags} />
           <ShareButton link={`${siteUrl}${slug}`} />
           <a href={imageUrl} target="_blank" rel="noopener noreferrer">
             <Img fluid={image} alt={title} title={title} />

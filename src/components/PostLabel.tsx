@@ -10,7 +10,7 @@ interface Props {
   tags: string[];
 }
 
-const CategoryTag = ({ categories, tags }: Props) => {
+const PostLabel = ({ categories, tags }: Props) => {
   const list = categories
     .map(item => ({
       type: "category",
@@ -24,12 +24,12 @@ const CategoryTag = ({ categories, tags }: Props) => {
     );
 
   return (
-    <div className="category-tag">
+    <div className="post-label">
       {list.map(({ type, item }) => (
         <Link
           key={`${type}-${kebabCase(item)}`}
           to={`/${type}/${kebabCase(item)}`}
-          className={`category-tag__link ${type}`}
+          className={`post-label__link ${type}`}
         >
           {item}
         </Link>
@@ -38,4 +38,4 @@ const CategoryTag = ({ categories, tags }: Props) => {
   );
 };
 
-export default CategoryTag;
+export default PostLabel;

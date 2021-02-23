@@ -56,8 +56,16 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
 export default Post;
 
 export const pageQuery = graphql`
-  query PostTemplate($id: String!) {
+  query PostTemplate($id: String!, $newerId: String, $olderId: String) {
     post: markdownRemark(id: { eq: $id }) {
+      ...PostDetail
+    }
+
+    newerPost: markdownRemark(id: { eq: $newerId }) {
+      ...PostDetail
+    }
+
+    olderPost: markdownRemark(id: { eq: $olderId }) {
       ...PostDetail
     }
 

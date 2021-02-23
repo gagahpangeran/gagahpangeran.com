@@ -10,6 +10,7 @@ description:
 featuredImage: ./img/misan-evergarden.jpg
 categories: ["Story"]
 tags: ["Fasilkom", "College"]
+lang: id
 ---
 
 Recap kehidupan gue selama 2018 kemarin akhirnya ditulis juga. Jadi kali ini gue

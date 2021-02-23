@@ -12,6 +12,7 @@ description:
 featuredImage: ./img/scw.png
 categories: ["Story", "Competition"]
 tags: ["DevOpsDay Jakarta", "Secure Code Warrior"]
+lang: id
 ---
 
 Jadi ceritanya minggu lalu gue dan [Distra](https://twitter.com/ramadistra/)

@@ -10,6 +10,7 @@ description:
 featuredImage: ./img/wp-md.png
 categories: ["Story", "Tech"]
 tags: ["Blog Revamp", "Markdown", "Gatsby"]
+lang: en
 ---
 
 Currently I'm still revamping and fixing this blog after my VPS died and also

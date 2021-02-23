@@ -5,6 +5,11 @@ import { FluidObject } from "gatsby-image";
 import { BlogTemplate, PostDetail } from "../../types/generated-types";
 import { BlogPageContext } from "../templates/Blog";
 
+export const langMap = new Map([
+  ["id", "Bahasa Indonesia"],
+  ["en", "English"]
+]);
+
 export function getPostData(data: PostDetail) {
   const { id, excerpt, html, fields, frontmatter } = data;
 
@@ -55,5 +60,15 @@ export function getBlogData(
         desc: `All Posts Under Tag "${filterValue}"`,
         posts: blogData.tags.nodes
       };
+    case "Language": {
+      const lang = langMap.get(filterValue);
+      return {
+        pageTitle: lang,
+        pageDesc: `Show All Posts Under Language "${lang}"`,
+        title: `Language ${lang}`,
+        desc: `All Posts Under Language "${lang}"`,
+        posts: blogData.langs.nodes
+      };
+    }
   }
 }

@@ -11,7 +11,7 @@ import SEO from "../components/SEO";
 import { getBlogData, getPostData } from "../utils/data";
 
 export interface BlogPageContext {
-  type: "Index" | "Category" | "Tag";
+  type: "Index" | "Category" | "Tag" | "Language";
   filterValue: string;
   templatePath: string;
   page: number;
@@ -75,6 +75,17 @@ export const pageQuery = graphql`
 
     tags: allMarkdownRemark(
       filter: { frontmatter: { tags: { eq: $filterValue } } }
+      sort: { fields: frontmatter___date, order: DESC }
+      skip: $skip
+      limit: $limit
+    ) {
+      nodes {
+        ...PostDetail
+      }
+    }
+
+    langs: allMarkdownRemark(
+      filter: { frontmatter: { lang: { eq: $filterValue } } }
       sort: { fields: frontmatter___date, order: DESC }
       skip: $skip
       limit: $limit

@@ -34,6 +34,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           ...GroupInfo
         }
       }
+
+      allLang: allMarkdownRemark {
+        group(field: frontmatter___lang) {
+          ...GroupInfo
+        }
+      }
     }
 
     fragment GroupInfo on MarkdownRemarkGroupConnection {
@@ -53,6 +59,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = result.data.allPosts.nodes;
   const categories = result.data.allCategories.group;
   const tags = result.data.allTags.group;
+  const langs = result.data.allLang.group;
 
   if (posts.length <= 0) {
     reporter.warn(`There is no posts!`);
@@ -135,6 +142,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       type: "Tag",
       postCount: tag.totalCount,
       filterValue: tag.fieldValue
+    });
+  });
+
+  langs.forEach(lang => {
+    createUpdatePage({
+      slug: "lang",
+      type: "Language",
+      postCount: lang.totalCount,
+      filterValue: lang.fieldValue
     });
   });
 };

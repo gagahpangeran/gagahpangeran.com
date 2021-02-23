@@ -5,6 +5,7 @@ import { graphql, PageProps } from "gatsby";
 import React from "react";
 import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
+import Pagination from "../components/Pagination";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
 import { getBlogData, getPostData } from "../utils/data";
@@ -37,6 +38,14 @@ const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
           <PostCard key={post.id} {...getPostData(post)} />
         ))}
       </main>
+
+      {pageContext.numPages > 0 && (
+        <Pagination
+          path={pageContext.templatePath}
+          numPages={pageContext.numPages}
+          page={pageContext.page}
+        />
+      )}
     </Layout>
   );
 };

@@ -11,6 +11,11 @@ interface Props {
   lang: string;
 }
 
+const langMap = new Map([
+  ["id", "Bahasa Indonesia"],
+  ["en", "English"]
+]);
+
 const PostLabel = ({ categories, tags, lang }: Props) => {
   const list = categories
     .map(item => ({

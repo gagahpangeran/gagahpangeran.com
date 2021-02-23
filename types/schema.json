@@ -16409,6 +16409,26 @@
               "defaultValue": null
             },
             {
+              "name": "newerId",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "olderId",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "limit",
               "description": "",
               "type": {
@@ -17793,6 +17813,30 @@
           "fields": [
             {
               "name": "id",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "newerId",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "olderId",
               "description": null,
               "args": [],
               "type": {
@@ -19891,6 +19935,18 @@
             },
             {
               "name": "context___id",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___newerId",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___olderId",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

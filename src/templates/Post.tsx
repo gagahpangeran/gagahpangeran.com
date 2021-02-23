@@ -9,6 +9,7 @@ import React from "react";
 import { PostDetail, PostTemplate } from "../../types/generated-types";
 import PostLabel from "../components/PostLabel";
 import Layout from "../components/Layout";
+import PageNav from "../components/PageNav";
 import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
 import { getPostData } from "../utils/data";
@@ -28,6 +29,11 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
     image,
     html
   } = getPostData(post as PostDetail);
+
+  const newerPost =
+    data.newerPost === null ? null : getPostData(data.newerPost);
+  const olderPost =
+    data.olderPost === null ? null : getPostData(data.olderPost);
 
   return (
     <Layout>
@@ -50,6 +56,8 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
           />
         </article>
       </main>
+
+      <PageNav newerPost={newerPost} olderPost={olderPost} />
     </Layout>
   );
 };
@@ -57,8 +65,16 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
 export default Post;
 
 export const pageQuery = graphql`
-  query PostTemplate($id: String!) {
+  query PostTemplate($id: String!, $newerId: String, $olderId: String) {
     post: markdownRemark(id: { eq: $id }) {
+      ...PostDetail
+    }
+
+    newerPost: markdownRemark(id: { eq: $newerId }) {
+      ...PostDetail
+    }
+
+    olderPost: markdownRemark(id: { eq: $olderId }) {
       ...PostDetail
     }
 

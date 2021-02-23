@@ -14,7 +14,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const result = await graphql(`
     query GatsbyNode {
-      allPosts: allMarkdownRemark(limit: 1000) {
+      allPosts: allMarkdownRemark(
+        limit: 1000
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         nodes {
           id
           fields {
@@ -66,7 +69,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  posts.forEach(post => {
+  posts.forEach((post, index) => {
+    const newerId = index === 0 ? null : posts[index - 1].id;
+    const olderId = index === posts.length - 1 ? null : posts[index + 1].id;
+
     const path = post.fields.slug;
     reporter.info(`Creating page ${path}, type Post`);
 
@@ -74,7 +80,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       path,
       component: PostTemplate,
       context: {
-        id: post.id
+        id: post.id,
+        newerId,
+        olderId
       }
     });
   });

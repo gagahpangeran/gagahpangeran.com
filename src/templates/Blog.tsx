@@ -12,6 +12,9 @@ import { getBlogData, getPostData } from "../utils/data";
 export interface BlogPageContext {
   type: "Index" | "Category" | "Tag";
   filterValue: string;
+  templatePath: string;
+  page: number;
+  numPages: number;
 }
 
 const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({

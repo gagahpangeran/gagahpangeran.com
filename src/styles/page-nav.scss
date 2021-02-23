@@ -63,11 +63,15 @@
         }
       }
 
-      span {
+      strong {
         display: block;
         z-index: 999;
         font-size: 18px;
         color: var(--gray-light);
+
+        span {
+          margin: 0 8px;
+        }
       }
 
       h5 {
@@ -89,6 +93,10 @@
       h5 {
         width: 100%;
         color: var(--gray-light);
+
+        span {
+          margin: 0 8px;
+        }
       }
     }
   }

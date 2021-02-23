@@ -15,7 +15,11 @@ interface NavLinkProps {
 
 const PageNavLink = ({ type, data }: NavLinkProps) => {
   if (data === null) {
-    return <a className="page-nav__link inactive">{`No ${type} post`}</a>;
+    return (
+      <a className="page-nav__link inactive">
+        <h5>{`No ${type} post`}</h5>
+      </a>
+    );
   }
 
   const { slug, image, title } = data;
@@ -28,7 +32,10 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
         alt={title}
         title={title}
       />
-      <h4 className="page-nav__link__title">{title}</h4>
+      <div className="page-nav__link__title">
+        <span>{`${type} post`}</span>
+        <h5>{title}</h5>
+      </div>
     </Link>
   );
 };

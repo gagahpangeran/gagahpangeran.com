@@ -21,6 +21,7 @@
     "gatsby-plugin-sharp": "^2.8.0",
     "gatsby-plugin-typescript": "^2.2.5",
     "gatsby-remark-copy-linked-files": "^2.4.0",
+    "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.5.1",
     "gatsby-remark-prismjs": "^3.7.0",
     "gatsby-remark-responsive-iframe": "^2.5.0",
@@ -29,11 +30,11 @@
     "gatsby-transformer-remark": "^2.10.0",
     "gatsby-transformer-sharp": "^2.6.0",
     "lodash.kebabcase": "^4.1.1",
-    "node-sass": "4.14.1",
     "prismjs": "^1.23.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "sass": "^1.32.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -69,10 +70,10 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "yarn format-prettier && yarn format-eslint",
-    "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "format-eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
     "lint": "yarn lint-prettier && yarn lint-eslint",
-    "lint-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "lint-eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
@@ -80,7 +81,7 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md}": [
+    "*.{js,jsx,ts,tsx,json,md,scss}": [
       "prettier --write"
     ],
     "*.{ts,tsx}": [

@@ -4,13 +4,15 @@
 import { Link } from "gatsby";
 import kebabCase from "lodash.kebabcase";
 import React from "react";
+import { langMap } from "../utils/data";
 
 interface Props {
   categories: string[];
   tags: string[];
+  lang: string;
 }
 
-const CategoryTag = ({ categories, tags }: Props) => {
+const PostLabel = ({ categories, tags, lang }: Props) => {
   const list = categories
     .map(item => ({
       type: "category",
@@ -24,18 +26,21 @@ const CategoryTag = ({ categories, tags }: Props) => {
     );
 
   return (
-    <div className="category-tag">
+    <div className="post-label">
       {list.map(({ type, item }) => (
         <Link
           key={`${type}-${kebabCase(item)}`}
-          to={`/${type}/${kebabCase(item)}`}
-          className={`category-tag__link ${type}`}
+          to={`/${type}/${kebabCase(item)}/`}
+          className={`post-label__link ${type}`}
         >
           {item}
         </Link>
       ))}
+      <Link to={`/lang/${lang}/`} className={`post-label__link lang`}>
+        {langMap.get(lang)}
+      </Link>
     </div>
   );
 };
 
-export default CategoryTag;
+export default PostLabel;

@@ -2731,6 +2731,16 @@
                 "ofType": null
               },
               "defaultValue": null
+            },
+            {
+              "name": "lang",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -6015,6 +6025,18 @@
                   "name": "String",
                   "ofType": null
                 }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "lang",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -9543,6 +9565,12 @@
               "deprecationReason": null
             },
             {
+              "name": "childrenMarkdownRemark___frontmatter___lang",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "childrenMarkdownRemark___excerpt",
               "description": null,
               "isDeprecated": true,
@@ -10120,6 +10148,12 @@
             },
             {
               "name": "childMarkdownRemark___frontmatter___tags",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "childMarkdownRemark___frontmatter___lang",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null
@@ -16415,6 +16449,36 @@
               "defaultValue": null
             },
             {
+              "name": "page",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "IntQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "templatePath",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "numPages",
+              "description": "",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "IntQueryOperatorInput",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
               "name": "type",
               "description": "",
               "type": {
@@ -17797,6 +17861,42 @@
             },
             {
               "name": "skip",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "page",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "templatePath",
+              "description": null,
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "numPages",
               "description": null,
               "args": [],
               "type": {
@@ -19864,6 +19964,24 @@
               "deprecationReason": null
             },
             {
+              "name": "context___page",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___templatePath",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "context___numPages",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "context___type",
               "description": null,
               "isDeprecated": false,
@@ -21450,6 +21568,12 @@
             },
             {
               "name": "frontmatter___tags",
+              "description": null,
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "frontmatter___lang",
               "description": null,
               "isDeprecated": false,
               "deprecationReason": null

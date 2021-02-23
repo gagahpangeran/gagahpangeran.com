@@ -10,6 +10,7 @@ description:
 featuredImage: ./img/torrent-to-gdrive.png
 categories: ["Tech"]
 tags: ["Google Colab", "Google Drive", "Torrent"]
+lang: en
 ---
 
 Have you ever thought of downloading a Torrent and saving it directly to Google

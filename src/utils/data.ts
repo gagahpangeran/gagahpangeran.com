@@ -60,5 +60,15 @@ export function getBlogData(
         desc: `All Posts Under Tag "${filterValue}"`,
         posts: blogData.tags.nodes
       };
+    case "Language": {
+      const lang = langMap.get(filterValue);
+      return {
+        pageTitle: lang,
+        pageDesc: `Show All Posts Under Language "${lang}"`,
+        title: `Language ${lang}`,
+        desc: `All Posts Under Language "${lang}"`,
+        posts: blogData.langs.nodes
+      };
+    }
   }
 }

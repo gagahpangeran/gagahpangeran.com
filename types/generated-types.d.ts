@@ -368,6 +368,7 @@ export interface PostTemplate_newerPost_frontmatter {
   date: any | null;
   categories: (string | null)[] | null;
   tags: (string | null)[] | null;
+  lang: string | null;
   featuredImage: PostTemplate_newerPost_frontmatter_featuredImage | null;
 }
 
@@ -418,6 +419,7 @@ export interface PostTemplate_olderPost_frontmatter {
   date: any | null;
   categories: (string | null)[] | null;
   tags: (string | null)[] | null;
+  lang: string | null;
   featuredImage: PostTemplate_olderPost_frontmatter_featuredImage | null;
 }
 

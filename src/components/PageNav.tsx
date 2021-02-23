@@ -9,7 +9,7 @@ import { getPostData } from "../utils/data";
 type PostData = ReturnType<typeof getPostData> | null;
 
 interface NavLinkProps {
-  type: "newer" | "older";
+  type: "Newer" | "Older";
   data: PostData;
 }
 
@@ -48,8 +48,8 @@ interface Props {
 const PageNav = ({ newerPost, olderPost }: Props) => {
   return (
     <div className="page-nav">
-      <PageNavLink type="newer" data={newerPost} />
-      <PageNavLink type="older" data={olderPost} />
+      <PageNavLink type="Newer" data={newerPost} />
+      <PageNavLink type="Older" data={olderPost} />
     </div>
   );
 };

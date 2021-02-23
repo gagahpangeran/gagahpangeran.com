@@ -69,10 +69,10 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "yarn format-prettier && yarn format-eslint",
-    "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "format-eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
     "lint": "yarn lint-prettier && yarn lint-eslint",
-    "lint-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "lint-eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
@@ -80,7 +80,7 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md}": [
+    "*.{js,jsx,ts,tsx,json,md,scss}": [
       "prettier --write"
     ],
     "*.{ts,tsx}": [

@@ -15,6 +15,7 @@ export function getPostData(data: PostDetail) {
     excerpt: frontmatter?.description ?? excerpt ?? "",
     categories: (frontmatter?.categories ?? []) as string[],
     tags: (frontmatter?.tags ?? []) as string[],
+    lang: frontmatter?.lang ?? "en",
     image: frontmatter?.featuredImage?.childImageSharp?.fluid as FluidObject,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? "",
     slug: fields?.slug ?? "",

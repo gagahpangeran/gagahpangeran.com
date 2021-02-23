@@ -4,17 +4,13 @@
 import { Link } from "gatsby";
 import kebabCase from "lodash.kebabcase";
 import React from "react";
+import { langMap } from "../utils/data";
 
 interface Props {
   categories: string[];
   tags: string[];
   lang: string;
 }
-
-const langMap = new Map([
-  ["id", "Bahasa Indonesia"],
-  ["en", "English"]
-]);
 
 const PostLabel = ({ categories, tags, lang }: Props) => {
   const list = categories

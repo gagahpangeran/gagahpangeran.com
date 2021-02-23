@@ -5,6 +5,11 @@ import { FluidObject } from "gatsby-image";
 import { BlogTemplate, PostDetail } from "../../types/generated-types";
 import { BlogPageContext } from "../templates/Blog";
 
+export const langMap = new Map([
+  ["id", "Bahasa Indonesia"],
+  ["en", "English"]
+]);
+
 export function getPostData(data: PostDetail) {
   const { id, excerpt, html, fields, frontmatter } = data;
 

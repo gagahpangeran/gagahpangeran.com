@@ -11,18 +11,22 @@ interface Props {
 }
 
 export default function Pagination({ numPages, page, path }: Props) {
+  if (numPages <= 1) {
+    return null;
+  }
+
   return (
     <div className="pagination">
       <ul className="pagination__paging">
-        {Array.from({ length: numPages }).map((_, idx: number) => (
+        {Array.from({ length: numPages }).map((_, index) => (
           <li
             className={`pagination__paging__number ${
-              page === idx + 1 ? "active" : ""
+              page === index + 1 ? "active" : ""
             }`}
-            key={`page${idx}`}
+            key={`page${index}`}
           >
-            <Link to={`${path}/${idx === 0 ? "" : `page/${idx + 1}`}`}>
-              {idx + 1}
+            <Link to={`${path}${index === 0 ? "" : `${index + 1}/`}`}>
+              {index + 1}
             </Link>
           </li>
         ))}

@@ -60,8 +60,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   posts.forEach(post => {
+    const path = post.fields.slug;
+    reporter.info(`Creating page ${path}, type Post`);
+
     createPage({
-      path: post.fields.slug,
+      path,
       component: PostTemplate,
       context: {
         id: post.id
@@ -73,17 +76,38 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const createUpdatePage = ({ slug, type, postCount, filterValue }) => {
     const numPages = Math.ceil(postCount / postPerPage);
-    const path = `${slug}${filterValue ? `/${kebabCase(filterValue)}` : ""}`;
+
+    const paths = [];
+    if (slug !== undefined) {
+      paths.push(slug);
+    }
+
+    if (filterValue !== undefined) {
+      paths.push(kebabCase(filterValue));
+    }
+
+    let path = "/";
+    if (paths.length > 0) {
+      path += `${paths.join("/")}/`;
+    }
 
     Array.from({ length: numPages }).forEach((_, index) => {
+      const templatePath = path;
+      if (index > 0) {
+        path += `${index + 1}`;
+      }
+
       reporter.info(`Creating page ${path}, type ${type}`);
 
       createPage({
-        path: `${path}/${index === 0 ? "" : `${index + 1}`}`,
+        path,
         component: BlogTemplate,
         context: {
           limit: postPerPage,
           skip: index * postPerPage,
+          page: index + 1,
+          templatePath,
+          numPages,
           type,
           filterValue
         }
@@ -92,7 +116,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   };
 
   createUpdatePage({
-    slug: "",
     type: "Index",
     postCount: posts.length
   });

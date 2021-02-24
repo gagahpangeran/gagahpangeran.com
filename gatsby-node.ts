@@ -1,19 +1,24 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
-// Read the LICENSE file in the repository root for full license text.
+// Read the LICENSE file in the repository root for full license text
 
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require(`path`);
-const { createFilePath } = require(`gatsby-source-filesystem`);
-const kebabCase = require("lodash.kebabcase");
+import path from "path";
+import { createFilePath } from "gatsby-source-filesystem";
+import kebabCase from "lodash.kebabcase";
+import { GatsbyNode } from "gatsby";
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+  reporter
+}) => {
   const { createPage } = actions;
 
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
 
-  const result = await graphql(`
-    query GatsbyNode {
+  // * See `GatsbyNodeQuery` interface at the end of this file
+  const result = await graphql<GatsbyNodeQuery>(`
+    query GatsbyNodeQuery {
       allPosts: allMarkdownRemark(
         limit: 1000
         sort: { fields: frontmatter___date, order: DESC }
@@ -59,10 +64,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return;
   }
 
-  const posts = result.data.allPosts.nodes;
-  const categories = result.data.allCategories.group;
-  const tags = result.data.allTags.group;
-  const langs = result.data.allLang.group;
+  const posts = result.data?.allPosts.nodes ?? [];
+  const categories = result.data?.allCategories.group ?? [];
+  const tags = result.data?.allTags.group ?? [];
+  const langs = result.data?.allLang.group ?? [];
 
   if (posts.length <= 0) {
     reporter.warn(`There is no posts!`);
@@ -89,7 +94,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const postPerPage = 5;
 
-  const createUpdatePage = ({ slug, type, postCount, filterValue }) => {
+  const createUpdatePage = ({
+    slug,
+    type,
+    postCount,
+    filterValue
+  }: {
+    slug?: string;
+    type: string;
+    postCount: number;
+    filterValue?: string;
+  }) => {
     const numPages = Math.ceil(postCount / postPerPage);
 
     const paths = [];
@@ -163,7 +178,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({
+  node,
+  actions,
+  getNode
+}) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -176,3 +195,32 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
+
+// Current plugin `gatsby-plugin-codegen` can't generate types from graphql
+// inside `gatsby-node.ts`. Consider change to `gatsby-plugin-typegen`, because
+// they have plan to support `gatsby-node.ts` graphql types in the future.
+// TODO: Automate to generate these interface bellow
+interface GatsbyNodeQuery {
+  allPosts: {
+    nodes: {
+      id: string;
+      fields: {
+        slug: string;
+      };
+    }[];
+  };
+  allCategories: {
+    group: GroupInfo[];
+  };
+  allTags: {
+    group: GroupInfo[];
+  };
+  allLang: {
+    group: GroupInfo[];
+  };
+}
+
+interface GroupInfo {
+  fieldValue: string;
+  totalCount: number;
+}

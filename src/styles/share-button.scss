@@ -8,10 +8,7 @@
   summary {
     color: var(--blue);
     cursor: pointer;
-  }
-
-  & > div {
-    padding: 0 18px;
+    font-size: 1rem;
   }
 
   &__desc {
@@ -21,6 +18,7 @@
   &__link {
     & > * {
       display: inline-block;
+      font-size: 1.25rem;
     }
 
     input {

@@ -38,23 +38,21 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
   return (
     <Layout mainTitle={title}>
       <SEO title={title} description={excerpt} />
-      <main>
-        <article className="post">
-          <time className="post__date">
-            <FontAwesomeIcon icon={faClock} />
-            <span>{date}</span>
-          </time>
-          <PostLabel categories={categories} tags={tags} lang={lang} />
-          <ShareButton link={`${siteUrl}${slug}`} />
-          <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-            <Img fluid={image} alt={title} title={title} />
-          </a>
-          <div
-            className="post__body"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </article>
-      </main>
+      <article className="post">
+        <time className="post__date">
+          <FontAwesomeIcon icon={faClock} />
+          <span>{date}</span>
+        </time>
+        <PostLabel categories={categories} tags={tags} lang={lang} />
+        <ShareButton link={`${siteUrl}${slug}`} />
+        <a href={imageUrl} target="_blank" rel="noopener noreferrer">
+          <Img fluid={image} alt={title} title={title} />
+        </a>
+        <main
+          className="post__body"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </article>
 
       <PageNav newerPost={newerPost} olderPost={olderPost} />
     </Layout>

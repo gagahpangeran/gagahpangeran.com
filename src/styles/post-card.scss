@@ -23,11 +23,29 @@
       display: block;
       overflow: hidden;
       border-radius: 20px;
+      position: relative;
 
       &__image {
         @extend %wh100;
         display: block;
         object-fit: cover;
+      }
+
+      &::after {
+        @extend %wh100;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--black);
+        opacity: 0.4;
+        transition: 0.2s opacity ease-in-out;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 0.2;
+        }
       }
     }
   }

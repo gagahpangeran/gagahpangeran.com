@@ -7,13 +7,13 @@ import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
 const NotFoundPage = () => {
+  const mainTitle = "Sorry, not found 😢";
+  const subTitle =
+    "The page doesn't exist (or maybe I haven't build it yet 😜)";
+
   return (
-    <Layout>
+    <Layout mainTitle={mainTitle} subTitle={subTitle}>
       <SEO title="Not found" />
-      <h1>Sorry, not found 😢</h1>
-      <h3 className="not-found__desc">
-        The page doesn&#39;t exist (or maybe I haven&#39;t build it yet 😜)
-      </h3>
       <Link className="not-found__link" to="/">
         Back to home
       </Link>

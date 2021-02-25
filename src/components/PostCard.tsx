@@ -21,16 +21,16 @@ const PostCard = ({
 }: ReturnType<typeof getPostData>) => {
   return (
     <article className="post-card">
-      <div className="post-card__thumbnail">
-        <Link to={slug} className="post-card__thumbnail__link">
+      <div className="post-card__header">
+        <Link to={slug} className="post-card__header__link">
           <Img
-            className="post-card__thumbnail__link__image"
+            className="post-card__header__link__image"
             fluid={image}
             alt={title}
             title={title}
           />
         </Link>
-        <time className="post-card__thumbnail__date">
+        <time className="post-card__header__date">
           <FontAwesomeIcon icon={faClock} />
           <span>{date}</span>
         </time>

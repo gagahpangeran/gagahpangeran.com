@@ -9,6 +9,10 @@
   &__thumbnail {
     height: 240px;
 
+    @media screen and (max-width: 480px) {
+      height: 160px;
+    }
+
     a {
       display: block;
       height: 100%;
@@ -36,6 +40,10 @@
 
   &__info {
     padding: 24px;
+
+    @media screen and (max-width: 480px) {
+      padding: 16px 20px;
+    }
 
     &__title {
       margin-bottom: 12px;

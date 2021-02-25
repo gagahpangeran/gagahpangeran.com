@@ -19,6 +19,7 @@ const ShareButton = ({ link }: Props) => {
     inputRef.current?.setSelectionRange(0, 99999);
     document.execCommand("copy");
     setIsCopied(true);
+    inputRef.current?.blur();
     setTimeout(() => setIsCopied(false), 3000);
   };
 

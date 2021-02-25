@@ -28,11 +28,8 @@ const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
   );
 
   return (
-    <Layout>
+    <Layout mainTitle={pageTitle} subTitle={pageDesc}>
       <SEO title={title} description={desc} />
-      <h1>{pageTitle}</h1>
-      <h2>{pageDesc}</h2>
-
       <main>
         {posts.map(post => (
           <PostCard key={post.id} {...getPostData(post)} />

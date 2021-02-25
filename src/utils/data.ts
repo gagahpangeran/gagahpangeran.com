@@ -61,7 +61,7 @@ export function getBlogData(
         posts: blogData.tags.nodes
       };
     case "Language": {
-      const lang = langMap.get(filterValue);
+      const lang = langMap.get(filterValue) ?? "English";
       return {
         pageTitle: lang,
         pageDesc: `Show All Posts Under Language "${lang}"`,

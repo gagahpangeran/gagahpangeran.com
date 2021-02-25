@@ -47,10 +47,6 @@ a:active {
   color: var(--blue-light);
 }
 
-main {
-  margin: 20px 0;
-}
-
 h1,
 h2,
 h3,
@@ -124,7 +120,12 @@ strong {
   flex: 1 0 auto;
 
   @media screen and (max-width: 720px) {
-    padding: 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding-top: 48px;
   }
 }
 

@@ -14,30 +14,27 @@
     list-style: none;
 
     &__number {
-      border: 2px solid var(--green);
       margin: 0 8px;
       border-radius: 4px;
 
       a {
-        color: var(--green);
+        color: var(--white);
         display: block;
         padding: 8px 16px;
 
         &:hover {
           text-decoration: none;
-          background: var(--green);
-          color: var(--bg-dark);
         }
       }
 
       &.active {
-        background: var(--green);
+        background-color: var(--orange);
         pointer-events: none;
         cursor: default;
+      }
 
-        a {
-          color: var(--bg-dark);
-        }
+      &:hover {
+        background-color: var(--orange);
       }
     }
   }

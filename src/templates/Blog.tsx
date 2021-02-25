@@ -30,11 +30,9 @@ const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
   return (
     <Layout mainTitle={pageTitle} subTitle={pageDesc}>
       <SEO title={title} description={desc} />
-      <main>
-        {posts.map(post => (
-          <PostCard key={post.id} {...getPostData(post)} />
-        ))}
-      </main>
+      {posts.map(post => (
+        <PostCard key={post.id} {...getPostData(post)} />
+      ))}
 
       <Pagination
         path={pageContext.templatePath}

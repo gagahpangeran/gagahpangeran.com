@@ -3,7 +3,6 @@
 
 import { config as faConfig } from "@fortawesome/fontawesome-svg-core";
 import React from "react";
-import Footer from "./Footer";
 import Navbar from "./Navbar";
 
 interface Props extends HeaderProps {
@@ -36,5 +35,25 @@ const Header = ({ mainTitle, subTitle }: HeaderProps) => {
       <h1>{mainTitle}</h1>
       {subTitle && <h2>{subTitle}</h2>}
     </header>
+  );
+};
+
+const Footer = () => {
+  const goToTop = () => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  };
+
+  return (
+    <footer>
+      <h6>
+        &copy; 2019-{new Date().getFullYear()}{" "}
+        <a href="https://gagahpangeran.com">GPR</a> •{" "}
+        <span onClick={goToTop}>Go To Top</span>
+      </h6>
+    </footer>
   );
 };

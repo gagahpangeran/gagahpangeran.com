@@ -4,7 +4,7 @@
 import { GatsbyConfig } from "gatsby";
 
 export const siteMetadata: GatsbyConfig["siteMetadata"] = {
-  title: `Gagah Pangeran Rosfatiputra`,
+  title: `GPR's Blog`,
   description: `Part Time Student, Full Time Learner`,
   image: "logo.png",
   siteUrl: "https://blog.gagahpangeran.com"
@@ -62,8 +62,8 @@ export const plugins: GatsbyConfig["plugins"] = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Gagah Pangeran Rosfatiputra`,
-      short_name: `GPR`,
+      name: `GPR's Blog`,
+      short_name: `GPR's Blog`,
       start_url: `/`,
       background_color: `#000000`,
       theme_color: `#000000`,

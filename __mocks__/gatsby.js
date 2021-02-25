@@ -27,7 +27,7 @@ module.exports = {
   useStaticQuery: jest.fn().mockImplementation(_ => ({
     site: {
       siteMetadata: {
-        title: `Gagah Pangeran Rosfatiputra`,
+        title: `GPR's Blog`,
         description: `Part Time Student, Full Time Learner`,
         image: "logo.png",
         siteUrl: "https://blog.gagahpangeran.com"

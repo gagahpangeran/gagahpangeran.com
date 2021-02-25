@@ -27,7 +27,7 @@
     border: 2px solid var(--white);
 
     &:hover {
-      border-color: var(--blue-light);
+      border-color: var(--blue);
     }
 
     &.older {
@@ -63,7 +63,7 @@
         }
 
         h4 {
-          color: var(--blue-light);
+          color: var(--blue);
         }
 
         h5 {

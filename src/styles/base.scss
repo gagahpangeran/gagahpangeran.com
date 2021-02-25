@@ -15,8 +15,7 @@
   --white: #fffffe;
   --green: #2cb67d;
   --purple: #7f5af0;
-  --blue-dark: #0177b0;
-  --blue-light: #0e96da;
+  --blue: #0096d6;
   --pink: #e53170;
 }
 
@@ -39,14 +38,12 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--blue-dark);
-  transition: color 0.2s ease-in-out;
+  color: var(--blue);
 }
 
 a:hover,
 a:active {
   text-decoration: underline;
-  color: var(--blue-light);
 }
 
 h1,

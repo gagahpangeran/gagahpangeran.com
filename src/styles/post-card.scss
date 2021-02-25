@@ -18,11 +18,12 @@
   margin: 20px 0;
 
   &__header {
+    $header: &;
     height: 240px;
     position: relative;
 
     @media screen and (max-width: 480px) {
-      height: 160px;
+      height: 180px;
     }
 
     &__link {
@@ -43,47 +44,63 @@
         @extend %absolute;
         content: "";
         background-color: var(--black);
-        opacity: 0.4;
+        opacity: 0.5;
         transition: 0.2s opacity ease-in-out;
-      }
 
-      &:hover {
-        &::after {
-          opacity: 0.2;
+        #{$header}:hover & {
+          opacity: 0.4;
         }
       }
     }
 
-    &__date {
+    &__meta {
+      position: relative;
       @extend %absolute;
-      font-weight: bold;
-      display: block;
-      margin: 12px;
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 1.125rem;
-      background-color: var(--orange);
+      max-width: 100%;
+      margin: 12px 24px;
 
       @media screen and (max-width: 480px) {
-        font-size: 1rem;
-        font-weight: normal;
+        margin: 8px 16px;
       }
 
-      span {
-        margin-left: 8px;
+      &__date {
+        font-weight: bold;
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-size: 1.125rem;
+        background-color: var(--orange);
+
+        @media screen and (max-width: 480px) {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+
+        span {
+          margin-left: 8px;
+        }
+      }
+
+      &__title {
+        margin-top: 4px;
+        font-weight: bolder;
+
+        a {
+          color: var(--white);
+
+          #{$header}:hover & {
+            text-decoration: underline;
+          }
+        }
       }
     }
   }
 
   &__info {
-    padding: 24px;
+    padding: 16px 24px;
 
     @media screen and (max-width: 480px) {
-      padding: 16px 20px;
-    }
-
-    &__title {
-      margin-bottom: 12px;
+      padding: 16px;
     }
 
     &__summary {

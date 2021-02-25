@@ -1,7 +1,8 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-@import "~@fontsource/noto-sans/index.css";
+@import "~@fontsource/rubik/500.css";
+@import "~@fontsource/rubik/800.css";
 @import "~@fontsource/lato/index.css";
 
 :root {
@@ -52,7 +53,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
 }
 
 h1 {

@@ -61,10 +61,10 @@ interface Props {
 
 const PageNav = ({ newerPost, olderPost }: Props) => {
   return (
-    <div className="page-nav">
+    <nav className="page-nav">
       <PageNavLink type="Newer" data={newerPost} />
       <PageNavLink type="Older" data={olderPost} />
-    </div>
+    </nav>
   );
 };
 

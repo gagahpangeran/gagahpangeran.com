@@ -14,9 +14,11 @@ const NotFoundPage = () => {
   return (
     <Layout mainTitle={mainTitle} subTitle={subTitle}>
       <SEO title="Not found" />
-      <Link className="not-found__link" to="/">
-        Back to home
-      </Link>
+      <main className="not-found">
+        <Link className="not-found__link" to="/">
+          Back to home
+        </Link>
+      </main>
     </Layout>
   );
 };

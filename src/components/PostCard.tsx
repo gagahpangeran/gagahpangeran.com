@@ -20,7 +20,7 @@ const PostCard = ({
   lang
 }: ReturnType<typeof getPostData>) => {
   return (
-    <section className="post-card">
+    <article className="post-card">
       <div className="post-card__thumbnail">
         <Link to={slug}>
           <Img
@@ -45,7 +45,7 @@ const PostCard = ({
           dangerouslySetInnerHTML={{ __html: excerpt }}
         />
       </div>
-    </section>
+    </article>
   );
 };
 

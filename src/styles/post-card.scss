@@ -56,7 +56,6 @@
     }
 
     &__meta {
-      position: relative;
       @extend %absolute;
       max-width: 100%;
       margin: 12px 24px;

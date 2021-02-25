@@ -32,9 +32,9 @@ const PostCard = ({
         </Link>
       </div>
       <div className="post-card__info">
-        <h4 className="post-card__info__title">
+        <h3 className="post-card__info__title">
           <Link to={slug}>{title}</Link>
-        </h4>
+        </h3>
         <time className="post-card__info__date">
           <FontAwesomeIcon icon={faClock} />
           <span>{date}</span>

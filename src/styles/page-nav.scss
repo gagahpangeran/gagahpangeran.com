@@ -51,10 +51,9 @@
         }
       }
 
-      strong {
+      h5 {
         display: block;
         z-index: 999;
-        font-size: 18px;
         color: var(--gray-light);
 
         span {
@@ -62,7 +61,7 @@
         }
       }
 
-      h5 {
+      h4 {
         width: 100%;
         font-weight: bolder;
         z-index: 999;

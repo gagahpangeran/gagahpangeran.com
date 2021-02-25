@@ -12,14 +12,9 @@
 
   .post__date {
     font-weight: bold;
-    font-size: 20px;
     display: flex;
     align-items: center;
     color: var(--gray-light);
-
-    @media screen and (max-width: 500px) {
-      font-size: 16px;
-    }
 
     span {
       margin-left: 8px;
@@ -27,7 +22,6 @@
   }
 
   .post__body {
-    font-size: 20px;
     line-height: 150%;
 
     h2 {
@@ -50,11 +44,15 @@
   }
 
   figcaption {
-    margin: 12px 0;
+    margin-top: 12px;
     font-weight: bold;
     color: var(--gray-dark);
     font-style: italic;
-    font-size: 16px;
+    font-size: 1rem;
+
+    @media screen and (max-width: 480px) {
+      margin-top: 4px;
+    }
   }
 
   ul,

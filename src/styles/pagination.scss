@@ -16,6 +16,7 @@
     &__number {
       margin: 0 4px;
       border-radius: 8px;
+      transition: 0.2s background-color ease-in-out;
 
       a {
         color: var(--white);

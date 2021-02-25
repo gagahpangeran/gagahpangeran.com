@@ -2,25 +2,13 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .page-nav {
-  display: flex;
-  justify-content: space-between;
-
-  @media screen and (max-width: 720px) {
-    flex-direction: column;
-  }
-
   &__link {
-    width: 48%;
     height: 100px;
     display: block;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-
-    @media screen and (max-width: 720px) {
-      width: 100%;
-      margin-bottom: 12px;
-    }
+    margin-bottom: 16px;
 
     &:nth-child(2) {
       text-align: right;

@@ -3,7 +3,8 @@
 
 @import "~@fontsource/rubik/500.css";
 @import "~@fontsource/rubik/800.css";
-@import "~@fontsource/lato/index.css";
+@import "~@fontsource/lato/400.css";
+@import "~@fontsource/lato/700.css";
 
 :root {
   --bg-dark: #16161a;
@@ -26,6 +27,7 @@
 
 body {
   font-size: 1.25rem;
+  font-weight: 400;
   font-family: "Lato", sans-serif;
   background: var(--bg-light);
   color: var(--white);
@@ -101,6 +103,11 @@ h6 {
 
 hr {
   margin: 32px 0;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--gray-dark);
 }
 
 iframe {

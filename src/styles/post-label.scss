@@ -12,6 +12,13 @@
     display: inline-block;
     margin-bottom: 12px;
 
+    @media screen and (max-width: 480px) {
+      margin-right: 4px;
+      margin-bottom: 4px;
+      padding: 4px 8px;
+      font-size: 1rem;
+    }
+
     &:hover {
       color: var(--white);
       text-decoration: none;

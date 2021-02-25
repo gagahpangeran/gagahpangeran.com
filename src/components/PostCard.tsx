@@ -30,13 +30,15 @@ const PostCard = ({
             title={title}
           />
         </Link>
-        <time className="post-card__header__date">
-          <FontAwesomeIcon icon={faClock} />
-          <span>{date}</span>
-        </time>
-        <h3 className="post-card__header__title">
-          <Link to={slug}>{title}</Link>
-        </h3>
+        <div className="post-card__header__meta">
+          <time className="post-card__header__meta__date">
+            <FontAwesomeIcon icon={faClock} />
+            <span>{date}</span>
+          </time>
+          <h3 className="post-card__header__meta__title">
+            <Link to={slug}>{title}</Link>
+          </h3>
+        </div>
       </div>
       <div className="post-card__info">
         <PostLabel categories={categories} tags={tags} lang={lang} />

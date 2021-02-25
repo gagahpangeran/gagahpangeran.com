@@ -25,15 +25,15 @@
     }
 
     &.category {
-      background: var(--green);
+      background-color: var(--green);
     }
 
     &.tag {
-      background: var(--purple);
+      background-color: var(--purple);
     }
 
     &.lang {
-      background: var(--pink);
+      background-color: var(--pink);
     }
   }
 }

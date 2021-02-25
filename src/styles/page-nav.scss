@@ -81,23 +81,5 @@
         color: var(--white);
       }
     }
-
-    &.inactive {
-      padding: 20px;
-      box-sizing: border-box;
-      background: var(--bg-dark);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-
-      h5 {
-        width: 100%;
-        color: var(--gray-light);
-
-        span {
-          margin: 0 8px;
-        }
-      }
-    }
   }
 }

@@ -14,11 +14,11 @@ const Layout = ({ children }: Props) => {
   faConfig.autoAddCss = false;
 
   return (
-    <>
+    <div className="wrapper">
       <Navbar />
-      <div className="wrapper">{children}</div>
+      {children}
       <Footer />
-    </>
+    </div>
   );
 };
 

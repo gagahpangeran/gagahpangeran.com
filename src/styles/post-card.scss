@@ -2,61 +2,102 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .post-card {
+  %wh100 {
+    width: 100%;
+    height: 100%;
+  }
+
+  %absolute {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
   background-color: var(--bg-dark);
   border-radius: 20px;
   margin: 20px 0;
 
-  &__thumbnail {
+  &__header {
+    $header: &;
     height: 240px;
+    position: relative;
+    display: block;
+    color: var(--white);
 
     @media screen and (max-width: 480px) {
-      height: 160px;
+      height: 180px;
     }
 
-    a {
+    &__thumbnail {
+      @extend %wh100;
       display: block;
-      height: 100%;
-      width: 100%;
       overflow: hidden;
       border-radius: 20px;
+      position: relative;
+
+      &__image {
+        @extend %wh100;
+        display: block;
+        object-fit: cover;
+      }
+
+      &::after {
+        @extend %wh100;
+        @extend %absolute;
+        content: "";
+        background-color: var(--black);
+        opacity: 0.5;
+        transition: 0.2s opacity ease-in-out;
+
+        #{$header}:hover & {
+          opacity: 0.4;
+        }
+      }
     }
 
-    &__image {
-      display: block;
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-      transition-duration: 0.2s;
-      transition-timing-function: ease-in-out;
-      transition-property: transform, opacity;
-      opacity: 0.8;
+    &__meta {
+      @extend %absolute;
+      max-width: 100%;
+      margin: 12px 24px;
 
-      &:hover {
-        transform: scale(1.05);
-        opacity: 1;
+      @media screen and (max-width: 480px) {
+        margin: 8px 16px;
+      }
+
+      &__date {
+        font-weight: bold;
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-size: 1.125rem;
+        background-color: var(--orange);
+
+        @media screen and (max-width: 480px) {
+          font-size: 1rem;
+          font-weight: normal;
+        }
+
+        span {
+          margin-left: 8px;
+        }
+      }
+
+      &__title {
+        margin-top: 4px;
+        font-weight: bolder;
+
+        #{$header}:hover & {
+          text-decoration: underline;
+        }
       }
     }
   }
 
   &__info {
-    padding: 24px;
+    padding: 16px 24px;
 
     @media screen and (max-width: 480px) {
-      padding: 16px 20px;
-    }
-
-    &__title {
-      margin-bottom: 12px;
-    }
-
-    &__date {
-      font-weight: bold;
-      color: var(--gray);
-      display: block;
-
-      span {
-        margin-left: 8px;
-      }
+      padding: 16px;
     }
 
     &__summary {

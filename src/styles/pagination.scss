@@ -9,13 +9,14 @@
     background-color: var(--bg-dark);
     display: flex;
     margin: 0 auto;
-    padding: 16px;
-    border-radius: 8px;
+    padding: 12px;
     list-style: none;
+    border-radius: 8px;
 
     &__number {
-      margin: 0 8px;
-      border-radius: 4px;
+      margin: 0 4px;
+      border-radius: 8px;
+      transition: 0.2s background-color ease-in-out;
 
       a {
         color: var(--white);

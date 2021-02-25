@@ -40,7 +40,7 @@ export function getBlogData(
       return {
         pageTitle: "GPR's Blog",
         pageDesc: "Part Time Student, Full Time Learner",
-        title: "Blog",
+        title: "Home",
         desc: "Part Time Student, Full Time Learner",
         posts: blogData.posts.nodes
       };

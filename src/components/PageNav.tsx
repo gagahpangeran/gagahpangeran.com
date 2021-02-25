@@ -23,11 +23,11 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
   if (data === null) {
     return (
       <a className="page-nav__link inactive">
-        <h5>
+        <h4>
           {type === "Newer" && <FontAwesomeIcon icon={faTimes} />}
           <span>{`No ${type} Post`}</span>
           {type === "Older" && <FontAwesomeIcon icon={faTimes} />}
-        </h5>
+        </h4>
       </a>
     );
   }
@@ -43,12 +43,12 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
         title={title}
       />
       <div className="page-nav__link__title">
-        <strong>
+        <h5>
           {type === "Newer" && <FontAwesomeIcon icon={faCaretLeft} />}
           <span>{`${type} Post`}</span>
           {type === "Older" && <FontAwesomeIcon icon={faCaretRight} />}
-        </strong>
-        <h5>{title}</h5>
+        </h5>
+        <h4>{title}</h4>
       </div>
     </Link>
   );

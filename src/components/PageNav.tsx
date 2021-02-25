@@ -23,7 +23,7 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
   const { slug, image, title } = data;
 
   return (
-    <Link to={slug} className="page-nav__link">
+    <Link to={slug} className={`page-nav__link ${type.toLowerCase()}`}>
       <Img
         className="page-nav__link__image"
         fluid={image}

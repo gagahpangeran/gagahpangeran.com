@@ -32,7 +32,7 @@
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 12px;
   }
 
   p {
@@ -44,15 +44,10 @@
   }
 
   figcaption {
-    margin-top: 12px;
     font-weight: bold;
     color: var(--gray);
     font-style: italic;
     font-size: 1rem;
-
-    @media screen and (max-width: 480px) {
-      margin-top: 4px;
-    }
   }
 
   ul,

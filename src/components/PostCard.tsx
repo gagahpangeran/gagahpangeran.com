@@ -22,9 +22,9 @@ const PostCard = ({
   return (
     <article className="post-card">
       <div className="post-card__thumbnail">
-        <Link to={slug}>
+        <Link to={slug} className="post-card__thumbnail__link">
           <Img
-            className="post-card__thumbnail__image"
+            className="post-card__thumbnail__link__image"
             fluid={image}
             alt={title}
             title={title}

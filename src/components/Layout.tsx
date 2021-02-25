@@ -23,3 +23,17 @@ const Layout = ({ children }: Props) => {
 };
 
 export default Layout;
+
+interface HeaderProps {
+  mainTitle: string;
+  subTitle?: string;
+}
+
+const Header = ({ mainTitle, subTitle }: HeaderProps) => {
+  return (
+    <header>
+      <h1>{mainTitle}</h1>
+      {subTitle && <h2>{subTitle}</h2>}
+    </header>
+  );
+};

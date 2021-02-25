@@ -34,11 +34,11 @@ const PostCard = ({
           <FontAwesomeIcon icon={faClock} />
           <span>{date}</span>
         </time>
-      </div>
-      <div className="post-card__info">
-        <h3 className="post-card__info__title">
+        <h3 className="post-card__header__title">
           <Link to={slug}>{title}</Link>
         </h3>
+      </div>
+      <div className="post-card__info">
         <PostLabel categories={categories} tags={tags} lang={lang} />
         <div
           className="post-card__info__summary"

@@ -6,16 +6,17 @@ import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
-interface Props {
+interface Props extends HeaderProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ children, ...headerProps }: Props) => {
   faConfig.autoAddCss = false;
 
   return (
     <div className="wrapper">
       <Navbar />
+      <Header {...headerProps} />
       {children}
       <Footer />
     </div>

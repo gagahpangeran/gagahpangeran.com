@@ -86,7 +86,6 @@
       h4 {
         @extend %transition;
         transition-property: color;
-        width: 100%;
         font-weight: bolder;
         z-index: 999;
         color: var(--white);

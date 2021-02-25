@@ -9,13 +9,13 @@
     background: var(--bg-dark);
     display: flex;
     margin: 0 auto;
-    border-radius: 8px;
     padding: 12px;
     list-style: none;
+    border-radius: 8px;
 
     &__number {
-      border-radius: 4px;
       margin: 0 4px;
+      border-radius: 8px;
 
       a {
         color: var(--white);

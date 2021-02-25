@@ -16,7 +16,7 @@ const Layout = ({ children, ...headerProps }: Props) => {
     <div className="wrapper">
       <Navbar />
       <Header {...headerProps} />
-      {children}
+      <div className="content">{children}</div>
       <Footer />
     </div>
   );

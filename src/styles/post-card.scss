@@ -7,12 +7,19 @@
     height: 100%;
   }
 
+  %absolute {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
   background-color: var(--bg-dark);
   border-radius: 20px;
   margin: 20px 0;
 
   &__thumbnail {
     height: 240px;
+    position: relative;
 
     @media screen and (max-width: 480px) {
       height: 160px;
@@ -33,10 +40,8 @@
 
       &::after {
         @extend %wh100;
+        @extend %absolute;
         content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
         background-color: var(--black);
         opacity: 0.4;
         transition: 0.2s opacity ease-in-out;
@@ -50,9 +55,10 @@
     }
 
     &__date {
+      @extend %absolute;
       font-weight: bold;
-      color: var(--gray);
       display: block;
+      margin: 16px;
 
       span {
         margin-left: 8px;

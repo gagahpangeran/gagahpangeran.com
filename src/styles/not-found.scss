@@ -2,21 +2,10 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .not-found {
-  &__desc {
-    color: var(--gray-light);
-  }
-
   &__link {
     font-size: 32px;
     display: block;
     text-align: center;
     margin: 16px 0;
-  }
-
-  &__image {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
   }
 }

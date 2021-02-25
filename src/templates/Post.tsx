@@ -36,11 +36,10 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
     data.olderPost === null ? null : getPostData(data.olderPost);
 
   return (
-    <Layout>
+    <Layout mainTitle={title}>
       <SEO title={title} description={excerpt} />
       <main>
         <article className="post">
-          <h1 className="post__title">{title}</h1>
           <time className="post__date">
             <FontAwesomeIcon icon={faClock} />
             <span>{date}</span>

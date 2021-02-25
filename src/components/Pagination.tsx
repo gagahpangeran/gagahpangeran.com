@@ -16,7 +16,7 @@ export default function Pagination({ numPages, page, path }: Props) {
   }
 
   return (
-    <div className="pagination">
+    <nav className="pagination">
       <ul className="pagination__paging">
         {Array.from({ length: numPages }).map((_, index) => (
           <li
@@ -31,6 +31,6 @@ export default function Pagination({ numPages, page, path }: Props) {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 }

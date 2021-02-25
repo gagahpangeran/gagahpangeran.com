@@ -27,7 +27,7 @@
     border: 2px solid var(--white);
 
     &:hover {
-      border-color: var(--blue-light);
+      border-color: var(--blue);
     }
 
     &.older {
@@ -52,7 +52,7 @@
       &::before {
         @extend %absolute100;
         content: "";
-        background: var(--black);
+        background-color: var(--black);
         opacity: 0.8;
         transition: 0.2s opacity ease-in-out;
       }
@@ -63,7 +63,7 @@
         }
 
         h4 {
-          color: var(--blue-light);
+          color: var(--blue);
         }
 
         h5 {
@@ -76,7 +76,7 @@
         transition-property: color;
         display: block;
         z-index: 999;
-        color: var(--gray-light);
+        color: var(--gray);
 
         span {
           margin: 0 8px;

@@ -10,14 +10,13 @@
   --bg-dark: #16161a;
   --bg-light: #242629;
   --black: #010101;
-  --gray-dark: #72757e;
-  --gray-light: #94a1b2;
+  --gray: #94a1b2;
   --white: #fffffe;
   --green: #2cb67d;
   --purple: #7f5af0;
-  --blue-dark: #0177b0;
-  --blue-light: #0e96da;
+  --blue: #0096d6;
   --pink: #e53170;
+  --orange: #f75c03;
 }
 
 * {
@@ -29,7 +28,7 @@ body {
   font-size: 1.25rem;
   font-weight: 400;
   font-family: "Lato", sans-serif;
-  background: var(--bg-light);
+  background-color: var(--bg-light);
   color: var(--white);
 
   @media screen and (max-width: 480px) {
@@ -39,14 +38,12 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--blue-dark);
-  transition: color 0.2s ease-in-out;
+  color: var(--blue);
 }
 
 a:hover,
 a:active {
   text-decoration: underline;
-  color: var(--blue-light);
 }
 
 h1,

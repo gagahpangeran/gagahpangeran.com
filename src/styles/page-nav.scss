@@ -17,7 +17,11 @@
     overflow: hidden;
     border-radius: 12px;
     margin-bottom: 16px;
+    border: 2px solid var(--white);
 
+    &:hover {
+      border-color: var(--blue-light);
+    }
     &.older {
       text-align: right;
     }

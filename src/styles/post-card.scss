@@ -48,6 +48,16 @@
         }
       }
     }
+
+    &__date {
+      font-weight: bold;
+      color: var(--gray);
+      display: block;
+
+      span {
+        margin-left: 8px;
+      }
+    }
   }
 
   &__info {
@@ -59,16 +69,6 @@
 
     &__title {
       margin-bottom: 12px;
-    }
-
-    &__date {
-      font-weight: bold;
-      color: var(--gray);
-      display: block;
-
-      span {
-        margin-left: 8px;
-      }
     }
 
     &__summary {

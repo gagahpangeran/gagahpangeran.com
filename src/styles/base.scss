@@ -113,7 +113,9 @@ iframe {
   max-width: 720px;
   margin: 0 auto;
   padding-top: 64px;
-  flex: 1 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (max-width: 720px) {
     padding-left: 16px;
@@ -123,16 +125,16 @@ iframe {
   @media screen and (max-width: 500px) {
     padding-top: 48px;
   }
+
+  .content {
+    flex: 1 0 auto;
+  }
 }
 
 html,
 body,
 #___gatsby,
-#gatsby-focus-wrapper {
+#gatsby-focus-wrapper,
+.wrapper {
   height: 100%;
-}
-
-#gatsby-focus-wrapper {
-  display: flex;
-  flex-direction: column;
 }

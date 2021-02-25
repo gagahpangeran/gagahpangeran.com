@@ -1,11 +1,7 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import {
-  faCaretLeft,
-  faCaretRight,
-  faTimes
-} from "@fortawesome/free-solid-svg-icons";
+import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
@@ -21,21 +17,13 @@ interface NavLinkProps {
 
 const PageNavLink = ({ type, data }: NavLinkProps) => {
   if (data === null) {
-    return (
-      <a className="page-nav__link inactive">
-        <h4>
-          {type === "Newer" && <FontAwesomeIcon icon={faTimes} />}
-          <span>{`No ${type} Post`}</span>
-          {type === "Older" && <FontAwesomeIcon icon={faTimes} />}
-        </h4>
-      </a>
-    );
+    return null;
   }
 
   const { slug, image, title } = data;
 
   return (
-    <Link to={slug} className="page-nav__link">
+    <Link to={slug} className={`page-nav__link ${type.toLowerCase()}`}>
       <Img
         className="page-nav__link__image"
         fluid={image}

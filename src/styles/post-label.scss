@@ -2,7 +2,6 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .post-label {
-  font-size: 20px;
   margin-top: 12px;
 
   &__link {
@@ -12,6 +11,13 @@
     border-radius: 4px;
     display: inline-block;
     margin-bottom: 12px;
+
+    @media screen and (max-width: 480px) {
+      margin-right: 4px;
+      margin-bottom: 4px;
+      padding: 4px 8px;
+      font-size: 1rem;
+    }
 
     &:hover {
       color: var(--white);

@@ -31,12 +31,12 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
         title={title}
       />
       <div className="page-nav__link__title">
-        <strong>
+        <h5>
           {type === "Newer" && <FontAwesomeIcon icon={faCaretLeft} />}
           <span>{`${type} Post`}</span>
           {type === "Older" && <FontAwesomeIcon icon={faCaretRight} />}
-        </strong>
-        <h5>{title}</h5>
+        </h5>
+        <h4>{title}</h4>
       </div>
     </Link>
   );

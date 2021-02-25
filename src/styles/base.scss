@@ -1,8 +1,10 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-@import "~@fontsource/noto-sans/index.css";
-@import "~@fontsource/lato/index.css";
+@import "~@fontsource/rubik/500.css";
+@import "~@fontsource/rubik/800.css";
+@import "~@fontsource/lato/400.css";
+@import "~@fontsource/lato/700.css";
 
 :root {
   --bg-dark: #16161a;
@@ -24,10 +26,15 @@
 }
 
 body {
-  font-size: 16px;
+  font-size: 1.25rem;
+  font-weight: 400;
   font-family: "Lato", sans-serif;
   background: var(--bg-light);
   color: var(--white);
+
+  @media screen and (max-width: 480px) {
+    font-size: 1.125rem;
+  }
 }
 
 a {
@@ -48,82 +55,49 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
 }
 
 h1 {
-  font-size: 44px;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 38px;
+  font-size: 2.5rem;
 }
 
 h3 {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 h4 {
-  font-size: 28px;
+  font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 22px;
+  font-size: 1rem;
 }
 
 h6 {
-  font-size: 14px;
-}
-
-@media screen and (max-width: 720px) {
-  h1 {
-    font-size: 40px;
-  }
-
-  h2 {
-    font-size: 34px;
-  }
-
-  h3 {
-    font-size: 28px;
-  }
-
-  h4 {
-    font-size: 24px;
-  }
-
-  h5 {
-    font-size: 28px;
-  }
-
-  h6 {
-    font-size: 12px;
-  }
+  font-size: 0.8rem;
 }
 
 @media screen and (max-width: 500px) {
   h1 {
-    font-size: 32px;
+    font-size: 2.25rem;
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   h4 {
-    font-size: 20px;
-  }
-
-  h5 {
-    font-size: 14px;
-  }
-
-  h6 {
-    font-size: 12px;
+    font-size: 1.25rem;
   }
 }
 
@@ -131,14 +105,15 @@ hr {
   margin: 32px 0;
 }
 
+strong {
+  font-weight: 700;
+  color: var(--gray-dark);
+}
+
 iframe {
   margin: 32px auto;
   display: block;
   max-width: 100%;
-}
-
-strong {
-  font-weight: bolder;
 }
 
 .wrapper {

@@ -71,12 +71,11 @@
         }
       }
 
-      strong {
+      h5 {
         @extend %transition;
         transition-property: color;
         display: block;
         z-index: 999;
-        font-size: 18px;
         color: var(--gray-light);
 
         span {
@@ -84,7 +83,7 @@
         }
       }
 
-      h5 {
+      h4 {
         @extend %transition;
         transition-property: color;
         width: 100%;

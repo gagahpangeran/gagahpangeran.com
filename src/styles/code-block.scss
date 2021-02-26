@@ -1,0 +1,67 @@
+// Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
+
+// Selector for inline code
+$inline: 'code[class*="language-"]';
+
+// Selector for code block
+$block: 'pre[class*="language-"]';
+
+#{$inline},
+#{$block} {
+  font-size: 1.125rem;
+  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+#{$block} {
+  padding: 8px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray) var(--white);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--white);
+
+    &:horizontal {
+      height: 6px;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+  }
+}
+
+:not(pre) > #{$inline},
+#{$block} {
+  background: var(--bg-dark);
+}
+
+.token {
+  &.string,
+  &.char,
+  &.attr-value,
+  &.regex,
+  &.variable {
+    color: var(--green);
+  }
+
+  &.boolean,
+  &.number,
+  &.function {
+    color: var(--orange);
+  }
+
+  &.selector,
+  &.important,
+  &.atrule,
+  &.keyword,
+  &.builtin {
+    color: var(--purple);
+  }
+}

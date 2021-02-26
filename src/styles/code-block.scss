@@ -20,6 +20,21 @@ $block: 'pre[class*="language-"]';
 
 #{$block} {
   padding: 8px 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray) var(--white);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--white);
+
+    &:horizontal {
+      height: 6px;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--gray);
+  }
 }
 
 :not(pre) > #{$inline},

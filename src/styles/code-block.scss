@@ -1,0 +1,46 @@
+// Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
+
+// Selector for inline code
+$inline: 'code[class*="language-"]';
+
+// Selector for code block
+$block: 'pre[class*="language-"]';
+
+#{$inline},
+#{$block} {
+  font-size: 1.125rem;
+}
+
+#{$block} {
+  padding: 8px 16px;
+}
+
+:not(pre) > #{$inline},
+#{$block} {
+  background: var(--bg-dark);
+}
+
+.token {
+  &.string,
+  &.char,
+  &.attr-value,
+  &.regex,
+  &.variable {
+    color: var(--green);
+  }
+
+  &.boolean,
+  &.number,
+  &.function {
+    color: var(--orange);
+  }
+
+  &.selector,
+  &.important,
+  &.atrule,
+  &.keyword,
+  &.builtin {
+    color: var(--purple);
+  }
+}

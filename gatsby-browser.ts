@@ -5,6 +5,7 @@ import "@fontsource/rubik/500.css";
 import "@fontsource/rubik/800.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
+import "@fontsource/fira-code";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
 import "./src/styles/index.scss";

@@ -10,6 +10,12 @@ $block: 'pre[class*="language-"]';
 #{$inline},
 #{$block} {
   font-size: 1.125rem;
+  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
+    monospace;
+
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 }
 
 #{$block} {

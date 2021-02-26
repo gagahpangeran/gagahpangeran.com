@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "GPR <gpr@gagahpangeran.com>",
   "dependencies": {
+    "@fontsource/fira-code": "^4.2.1",
     "@fontsource/lato": "^4.2.1",
     "@fontsource/rubik": "^4.2.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",

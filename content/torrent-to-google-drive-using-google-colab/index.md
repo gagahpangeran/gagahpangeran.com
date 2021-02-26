@@ -54,7 +54,7 @@ Make sure your Notebook is connected by looking at the green check mark in the
 top right corner. Just click on 'connecting' next to the editing button if it's
 not connected. If you hover on the green check mark, you can see your resource.
 
-![Google Colab Resource](./google-colab-resource.png "RAM and Disk")
+![Google Colab Resource](./img/google-colab-resource.png "RAM and Disk")
 
 I get 12 GB RAM and 49 GB Disk, that's pretty good for a cloud computer. You can
 do anything in google colab for 12 hours, after that the session is over and

@@ -404,7 +404,7 @@ R.O.P peringkat 1, Devoops peringkat 2, dan Kuhaku peringkat 3. Selisih skor
 antara peringkat 1 dan 2 cukup tipis. Kalo kata salah satu anggota tim R.O.P,
 sebelum waktu habis mereka jawab soal ngasal dan ternyata benar.
 
-![Final Scoreboard](./img/fina-scoreboard.png)
+![Final Scoreboard](./img/final-scoreboard.png)
 
 ## Setelah Final
 
@@ -428,7 +428,7 @@ Distra sambil lihat layar laptop ngasih tahu gue, “Belgia”
 Yak, dan memang benar itu jawabannya. Gue pun mendapatkan flashdisk berukuran 64
 GB.
 
-![SCW Kuis](./img/scw-kuis "Menjawab kuis dengan contekan")
+![SCW Kuis](./img/scw-kuis.jpg "Menjawab kuis dengan contekan")
 
 ![SCW Flashdisk](./img/scw-fd.jpg "Ya lumayan lah dapat flashdisk.")
 
@@ -480,7 +480,7 @@ di dunia ngoding.
 Abis sesi tersebut selesai, lalu dilanjut penyerahan hadiah buat pemenang Secure
 Code Warrior. Kita dipanggil satu-satu ke depan buat penyerahan hadiah.
 
-![SCW Menang](./img/scw-menang "Dapat juara 3")
+![SCW Menang](./img/scw-menang.jpg "Dapat juara 3")
 
 ![Foto Bareng](./img/scw-bareng.jpg "Foto bareng tiga pemenang")
 

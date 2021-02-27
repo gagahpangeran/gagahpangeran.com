@@ -77,7 +77,7 @@ gue yang lain, [Sage](https://twitter.com/sagehs) dan
 pada Rabu malam.
 
 Ngerjain PPL selesai sekitar jam 2 pagi hari Kamis, kita bertiga pun balik. Pas
-nyampe kontrakan gue masih harus menyelesaikan “suatu masalah besar” yang ada di
+nyampe kontrakan gue masih harus menyelesaikan "suatu masalah besar" yang ada di
 proyek PPL gue. Akhirnya gue selesai ngoding sekitar abis subuh jam 5 Pagi.
 
 Janjian ngumpul buat berangkat bareng ke tempat lombanya sekitar jam setengah
@@ -258,9 +258,9 @@ di penyisihan.
 
 MC-nya dari tadi keliling nanya-nanyain peserta. Dia udah wawancara tim R.O.P
 yang sekarang di peringkat 2. Kemudian mereka wawancara tim Greg-Kusuman. Pas
-Greg ditanyain namanya siapa dia malah jawab “Raihan Ramadistra”. Gue sama
+Greg ditanyain namanya siapa dia malah jawab "Raihan Ramadistra". Gue sama
 Distra langsung teriak-teriak pemalsuan identitas. Trus pas ditanya asalnya
-darimana, Greg jawab “dari sini”. Trus MC-nya kayak percaya aja kalo mereka dari
+darimana, Greg jawab "dari sini". Trus MC-nya kayak percaya aja kalo mereka dari
 BRI Corporate University.
 
 Kemudian MC-nya tiba-tiba nyariin tim Kuhaku. Gue sama Distra langsung diam.
@@ -269,23 +269,23 @@ Biar gak kelihatan mencolok, gue langsung pake masker.
 Entah gimana caranya, kedua MC tersebut berhasil menemukan kami. Salah satu dari
 mereka wawancara gue, kira-kira begini isinya.
 
-- MC : “Mas dari tim Kuhaku ya”
-- Gue : “Bisa dibilang begitu”
-- MC : “Arti nama Kuhaku itu sendiri apa mas?”
-- Gue : “Ya itu adalah artinya, mungkin sebagian orang di sini juga tahu
-  artinya”
-- MC : “Ini kalian berdua asalnya dari mana ya”
-- Gue : “Dari kampus di Depok”
-- MC : “Oh Depok, dari UI?”
-- Gue : “Ya anggap aja begitu”
-- MC : “Benar nih mas dari UI? Apa dari Gundar? Atau dari PNJ?”
+- MC : "Mas dari tim Kuhaku ya"
+- Gue : "Bisa dibilang begitu"
+- MC : "Arti nama Kuhaku itu sendiri apa mas?"
+- Gue : "Ya itu adalah artinya, mungkin sebagian orang di sini juga tahu
+  artinya"
+- MC : "Ini kalian berdua asalnya dari mana ya"
+- Gue : "Dari kampus di Depok"
+- MC : "Oh Depok, dari UI?"
+- Gue : "Ya anggap aja begitu"
+- MC : "Benar nih mas dari UI? Apa dari Gundar? Atau dari PNJ?"
 - Trus Distra nunjuk ke tulisan Fasilkom UI di japan (jaket panda) yang gue
   pake. Yah ketahuan deh.
-- MC : “Oh dari UI beneran ya mas. Udah semester berapa?”
-- Gue nanya ke Distra : “Udah semester berapa kita?”
-- Distra : “Semester 6”
-- Gue ke MC : “Udah semester 6”
-- MC : “Oh begitu”
+- MC : "Oh dari UI beneran ya mas. Udah semester berapa?"
+- Gue nanya ke Distra : "Udah semester berapa kita?"
+- Distra : "Semester 6"
+- Gue ke MC : "Udah semester 6"
+- MC : "Oh begitu"
 
 Sisa dari wawancaranya kayaknya gak penting karena gue gak ingat.
 
@@ -381,9 +381,9 @@ daripada penyisihan. Ternyata lomba ini gak cuma sekedar klik-klik doang.
 Lagi di ngerjain soal tiba-tiba Distra bersin di samping gue. Gue kaget. Takut
 aja tiba-tiba ada virus menular masuk ke badan gue.
 
-“Lu gak pake masker?”, gue nanya.
+"Lu gak pake masker?", gue nanya.
 
-“Gak dikasih”, Distra jawab.
+"Gak dikasih", Distra jawab.
 
 Gue langsung aja ngasih masker yang tadi pagi dikasih pas registrasi, karena
 emang gue gak terlalu butuh.
@@ -408,8 +408,8 @@ sebelum waktu habis mereka jawab soal ngasal dan ternyata benar.
 
 ## Setelah Final
 
-Setelah final berakhir ada kuis sebentar, pertanyaannya adalah “Di negara mana
-sajakah kantor Secure Code Warrior berada?”.
+Setelah final berakhir ada kuis sebentar, pertanyaannya adalah "Di negara mana
+sajakah kantor Secure Code Warrior berada?".
 
 Gue yang emang gak tahu memutuskan diam. Eh, Distra tiba-tiba ngangkat tangan
 gue. Woy, gue gak tahu jawabannya.
@@ -417,13 +417,13 @@ gue. Woy, gue gak tahu jawabannya.
 Trus Distra ngasih tahu kalo di footer website Secure Code Warrior ada alamat
 kantornya.
 
-Ya udah langsung aja gue jawab, “Australia, Inggris, Amerika…”.
+Ya udah langsung aja gue jawab, "Australia, Inggris, Amerika…".
 
-Terus sambil pura-pura gatau, gue nanya Distra, “Satu lagi di mana?”
+Terus sambil pura-pura gatau, gue nanya Distra, "Satu lagi di mana?"
 
-Distra sambil lihat layar laptop ngasih tahu gue, “Belgia”
+Distra sambil lihat layar laptop ngasih tahu gue, "Belgia"
 
-“Belgia!”, gue menjawab negara terakhir.
+"Belgia!", gue menjawab negara terakhir.
 
 Yak, dan memang benar itu jawabannya. Gue pun mendapatkan flashdisk berukuran 64
 GB.

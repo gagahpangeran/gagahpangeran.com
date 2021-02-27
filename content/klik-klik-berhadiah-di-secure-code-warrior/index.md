@@ -269,23 +269,23 @@ Biar gak kelihatan mencolok, gue langsung pake masker.
 Entah gimana caranya, kedua MC tersebut berhasil menemukan kami. Salah satu dari
 mereka wawancara gue, kira-kira begini isinya.
 
-- MC : “Mas dari tim Kuhaku ya”
-- Gue : “Bisa dibilang begitu”
-- MC : “Arti nama Kuhaku itu sendiri apa mas?”
-- Gue : “Ya itu adalah artinya, mungkin sebagian orang di sini juga tahu
-  artinya”
-- MC : “Ini kalian berdua asalnya dari mana ya”
-- Gue : “Dari kampus di Depok”
-- MC : “Oh Depok, dari UI?”
-- Gue : “Ya anggap aja begitu”
-- MC : “Benar nih mas dari UI? Apa dari Gundar? Atau dari PNJ?”
-- Trus Distra nunjuk ke tulisan Fasilkom UI di japan (jaket panda) yang gue
-  pake. Yah ketahuan deh.
-- MC : “Oh dari UI beneran ya mas. Udah semester berapa?”
-- Gue nanya ke Distra : “Udah semester berapa kita?”
-- Distra : “Semester 6”
-- Gue ke MC : “Udah semester 6”
-- MC : “Oh begitu”
+```greentext
+> MC : “Mas dari tim Kuhaku ya”
+> Gue : “Bisa dibilang begitu”
+> MC : “Arti nama Kuhaku itu sendiri apa mas?”
+> Gue : “Ya itu adalah artinya, mungkin sebagian orang di sini juga tahu artinya”
+> MC : “Ini kalian berdua asalnya dari mana ya”
+> Gue : “Dari kampus di Depok”
+> MC : “Oh Depok, dari UI?”
+> Gue : “Ya anggap aja begitu”
+> MC : “Benar nih mas dari UI? Apa dari Gundar? Atau dari PNJ?”
+> Trus Distra nunjuk ke tulisan Fasilkom UI di japan (jaket panda) yang gue pake. Yah ketahuan deh.
+> MC : “Oh dari UI beneran ya mas. Udah semester berapa?”
+> Gue nanya ke Distra : “Udah semester berapa kita?”
+> Distra : “Semester 6”
+> Gue ke MC : “Udah semester 6”
+> MC : “Oh begitu”
+```
 
 Sisa dari wawancaranya kayaknya gak penting karena gue gak ingat.
 

@@ -3487,15 +3487,6 @@ type WebPOptions = {
   readonly quality: Maybe<Scalars['Int']>;
 };
 
-type PostTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: Maybe<Scalars['String']>;
-  olderId: Maybe<Scalars['String']>;
-}>;
-
-
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
-
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'excerpt' | 'html'>
   & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<(
@@ -3506,6 +3497,17 @@ type PostDetailFragment = (
     )> }
   )> }
 );
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type PostTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
 
 type BlogTemplateQueryVariables = Exact<{
   skip: Maybe<Scalars['Int']>;
@@ -3537,8 +3539,6 @@ type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 't
 type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
 

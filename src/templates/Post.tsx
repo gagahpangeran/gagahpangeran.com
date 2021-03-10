@@ -29,10 +29,8 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
     html
   } = getPostData(post as GatsbyTypes.PostDetailFragment);
 
-  const newerPost =
-    data.newerPost === undefined ? null : getPostData(data.newerPost);
-  const olderPost =
-    data.olderPost === undefined ? null : getPostData(data.olderPost);
+  const newerPost = data.newerPost ? getPostData(data.newerPost) : null;
+  const olderPost = data.olderPost ? getPostData(data.olderPost) : null;
 
   return (
     <Layout mainTitle={title}>

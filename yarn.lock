@@ -1361,20 +1361,20 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fontsource/fira-code@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/fira-code/-/fira-code-4.2.1.tgz#02cb6d98d38bde1201a968dbf10f269b227bbbfc"
-  integrity sha512-cbhLAAuIg0lqZ+KH8e0PNc354lXMCOE58QfT9Xh6zIrtCaGtEaLeQndqbMWPpxI5cC4uRa3V4aq/xBtHBdgxSw==
+"@fontsource/fira-code@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/fira-code/-/fira-code-4.2.2.tgz#4737070741f5a7fc40944c41215d26cd9ff56b80"
+  integrity sha512-Bhg7rQ/CUbedA6B6K6gS2GDEa5JJjQwSqq1KMz4wVMaXXL+igsLrr4VKKmdfExwlB6o7Ie8kScXg4camZmt7TQ==
 
-"@fontsource/lato@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.2.1.tgz#6bc81159b0d762bf72dc750afac228f3529e8a5b"
-  integrity sha512-prsPmSttIWKF52AK6fNbe1a/wT3Rm5ho2qwegXlU0Qu72dksQIjGrttDtuvs3OlXdlmYXFTmLKOWQKwBMAsMmQ==
+"@fontsource/lato@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.2.2.tgz#e0e592180bf7f2276190b4448aea2feaac888d1f"
+  integrity sha512-ZE5WvqZQZinXpH8MaEiM9klDsUOfCHVQJ/tZKpNVQhi8mHt9WqPCROu500oI5jC3s6jaJuWsM7LfJ1zyEeW+XA==
 
-"@fontsource/rubik@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/rubik/-/rubik-4.2.1.tgz#3d102d4ee4d4849359c2c07c13224422ad559e67"
-  integrity sha512-KmXhvMDBaUnQl3L8Wd+UVovVPv8RzqQGbzYDZzC0pPV+p9PpNPPK+3zmjiYlCFffiKZzxEsQfutXGei6xcgK8A==
+"@fontsource/rubik@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/rubik/-/rubik-4.2.2.tgz#e7507b5d4e2c2f3722e25e41f16169e7e5d58511"
+  integrity sha512-M7PAoPSFmmsg4A5E4jEVr4oMN9GRO6B9OUbSU4W68JhzzBJr8RFIgJ5jglbHxUuais+jDKMPHfIRzH2lmnYLJA==
 
 "@fortawesome/fontawesome-common-types@^0.2.34":
   version "0.2.34"

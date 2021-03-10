@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, PageProps } from "gatsby";
 import Img from "gatsby-image";
 import React from "react";
-import { PostDetail, PostTemplate } from "../../types/generated-types";
 import PostLabel from "../components/PostLabel";
 import Layout from "../components/Layout";
 import PageNav from "../components/PageNav";
@@ -14,7 +13,7 @@ import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
 import { getPostData } from "../utils/data";
 
-const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
+const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
   const { post, site } = data;
   const siteUrl = site?.siteMetadata?.siteUrl ?? "";
   const {
@@ -28,12 +27,10 @@ const Post: React.FC<PageProps<PostTemplate>> = ({ data }) => {
     imageUrl,
     image,
     html
-  } = getPostData(post as PostDetail);
+  } = getPostData(post as GatsbyTypes.PostDetailFragment);
 
-  const newerPost =
-    data.newerPost === null ? null : getPostData(data.newerPost);
-  const olderPost =
-    data.olderPost === null ? null : getPostData(data.olderPost);
+  const newerPost = data.newerPost ? getPostData(data.newerPost) : null;
+  const olderPost = data.olderPost ? getPostData(data.olderPost) : null;
 
   return (
     <Layout mainTitle={title}>

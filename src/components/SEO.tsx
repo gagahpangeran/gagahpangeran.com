@@ -4,7 +4,6 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-import { SiteMetaData } from "../../types/generated-types";
 
 interface Props {
   description?: string;
@@ -15,7 +14,7 @@ interface Props {
 }
 
 function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
-  const { site }: SiteMetaData = useStaticQuery(
+  const { site } = useStaticQuery<GatsbyTypes.SiteMetaDataQuery>(
     graphql`
       query SiteMetaData {
         site {

@@ -60,6 +60,9 @@
     "prettier": "^2.2.1",
     "typescript": "^4.2.3"
   },
+  "resolutions": {
+    "graphql": "^15.0.0"
+  },
   "keywords": [
     "gatsby"
   ],

@@ -50,13 +50,12 @@ export const plugins: GatsbyConfig["plugins"] = [
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-typescript`,
   {
-    resolve: "gatsby-plugin-codegen",
+    resolve: "gatsby-plugin-typegen",
     options: {
-      localSchemaFile: `./types/schema.json`,
-      watch: process.env.NODE_ENV === "development",
-      addTypename: true,
-      output: `./types/generated-types.d.ts`,
-      outputFlat: true
+      outputPath: `./types/generated-types.d.ts`,
+      emitSchema: {
+        "./types/schema.json": true
+      }
     }
   },
   {

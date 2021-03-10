@@ -1,7 +1,7 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { FluidObject } from "gatsby-image";
+import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { BlogPageContext } from "../templates/Blog";
 
 export const langMap = new Map([
@@ -20,7 +20,8 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
     categories: (frontmatter?.categories ?? []) as string[],
     tags: (frontmatter?.tags ?? []) as string[],
     lang: frontmatter?.lang ?? "en",
-    image: frontmatter?.featuredImage?.childImageSharp?.fluid as FluidObject,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    image: getImage(frontmatter?.featuredImage as any) as IGatsbyImageData,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? "",
     slug: fields?.slug ?? "",
     html: html ?? ""

@@ -69,6 +69,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean-install": "rm -rf ./node_modules && yarn",
     "develop": "gatsby develop",
     "format": "yarn format-prettier && yarn format-eslint",
     "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",

@@ -3,7 +3,6 @@
 
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import { BlogTemplate } from "../../types/generated-types";
 import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
 import PostCard from "../components/PostCard";
@@ -18,10 +17,9 @@ export interface BlogPageContext {
   numPages: number;
 }
 
-const Blog: React.FC<PageProps<BlogTemplate, BlogPageContext>> = ({
-  data,
-  pageContext
-}) => {
+const Blog: React.FC<
+  PageProps<GatsbyTypes.BlogTemplateQuery, BlogPageContext>
+> = ({ data, pageContext }) => {
   const { posts, title, desc, pageTitle, pageDesc } = getBlogData(
     pageContext,
     data

@@ -2,7 +2,6 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { FluidObject } from "gatsby-image";
-import { BlogTemplate, PostDetail } from "../../types/generated-types";
 import { BlogPageContext } from "../templates/Blog";
 
 export const langMap = new Map([
@@ -10,7 +9,7 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
-export function getPostData(data: PostDetail) {
+export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   const { id, excerpt, html, fields, frontmatter } = data;
 
   return {
@@ -30,7 +29,7 @@ export function getPostData(data: PostDetail) {
 
 export function getBlogData(
   pageContext: BlogPageContext,
-  blogData: BlogTemplate
+  blogData: GatsbyTypes.BlogTemplateQuery
 ) {
   const { filterValue, type } = pageContext;
 

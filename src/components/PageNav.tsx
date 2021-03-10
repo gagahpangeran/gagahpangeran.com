@@ -4,7 +4,7 @@
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { getPostData } from "../utils/data";
 
@@ -24,9 +24,9 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
 
   return (
     <Link to={slug} className={`page-nav__link ${type.toLowerCase()}`}>
-      <Img
+      <GatsbyImage
+        image={image}
         className="page-nav__link__image"
-        fluid={image}
         alt={title}
         title={title}
       />

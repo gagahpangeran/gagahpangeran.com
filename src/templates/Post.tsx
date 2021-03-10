@@ -4,7 +4,7 @@
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { graphql, PageProps } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import PostLabel from "../components/PostLabel";
 import Layout from "../components/Layout";
@@ -43,7 +43,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
         <PostLabel categories={categories} tags={tags} lang={lang} />
         <ShareButton link={`${siteUrl}${slug}`} />
         <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-          <Img fluid={image} alt={title} title={title} />
+          <GatsbyImage image={image} alt={title} title={title} />
         </a>
         <main
           className="post__body"
@@ -63,15 +63,12 @@ export const pageQuery = graphql`
     post: markdownRemark(id: { eq: $id }) {
       ...PostDetail
     }
-
     newerPost: markdownRemark(id: { eq: $newerId }) {
       ...PostDetail
     }
-
     olderPost: markdownRemark(id: { eq: $olderId }) {
       ...PostDetail
     }
-
     site {
       siteMetadata {
         siteUrl
@@ -96,9 +93,7 @@ export const pageQuery = graphql`
       featuredImage {
         publicURL
         childImageSharp {
-          fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(width: 800, layout: CONSTRAINED)
         }
       }
     }

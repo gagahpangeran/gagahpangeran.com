@@ -14,8 +14,7 @@ import ShareButton from "../components/ShareButton";
 import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
-  const { post, site } = data;
-  const { siteUrl } = site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
+  const { siteUrl } = data.site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
   const {
     title,
     description,
@@ -27,14 +26,14 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
     imageUrl,
     image,
     html
-  } = getPostData(post as GatsbyTypes.PostDetailFragment);
+  } = getPostData(data.post as GatsbyTypes.PostDetailFragment);
 
   const newerPost = data.newerPost ? getPostData(data.newerPost) : null;
   const olderPost = data.olderPost ? getPostData(data.olderPost) : null;
 
   return (
     <Layout mainTitle={title}>
-      <SEO title={title} description={excerpt} />
+      <SEO title={title} description={description} />
       <article className="post">
         <time className="post__date">
           <FontAwesomeIcon icon={faClock} />

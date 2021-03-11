@@ -7,8 +7,8 @@ import React from "react";
 import { langMap } from "../utils/data";
 
 interface Props {
-  categories: string[];
-  tags: string[];
+  categories: readonly string[];
+  tags: readonly string[];
   lang: string;
 }
 

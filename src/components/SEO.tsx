@@ -29,11 +29,13 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
     `
   );
 
-  const metaDescription = description ?? site?.siteMetadata?.description ?? "";
-  const metaImage = `${site?.siteMetadata?.siteUrl}/${
-    thumbnail ?? site?.siteMetadata?.image
+  const siteMetadata = site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
+
+  const metaDescription = description ?? siteMetadata.description;
+  const metaImage = `${siteMetadata.siteUrl}/${
+    thumbnail ?? siteMetadata.image
   }`;
-  const metaTitle = `${title} | ${site?.siteMetadata?.title}`;
+  const metaTitle = `${title} | ${siteMetadata.title}`;
 
   return (
     <Helmet
@@ -41,7 +43,7 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
         lang
       }}
       title={title}
-      titleTemplate={`%s | ${site?.siteMetadata?.title}`}
+      titleTemplate={`%s | ${siteMetadata.title}`}
       meta={[
         {
           name: `description`,

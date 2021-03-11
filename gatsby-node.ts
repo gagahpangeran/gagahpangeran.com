@@ -213,6 +213,25 @@ CreateSchemaCustomizationArgs): any => {
       siteUrl: String!
       title: String!
     }
+
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter!
+      fields: Fields!
+      html: String!
+    }
+
+    type Frontmatter {
+      categories: [String!]!
+      date: Date! @dateformat
+      description: String!
+      lang: String!
+      tags: [String!]!
+      title: String!
+    }
+
+    type Fields {
+      slug: String!
+    }
   `);
 };
 

@@ -196,9 +196,9 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
   }
 };
 
-// Current plugin `gatsby-plugin-codegen` can't generate types from graphql
-// inside `gatsby-node.ts`. Consider change to `gatsby-plugin-typegen`, because
-// they have plan to support `gatsby-node.ts` graphql types in the future.
+// Current plugin `gatsby-plugin-typegen` can't generate types from graphql
+// query inside `gatsby-node.ts` yet. There's plan in the future to support it.
+// For now just manually create the interface for it.
 // TODO: Automate to generate these interface bellow
 interface GatsbyNodeQuery {
   allPosts: {

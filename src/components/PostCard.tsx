@@ -12,7 +12,7 @@ import PostLabel from "./PostLabel";
 const PostCard = ({
   title,
   date,
-  excerpt,
+  description,
   slug,
   image,
   categories,
@@ -42,7 +42,7 @@ const PostCard = ({
         <PostLabel categories={categories} tags={tags} lang={lang} />
         <div
           className="post-card__info__summary"
-          dangerouslySetInnerHTML={{ __html: excerpt }}
+          dangerouslySetInnerHTML={{ __html: description }}
         />
       </div>
     </article>

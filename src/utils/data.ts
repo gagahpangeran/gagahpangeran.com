@@ -10,21 +10,16 @@ export const langMap = new Map([
 ]);
 
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
-  const { id, excerpt, html, fields, frontmatter } = data;
+  const { id, html, fields, frontmatter } = data;
 
   return {
     id,
-    title: frontmatter?.title ?? "",
-    date: frontmatter?.date ?? "",
-    excerpt: frontmatter?.description ?? excerpt ?? "",
-    categories: (frontmatter?.categories ?? []) as string[],
-    tags: (frontmatter?.tags ?? []) as string[],
-    lang: frontmatter?.lang ?? "en",
+    ...frontmatter,
+    slug: fields.slug,
+    html: html ?? "",
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     image: getImage(frontmatter?.featuredImage as any) as IGatsbyImageData,
-    imageUrl: frontmatter?.featuredImage?.publicURL ?? "",
-    slug: fields?.slug ?? "",
-    html: html ?? ""
+    imageUrl: frontmatter?.featuredImage?.publicURL ?? ""
   };
 }
 

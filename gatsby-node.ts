@@ -4,7 +4,42 @@
 import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
 import kebabCase from "lodash.kebabcase";
-import { GatsbyNode } from "gatsby";
+import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
+import { BlogPageContext } from "./src/templates/Blog";
+
+// Current plugin `gatsby-plugin-typegen` can't generate types from graphql
+// query inside `gatsby-node.ts` yet. There's plan in the future to support it.
+// For now just manually create the interface for it.
+// TODO: Automate to generate these interface bellow
+interface GatsbyNodeQuery {
+  allPosts: {
+    nodes: {
+      id: string;
+      fields: {
+        slug: string;
+      };
+    }[];
+  };
+  allCategories: {
+    group: GroupInfo[];
+  };
+  allTags: {
+    group: GroupInfo[];
+  };
+  allLang: {
+    group: GroupInfo[];
+  };
+}
+
+interface GroupInfo {
+  fieldValue: string;
+  totalCount: number;
+}
+
+interface CreateBlogPageContext extends BlogPageContext {
+  limit: number;
+  skip: number;
+}
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -16,7 +51,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
 
-  // * See `GatsbyNodeQuery` interface at the end of this file
+  // See `GatsbyNodeQuery` interface above
   const result = await graphql<GatsbyNodeQuery>(`
     query GatsbyNodeQuery {
       allPosts: allMarkdownRemark(
@@ -92,8 +127,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 
-  const postPerPage = 5;
-
   const createUpdatePage = ({
     slug,
     type,
@@ -101,10 +134,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
     filterValue
   }: {
     slug?: string;
-    type: string;
+    type: BlogPageContext["type"];
     postCount: number;
     filterValue?: string;
   }) => {
+    const postPerPage = 5;
     const numPages = Math.ceil(postCount / postPerPage);
 
     const paths = [];
@@ -129,7 +163,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
       reporter.info(`Creating page ${path}, type ${type}`);
 
-      createPage({
+      createPage<CreateBlogPageContext>({
         path,
         component: BlogTemplate,
         context: {
@@ -139,7 +173,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           templatePath,
           numPages,
           type,
-          filterValue
+          filterValue: filterValue ?? ""
         }
       });
     });
@@ -196,31 +230,41 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
   }
 };
 
-// Current plugin `gatsby-plugin-codegen` can't generate types from graphql
-// inside `gatsby-node.ts`. Consider change to `gatsby-plugin-typegen`, because
-// they have plan to support `gatsby-node.ts` graphql types in the future.
-// TODO: Automate to generate these interface bellow
-interface GatsbyNodeQuery {
-  allPosts: {
-    nodes: {
-      id: string;
-      fields: {
-        slug: string;
-      };
-    }[];
-  };
-  allCategories: {
-    group: GroupInfo[];
-  };
-  allTags: {
-    group: GroupInfo[];
-  };
-  allLang: {
-    group: GroupInfo[];
-  };
-}
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({
+  actions
+}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+CreateSchemaCustomizationArgs): any => {
+  const { createTypes } = actions;
 
-interface GroupInfo {
-  fieldValue: string;
-  totalCount: number;
-}
+  createTypes(`
+    type Site implements Node {
+      siteMetadata: SiteSiteMetadata!
+    }
+
+    type SiteSiteMetadata {
+      description: String!
+      image: String!
+      siteUrl: String!
+      title: String!
+    }
+
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter!
+      fields: Fields!
+      html: String!
+    }
+
+    type Frontmatter {
+      categories: [String!]!
+      date: Date! @dateformat
+      description: String!
+      lang: String!
+      tags: [String!]!
+      title: String!
+    }
+
+    type Fields {
+      slug: String!
+    }
+  `);
+};

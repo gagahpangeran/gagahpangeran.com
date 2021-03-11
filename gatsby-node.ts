@@ -6,6 +6,35 @@ import { createFilePath } from "gatsby-source-filesystem";
 import kebabCase from "lodash.kebabcase";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
 
+// Current plugin `gatsby-plugin-typegen` can't generate types from graphql
+// query inside `gatsby-node.ts` yet. There's plan in the future to support it.
+// For now just manually create the interface for it.
+// TODO: Automate to generate these interface bellow
+interface GatsbyNodeQuery {
+  allPosts: {
+    nodes: {
+      id: string;
+      fields: {
+        slug: string;
+      };
+    }[];
+  };
+  allCategories: {
+    group: GroupInfo[];
+  };
+  allTags: {
+    group: GroupInfo[];
+  };
+  allLang: {
+    group: GroupInfo[];
+  };
+}
+
+interface GroupInfo {
+  fieldValue: string;
+  totalCount: number;
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
@@ -16,7 +45,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
 
-  // * See `GatsbyNodeQuery` interface at the end of this file
+  // See `GatsbyNodeQuery` interface above
   const result = await graphql<GatsbyNodeQuery>(`
     query GatsbyNodeQuery {
       allPosts: allMarkdownRemark(
@@ -92,8 +121,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 
-  const postPerPage = 5;
-
   const createUpdatePage = ({
     slug,
     type,
@@ -105,6 +132,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     postCount: number;
     filterValue?: string;
   }) => {
+    const postPerPage = 5;
     const numPages = Math.ceil(postCount / postPerPage);
 
     const paths = [];
@@ -234,32 +262,3 @@ CreateSchemaCustomizationArgs): any => {
     }
   `);
 };
-
-// Current plugin `gatsby-plugin-typegen` can't generate types from graphql
-// query inside `gatsby-node.ts` yet. There's plan in the future to support it.
-// For now just manually create the interface for it.
-// TODO: Automate to generate these interface bellow
-interface GatsbyNodeQuery {
-  allPosts: {
-    nodes: {
-      id: string;
-      fields: {
-        slug: string;
-      };
-    }[];
-  };
-  allCategories: {
-    group: GroupInfo[];
-  };
-  allTags: {
-    group: GroupInfo[];
-  };
-  allLang: {
-    group: GroupInfo[];
-  };
-}
-
-interface GroupInfo {
-  fieldValue: string;
-  totalCount: number;
-}

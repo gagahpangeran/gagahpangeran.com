@@ -10,19 +10,19 @@ export const langMap = new Map([
 ]);
 
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
-  const { id, excerpt, html, fields, frontmatter } = data;
+  const { id, html, fields, frontmatter } = data;
 
   return {
     id,
-    title: frontmatter?.title ?? "",
-    date: frontmatter?.date ?? "",
-    excerpt: frontmatter?.description ?? excerpt ?? "",
-    categories: (frontmatter?.categories ?? []) as string[],
-    tags: (frontmatter?.tags ?? []) as string[],
-    lang: frontmatter?.lang ?? "en",
-    image: frontmatter?.featuredImage?.childImageSharp?.fluid as FluidObject,
-    imageUrl: frontmatter?.featuredImage?.publicURL ?? "",
-    slug: fields?.slug ?? "",
+    title: frontmatter.title,
+    date: frontmatter.date,
+    excerpt: frontmatter.description,
+    categories: frontmatter.categories,
+    tags: frontmatter.tags,
+    lang: frontmatter.lang,
+    image: frontmatter.featuredImage?.childImageSharp?.fluid as FluidObject,
+    imageUrl: frontmatter.featuredImage?.publicURL ?? "",
+    slug: fields.slug,
     html: html ?? ""
   };
 }

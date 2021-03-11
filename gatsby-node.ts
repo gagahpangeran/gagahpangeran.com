@@ -5,6 +5,7 @@ import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
 import kebabCase from "lodash.kebabcase";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
+import { BlogPageContext } from "./src/templates/Blog";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
 // query inside `gatsby-node.ts` yet. There's plan in the future to support it.
@@ -33,6 +34,11 @@ interface GatsbyNodeQuery {
 interface GroupInfo {
   fieldValue: string;
   totalCount: number;
+}
+
+interface CreateBlogPageContext extends BlogPageContext {
+  limit: number;
+  skip: number;
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -128,7 +134,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     filterValue
   }: {
     slug?: string;
-    type: string;
+    type: BlogPageContext["type"];
     postCount: number;
     filterValue?: string;
   }) => {
@@ -157,7 +163,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
       reporter.info(`Creating page ${path}, type ${type}`);
 
-      createPage({
+      createPage<CreateBlogPageContext>({
         path,
         component: BlogTemplate,
         context: {
@@ -167,7 +173,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           templatePath,
           numPages,
           type,
-          filterValue
+          filterValue: filterValue ?? ""
         }
       });
     });

@@ -4,7 +4,7 @@
 import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
 import kebabCase from "lodash.kebabcase";
-import { GatsbyNode } from "gatsby";
+import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -194,6 +194,26 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
       value
     });
   }
+};
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({
+  actions
+}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+CreateSchemaCustomizationArgs): any => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type Site implements Node {
+      siteMetadata: SiteSiteMetadata!
+    }
+
+    type SiteSiteMetadata {
+      description: String!
+      image: String!
+      siteUrl: String!
+      title: String!
+    }
+  `);
 };
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql

@@ -260,7 +260,7 @@ type Directory_ctimeArgs = {
 
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
-  readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly siteMetadata: SiteSiteMetadata;
   readonly port: Maybe<Scalars['Int']>;
   readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
@@ -280,10 +280,10 @@ type Site_buildTimeArgs = {
 };
 
 type SiteSiteMetadata = {
-  readonly title: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly image: Maybe<Scalars['String']>;
-  readonly siteUrl: Maybe<Scalars['String']>;
+  readonly title: Scalars['String'];
+  readonly description: Scalars['String'];
+  readonly image: Scalars['String'];
+  readonly siteUrl: Scalars['String'];
 };
 
 type SitePage = Node & {
@@ -3332,7 +3332,7 @@ type PostTemplateQueryVariables = Exact<{
 }>;
 
 
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl'>> }> };
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
 
 type BlogTemplateQueryVariables = Exact<{
   skip: Maybe<Scalars['Int']>;
@@ -3351,7 +3351,7 @@ type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<P
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'>> }> };
+type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

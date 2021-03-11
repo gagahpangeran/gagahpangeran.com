@@ -15,7 +15,7 @@ import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
   const { post, site } = data;
-  const siteUrl = site?.siteMetadata?.siteUrl ?? "";
+  const { siteUrl } = site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
   const {
     title,
     excerpt,

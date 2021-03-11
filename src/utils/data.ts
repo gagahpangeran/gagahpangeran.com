@@ -14,16 +14,11 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
 
   return {
     id,
-    title: frontmatter.title,
-    date: frontmatter.date,
-    excerpt: frontmatter.description,
-    categories: frontmatter.categories,
-    tags: frontmatter.tags,
-    lang: frontmatter.lang,
-    image: frontmatter.featuredImage?.childImageSharp?.fluid as FluidObject,
-    imageUrl: frontmatter.featuredImage?.publicURL ?? "",
+    ...frontmatter,
     slug: fields.slug,
-    html: html ?? ""
+    html: html ?? "",
+    image: frontmatter.featuredImage?.childImageSharp?.fluid as FluidObject,
+    imageUrl: frontmatter.featuredImage?.publicURL ?? ""
   };
 }
 

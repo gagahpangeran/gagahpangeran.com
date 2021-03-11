@@ -18,7 +18,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
   const { siteUrl } = site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
   const {
     title,
-    excerpt,
+    description,
     date,
     categories,
     tags,
@@ -81,7 +81,6 @@ export const pageQuery = graphql`
 
   fragment PostDetail on MarkdownRemark {
     id
-    excerpt(pruneLength: 160)
     html
     fields {
       slug

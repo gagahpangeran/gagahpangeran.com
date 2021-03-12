@@ -1,7 +1,7 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import { BlogPageContext } from "../templates/Blog";
 
 export const langMap = new Map([
@@ -17,8 +17,8 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
     ...frontmatter,
     slug: fields.slug,
     html: html ?? "",
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    image: getImage(frontmatter?.featuredImage as any) as IGatsbyImageData,
+    image: (frontmatter?.featuredImage?.childImageSharp
+      ?.gatsbyImageData as unknown) as IGatsbyImageData,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? ""
   };
 }

@@ -4,7 +4,7 @@
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { getPostData } from "../utils/data";
 import PostLabel from "./PostLabel";
@@ -23,9 +23,9 @@ const PostCard = ({
     <article className="post-card">
       <Link to={slug} title={title} className="post-card__header">
         <div className="post-card__header__thumbnail">
-          <Img
+          <GatsbyImage
+            image={image}
             className="post-card__header__thumbnail__image"
-            fluid={image}
             alt={title}
             title={title}
           />

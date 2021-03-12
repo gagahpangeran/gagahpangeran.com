@@ -3312,6 +3312,15 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type PostTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
+
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3322,15 +3331,6 @@ type PostDetailFragment = (
     )> }
   ) }
 );
-
-type PostTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: Maybe<Scalars['String']>;
-  olderId: Maybe<Scalars['String']>;
-}>;
-
-
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
 
 type BlogTemplateQueryVariables = Exact<{
   skip: Maybe<Scalars['Int']>;

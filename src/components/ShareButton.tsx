@@ -31,8 +31,10 @@ const ShareButton = ({ link }: Props) => {
   return (
     <details ref={detailsRef} className="share-button">
       <summary>Share This Post</summary>
-      <div className="share-button__desc">{desc[isCopied ? 1 : 0]}</div>
-      <div className="share-button__link">
+      <div className={`share-button__desc ${isCopied ? "copied" : ""}`}>
+        {desc[isCopied ? 1 : 0]}
+      </div>
+      <div className={`share-button__link ${isCopied ? "copied" : ""}`}>
         <input ref={inputRef} type="text" defaultValue={link} />
         <button onClick={handleClick}>
           <FontAwesomeIcon icon={isCopied ? faClipboardCheck : faCopy} />

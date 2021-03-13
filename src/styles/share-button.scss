@@ -13,6 +13,11 @@
 
   &__desc {
     margin: 8px 0;
+
+    &.copied {
+      font-weight: bold;
+      color: var(--green);
+    }
   }
 
   &__link {
@@ -43,6 +48,12 @@
       border-radius: 0 4px 4px 0;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    &.copied {
+      button {
+        background-color: var(--green);
+      }
     }
   }
 }

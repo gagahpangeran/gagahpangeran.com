@@ -32,13 +32,7 @@ export function createPageData({
 
   let basePath = "/";
 
-  if (type === "Index") {
-    if (slug !== undefined || filterValue.length > 0) {
-      throw new Error(
-        `slug and/or filter value can not be used if type is "Index"`
-      );
-    }
-  } else {
+  if (type !== "Index") {
     if (slug === undefined) {
       basePath += `${type.toLowerCase()}/`;
     } else {

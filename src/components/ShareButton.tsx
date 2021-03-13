@@ -14,6 +14,11 @@ const ShareButton = ({ link }: Props) => {
   const detailsRef = useRef<HTMLDetailsElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const desc = [
+    "Copy the link bellow and share it anywhere.",
+    "Link copied! Now you can paste and share it anywhere."
+  ];
+
   const handleClick = () => {
     inputRef.current?.select();
     inputRef.current?.setSelectionRange(0, 99999);
@@ -26,20 +31,13 @@ const ShareButton = ({ link }: Props) => {
   return (
     <details ref={detailsRef} className="share-button">
       <summary>Share This Post</summary>
-      <div className="share-button__desc">
-        Copy the link bellow and share it anywhere.
-      </div>
+      <div className="share-button__desc">{desc[isCopied ? 1 : 0]}</div>
       <div className="share-button__link">
         <input ref={inputRef} type="text" defaultValue={link} />
         <button onClick={handleClick}>
           <FontAwesomeIcon icon={faCopy} />
         </button>
       </div>
-      {isCopied && (
-        <div className="share-button__notice">
-          Link is copied! Now you can paste it anywhere.
-        </div>
-      )}
     </details>
   );
 };

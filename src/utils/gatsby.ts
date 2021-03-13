@@ -4,7 +4,7 @@
 import kebabCase from "lodash.kebabcase";
 import { BlogPageContext } from "../templates/Blog";
 
-interface CreatePageDataArgs {
+export interface CreatePageDataArgs {
   postCount: number;
   type: BlogPageContext["type"];
   slug?: string;
@@ -16,7 +16,7 @@ export interface CreateBlogPageContext extends BlogPageContext {
   skip: number;
 }
 
-interface CreatePageDataType {
+export interface CreatePageDataType {
   path: string;
   context: CreateBlogPageContext;
 }

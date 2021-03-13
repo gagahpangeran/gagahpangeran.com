@@ -32,18 +32,22 @@ export function createPageData({
 
   let basePath = "/";
 
-  if (slug === undefined) {
-    if (type !== "Index") {
-      basePath += `${type.toLowerCase()}/`;
+  if (type === "Index") {
+    if (slug !== undefined || filterValue.length > 0) {
+      throw new Error(
+        `slug and/or filter value can not be used if type is "Index"`
+      );
     }
   } else {
-    basePath += `${slug}/`;
-  }
+    if (slug === undefined) {
+      basePath += `${type.toLowerCase()}/`;
+    } else {
+      basePath += `${slug}/`;
+    }
 
-  if (filterValue.length > 0) {
-    basePath += `${kebabCase(filterValue)}/`;
-  } else {
-    if (type !== "Index") {
+    if (filterValue.length > 0) {
+      basePath += `${kebabCase(filterValue)}/`;
+    } else {
       throw new Error(`filterValue can not be empty if type is not "Index"`);
     }
   }

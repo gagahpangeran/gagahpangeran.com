@@ -80,7 +80,8 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
-    "test": "jest"
+    "test": "jest",
+    "test-cov": "jest --coverage"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,scss}": [

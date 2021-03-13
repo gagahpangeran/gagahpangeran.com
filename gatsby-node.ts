@@ -4,7 +4,6 @@
 import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
-import { BlogPageContext } from "./src/templates/Blog";
 import { createPageData } from "./src/utils/gatsby";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
@@ -34,11 +33,6 @@ interface GatsbyNodeQuery {
 interface GroupInfo {
   fieldValue: string;
   totalCount: number;
-}
-
-interface CreateBlogPageContext extends BlogPageContext {
-  limit: number;
-  skip: number;
 }
 
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -167,7 +161,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   allPageData.forEach(data => {
     reporter.info(`Creating page ${data.path}, type ${data.context.type}`);
 
-    createPage<CreateBlogPageContext>({
+    createPage({
       ...data,
       component: BlogTemplate
     });

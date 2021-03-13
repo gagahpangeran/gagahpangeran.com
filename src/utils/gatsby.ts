@@ -11,17 +11,14 @@ interface CreatePageDataArgs {
   filterValue?: string;
 }
 
+export interface CreateBlogPageContext extends BlogPageContext {
+  limit: number;
+  skip: number;
+}
+
 interface CreatePageDataType {
   path: string;
-  context: {
-    limit: number;
-    skip: number;
-    page: number;
-    basePath: string;
-    numPages: number;
-    filterValue: string;
-    type: BlogPageContext["type"];
-  };
+  context: CreateBlogPageContext;
 }
 
 export function createPageData({

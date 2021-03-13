@@ -42,4 +42,20 @@ describe("Test createPageData function", () => {
 
     expect(result).toMatchObject([expectedResult]);
   });
+
+  test("slug argument empty or undefined", () => {
+    const args: CreatePageDataArgs = { ...baseArgs, slug: undefined };
+
+    const path = "/language/en/";
+    const slugExpectedResult: CreatePageDataType = {
+      path,
+      context: {
+        ...expectedResult.context,
+        basePath: path
+      }
+    };
+
+    const result = createPageData(args);
+    expect(result).toMatchObject([slugExpectedResult]);
+  });
 });

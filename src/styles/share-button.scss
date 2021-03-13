@@ -13,9 +13,16 @@
 
   &__desc {
     margin: 8px 0;
+
+    &.copied {
+      font-weight: bold;
+      color: var(--green);
+    }
   }
 
   &__link {
+    display: flex;
+
     & > * {
       display: inline-block;
       font-size: 1.25rem;
@@ -29,23 +36,24 @@
       border: none;
       padding: 4px 8px;
       border-radius: 4px 0 0 4px;
-      width: 85%;
       box-sizing: border-box;
+      flex: 1 0 auto;
     }
 
     button {
-      width: 15%;
       border: none;
       background-color: var(--pink);
       color: var(--white);
-      padding: 4px 8px;
+      padding: 4px 12px;
       border-radius: 0 4px 4px 0;
       font-weight: bold;
       cursor: pointer;
     }
-  }
 
-  &__notice {
-    margin-top: 8px;
+    &.copied {
+      button {
+        background-color: var(--green);
+      }
+    }
   }
 }

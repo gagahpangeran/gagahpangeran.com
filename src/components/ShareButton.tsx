@@ -1,7 +1,7 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 
@@ -13,6 +13,11 @@ const ShareButton = ({ link }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
   const detailsRef = useRef<HTMLDetailsElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  const desc = [
+    "Copy the link bellow and share it anywhere.",
+    "Link copied! Now you can paste and share it anywhere."
+  ];
 
   const handleClick = () => {
     inputRef.current?.select();
@@ -26,20 +31,15 @@ const ShareButton = ({ link }: Props) => {
   return (
     <details ref={detailsRef} className="share-button">
       <summary>Share This Post</summary>
-      <div className="share-button__desc">
-        Copy the link bellow and share it anywhere.
+      <div className={`share-button__desc ${isCopied ? "copied" : ""}`}>
+        {desc[isCopied ? 1 : 0]}
       </div>
-      <div className="share-button__link">
+      <div className={`share-button__link ${isCopied ? "copied" : ""}`}>
         <input ref={inputRef} type="text" defaultValue={link} />
         <button onClick={handleClick}>
-          <FontAwesomeIcon icon={faCopy} />
+          <FontAwesomeIcon icon={isCopied ? faClipboardCheck : faCopy} />
         </button>
       </div>
-      {isCopied && (
-        <div className="share-button__notice">
-          Link is copied! Now you can paste it anywhere.
-        </div>
-      )}
     </details>
   );
 };

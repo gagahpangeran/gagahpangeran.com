@@ -12,7 +12,7 @@ import { getBlogData, getPostData } from "../utils/data";
 export interface BlogPageContext {
   type: "Index" | "Category" | "Tag" | "Language";
   filterValue: string;
-  templatePath: string;
+  basePath: string;
   page: number;
   numPages: number;
 }
@@ -33,7 +33,7 @@ const Blog: React.FC<
       ))}
 
       <Pagination
-        path={pageContext.templatePath}
+        path={pageContext.basePath}
         numPages={pageContext.numPages}
         page={pageContext.page}
       />

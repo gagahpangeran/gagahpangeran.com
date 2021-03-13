@@ -3,9 +3,9 @@
 
 import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
-import kebabCase from "lodash.kebabcase";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
 import { BlogPageContext } from "./src/templates/Blog";
+import { createPageData } from "./src/utils/gatsby";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
 // query inside `gatsby-node.ts` yet. There's plan in the future to support it.
@@ -127,87 +127,49 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 
-  const createUpdatePage = ({
-    slug,
-    type,
-    postCount,
-    filterValue
-  }: {
-    slug?: string;
-    type: BlogPageContext["type"];
-    postCount: number;
-    filterValue?: string;
-  }) => {
-    const postPerPage = 5;
-    const numPages = Math.ceil(postCount / postPerPage);
-
-    const paths = [];
-    if (slug !== undefined) {
-      paths.push(slug);
-    }
-
-    if (filterValue !== undefined) {
-      paths.push(kebabCase(filterValue));
-    }
-
-    let path = "/";
-    if (paths.length > 0) {
-      path += `${paths.join("/")}/`;
-    }
-
-    Array.from({ length: numPages }).forEach((_, index) => {
-      const templatePath = path;
-      if (index > 0) {
-        path += `${index + 1}`;
-      }
-
-      reporter.info(`Creating page ${path}, type ${type}`);
-
-      createPage<CreateBlogPageContext>({
-        path,
-        component: BlogTemplate,
-        context: {
-          limit: postPerPage,
-          skip: index * postPerPage,
-          page: index + 1,
-          templatePath,
-          numPages,
-          type,
-          filterValue: filterValue ?? ""
-        }
-      });
-    });
-  };
-
-  createUpdatePage({
-    type: "Index",
-    postCount: posts.length
+  const indexPageData = createPageData({
+    postCount: posts.length,
+    type: "Index"
   });
 
-  categories.forEach(category => {
-    createUpdatePage({
-      slug: "category",
-      type: "Category",
+  const categoriesPageData = categories.flatMap(category =>
+    createPageData({
       postCount: category.totalCount,
-      filterValue: category.fieldValue
-    });
-  });
+      filterValue: category.fieldValue,
+      type: "Category"
+    })
+  );
 
-  tags.forEach(tag => {
-    createUpdatePage({
-      slug: "tag",
-      type: "Tag",
+  const tagsPageData = tags.flatMap(tag =>
+    createPageData({
       postCount: tag.totalCount,
-      filterValue: tag.fieldValue
-    });
-  });
+      filterValue: tag.fieldValue,
+      type: "Tag"
+    })
+  );
 
-  langs.forEach(lang => {
-    createUpdatePage({
-      slug: "lang",
-      type: "Language",
+  const langsPageData = langs.flatMap(lang =>
+    createPageData({
       postCount: lang.totalCount,
-      filterValue: lang.fieldValue
+      filterValue: lang.fieldValue,
+      slug: "lang",
+      type: "Language"
+    })
+  );
+
+  const allPageData = [
+    ...indexPageData,
+    ...categoriesPageData,
+    ...tagsPageData,
+    ...langsPageData
+  ];
+
+  allPageData.forEach(data => {
+    reporter.info(`Creating page ${data.path}, type ${data.context.type}`);
+
+    createPage<CreateBlogPageContext>({
+      ...data,
+      component: BlogTemplate
     });
   });
 };

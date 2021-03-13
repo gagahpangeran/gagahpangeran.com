@@ -97,4 +97,34 @@ describe("Test createPageData function", () => {
 
     expect(result).toMatchObject([expectedResult]);
   });
+
+  test("Multiple pages", () => {
+    const args: CreatePageDataArgs = {
+      ...baseArgs,
+      postCount: 7
+    };
+
+    const expectedResult: CreatePageDataType[] = [
+      {
+        path: path,
+        context: {
+          ...context,
+          numPages: 2
+        }
+      },
+      {
+        path: `${path}2/`,
+        context: {
+          ...context,
+          numPages: 2,
+          skip: 5,
+          page: 2
+        }
+      }
+    ];
+
+    const result = createPageData(args);
+
+    expect(result).toMatchObject(expectedResult);
+  });
 });

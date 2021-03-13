@@ -76,4 +76,25 @@ describe("Test createPageData function", () => {
 
     expect(() => createPageData(args)).toThrow(errorMessage);
   });
+
+  test("Index type argument", () => {
+    const args: CreatePageDataArgs = {
+      postCount: 1,
+      type: "Index"
+    };
+
+    const expectedResult: CreatePageDataType = {
+      path: "/",
+      context: {
+        ...baseContext,
+        basePath: "/",
+        filterValue: "",
+        type: "Index"
+      }
+    };
+
+    const result = createPageData(args);
+
+    expect(result).toMatchObject([expectedResult]);
+  });
 });

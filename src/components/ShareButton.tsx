@@ -1,7 +1,7 @@
 // Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import { faCopy, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 
@@ -35,7 +35,7 @@ const ShareButton = ({ link }: Props) => {
       <div className="share-button__link">
         <input ref={inputRef} type="text" defaultValue={link} />
         <button onClick={handleClick}>
-          <FontAwesomeIcon icon={faCopy} />
+          <FontAwesomeIcon icon={isCopied ? faClipboardCheck : faCopy} />
         </button>
       </div>
     </details>

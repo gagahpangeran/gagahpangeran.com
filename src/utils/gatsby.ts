@@ -42,6 +42,10 @@ export function createPageData({
 
   if (filterValue.length > 0) {
     basePath += `${kebabCase(filterValue)}/`;
+  } else {
+    if (type !== "Index") {
+      throw new Error(`filterValue can not be empty if type is not "Index"`);
+    }
   }
 
   return Array.from({ length: numPages }).map((_, index) => ({

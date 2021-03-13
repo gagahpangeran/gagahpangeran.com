@@ -58,4 +58,22 @@ describe("Test createPageData function", () => {
     const result = createPageData(args);
     expect(result).toMatchObject([slugExpectedResult]);
   });
+
+  test("filterValue (and slug) argument(s) empty or undefined", () => {
+    let args: CreatePageDataArgs = {
+      ...baseArgs,
+      filterValue: undefined
+    };
+
+    const errorMessage = `filterValue can not be empty if type is not "Index"`;
+
+    expect(() => createPageData(args)).toThrow(errorMessage);
+
+    args = {
+      ...args,
+      slug: undefined
+    };
+
+    expect(() => createPageData(args)).toThrow(errorMessage);
+  });
 });

@@ -1,4 +1,5 @@
 module.exports = {
+  collectCoverageFrom: ["src/**/*.(ts|tsx)", "!**/node_modules/**"],
   transform: {
     "^.+\\.[jt]sx?$": "<rootDir>/jest-preprocess.js"
   },
@@ -11,7 +12,7 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``
   },
-  testMatch: ["<rootDir>/test/**/*.test.tsx"],
+  testMatch: ["<rootDir>/test/**/*.test.(ts|tsx)"],
   testURL: `http://localhost:8000`,
   setupFilesAfterEnv: [`<rootDir>/jest.setup.js`],
   setupFiles: [`<rootDir>/loadershim.js`]

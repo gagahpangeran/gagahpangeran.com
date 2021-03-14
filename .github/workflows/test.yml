@@ -42,5 +42,5 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Run linter script
+      - name: Run test script
         run: yarn test

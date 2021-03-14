@@ -2,12 +2,30 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { BlogPageContext } from "../templates/Blog";
 
 export const langMap = new Map([
   ["id", "Bahasa Indonesia"],
   ["en", "English"]
 ]);
+
+export type BlogPageContextType = "Index" | "Category" | "Tag" | "Language";
+
+export interface BlogPageContext {
+  type: BlogPageContextType;
+  filterValue: string;
+  basePath: string;
+  page: number;
+  numPages: number;
+}
+
+export const postKeyMap: {
+  [key in BlogPageContextType]: keyof GatsbyTypes.BlogTemplateQuery;
+} = {
+  Index: "posts",
+  Category: "categories",
+  Tag: "tags",
+  Language: "langs"
+};
 
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   const { id, html, fields, frontmatter } = data;
@@ -23,47 +41,29 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   };
 }
 
-export function getBlogData(
-  pageContext: BlogPageContext,
-  blogData: GatsbyTypes.BlogTemplateQuery
-) {
-  const { filterValue, type } = pageContext;
-
-  switch (type) {
-    case "Index":
-    default:
-      return {
-        pageTitle: "GPR's Blog",
-        pageDesc: "Part Time Student, Full Time Learner",
-        title: "Home",
-        desc: "Part Time Student, Full Time Learner",
-        posts: blogData.posts.nodes
-      };
-    case "Category":
-      return {
-        pageTitle: filterValue,
-        pageDesc: `Show All Posts Under Category "${filterValue}"`,
-        title: `Category "${filterValue}"`,
-        desc: `All Posts Under Category "${filterValue}"`,
-        posts: blogData.categories.nodes
-      };
-    case "Tag":
-      return {
-        pageTitle: filterValue,
-        pageDesc: `Show All Posts Under Tag "${filterValue}"`,
-        title: `Tag "${filterValue}"`,
-        desc: `All Posts Under Tag "${filterValue}"`,
-        posts: blogData.tags.nodes
-      };
-    case "Language": {
-      const lang = langMap.get(filterValue) ?? "English";
-      return {
-        pageTitle: lang,
-        pageDesc: `Show All Posts Under Language "${lang}"`,
-        title: `Language ${lang}`,
-        desc: `All Posts Under Language "${lang}"`,
-        posts: blogData.langs.nodes
-      };
-    }
+export function getBlogMetaData({
+  type,
+  filterValue
+}: Omit<BlogPageContext, "basePath" | "page" | "numPages">) {
+  if (type === "Language") {
+    filterValue = langMap.get(filterValue) ?? "English";
   }
+
+  if (type === "Index") {
+    return {
+      pageTitle: "GPR's Blog",
+      pageDesc: "Part Time Student, Full Time Learner",
+      title: "Home",
+      desc: "Part Time Student, Full Time Learner"
+    };
+  }
+
+  const title = `${type} "${filterValue}"`;
+
+  return {
+    pageTitle: filterValue,
+    pageDesc: `Show All Posts Under ${title}`,
+    title,
+    desc: `All Posts Under ${title}`
+  };
 }

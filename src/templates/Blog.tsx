@@ -7,23 +7,18 @@ import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
 import PostCard from "../components/PostCard";
 import SEO from "../components/SEO";
-import { getBlogData, getPostData } from "../utils/data";
-
-export interface BlogPageContext {
-  type: "Index" | "Category" | "Tag" | "Language";
-  filterValue: string;
-  basePath: string;
-  page: number;
-  numPages: number;
-}
+import {
+  BlogPageContext,
+  getBlogMetaData,
+  getPostData,
+  postKeyMap
+} from "../utils/data";
 
 const Blog: React.FC<
   PageProps<GatsbyTypes.BlogTemplateQuery, BlogPageContext>
 > = ({ data, pageContext }) => {
-  const { posts, title, desc, pageTitle, pageDesc } = getBlogData(
-    pageContext,
-    data
-  );
+  const { title, desc, pageTitle, pageDesc } = getBlogMetaData(pageContext);
+  const posts = data[postKeyMap[pageContext.type]].nodes;
 
   return (
     <Layout mainTitle={pageTitle} subTitle={pageDesc}>

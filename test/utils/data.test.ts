@@ -29,7 +29,7 @@ describe("Test getBlogMetaData function", () => {
     const expectedResult = {
       pageTitle: "Story",
       pageDesc: `Show All Posts Under Category "Story"`,
-      title: `Category Story`,
+      title: `Category "Story"`,
       desc: `All Posts Under Category "Story"`
     };
 
@@ -45,7 +45,7 @@ describe("Test getBlogMetaData function", () => {
     const expectedResult = {
       pageTitle: "Cloud",
       pageDesc: `Show All Posts Under Tag "Cloud"`,
-      title: `Tag Cloud`,
+      title: `Tag "Cloud"`,
       desc: `All Posts Under Tag "Cloud"`
     };
 
@@ -61,7 +61,7 @@ describe("Test getBlogMetaData function", () => {
     const expectedResult = {
       pageTitle: "English",
       pageDesc: `Show All Posts Under Language "English"`,
-      title: `Language English`,
+      title: `Language "English"`,
       desc: `All Posts Under Language "English"`
     };
 

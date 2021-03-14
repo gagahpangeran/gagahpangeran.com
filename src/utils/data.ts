@@ -2,12 +2,19 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import { BlogPageContext } from "../templates/Blog";
 
 export const langMap = new Map([
   ["id", "Bahasa Indonesia"],
   ["en", "English"]
 ]);
+
+export interface BlogPageContext {
+  type: "Index" | "Category" | "Tag" | "Language";
+  filterValue: string;
+  basePath: string;
+  page: number;
+  numPages: number;
+}
 
 export const postKeyMap: {
   [key in BlogPageContext["type"]]: keyof GatsbyTypes.BlogTemplateQuery;

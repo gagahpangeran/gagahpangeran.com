@@ -2,7 +2,7 @@
 // Read the LICENSE file in the repository root for full license text
 
 import kebabCase from "lodash.kebabcase";
-import { BlogPageContext } from "../templates/Blog";
+import { BlogPageContext } from "./data";
 
 export interface CreatePageDataArgs {
   postCount: number;

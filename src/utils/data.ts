@@ -41,7 +41,9 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   };
 }
 
-export function getBlogMetaData(pageContext: BlogPageContext) {
+export function getBlogMetaData(
+  pageContext: Omit<BlogPageContext, "basePath" | "page" | "numPages">
+) {
   const { type } = pageContext;
   let filterValue = pageContext.filterValue;
 

@@ -2,11 +2,11 @@
 // Read the LICENSE file in the repository root for full license text
 
 import kebabCase from "lodash.kebabcase";
-import { BlogPageContext } from "./data";
+import { BlogPageContext, BlogPageContextType } from "./data";
 
 export interface CreatePageDataArgs {
   postCount: number;
-  type: BlogPageContext["type"];
+  type: BlogPageContextType;
   slug?: string;
   filterValue?: string;
 }

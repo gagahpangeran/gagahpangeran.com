@@ -8,8 +8,10 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
+export type BlogPageContextType = "Index" | "Category" | "Tag" | "Language";
+
 export interface BlogPageContext {
-  type: "Index" | "Category" | "Tag" | "Language";
+  type: BlogPageContextType;
   filterValue: string;
   basePath: string;
   page: number;
@@ -17,7 +19,7 @@ export interface BlogPageContext {
 }
 
 export const postKeyMap: {
-  [key in BlogPageContext["type"]]: keyof GatsbyTypes.BlogTemplateQuery;
+  [key in BlogPageContextType]: keyof GatsbyTypes.BlogTemplateQuery;
 } = {
   Index: "posts",
   Category: "categories",

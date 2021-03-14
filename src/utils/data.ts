@@ -9,7 +9,7 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
-const postKeyMap: {
+export const postKeyMap: {
   [key in BlogPageContext["type"]]: keyof GatsbyTypes.BlogTemplateQuery;
 } = {
   Index: "posts",
@@ -32,10 +32,7 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   };
 }
 
-export function getBlogData(
-  pageContext: BlogPageContext,
-  blogData: GatsbyTypes.BlogTemplateQuery
-) {
+export function getBlogData(pageContext: BlogPageContext) {
   const { type } = pageContext;
   let filterValue = pageContext.filterValue;
 
@@ -43,16 +40,12 @@ export function getBlogData(
     filterValue = langMap.get(filterValue) ?? "English";
   }
 
-  const postKey = postKeyMap[type];
-  const posts = blogData[postKey].nodes;
-
   if (type === "Index") {
     return {
       pageTitle: "GPR's Blog",
       pageDesc: "Part Time Student, Full Time Learner",
       title: "Home",
-      desc: "Part Time Student, Full Time Learner",
-      posts
+      desc: "Part Time Student, Full Time Learner"
     };
   }
 
@@ -60,7 +53,6 @@ export function getBlogData(
     pageTitle: filterValue,
     pageDesc: `Show All Posts Under ${type} "${filterValue}"`,
     title: `${type} ${filterValue}`,
-    desc: `All Posts Under ${type} "${filterValue}"`,
-    posts
+    desc: `All Posts Under ${type} "${filterValue}"`
   };
 }

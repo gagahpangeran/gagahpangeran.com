@@ -32,7 +32,7 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   };
 }
 
-export function getBlogData(pageContext: BlogPageContext) {
+export function getBlogMetaData(pageContext: BlogPageContext) {
   const { type } = pageContext;
   let filterValue = pageContext.filterValue;
 

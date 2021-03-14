@@ -43,39 +43,24 @@ export function getBlogData(
     filterValue = langMap.get(filterValue) ?? "English";
   }
 
-  switch (type) {
-    case "Index":
-    default:
-      return {
-        pageTitle: "GPR's Blog",
-        pageDesc: "Part Time Student, Full Time Learner",
-        title: "Home",
-        desc: "Part Time Student, Full Time Learner",
-        posts: blogData.posts.nodes
-      };
-    case "Category":
-      return {
-        pageTitle: filterValue,
-        pageDesc: `Show All Posts Under Category "${filterValue}"`,
-        title: `Category "${filterValue}"`,
-        desc: `All Posts Under Category "${filterValue}"`,
-        posts: blogData.categories.nodes
-      };
-    case "Tag":
-      return {
-        pageTitle: filterValue,
-        pageDesc: `Show All Posts Under Tag "${filterValue}"`,
-        title: `Tag "${filterValue}"`,
-        desc: `All Posts Under Tag "${filterValue}"`,
-        posts: blogData.tags.nodes
-      };
-    case "Language":
-      return {
-        pageTitle: filterValue,
-        pageDesc: `Show All Posts Under Language "${filterValue}"`,
-        title: `Language ${filterValue}`,
-        desc: `All Posts Under Language "${filterValue}"`,
-        posts: blogData.langs.nodes
-      };
+  const postKey = postKeyMap[type];
+  const posts = blogData[postKey].nodes;
+
+  if (type === "Index") {
+    return {
+      pageTitle: "GPR's Blog",
+      pageDesc: "Part Time Student, Full Time Learner",
+      title: "Home",
+      desc: "Part Time Student, Full Time Learner",
+      posts
+    };
   }
+
+  return {
+    pageTitle: filterValue,
+    pageDesc: `Show All Posts Under ${type} "${filterValue}"`,
+    title: `${type} ${filterValue}`,
+    desc: `All Posts Under ${type} "${filterValue}"`,
+    posts
+  };
 }

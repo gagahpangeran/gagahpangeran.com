@@ -310,10 +310,10 @@ type SitePageContext = {
   readonly limit: Maybe<Scalars['Int']>;
   readonly skip: Maybe<Scalars['Int']>;
   readonly page: Maybe<Scalars['Int']>;
-  readonly templatePath: Maybe<Scalars['String']>;
+  readonly basePath: Maybe<Scalars['String']>;
   readonly numPages: Maybe<Scalars['Int']>;
-  readonly type: Maybe<Scalars['String']>;
   readonly filterValue: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 type MarkdownHeading = {
@@ -2169,10 +2169,10 @@ type SitePageContextFilterInput = {
   readonly limit: Maybe<IntQueryOperatorInput>;
   readonly skip: Maybe<IntQueryOperatorInput>;
   readonly page: Maybe<IntQueryOperatorInput>;
-  readonly templatePath: Maybe<StringQueryOperatorInput>;
+  readonly basePath: Maybe<StringQueryOperatorInput>;
   readonly numPages: Maybe<IntQueryOperatorInput>;
-  readonly type: Maybe<StringQueryOperatorInput>;
   readonly filterValue: Maybe<StringQueryOperatorInput>;
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginFilterInput = {
@@ -2432,10 +2432,10 @@ type SitePageFieldsEnum =
   | 'context.limit'
   | 'context.skip'
   | 'context.page'
-  | 'context.templatePath'
+  | 'context.basePath'
   | 'context.numPages'
-  | 'context.type'
   | 'context.filterValue'
+  | 'context.type'
   | 'pluginCreator.id'
   | 'pluginCreator.parent.id'
   | 'pluginCreator.parent.parent.id'

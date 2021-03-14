@@ -58,10 +58,12 @@ export function getBlogMetaData({
     };
   }
 
+  const title = `${type} "${filterValue}"`;
+
   return {
     pageTitle: filterValue,
-    pageDesc: `Show All Posts Under ${type} "${filterValue}"`,
-    title: `${type} ${filterValue}`,
-    desc: `All Posts Under ${type} "${filterValue}"`
+    pageDesc: `Show All Posts Under ${title}`,
+    title,
+    desc: `All Posts Under ${title}`
   };
 }

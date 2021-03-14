@@ -9,6 +9,15 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
+const postKeyMap: {
+  [key in BlogPageContext["type"]]: keyof GatsbyTypes.BlogTemplateQuery;
+} = {
+  Index: "posts",
+  Category: "categories",
+  Tag: "tags",
+  Language: "langs"
+};
+
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   const { id, html, fields, frontmatter } = data;
 

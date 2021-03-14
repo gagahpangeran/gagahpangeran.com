@@ -27,7 +27,12 @@ export function getBlogData(
   pageContext: BlogPageContext,
   blogData: GatsbyTypes.BlogTemplateQuery
 ) {
-  const { filterValue, type } = pageContext;
+  const { type } = pageContext;
+  let filterValue = pageContext.filterValue;
+
+  if (type === "Language") {
+    filterValue = langMap.get(filterValue) ?? "English";
+  }
 
   switch (type) {
     case "Index":
@@ -55,15 +60,13 @@ export function getBlogData(
         desc: `All Posts Under Tag "${filterValue}"`,
         posts: blogData.tags.nodes
       };
-    case "Language": {
-      const lang = langMap.get(filterValue) ?? "English";
+    case "Language":
       return {
-        pageTitle: lang,
-        pageDesc: `Show All Posts Under Language "${lang}"`,
-        title: `Language ${lang}`,
-        desc: `All Posts Under Language "${lang}"`,
+        pageTitle: filterValue,
+        pageDesc: `Show All Posts Under Language "${filterValue}"`,
+        title: `Language ${filterValue}`,
+        desc: `All Posts Under Language "${filterValue}"`,
         posts: blogData.langs.nodes
       };
-    }
   }
 }

@@ -45,18 +45,19 @@ describe("Test createPageData function", () => {
   });
 
   test("slug argument empty or undefined", () => {
-    const slugArgs: CreatePageDataArgs = { ...baseArgs, slug: undefined };
+    const result = createPageData({
+      ...baseArgs,
+      slug: undefined
+    });
 
-    const slugPath = "/language/en/";
     const slugExpectedResult: CreatePageDataType = {
-      path: slugPath,
+      path: "/language/en/",
       context: {
         ...expectedResult.context,
-        basePath: slugPath
+        basePath: "/language/en/"
       }
     };
 
-    const result = createPageData(slugArgs);
     expect(result).toMatchObject([slugExpectedResult]);
   });
 
@@ -79,10 +80,10 @@ describe("Test createPageData function", () => {
   });
 
   test("Index type argument", () => {
-    const indexTypeArgs: CreatePageDataArgs = {
+    const result = createPageData({
       postCount: 1,
       type: "Index"
-    };
+    });
 
     const indexTypeExpectedResult: CreatePageDataType = {
       path: "/",
@@ -94,16 +95,14 @@ describe("Test createPageData function", () => {
       }
     };
 
-    const result = createPageData(indexTypeArgs);
-
     expect(result).toMatchObject([indexTypeExpectedResult]);
   });
 
   test("Multiple pages", () => {
-    const multiPageArgs: CreatePageDataArgs = {
+    const result = createPageData({
       ...baseArgs,
       postCount: 7
-    };
+    });
 
     const multiPageExpectedResult: CreatePageDataType[] = [
       {
@@ -123,8 +122,6 @@ describe("Test createPageData function", () => {
         }
       }
     ];
-
-    const result = createPageData(multiPageArgs);
 
     expect(result).toMatchObject(multiPageExpectedResult);
   });

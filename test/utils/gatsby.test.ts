@@ -25,17 +25,15 @@ const baseArgs: CreatePageDataArgs = {
   filterValue: "en"
 };
 
-const path = "/lang/en/";
-
 const context: CreateBlogPageContext = {
   ...baseContext,
-  basePath: path,
+  basePath: "/lang/en/",
   filterValue: "en",
   type: "Language"
 };
 
 const expectedResult: CreatePageDataType = {
-  path,
+  path: context.basePath,
   context
 };
 
@@ -109,14 +107,14 @@ describe("Test createPageData function", () => {
 
     const multiPageExpectedResult: CreatePageDataType[] = [
       {
-        path: path,
+        path: expectedResult.path,
         context: {
           ...context,
           numPages: 2
         }
       },
       {
-        path: `${path}2/`,
+        path: `${expectedResult.path}2/`,
         context: {
           ...context,
           numPages: 2,

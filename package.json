@@ -82,7 +82,7 @@
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "test": "jest",
-    "test-cov": "jest --coverage"
+    "test:cov": "yarn test --coverage"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,scss}": [

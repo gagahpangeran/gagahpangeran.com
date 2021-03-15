@@ -8,7 +8,10 @@ import {
   createPageData
 } from "../../src/utils/gatsby";
 
-const baseContext = {
+const baseContext: Omit<
+  CreateBlogPageContext,
+  "basePath" | "filterValue" | "type"
+> = {
   limit: 5,
   skip: 0,
   page: 1,

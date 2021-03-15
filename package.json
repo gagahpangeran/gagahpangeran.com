@@ -70,11 +70,11 @@
   "scripts": {
     "build": "gatsby build",
     "build:clean": "rm -rf ./public && rm -rf ./.cache && yarn build",
-    "clean-install": "rm -rf ./node_modules && yarn",
     "develop": "gatsby develop",
     "format": "yarn format-prettier && yarn format-eslint",
     "format-prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "format-eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
+    "install:clean": "rm -rf ./node_modules && yarn",
     "lint": "yarn lint-prettier && yarn lint-eslint",
     "lint-prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "lint-eslint": "eslint --quiet \"**/*.{ts,tsx}\"",

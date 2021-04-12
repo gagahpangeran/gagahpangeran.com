@@ -33,7 +33,7 @@ These licenses will be mentioned locally in the content and will override the
 global license.
 
 If you doubt or unsure about the licensing please contact me, GPR, via email
-[gagahpangeran+license@pm.me](mailto:gagahpangeran+license@pm.me)
+[gpr@gagahpangeran.com](mailto:gpr@gagahpangeran.com)
 
 ## Contact
 

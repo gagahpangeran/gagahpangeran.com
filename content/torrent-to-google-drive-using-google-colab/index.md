@@ -1,5 +1,6 @@
 ---
-# Copyright (c) GPR <gpr@gagahpangeran.com>. Licensed under CC-BY-NC 4.0.
+# Copyright (c) Gagah Pangeran Rosfatiputra (GPR) <gpr@gagahpangeran.com>.
+# Licensed under CC-BY-NC 4.0.
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: Torrent to Google Drive Using Google Colab

@@ -93,11 +93,6 @@
       "eslint --fix"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/gagahpangeran/blog.gagahpangeran.com"

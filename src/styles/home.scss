@@ -1,0 +1,29 @@
+// Copyright (c) Gagah Pangeran Rosfatiputra (GPR) <gpr@gagahpangeran.com>.
+// Licensed under The MIT License.
+// Read the LICENSE file in the repository root for full license text.
+
+.home {
+  text-align: center;
+  box-sizing: border-box;
+
+  &__image {
+    border-radius: 50%;
+    border: 8px solid var(--blue);
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-weight: bolder;
+    margin-bottom: 8px;
+  }
+
+  &__desc {
+    color: var(--gray);
+    font-style: italic;
+  }
+
+  &__links {
+    margin: 16px 0;
+    font-size: 1.75rem;
+  }
+}

@@ -5,11 +5,12 @@
 import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
 const HomePage = () => {
   return (
-    <>
+    <Layout>
       <SEO title="Home" />
       <main className="home">
         <StaticImage
@@ -24,7 +25,7 @@ const HomePage = () => {
           <Link to="/about">About</Link> - <Link to="/FAQ">FAQ</Link>
         </section>
       </main>
-    </>
+    </Layout>
   );
 };
 

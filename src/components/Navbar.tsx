@@ -5,16 +5,17 @@
 import React from "react";
 import { Link } from "gatsby";
 
+const links = ["Home", "Blog"];
+
 export default function Navbar() {
   return (
     <nav className="navbar">
       <ul className="navbar__content">
-        <li className="navbar__content__link">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="navbar__content__link">
-          <a href="https://gagahpangeran.com/">Website</a>
-        </li>
+        {links.map(link => (
+          <li key={link} className="navbar__content__link">
+            <Link to={`/${link.toLowerCase()}`}>{link}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );

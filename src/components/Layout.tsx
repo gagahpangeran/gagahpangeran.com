@@ -26,11 +26,15 @@ const Layout = ({ children, ...headerProps }: Props) => {
 export default Layout;
 
 interface HeaderProps {
-  mainTitle: string;
+  mainTitle?: string;
   subTitle?: string;
 }
 
 const Header = ({ mainTitle, subTitle }: HeaderProps) => {
+  if (mainTitle === undefined) {
+    return null;
+  }
+
   return (
     <header>
       <h1>{mainTitle}</h1>

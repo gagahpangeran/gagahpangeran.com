@@ -2,11 +2,12 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+
+const email = "gpr@gagahpangeran.com";
 
 const HomePage = () => {
   return (
@@ -21,9 +22,9 @@ const HomePage = () => {
         />
         <h1 className="home__title">Gagah Pangeran Rosfatiputra</h1>
         <h2 className="home__desc">Low Budget Programmer</h2>
-        <section className="home__links">
-          <Link to="/about">About</Link> - <Link to="/FAQ">FAQ</Link>
-        </section>
+        <h3 className="home__email">
+          <a href={`mailto:${email}`}>{email}</a>
+        </h3>
       </main>
     </Layout>
   );

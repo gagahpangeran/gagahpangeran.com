@@ -2,6 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import "@fontsource/rubik/300.css";
 import "@fontsource/rubik/500.css";
 import "@fontsource/rubik/800.css";
 import "@fontsource/lato/400.css";

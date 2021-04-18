@@ -31,7 +31,7 @@ const PostLabel = ({ categories, tags, lang }: Props) => {
       {list.map(({ type, item }) => (
         <Link
           key={`${type}-${kebabCase(item)}`}
-          to={`/${type}/${kebabCase(item)}/`}
+          to={`/blog/${type}/${kebabCase(item)}/`}
           className={`post-label__link ${type}`}
         >
           {item}

@@ -31,7 +31,7 @@ export function createPageData({
   const postPerPage = 5;
   const numPages = Math.ceil(postCount / postPerPage);
 
-  let basePath = "/";
+  let basePath = "/blog/";
 
   if (type !== "Index") {
     if (slug === undefined) {

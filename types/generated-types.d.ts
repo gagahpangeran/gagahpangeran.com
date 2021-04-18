@@ -3312,15 +3312,6 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type PostTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: Maybe<Scalars['String']>;
-  olderId: Maybe<Scalars['String']>;
-}>;
-
-
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
-
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3341,15 +3332,19 @@ type BlogTemplateQueryVariables = Exact<{
 
 type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly categories: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
+
+type PostTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3376,5 +3371,10 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }

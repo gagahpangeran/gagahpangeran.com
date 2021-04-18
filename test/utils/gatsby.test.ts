@@ -28,7 +28,7 @@ const baseArgs: CreatePageDataArgs = {
 
 const context: CreateBlogPageContext = {
   ...baseContext,
-  basePath: "/lang/en/",
+  basePath: "/blog/lang/en/",
   filterValue: "en",
   type: "Language"
 };
@@ -52,10 +52,10 @@ describe("Test createPageData function", () => {
     });
 
     const slugExpectedResult: CreatePageDataType = {
-      path: "/language/en/",
+      path: "/blog/language/en/",
       context: {
         ...expectedResult.context,
-        basePath: "/language/en/"
+        basePath: "/blog/language/en/"
       }
     };
 
@@ -87,10 +87,10 @@ describe("Test createPageData function", () => {
     });
 
     const indexTypeExpectedResult: CreatePageDataType = {
-      path: "/",
+      path: "/blog/",
       context: {
         ...baseContext,
-        basePath: "/",
+        basePath: "/blog/",
         filterValue: "",
         type: "Index"
       }

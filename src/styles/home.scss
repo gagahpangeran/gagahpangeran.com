@@ -5,6 +5,10 @@
 .home {
   text-align: center;
   box-sizing: border-box;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &__image {
     border-radius: 50%;
@@ -14,12 +18,13 @@
 
   &__title {
     font-weight: bolder;
-    margin-bottom: 8px;
+    margin: 0 -8px;
   }
 
   &__desc {
     color: var(--gray);
     font-style: italic;
+    margin: 12px 0;
   }
 
   &__email {

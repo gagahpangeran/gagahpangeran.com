@@ -18,7 +18,7 @@ const HomePage = () => {
           <StaticImage
             src="../../static/logo.png"
             alt="GPR Logo"
-            width={240}
+            width={360}
             className="home__image"
           />
           <h1 className="home__title">Gagah Pangeran Rosfatiputra</h1>

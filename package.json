@@ -1,7 +1,7 @@
 {
-  "name": "gpr-blog",
+  "name": "gpr",
   "private": true,
-  "description": "GPR's blog built using Gatsby and Markdown",
+  "description": "GPR's website built using Gatsby and Markdown",
   "version": "0.1.0",
   "author": "GPR <gpr@gagahpangeran.com>",
   "dependencies": {
@@ -95,9 +95,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gagahpangeran/blog.gagahpangeran.com"
+    "url": "https://github.com/gagahpangeran/gagahpangeran.com"
   },
   "bugs": {
-    "url": "https://github.com/gagahpangeran/blog.gagahpangeran.com/issues"
+    "url": "https://github.com/gagahpangeran/gagahpangeran.com/issues"
   }
 }

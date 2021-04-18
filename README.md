@@ -1,10 +1,10 @@
-# GPR's Blog
+# GPR's Website
 
-Using gatsby and markdown to build my blog
+Using gatsby and markdown to build my website.
 
 ## Live
 
-[blog.gagahpangeran.com](https://blog.gagahpangeran.com)
+[gagahpangeran.com](https://gagahpangeran.com)
 
 ## License
 

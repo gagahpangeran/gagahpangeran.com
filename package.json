@@ -1,9 +1,27 @@
 {
-  "name": "gpr-blog",
+  "name": "gpr",
   "private": true,
-  "description": "GPR's blog built using Gatsby and Markdown",
+  "description": "GPR's website built using Gatsby and Markdown",
   "version": "0.1.0",
   "author": "GPR <gpr@gagahpangeran.com>",
+  "scripts": {
+    "build": "gatsby build",
+    "build:clean": "rm -rf ./public && rm -rf ./.cache && yarn build",
+    "develop": "gatsby develop",
+    "format": "yarn format:prettier && yarn format:eslint",
+    "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
+    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
+    "install:clean": "rm -rf ./node_modules && yarn",
+    "lint": "yarn lint:prettier && yarn lint:eslint",
+    "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
+    "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "test:cov": "yarn test --coverage",
+    "prepare": "husky install"
+  },
   "dependencies": {
     "@fontsource/fira-code": "^4.2.2",
     "@fontsource/lato": "^4.2.2",
@@ -67,24 +85,6 @@
     "gatsby"
   ],
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "build:clean": "rm -rf ./public && rm -rf ./.cache && yarn build",
-    "develop": "gatsby develop",
-    "format": "yarn format:prettier && yarn format:eslint",
-    "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
-    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
-    "install:clean": "rm -rf ./node_modules && yarn",
-    "lint": "yarn lint:prettier && yarn lint:eslint",
-    "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
-    "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "type-check": "tsc --noEmit",
-    "test": "jest",
-    "test:cov": "yarn test --coverage",
-    "prepare": "husky install"
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,scss}": [
       "prettier --write"
@@ -95,9 +95,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gagahpangeran/blog.gagahpangeran.com"
+    "url": "https://github.com/gagahpangeran/gagahpangeran.com"
   },
   "bugs": {
-    "url": "https://github.com/gagahpangeran/blog.gagahpangeran.com/issues"
+    "url": "https://github.com/gagahpangeran/gagahpangeran.com/issues"
   }
 }

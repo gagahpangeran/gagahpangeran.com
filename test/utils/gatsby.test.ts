@@ -68,7 +68,7 @@ describe("Test createPageData function", () => {
       filterValue: undefined
     };
 
-    const errorMessage = `filterValue can not be empty if type is not "Index"`;
+    const errorMessage = `filterValue can not be empty if type is not "Blog"`;
 
     expect(() => createPageData(filterValueArgs)).toThrow(errorMessage);
 
@@ -83,7 +83,7 @@ describe("Test createPageData function", () => {
   test("Index type argument", () => {
     const result = createPageData({
       postCount: 1,
-      type: "Index"
+      type: "Blog"
     });
 
     const indexTypeExpectedResult: CreatePageDataType = {
@@ -92,7 +92,7 @@ describe("Test createPageData function", () => {
         ...baseContext,
         basePath: "/blog/",
         filterValue: "",
-        type: "Index"
+        type: "Blog"
       }
     };
 

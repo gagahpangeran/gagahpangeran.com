@@ -9,7 +9,7 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
-export type BlogPageContextType = "Index" | "Category" | "Tag" | "Language";
+export type BlogPageContextType = "Blog" | "Category" | "Tag" | "Language";
 
 export interface BlogPageContext {
   type: BlogPageContextType;
@@ -22,7 +22,7 @@ export interface BlogPageContext {
 export const postKeyMap: {
   [key in BlogPageContextType]: keyof GatsbyTypes.BlogTemplateQuery;
 } = {
-  Index: "posts",
+  Blog: "posts",
   Category: "categories",
   Tag: "tags",
   Language: "langs"
@@ -50,7 +50,7 @@ export function getBlogMetaData({
     filterValue = langMap.get(filterValue) ?? "English";
   }
 
-  if (type === "Index") {
+  if (type === "Blog") {
     return {
       pageTitle: "GPR's Blog",
       pageDesc: "Part Time Student, Full Time Learner",

@@ -7,7 +7,7 @@ import { getBlogMetaData } from "../../src/utils/data";
 describe("Test getBlogMetaData function", () => {
   test("Index type", () => {
     const result = getBlogMetaData({
-      type: "Index",
+      type: "Blog",
       filterValue: ""
     });
 

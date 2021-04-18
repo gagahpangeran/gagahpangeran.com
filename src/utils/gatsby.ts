@@ -33,7 +33,7 @@ export function createPageData({
 
   let basePath = "/blog/";
 
-  if (type !== "Index") {
+  if (type !== "Blog") {
     if (slug === undefined) {
       basePath += `${type.toLowerCase()}/`;
     } else {
@@ -43,7 +43,7 @@ export function createPageData({
     if (filterValue.length > 0) {
       basePath += `${kebabCase(filterValue)}/`;
     } else {
-      throw new Error(`filterValue can not be empty if type is not "Index"`);
+      throw new Error(`filterValue can not be empty if type is not "Blog"`);
     }
   }
 

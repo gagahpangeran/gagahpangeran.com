@@ -124,7 +124,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const indexPageData = createPageData({
     postCount: posts.length,
-    type: "Index"
+    type: "Blog"
   });
 
   const categoriesPageData = categories.flatMap(category =>

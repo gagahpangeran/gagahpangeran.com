@@ -6,7 +6,7 @@ import {
   CreatePageDataArgs,
   CreatePageDataType,
   CreateBlogPageContext,
-  createPageData
+  createBlogPageData
 } from "../../src/utils/gatsby";
 
 const baseContext: Omit<
@@ -40,13 +40,13 @@ const expectedResult: CreatePageDataType = {
 
 describe("Test createPageData function", () => {
   test("All arguments filled", () => {
-    const result = createPageData(baseArgs);
+    const result = createBlogPageData(baseArgs);
 
     expect(result).toMatchObject([expectedResult]);
   });
 
   test("slug argument empty or undefined", () => {
-    const result = createPageData({
+    const result = createBlogPageData({
       ...baseArgs,
       slug: undefined
     });
@@ -70,18 +70,18 @@ describe("Test createPageData function", () => {
 
     const errorMessage = `filterValue can not be empty if type is not "Blog"`;
 
-    expect(() => createPageData(filterValueArgs)).toThrow(errorMessage);
+    expect(() => createBlogPageData(filterValueArgs)).toThrow(errorMessage);
 
     filterValueArgs = {
       ...filterValueArgs,
       slug: undefined
     };
 
-    expect(() => createPageData(filterValueArgs)).toThrow(errorMessage);
+    expect(() => createBlogPageData(filterValueArgs)).toThrow(errorMessage);
   });
 
   test("Index type argument", () => {
-    const result = createPageData({
+    const result = createBlogPageData({
       postCount: 1,
       type: "Blog"
     });
@@ -100,7 +100,7 @@ describe("Test createPageData function", () => {
   });
 
   test("Multiple pages", () => {
-    const result = createPageData({
+    const result = createBlogPageData({
       ...baseArgs,
       postCount: 7
     });

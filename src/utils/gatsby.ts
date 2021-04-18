@@ -22,7 +22,7 @@ export interface CreatePageDataType {
   context: CreateBlogPageContext;
 }
 
-export function createPageData({
+export function createBlogPageData({
   slug,
   postCount,
   filterValue = "",

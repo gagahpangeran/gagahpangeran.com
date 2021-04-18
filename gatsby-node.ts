@@ -182,7 +182,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
     createNodeField({
       name: `slug`,
       node,
-      value
+      value: `/blog${value}`
     });
   }
 };

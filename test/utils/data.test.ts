@@ -29,9 +29,9 @@ describe("Test getBlogMetaData function", () => {
 
     const expectedResult = {
       pageTitle: "Story",
-      pageDesc: `Show All Posts Under Category "Story"`,
+      pageDesc: `Show All Posts in Category "Story"`,
       title: `Category "Story"`,
-      desc: `All Posts Under Category "Story"`
+      desc: `All Posts in Category "Story"`
     };
 
     expect(result).toMatchObject(expectedResult);
@@ -45,9 +45,9 @@ describe("Test getBlogMetaData function", () => {
 
     const expectedResult = {
       pageTitle: "Cloud",
-      pageDesc: `Show All Posts Under Tag "Cloud"`,
+      pageDesc: `Show All Posts in Tag "Cloud"`,
       title: `Tag "Cloud"`,
-      desc: `All Posts Under Tag "Cloud"`
+      desc: `All Posts in Tag "Cloud"`
     };
 
     expect(result).toMatchObject(expectedResult);
@@ -61,9 +61,9 @@ describe("Test getBlogMetaData function", () => {
 
     const expectedResult = {
       pageTitle: "English",
-      pageDesc: `Show All Posts Under Language "English"`,
+      pageDesc: `Show All Posts in Language "English"`,
       title: `Language "English"`,
-      desc: `All Posts Under Language "English"`
+      desc: `All Posts in Language "English"`
     };
 
     expect(result).toMatchObject(expectedResult);

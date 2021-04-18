@@ -63,8 +63,8 @@ export function getBlogMetaData({
 
   return {
     pageTitle: filterValue,
-    pageDesc: `Show All Posts Under ${title}`,
+    pageDesc: `Show All Posts in ${title}`,
     title,
-    desc: `All Posts Under ${title}`
+    desc: `All Posts in ${title}`
   };
 }

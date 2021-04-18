@@ -12,10 +12,10 @@ describe("Test getBlogMetaData function", () => {
     });
 
     const expectedResult = {
-      pageTitle: "GPR's Blog",
-      pageDesc: "Part Time Student, Full Time Learner",
-      title: "Home",
-      desc: "Part Time Student, Full Time Learner"
+      pageTitle: "Blog",
+      pageDesc: `Show All Posts in Blog`,
+      title: `Blog`,
+      desc: `All Posts in Blog`
     };
 
     expect(result).toMatchObject(expectedResult);

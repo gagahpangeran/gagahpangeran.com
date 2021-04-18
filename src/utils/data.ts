@@ -50,19 +50,14 @@ export function getBlogMetaData({
     filterValue = langMap.get(filterValue) ?? "English";
   }
 
-  if (type === "Blog") {
-    return {
-      pageTitle: "GPR's Blog",
-      pageDesc: "Part Time Student, Full Time Learner",
-      title: "Home",
-      desc: "Part Time Student, Full Time Learner"
-    };
+  let title = type;
+
+  if (type !== "Blog") {
+    title += ` "${filterValue}"`;
   }
 
-  const title = `${type} "${filterValue}"`;
-
   return {
-    pageTitle: filterValue,
+    pageTitle: type === "Blog" ? title : filterValue,
     pageDesc: `Show All Posts in ${title}`,
     title,
     desc: `All Posts in ${title}`

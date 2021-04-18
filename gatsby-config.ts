@@ -5,10 +5,10 @@
 import { GatsbyConfig } from "gatsby";
 
 export const siteMetadata: GatsbyConfig["siteMetadata"] = {
-  title: `GPR's Blog`,
-  description: `Part Time Student, Full Time Learner`,
+  title: `GPR`,
+  description: `Low Budget Programmer`,
   image: "logo.png",
-  siteUrl: "https://blog.gagahpangeran.com"
+  siteUrl: "https://gagahpangeran.com"
 };
 
 export const plugins: GatsbyConfig["plugins"] = [

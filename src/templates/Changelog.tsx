@@ -5,13 +5,27 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
+import PageNav from "../components/PageNav";
 import SEO from "../components/SEO";
+
+const getPageNavData = (slug?: string) => {
+  if (slug === undefined) {
+    return null;
+  }
+
+  return {
+    slug,
+    title: slug.split("/")[2]
+  };
+};
 
 const Changelog: React.FC<PageProps<GatsbyTypes.ChangelogTemplateQuery>> = ({
   data
 }) => {
   const slug = data.changelog?.fields.slug ?? "";
   const html = data.changelog?.html ?? "";
+  const newerSlug = data.newerChangelog?.fields.slug;
+  const olderSlug = data.olderChangelog?.fields.slug;
 
   const [, , title] = slug.split("/");
 
@@ -19,6 +33,11 @@ const Changelog: React.FC<PageProps<GatsbyTypes.ChangelogTemplateQuery>> = ({
     <Layout mainTitle={title} subTitle={`All changes this release`}>
       <SEO title={title} description={`Changelog ${title}`} />
       <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
+      <PageNav
+        newerData={getPageNavData(newerSlug)}
+        olderData={getPageNavData(olderSlug)}
+        suffix="Release"
+      />
     </Layout>
   );
 };

@@ -16,6 +16,8 @@
     transition-timing-function: ease-in-out;
   }
 
+  margin: 20px 0;
+
   &__link {
     @extend %transition;
     transition-property: border-color;

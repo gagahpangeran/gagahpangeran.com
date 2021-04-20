@@ -3,6 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { config as faConfig } from "@fortawesome/fontawesome-svg-core";
+import { Link } from "gatsby";
 import React from "react";
 import Navbar from "./Navbar";
 
@@ -55,8 +56,8 @@ const Footer = () => {
   return (
     <footer>
       <h6>
-        &copy; 2019-{new Date().getFullYear()}{" "}
-        <a href="https://gagahpangeran.com">GPR</a> •{" "}
+        &copy; 2019-{new Date().getFullYear()} GPR •{" "}
+        <Link to="/changelog/">Changelog</Link> •{" "}
         <span onClick={goToTop}>Go To Top</span>
       </h6>
     </footer>

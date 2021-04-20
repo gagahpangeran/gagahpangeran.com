@@ -6,7 +6,8 @@ import {
   PaginatedPageDataArgs,
   PaginatedPageDataType,
   PaginatedBlogPageContext,
-  createPaginatedPageData
+  createPaginatedPageData,
+  getIdPageContext
 } from "../../src/utils/gatsby";
 
 const baseContext: Omit<
@@ -83,5 +84,30 @@ describe("Test createPaginatedPageData function", () => {
     ];
 
     expect(result).toMatchObject(multiPageExpectedResult);
+  });
+});
+
+const postsMockData = [{ id: "abc" }, { id: "def" }, { id: "ghi" }];
+
+describe("Test getIdPageContext function", () => {
+  test("First index", () => {
+    const result = getIdPageContext(postsMockData, 0);
+    const expectedResult = { newerId: null, olderId: "def" };
+
+    expect(result).toMatchObject(expectedResult);
+  });
+
+  test("Middle index", () => {
+    const result = getIdPageContext(postsMockData, 1);
+    const expectedResult = { newerId: "abc", olderId: "ghi" };
+
+    expect(result).toMatchObject(expectedResult);
+  });
+
+  test("Last index", () => {
+    const result = getIdPageContext(postsMockData, 2);
+    const expectedResult = { newerId: "def", olderId: null };
+
+    expect(result).toMatchObject(expectedResult);
   });
 });

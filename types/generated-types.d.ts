@@ -3322,6 +3322,11 @@ type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
 
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
+
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3332,6 +3337,27 @@ type PostDetailFragment = (
     )> }
   ) }
 );
+
+type BlogTemplateQueryVariables = Exact<{
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  filterValue: Maybe<Scalars['String']>;
+}>;
+
+
+type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly categories: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
+
+type ChangelogTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type ChangelogTemplateQuery = { readonly changelog: Maybe<(
+    Pick<MarkdownRemark, 'html'>
+    & { readonly fields: Pick<Fields, 'slug'> }
+  )>, readonly newerChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }>, readonly olderChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }> };
 
 type PostTemplateQueryVariables = Exact<{
   id: Scalars['String'];
@@ -3367,15 +3393,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type BlogTemplateQueryVariables = Exact<{
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-  filterValue: Maybe<Scalars['String']>;
-}>;
-
-
-type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly categories: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

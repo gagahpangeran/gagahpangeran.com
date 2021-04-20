@@ -43,3 +43,10 @@ export function createPaginatedPageData({
     }
   }));
 }
+
+export function getIdPageContext(posts: { id: string }[], index: number) {
+  return {
+    newerId: index === 0 ? null : posts[index - 1].id,
+    olderId: index === posts.length - 1 ? null : posts[index + 1].id
+  };
+}

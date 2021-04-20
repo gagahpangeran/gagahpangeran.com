@@ -6,7 +6,7 @@ import path from "path";
 import kebabCase from "lodash.kebabcase";
 import { createFilePath } from "gatsby-source-filesystem";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
-import { createPaginatedPageData } from "./src/utils/gatsby";
+import { createPaginatedPageData, getIdPageContext } from "./src/utils/gatsby";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
 // query inside `gatsby-node.ts` yet. There's plan in the future to support it.
@@ -127,9 +127,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   posts.forEach((post, index) => {
-    const newerId = index === 0 ? null : posts[index - 1].id;
-    const olderId = index === posts.length - 1 ? null : posts[index + 1].id;
-
     const path = post.fields.slug;
     reporter.info(`Creating page ${path}, type Post`);
 
@@ -138,8 +135,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       component: PostTemplate,
       context: {
         id: post.id,
-        newerId,
-        olderId
+        ...getIdPageContext(posts, index)
       }
     });
   });
@@ -197,7 +193,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     reporter.warn(`There is no changelogs`);
   }
 
-  changelogs.forEach(changelog => {
+  changelogs.forEach((changelog, index) => {
     const path = changelog.fields.slug;
     reporter.info(`Creating page ${path}, type Changelog`);
 
@@ -205,7 +201,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
       path,
       component: ChangelogTemplate,
       context: {
-        id: changelog.id
+        id: changelog.id,
+        ...getIdPageContext(changelogs, index)
       }
     });
   });

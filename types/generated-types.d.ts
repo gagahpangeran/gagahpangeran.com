@@ -3322,16 +3322,6 @@ type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
 
-type ChangelogTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type ChangelogTemplateQuery = { readonly changelog: Maybe<(
-    Pick<MarkdownRemark, 'id' | 'html'>
-    & { readonly fields: Pick<Fields, 'slug'> }
-  )> };
-
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3343,6 +3333,15 @@ type PostDetailFragment = (
   ) }
 );
 
+type PostTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
+
 type BlogTemplateQueryVariables = Exact<{
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
@@ -3351,6 +3350,16 @@ type BlogTemplateQueryVariables = Exact<{
 
 
 type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly categories: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
+
+type ChangelogTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type ChangelogTemplateQuery = { readonly changelog: Maybe<(
+    Pick<MarkdownRemark, 'id' | 'html'>
+    & { readonly fields: Pick<Fields, 'slug'> }
+  )> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3378,14 +3387,10 @@ type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type PostTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: Maybe<Scalars['String']>;
-  olderId: Maybe<Scalars['String']>;
-}>;
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -3317,15 +3317,22 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
+
 type ChangelogTemplateQueryVariables = Exact<{
   id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
 }>;
 
 
 type ChangelogTemplateQuery = { readonly changelog: Maybe<(
-    Pick<MarkdownRemark, 'id' | 'html'>
+    Pick<MarkdownRemark, 'html'>
     & { readonly fields: Pick<Fields, 'slug'> }
-  )> };
+  )>, readonly newerChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }>, readonly olderChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }> };
 
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3386,11 +3393,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

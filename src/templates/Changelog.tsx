@@ -26,13 +26,22 @@ const Changelog: React.FC<PageProps<GatsbyTypes.ChangelogTemplateQuery>> = ({
 export default Changelog;
 
 export const pageQuery = graphql`
-  query ChangelogTemplate($id: String!) {
+  query ChangelogTemplate($id: String!, $newerId: String, $olderId: String) {
     changelog: markdownRemark(id: { eq: $id }) {
-      id
       fields {
         slug
       }
       html
+    }
+    newerChangelog: markdownRemark(id: { eq: $newerId }) {
+      fields {
+        slug
+      }
+    }
+    olderChangelog: markdownRemark(id: { eq: $olderId }) {
+      fields {
+        slug
+      }
     }
   }
 `;

@@ -48,7 +48,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
         <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
       </article>
 
-      <PageNav newerPost={newerPost} olderPost={olderPost} />
+      <PageNav newerData={newerPost} olderData={olderPost} suffix="Post" />
     </Layout>
   );
 };

@@ -45,10 +45,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
         <a href={imageUrl} target="_blank" rel="noopener noreferrer">
           <GatsbyImage image={image} alt={title} title={title} />
         </a>
-        <main
-          className="post__body"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+        <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
       </article>
 
       <PageNav newerPost={newerPost} olderPost={olderPost} />

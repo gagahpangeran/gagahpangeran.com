@@ -1,0 +1,3 @@
+[submodule "content/changelog"]
+	path = content/changelog
+	url = git@github.com:gagahpangeran/gagahpangeran.com.wiki.git

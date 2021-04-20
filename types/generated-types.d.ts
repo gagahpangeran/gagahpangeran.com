@@ -656,6 +656,7 @@ type Frontmatter_dateArgs = {
 
 type Fields = {
   readonly slug: Scalars['String'];
+  readonly type: Maybe<Scalars['String']>;
 };
 
 type SiteBuildMetadata = Node & {
@@ -1269,6 +1270,7 @@ type BooleanQueryOperatorInput = {
 
 type FieldsFilterInput = {
   readonly slug: Maybe<StringQueryOperatorInput>;
+  readonly type: Maybe<StringQueryOperatorInput>;
 };
 
 type MarkdownHeadingFilterListInput = {
@@ -1406,6 +1408,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.featuredImage.id'
   | 'childrenMarkdownRemark.frontmatter.featuredImage.children'
   | 'childrenMarkdownRemark.fields.slug'
+  | 'childrenMarkdownRemark.fields.type'
   | 'childrenMarkdownRemark.html'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
@@ -1504,6 +1507,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.featuredImage.id'
   | 'childMarkdownRemark.frontmatter.featuredImage.children'
   | 'childMarkdownRemark.fields.slug'
+  | 'childMarkdownRemark.fields.type'
   | 'childMarkdownRemark.html'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
@@ -2689,6 +2693,7 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.featuredImage.internal.owner'
   | 'frontmatter.featuredImage.internal.type'
   | 'fields.slug'
+  | 'fields.type'
   | 'html'
   | 'excerpt'
   | 'rawMarkdownBody'
@@ -3312,6 +3317,11 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
+
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3323,20 +3333,6 @@ type PostDetailFragment = (
   ) }
 );
 
-type BlogTemplateQueryVariables = Exact<{
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-  filterValue: Maybe<Scalars['String']>;
-}>;
-
-
-type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly categories: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
-
-type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
-
 type PostTemplateQueryVariables = Exact<{
   id: Scalars['String'];
   newerId: Maybe<Scalars['String']>;
@@ -3345,6 +3341,15 @@ type PostTemplateQueryVariables = Exact<{
 
 
 type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
+
+type BlogTemplateQueryVariables = Exact<{
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  filterValue: Maybe<Scalars['String']>;
+}>;
+
+
+type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly categories: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

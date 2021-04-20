@@ -18,7 +18,7 @@ const changelog: React.FC<PageProps<GatsbyTypes.ChangelogQuery>> = ({
   return (
     <Layout mainTitle={title} subTitle={desc}>
       <SEO title={title} description={desc} />
-      <main className="main">
+      <main className="html">
         <ul>
           {allChangelog.map(({ fields: { slug } }) => (
             <li key={slug}>

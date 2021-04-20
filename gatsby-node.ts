@@ -12,14 +12,7 @@ import { createBlogPageData } from "./src/utils/gatsby";
 // For now just manually create the interface for it.
 // TODO: Automate to generate these interface bellow
 interface GatsbyNodeQuery {
-  allPosts: {
-    nodes: {
-      id: string;
-      fields: {
-        slug: string;
-      };
-    }[];
-  };
+  allPosts: MDNode;
   allCategories: {
     group: GroupInfo[];
   };
@@ -29,8 +22,17 @@ interface GatsbyNodeQuery {
   allLang: {
     group: GroupInfo[];
   };
+  allChangelog: MDNode;
 }
 
+interface MDNode {
+  nodes: {
+    id: string;
+    fields: {
+      slug: string;
+    };
+  }[];
+}
 interface GroupInfo {
   fieldValue: string;
   totalCount: number;
@@ -45,6 +47,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
+  const ChangelogTemplate = path.resolve(`./src/templates/Changelog.tsx`);
 
   // See `GatsbyNodeQuery` interface above
   const result = await graphql<GatsbyNodeQuery>(`
@@ -54,12 +57,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         sort: { fields: frontmatter___date, order: DESC }
         filter: { fields: { type: { eq: "blog" } } }
       ) {
-        nodes {
-          id
-          fields {
-            slug
-          }
-        }
+        ...MDNode
       }
 
       allCategories: allMarkdownRemark {
@@ -77,6 +75,27 @@ export const createPages: GatsbyNode["createPages"] = async ({
       allLang: allMarkdownRemark {
         group(field: frontmatter___lang) {
           ...GroupInfo
+        }
+      }
+
+      allChangelog: allMarkdownRemark(
+        filter: {
+          fields: {
+            type: { eq: "changelog" }
+            slug: { ne: "/changelog/Home/" }
+          }
+        }
+        sort: { fields: fields___slug, order: DESC }
+      ) {
+        ...MDNode
+      }
+    }
+
+    fragment MDNode on MarkdownRemarkConnection {
+      nodes {
+        id
+        fields {
+          slug
         }
       }
     }
@@ -99,6 +118,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const categories = result.data?.allCategories.group ?? [];
   const tags = result.data?.allTags.group ?? [];
   const langs = result.data?.allLang.group ?? [];
+  const changelogs = result.data.allChangelog.nodes ?? [];
 
   if (posts.length <= 0) {
     reporter.warn(`There is no posts!`);
@@ -166,6 +186,23 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       ...data,
       component: BlogTemplate
+    });
+  });
+
+  if (changelogs.length <= 0) {
+    reporter.warn(`There is no changelogs`);
+  }
+
+  changelogs.forEach(changelog => {
+    const path = changelog.fields.slug;
+    reporter.info(`Creating page ${path}, type Changelog`);
+
+    createPage({
+      path,
+      component: ChangelogTemplate,
+      context: {
+        id: changelog.id
+      }
     });
   });
 };

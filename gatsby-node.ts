@@ -53,6 +53,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       allPosts: allMarkdownRemark(
         limit: 1000
         sort: { fields: frontmatter___date, order: DESC }
+        filter: { fields: { type: { eq: "blog" } } }
       ) {
         nodes {
           id
@@ -181,12 +182,19 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+    const filePath = createFilePath({ node, getNode });
+    const [, type] = filePath.split("/");
 
     createNodeField({
       name: `slug`,
       node,
-      value: `/blog${value}`
+      value: filePath
+    });
+
+    createNodeField({
+      name: `type`,
+      node,
+      value: type
     });
   }
 };

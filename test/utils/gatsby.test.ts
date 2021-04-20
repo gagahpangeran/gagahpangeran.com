@@ -22,13 +22,13 @@ const baseContext: Omit<
 const baseArgs: PaginatedPageDataArgs = {
   postCount: 1,
   type: "Language",
-  slug: "lang",
-  filterValue: "en"
+  filterValue: "en",
+  basePath: "/blog/lang/en"
 };
 
 const context: PaginatedBlogPageContext = {
   ...baseContext,
-  basePath: "/blog/lang/en/",
+  basePath: "/blog/lang/en",
   filterValue: "en",
   type: "Language"
 };
@@ -45,62 +45,16 @@ describe("Test createPaginatedPageData function", () => {
     expect(result).toMatchObject([expectedResult]);
   });
 
-  test("slug argument empty or undefined", () => {
-    const result = createPaginatedPageData({
-      ...baseArgs,
-      slug: undefined
-    });
+  test("Filter value argument is undefined", () => {
+    const args = { ...baseArgs, filterValue: undefined };
+    const result = createPaginatedPageData(args);
 
-    const slugExpectedResult: PaginatedPageDataType = {
-      path: "/blog/language/en/",
-      context: {
-        ...expectedResult.context,
-        basePath: "/blog/language/en/"
-      }
+    const expResult = {
+      ...expectedResult,
+      context: { ...expectedResult.context, filterValue: "" }
     };
 
-    expect(result).toMatchObject([slugExpectedResult]);
-  });
-
-  test("filterValue (and slug) argument(s) empty or undefined", () => {
-    let filterValueArgs: PaginatedPageDataArgs = {
-      ...baseArgs,
-      filterValue: undefined
-    };
-
-    const errorMessage = `filterValue can not be empty if type is not "Blog"`;
-
-    expect(() => createPaginatedPageData(filterValueArgs)).toThrow(
-      errorMessage
-    );
-
-    filterValueArgs = {
-      ...filterValueArgs,
-      slug: undefined
-    };
-
-    expect(() => createPaginatedPageData(filterValueArgs)).toThrow(
-      errorMessage
-    );
-  });
-
-  test("Index type argument", () => {
-    const result = createPaginatedPageData({
-      postCount: 1,
-      type: "Blog"
-    });
-
-    const indexTypeExpectedResult: PaginatedPageDataType = {
-      path: "/blog/",
-      context: {
-        ...baseContext,
-        basePath: "/blog/",
-        filterValue: "",
-        type: "Blog"
-      }
-    };
-
-    expect(result).toMatchObject([indexTypeExpectedResult]);
+    expect(result).toMatchObject([expResult]);
   });
 
   test("Multiple pages", () => {

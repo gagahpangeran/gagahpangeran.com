@@ -5,18 +5,21 @@
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
-import { getPostData } from "../utils/data";
 
-type PostData = ReturnType<typeof getPostData> | null;
-
+interface NavData {
+  slug: string;
+  title: string;
+  image?: IGatsbyImageData;
+}
 interface NavLinkProps {
   type: "Newer" | "Older";
-  data: PostData;
+  data: NavData | null;
+  suffix: string;
 }
 
-const PageNavLink = ({ type, data }: NavLinkProps) => {
+const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
   if (data === null) {
     return null;
   }
@@ -25,16 +28,18 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
 
   return (
     <Link to={slug} className={`page-nav__link ${type.toLowerCase()}`}>
-      <GatsbyImage
-        image={image}
-        className="page-nav__link__image"
-        alt={title}
-        title={title}
-      />
+      {image !== undefined && (
+        <GatsbyImage
+          image={image}
+          className="page-nav__link__image"
+          alt={title}
+          title={title}
+        />
+      )}
       <div className="page-nav__link__title">
         <h5>
           {type === "Newer" && <FontAwesomeIcon icon={faCaretLeft} />}
-          <span>{`${type} Post`}</span>
+          <span>{`${type} ${suffix}`}</span>
           {type === "Older" && <FontAwesomeIcon icon={faCaretRight} />}
         </h5>
         <h4>{title}</h4>
@@ -44,15 +49,16 @@ const PageNavLink = ({ type, data }: NavLinkProps) => {
 };
 
 interface Props {
-  newerPost: PostData;
-  olderPost: PostData;
+  newerData: NavData | null;
+  olderData: NavData | null;
+  suffix: string;
 }
 
-const PageNav = ({ newerPost, olderPost }: Props) => {
+const PageNav = ({ newerData, olderData, suffix }: Props) => {
   return (
     <nav className="page-nav">
-      <PageNavLink type="Newer" data={newerPost} />
-      <PageNavLink type="Older" data={olderPost} />
+      <PageNavLink type="Newer" data={newerData} suffix={suffix} />
+      <PageNavLink type="Older" data={olderData} suffix={suffix} />
     </nav>
   );
 };

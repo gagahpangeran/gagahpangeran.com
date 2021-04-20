@@ -3322,6 +3322,16 @@ type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
 
+type ChangelogTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type ChangelogTemplateQuery = { readonly changelog: Maybe<(
+    Pick<MarkdownRemark, 'id' | 'html'>
+    & { readonly fields: Pick<Fields, 'slug'> }
+  )> };
+
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3332,15 +3342,6 @@ type PostDetailFragment = (
     )> }
   ) }
 );
-
-type PostTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: Maybe<Scalars['String']>;
-  olderId: Maybe<Scalars['String']>;
-}>;
-
-
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
 
 type BlogTemplateQueryVariables = Exact<{
   skip: Maybe<Scalars['Int']>;
@@ -3376,6 +3377,15 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type PostTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

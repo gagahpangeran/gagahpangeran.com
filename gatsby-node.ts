@@ -3,6 +3,7 @@
 // Read the LICENSE file in the repository root for full license text
 
 import path from "path";
+import kebabCase from "lodash.kebabcase";
 import { createFilePath } from "gatsby-source-filesystem";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
 import { createPaginatedPageData } from "./src/utils/gatsby";
@@ -124,14 +125,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const indexPageData = createPaginatedPageData({
     postCount: posts.length,
-    type: "Blog"
+    type: "Blog",
+    basePath: "/blog/"
   });
 
   const categoriesPageData = categories.flatMap(category =>
     createPaginatedPageData({
       postCount: category.totalCount,
       filterValue: category.fieldValue,
-      type: "Category"
+      type: "Category",
+      basePath: `/blog/category/${kebabCase(category.fieldValue)}/`
     })
   );
 
@@ -139,7 +142,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPaginatedPageData({
       postCount: tag.totalCount,
       filterValue: tag.fieldValue,
-      type: "Tag"
+      type: "Tag",
+      basePath: `/blog/tag/${kebabCase(tag.fieldValue)}/`
     })
   );
 
@@ -147,8 +151,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPaginatedPageData({
       postCount: lang.totalCount,
       filterValue: lang.fieldValue,
-      slug: "lang",
-      type: "Language"
+      type: "Language",
+      basePath: `/blog/lang/${kebabCase(lang.fieldValue)}/`
     })
   );
 

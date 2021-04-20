@@ -5,7 +5,7 @@
 import path from "path";
 import { createFilePath } from "gatsby-source-filesystem";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
-import { createBlogPageData } from "./src/utils/gatsby";
+import { createPaginatedPageData } from "./src/utils/gatsby";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
 // query inside `gatsby-node.ts` yet. There's plan in the future to support it.
@@ -122,13 +122,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 
-  const indexPageData = createBlogPageData({
+  const indexPageData = createPaginatedPageData({
     postCount: posts.length,
     type: "Blog"
   });
 
   const categoriesPageData = categories.flatMap(category =>
-    createBlogPageData({
+    createPaginatedPageData({
       postCount: category.totalCount,
       filterValue: category.fieldValue,
       type: "Category"
@@ -136,7 +136,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   );
 
   const tagsPageData = tags.flatMap(tag =>
-    createBlogPageData({
+    createPaginatedPageData({
       postCount: tag.totalCount,
       filterValue: tag.fieldValue,
       type: "Tag"
@@ -144,7 +144,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   );
 
   const langsPageData = langs.flatMap(lang =>
-    createBlogPageData({
+    createPaginatedPageData({
       postCount: lang.totalCount,
       filterValue: lang.fieldValue,
       slug: "lang",

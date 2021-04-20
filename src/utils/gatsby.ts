@@ -5,29 +5,29 @@
 import kebabCase from "lodash.kebabcase";
 import { BlogPageContext, BlogPageContextType } from "./data";
 
-export interface CreatePageDataArgs {
+export interface PaginatedPageDataArgs {
   postCount: number;
   type: BlogPageContextType;
   slug?: string;
   filterValue?: string;
 }
 
-export interface CreateBlogPageContext extends BlogPageContext {
+export interface PaginatedBlogPageContext extends BlogPageContext {
   limit: number;
   skip: number;
 }
 
-export interface CreatePageDataType {
+export interface PaginatedPageDataType {
   path: string;
-  context: CreateBlogPageContext;
+  context: PaginatedBlogPageContext;
 }
 
-export function createBlogPageData({
+export function createPaginatedPageData({
   slug,
   postCount,
   filterValue = "",
   type
-}: CreatePageDataArgs): CreatePageDataType[] {
+}: PaginatedPageDataArgs): PaginatedPageDataType[] {
   const postPerPage = 5;
   const numPages = Math.ceil(postCount / postPerPage);
 

@@ -2,50 +2,33 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-import kebabCase from "lodash.kebabcase";
 import { BlogPageContext, BlogPageContextType } from "./data";
 
-export interface CreatePageDataArgs {
+export interface PaginatedPageDataArgs {
   postCount: number;
   type: BlogPageContextType;
-  slug?: string;
+  basePath: string;
   filterValue?: string;
 }
 
-export interface CreateBlogPageContext extends BlogPageContext {
+export interface PaginatedBlogPageContext extends BlogPageContext {
   limit: number;
   skip: number;
 }
 
-export interface CreatePageDataType {
+export interface PaginatedPageDataType {
   path: string;
-  context: CreateBlogPageContext;
+  context: PaginatedBlogPageContext;
 }
 
-export function createBlogPageData({
-  slug,
+export function createPaginatedPageData({
+  basePath,
   postCount,
   filterValue = "",
   type
-}: CreatePageDataArgs): CreatePageDataType[] {
+}: PaginatedPageDataArgs): PaginatedPageDataType[] {
   const postPerPage = 5;
   const numPages = Math.ceil(postCount / postPerPage);
-
-  let basePath = "/blog/";
-
-  if (type !== "Blog") {
-    if (slug === undefined) {
-      basePath += `${type.toLowerCase()}/`;
-    } else {
-      basePath += `${slug}/`;
-    }
-
-    if (filterValue.length > 0) {
-      basePath += `${kebabCase(filterValue)}/`;
-    } else {
-      throw new Error(`filterValue can not be empty if type is not "Blog"`);
-    }
-  }
 
   return Array.from({ length: numPages }).map((_, index) => ({
     path: `${basePath}${index > 0 ? `${index + 1}/` : ""}`,

@@ -3,9 +3,10 @@
 // Read the LICENSE file in the repository root for full license text
 
 import path from "path";
+import kebabCase from "lodash.kebabcase";
 import { createFilePath } from "gatsby-source-filesystem";
 import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
-import { createBlogPageData } from "./src/utils/gatsby";
+import { createPaginatedPageData } from "./src/utils/gatsby";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
 // query inside `gatsby-node.ts` yet. There's plan in the future to support it.
@@ -143,33 +144,36 @@ export const createPages: GatsbyNode["createPages"] = async ({
     });
   });
 
-  const indexPageData = createBlogPageData({
+  const indexPageData = createPaginatedPageData({
     postCount: posts.length,
-    type: "Blog"
+    type: "Blog",
+    basePath: "/blog/"
   });
 
   const categoriesPageData = categories.flatMap(category =>
-    createBlogPageData({
+    createPaginatedPageData({
       postCount: category.totalCount,
       filterValue: category.fieldValue,
-      type: "Category"
+      type: "Category",
+      basePath: `/blog/category/${kebabCase(category.fieldValue)}/`
     })
   );
 
   const tagsPageData = tags.flatMap(tag =>
-    createBlogPageData({
+    createPaginatedPageData({
       postCount: tag.totalCount,
       filterValue: tag.fieldValue,
-      type: "Tag"
+      type: "Tag",
+      basePath: `/blog/tag/${kebabCase(tag.fieldValue)}/`
     })
   );
 
   const langsPageData = langs.flatMap(lang =>
-    createBlogPageData({
+    createPaginatedPageData({
       postCount: lang.totalCount,
       filterValue: lang.fieldValue,
-      slug: "lang",
-      type: "Language"
+      type: "Language",
+      basePath: `/blog/lang/${kebabCase(lang.fieldValue)}/`
     })
   );
 

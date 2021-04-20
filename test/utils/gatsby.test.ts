@@ -3,14 +3,14 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import {
-  CreatePageDataArgs,
-  CreatePageDataType,
-  CreateBlogPageContext,
-  createBlogPageData
+  PaginatedPageDataArgs,
+  PaginatedPageDataType,
+  PaginatedBlogPageContext,
+  createPaginatedPageData
 } from "../../src/utils/gatsby";
 
 const baseContext: Omit<
-  CreateBlogPageContext,
+  PaginatedBlogPageContext,
   "basePath" | "filterValue" | "type"
 > = {
   limit: 5,
@@ -19,93 +19,51 @@ const baseContext: Omit<
   numPages: 1
 };
 
-const baseArgs: CreatePageDataArgs = {
+const baseArgs: PaginatedPageDataArgs = {
   postCount: 1,
   type: "Language",
-  slug: "lang",
-  filterValue: "en"
+  filterValue: "en",
+  basePath: "/blog/lang/en"
 };
 
-const context: CreateBlogPageContext = {
+const context: PaginatedBlogPageContext = {
   ...baseContext,
-  basePath: "/blog/lang/en/",
+  basePath: "/blog/lang/en",
   filterValue: "en",
   type: "Language"
 };
 
-const expectedResult: CreatePageDataType = {
+const expectedResult: PaginatedPageDataType = {
   path: context.basePath,
   context
 };
 
-describe("Test createPageData function", () => {
+describe("Test createPaginatedPageData function", () => {
   test("All arguments filled", () => {
-    const result = createBlogPageData(baseArgs);
+    const result = createPaginatedPageData(baseArgs);
 
     expect(result).toMatchObject([expectedResult]);
   });
 
-  test("slug argument empty or undefined", () => {
-    const result = createBlogPageData({
-      ...baseArgs,
-      slug: undefined
-    });
+  test("Filter value argument is undefined", () => {
+    const args = { ...baseArgs, filterValue: undefined };
+    const result = createPaginatedPageData(args);
 
-    const slugExpectedResult: CreatePageDataType = {
-      path: "/blog/language/en/",
-      context: {
-        ...expectedResult.context,
-        basePath: "/blog/language/en/"
-      }
+    const expResult = {
+      ...expectedResult,
+      context: { ...expectedResult.context, filterValue: "" }
     };
 
-    expect(result).toMatchObject([slugExpectedResult]);
-  });
-
-  test("filterValue (and slug) argument(s) empty or undefined", () => {
-    let filterValueArgs: CreatePageDataArgs = {
-      ...baseArgs,
-      filterValue: undefined
-    };
-
-    const errorMessage = `filterValue can not be empty if type is not "Blog"`;
-
-    expect(() => createBlogPageData(filterValueArgs)).toThrow(errorMessage);
-
-    filterValueArgs = {
-      ...filterValueArgs,
-      slug: undefined
-    };
-
-    expect(() => createBlogPageData(filterValueArgs)).toThrow(errorMessage);
-  });
-
-  test("Index type argument", () => {
-    const result = createBlogPageData({
-      postCount: 1,
-      type: "Blog"
-    });
-
-    const indexTypeExpectedResult: CreatePageDataType = {
-      path: "/blog/",
-      context: {
-        ...baseContext,
-        basePath: "/blog/",
-        filterValue: "",
-        type: "Blog"
-      }
-    };
-
-    expect(result).toMatchObject([indexTypeExpectedResult]);
+    expect(result).toMatchObject([expResult]);
   });
 
   test("Multiple pages", () => {
-    const result = createBlogPageData({
+    const result = createPaginatedPageData({
       ...baseArgs,
       postCount: 7
     });
 
-    const multiPageExpectedResult: CreatePageDataType[] = [
+    const multiPageExpectedResult: PaginatedPageDataType[] = [
       {
         path: expectedResult.path,
         context: {

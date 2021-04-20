@@ -139,3 +139,49 @@ body,
 .wrapper {
   height: 100%;
 }
+
+.gatsby-image-wrapper {
+  border-radius: 12px;
+}
+
+main.html {
+  h2 {
+    color: var(--gray);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  p {
+    margin: 16px 0;
+    line-height: 150%;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  figcaption {
+    font-weight: bold;
+    color: var(--gray);
+    font-style: italic;
+    font-size: 1rem;
+  }
+
+  ul,
+  ol {
+    margin-left: 24px;
+
+    li {
+      margin-bottom: 8px;
+
+      p:not(:first-child) {
+        font-style: italic;
+        color: var(--gray);
+      }
+    }
+  }
+}

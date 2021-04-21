@@ -26,7 +26,7 @@ jobs:
       - name: Add new changelog
         run: |
           git -C content/changelog checkout master
-          echo "- [${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})" >> content/changelog/Next.md
+          echo '- [${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})' >> content/changelog/Next.md
 
       - name: Commit and push changelog
         run: |

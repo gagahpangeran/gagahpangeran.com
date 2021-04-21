@@ -46,11 +46,15 @@ jobs:
           git push origin master
 
   deploy:
+    needs: changelog
     name: Build and deploy website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
+        with:
+          ref: master
+          submodules: recursive
 
       - name: Install NodeJS
         uses: actions/setup-node@v1

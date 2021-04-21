@@ -1,0 +1,40 @@
+name: Content PR
+on:
+  pull_request:
+    paths: ["content/**"]
+    types: [opened]
+
+jobs:
+  add-label:
+    if: "!contains(github.event.pull_request.labels.*.name, 'type:content')"
+    name: Check content label
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['type:content']
+            })
+
+  label-reminder:
+    if: "!contains(github.event.pull_request.labels.*.name, 'update-content')"
+    name: Remind update content label
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'This PR is updating `content` directory. Please add label `update-content` if you want auto-deploy it after this PR is merged to master.'
+            })

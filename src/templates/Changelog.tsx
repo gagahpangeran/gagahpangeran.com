@@ -32,10 +32,7 @@ const Changelog: React.FC<PageProps<GatsbyTypes.ChangelogTemplateQuery>> = ({
   return (
     <Layout mainTitle={title} subTitle={`All changes this release`}>
       <SEO title={title} description={`Changelog ${title}`} />
-      <main
-        className="html changelog"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
       <PageNav
         newerData={getPageNavData(newerSlug)}
         olderData={getPageNavData(olderSlug)}

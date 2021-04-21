@@ -83,7 +83,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         filter: {
           fields: {
             type: { eq: "changelog" }
-            slug: { ne: "/changelog/Home/" }
+            slug: { nin: ["/changelog/Home/", "/changelog/Next/"] }
           }
         }
         sort: { fields: fields___slug, order: DESC }

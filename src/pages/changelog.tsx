@@ -37,7 +37,10 @@ export const pageQuery = graphql`
   query Changelog {
     allChangelog: allMarkdownRemark(
       filter: {
-        fields: { type: { eq: "changelog" }, slug: { ne: "/changelog/Home/" } }
+        fields: {
+          type: { eq: "changelog" }
+          slug: { nin: ["/changelog/Home/", "/changelog/Next/"] }
+        }
       }
       sort: { fields: fields___slug, order: DESC }
     ) {

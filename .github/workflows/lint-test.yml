@@ -1,4 +1,4 @@
-name: Test
+name: Lint and Test
 on:
   push:
     branches:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   lint:
-    name: Test All
+    name: Lint and Test all
     runs-on: ubuntu-latest
 
     steps:
@@ -41,6 +41,12 @@ jobs:
 
       - name: Install dependencies
         run: yarn
+
+      - name: Run linter script
+        run: yarn lint
+
+      - name: Run type check script
+        run: yarn type-check
 
       - name: Run test script
         run: yarn test

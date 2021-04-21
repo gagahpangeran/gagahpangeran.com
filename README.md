@@ -35,6 +35,11 @@ global license.
 If you doubt or unsure about the licensing please contact me, GPR, via email
 [gpr@gagahpangeran.com](mailto:gpr@gagahpangeran.com)
 
+## Credit
+
+Some assets in this repo is from external source. You can see all of those
+assets and the credit [in this directory](./src/assets/).
+
 ## Contact
 
 Any general question or you just want to contact me, please email to

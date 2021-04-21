@@ -5,7 +5,11 @@
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage
+} from "gatsby-plugin-image";
 import React from "react";
 
 interface NavData {
@@ -19,6 +23,22 @@ interface NavLinkProps {
   suffix: string;
 }
 
+// Workaround because `src` props in `StaticImage` can't receive dynamic value
+// See : https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#restrictions-on-using-staticimage
+const getStaticImage = (isNewer: boolean) => {
+  const props = {
+    alt: "Page Nav Background",
+    className: "page-nav__link__image",
+    width: 720
+  };
+
+  if (isNewer) {
+    return <StaticImage src="../assets/flower.jpg" {...props} />;
+  }
+
+  return <StaticImage src="../assets/smoke.jpg" {...props} />;
+};
+
 const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
   if (data === null) {
     return null;
@@ -28,7 +48,9 @@ const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
 
   return (
     <Link to={slug} className={`page-nav__link ${type.toLowerCase()}`}>
-      {image !== undefined && (
+      {image === undefined ? (
+        getStaticImage(type === "Newer")
+      ) : (
         <GatsbyImage
           image={image}
           className="page-nav__link__image"

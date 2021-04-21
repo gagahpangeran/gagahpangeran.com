@@ -1,14 +1,13 @@
 name: Update Post Content
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - "content/**"
+  pull_request:
+    paths: ["content/**"]
+    types: [closed]
 
 jobs:
-  post:
-    name: Update Post
+  deploy:
+    if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'update-content')
+    name: Update and deploy content
     runs-on: ubuntu-latest
     steps:
       - name: Fetch all tags

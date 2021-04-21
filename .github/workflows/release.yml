@@ -5,12 +5,56 @@ on:
       - "*"
 
 jobs:
+  changelog:
+    name: Update changelog
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get Tag
+        id: get-tag
+        run: echo "::set-output name=tag::$(echo ${{ github.ref }} | cut -d '/' -f3)"
+
+      - name: Checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          submodules: recursive
+
+      - name: Setup git
+        run: |
+          git config --global user.name "Github Actions"
+          git config --global user.email "actions@users.noreply.github.com"
+
+      - name: Update submodule
+        run: git submodule update --remote
+
+      - name: Rename changelog `Next` to current tag
+        run: |
+          git -C content/changelog checkout master
+          mv content/changelog/Next.md content/changelog/${{ steps.get-tag.outputs.tag }}.md
+
+      - name: Commit and push new changelog tag
+        run: |
+          git -C content/changelog add .
+          git -C content/changelog commit -m "Rename Next changelog on tag ${{ steps.get-tag.outputs.tag }}"
+          git -C content/changelog push origin master
+
+      - name: Commit and push updated submodule to master
+        run: |
+          git add .
+          git commit -m "Update changelog submodule for tag ${{ steps.get-tag.outputs.tag }}"
+          git push origin master
+
   deploy:
+    needs: changelog
     name: Build and deploy website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
+        with:
+          ref: master
+          submodules: recursive
 
       - name: Install NodeJS
         uses: actions/setup-node@v1
@@ -58,6 +102,10 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v2
 
+      - name: Get Tag
+        id: get-tag
+        run: echo "::set-output name=tag::$(echo ${{ github.ref }} | cut -d '/' -f3)"
+
       - name: Release tag
         uses: actions/create-release@v1
         env:
@@ -65,4 +113,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          body: Please visit <https://blog.gagahpangeran.com>!
+          body: "Please visit <https://gagahpangeran.com>! You can also check [changelog of this release](https://gagahpangeran.com/changelog/${{ steps.get-tag.outputs.tag }})."

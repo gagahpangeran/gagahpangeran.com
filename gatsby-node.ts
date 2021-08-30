@@ -233,13 +233,14 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
   }
 };
 
-export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] = ({
-  actions
-}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-CreateSchemaCustomizationArgs): any => {
-  const { createTypes } = actions;
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  ({
+    actions
+  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  CreateSchemaCustomizationArgs): any => {
+    const { createTypes } = actions;
 
-  createTypes(`
+    createTypes(`
     type Site implements Node {
       siteMetadata: SiteSiteMetadata!
     }
@@ -270,4 +271,4 @@ CreateSchemaCustomizationArgs): any => {
       slug: String!
     }
   `);
-};
+  };

@@ -36,8 +36,8 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
     ...frontmatter,
     slug: fields.slug,
     html: html ?? "",
-    image: (frontmatter?.featuredImage?.childImageSharp
-      ?.gatsbyImageData as unknown) as IGatsbyImageData,
+    image: frontmatter?.featuredImage?.childImageSharp
+      ?.gatsbyImageData as unknown as IGatsbyImageData,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? ""
   };
 }

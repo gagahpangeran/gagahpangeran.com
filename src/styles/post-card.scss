@@ -81,10 +81,10 @@
 
     &::after {
       @include full-size-absolute;
+      @include transition(opacity);
       content: "";
       background-color: var(--black);
       opacity: var(--thumbnail-overlay-opacity);
-      transition: 0.2s opacity ease-in-out;
     }
   }
 

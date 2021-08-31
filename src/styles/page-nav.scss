@@ -3,19 +3,6 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .page-nav {
-  %absolute100 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-
-  %transition {
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-  }
-
   --title-color-main: var(--white);
   --title-color-small: var(--gray);
   --title-item-justify-content: flex-start;
@@ -34,8 +21,7 @@
   }
 
   &__link {
-    @extend %transition;
-    transition-property: border-color;
+    @include transition(border-color);
     height: 100px;
     display: block;
     position: relative;
@@ -53,7 +39,7 @@
   }
 
   &__title {
-    @extend %absolute100;
+    @include full-size-absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,11 +47,11 @@
     box-sizing: border-box;
 
     &::before {
-      @extend %absolute100;
+      @include full-size-absolute;
+      @include transition(opacity);
       content: "";
       background-color: var(--black);
       opacity: var(--title-overlay-opacity);
-      transition: 0.2s opacity ease-in-out;
     }
 
     &:hover {
@@ -76,8 +62,7 @@
   }
 
   &__title-item {
-    @extend %transition;
-    transition-property: color;
+    @include transition(color);
     display: flex;
     justify-content: var(--title-item-justify-content);
     position: relative;

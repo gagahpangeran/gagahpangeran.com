@@ -6,5 +6,13 @@ export default function classModifiers(
   className: string,
   ...modifiers: (string | undefined)[]
 ) {
-  return className;
+  let withModifiers = className;
+
+  modifiers.forEach(mod => {
+    if (mod !== undefined) {
+      withModifiers += ` ${className}--${mod}`;
+    }
+  });
+
+  return withModifiers;
 }

@@ -11,4 +11,18 @@ describe("Test classModifiers function", () => {
 
     expect(result).toBe(expected);
   });
+
+  test("With one modifiers", () => {
+    const result = classModifiers("class", "mod");
+    const expected = "class class--mod";
+
+    expect(result).toBe(expected);
+  });
+
+  test("With many modifiers", () => {
+    const result = classModifiers("class", "mod1", "mod2", "mod3");
+    const expected = "class class--mod1 class--mod2 class--mod3";
+
+    expect(result).toBe(expected);
+  });
 });

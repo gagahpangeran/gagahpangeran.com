@@ -4,6 +4,7 @@
 
 import React from "react";
 import { Link } from "gatsby";
+import classModifiers from "../utils/css";
 
 interface Props {
   numPages: number;
@@ -21,12 +22,15 @@ export default function Pagination({ numPages, page, path }: Props) {
       <ul className="pagination__paging">
         {Array.from({ length: numPages }).map((_, index) => (
           <li
-            className={`pagination__paging__number ${
-              page === index + 1 ? "active" : ""
-            }`}
+            className={classModifiers("pagination__item", {
+              active: page === index + 1
+            })}
             key={`page${index}`}
           >
-            <Link to={`${path}${index === 0 ? "" : `${index + 1}/`}`}>
+            <Link
+              className="pagination__link"
+              to={`${path}${index === 0 ? "" : `${index + 1}/`}`}
+            >
               {index + 1}
             </Link>
           </li>

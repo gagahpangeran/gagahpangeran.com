@@ -6,6 +6,31 @@
   text-align: center;
   display: flex;
 
+  &__item {
+    border-radius: 8px;
+    transition: 0.2s background-color ease-in-out;
+
+    &--active {
+      background-color: var(--orange);
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: var(--orange);
+    }
+  }
+
+  &__link {
+    color: var(--white);
+    display: block;
+    padding: 8px 16px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   &__paging {
     background-color: var(--bg-dark);
     display: flex;
@@ -13,31 +38,6 @@
     padding: 12px;
     list-style: none;
     border-radius: 8px;
-
-    &__number {
-      margin: 0 4px;
-      border-radius: 8px;
-      transition: 0.2s background-color ease-in-out;
-
-      a {
-        color: var(--white);
-        display: block;
-        padding: 8px 16px;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
-
-      &.active {
-        background-color: var(--orange);
-        pointer-events: none;
-        cursor: default;
-      }
-
-      &:hover {
-        background-color: var(--orange);
-      }
-    }
+    gap: 8px;
   }
 }

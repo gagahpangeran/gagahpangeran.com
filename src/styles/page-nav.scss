@@ -16,7 +16,22 @@
     transition-timing-function: ease-in-out;
   }
 
+  --title-color-main: var(--white);
+  --title-color-small: var(--gray);
+  --title-item-justify-content: flex-start;
+  --title-overlay-opacity: 0.8;
+
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 
   &__link {
     @extend %transition;
@@ -26,73 +41,55 @@
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    margin-bottom: 16px;
     border: 2px solid var(--white);
 
     &:hover {
       border-color: var(--blue);
     }
 
-    &.older {
-      text-align: right;
+    &--older {
+      --title-item-justify-content: flex-end;
     }
+  }
 
-    &__image {
-      display: block;
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
+  &__title {
+    @extend %absolute100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
 
-    &__title {
+    &::before {
       @extend %absolute100;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 20px;
-      box-sizing: border-box;
+      content: "";
+      background-color: var(--black);
+      opacity: var(--title-overlay-opacity);
+      transition: 0.2s opacity ease-in-out;
+    }
 
-      &::before {
-        @extend %absolute100;
-        content: "";
-        background-color: var(--black);
-        opacity: 0.8;
-        transition: 0.2s opacity ease-in-out;
-      }
+    &:hover {
+      --title-color-main: var(--blue);
+      --title-color-small: var(--white);
+      --title-overlay-opacity: 0.7;
+    }
+  }
 
-      &:hover {
-        &::before {
-          opacity: 0.7;
-        }
+  &__title-item {
+    @extend %transition;
+    transition-property: color;
+    display: flex;
+    justify-content: var(--title-item-justify-content);
+    position: relative;
 
-        h4 {
-          color: var(--blue);
-        }
+    &--main {
+      font-weight: bolder;
+      color: var(--title-color-main);
+    }
 
-        h5 {
-          color: var(--white);
-        }
-      }
-
-      h5 {
-        @extend %transition;
-        transition-property: color;
-        display: block;
-        z-index: 999;
-        color: var(--gray);
-
-        span {
-          margin: 0 8px;
-        }
-      }
-
-      h4 {
-        @extend %transition;
-        transition-property: color;
-        font-weight: bolder;
-        z-index: 999;
-        color: var(--white);
-      }
+    &--small {
+      color: var(--title-color-small);
+      gap: 8px;
     }
   }
 }

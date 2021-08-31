@@ -3,17 +3,22 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .post-label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+
+  @media screen and (max-width: 480px) {
+    gap: 4px;
+  }
+
   &__link {
     color: var(--white);
     padding: 4px 12px;
-    margin-right: 12px;
     border-radius: 4px;
     display: inline-block;
-    margin-bottom: 12px;
 
     @media screen and (max-width: 480px) {
-      margin-right: 4px;
-      margin-bottom: 4px;
       padding: 4px 8px;
       font-size: 1rem;
     }
@@ -23,16 +28,16 @@
       text-decoration: none;
     }
 
-    &.category {
+    &--category {
       background-color: var(--green);
     }
 
-    &.tag {
-      background-color: var(--purple);
+    &--lang {
+      background-color: var(--pink);
     }
 
-    &.lang {
-      background-color: var(--pink);
+    &--tag {
+      background-color: var(--purple);
     }
   }
 }

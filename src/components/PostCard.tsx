@@ -23,26 +23,26 @@ const PostCard = ({
   return (
     <article className="post-card">
       <Link to={slug} title={title} className="post-card__header">
-        <div className="post-card__header__thumbnail">
+        <div className="post-card__thumbnail">
           <GatsbyImage
             image={image}
-            className="post-card__header__thumbnail__image"
+            className="post-card__image"
             alt={title}
             title={title}
           />
         </div>
-        <div className="post-card__header__meta">
-          <time className="post-card__header__meta__date">
+        <div className="post-card__meta">
+          <time className="post-card__date">
             <FontAwesomeIcon icon={faClock} />
-            <span>{date}</span>
+            {date}
           </time>
-          <h3 className="post-card__header__meta__title">{title}</h3>
+          <h3 className="post-card__title">{title}</h3>
         </div>
       </Link>
       <div className="post-card__info">
         <PostLabel categories={categories} tags={tags} lang={lang} />
         <div
-          className="post-card__info__summary"
+          className="post-card__summary"
           dangerouslySetInnerHTML={{ __html: description }}
         />
       </div>

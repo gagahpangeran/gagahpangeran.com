@@ -12,16 +12,37 @@ describe("Test classModifiers function", () => {
     expect(result).toBe(expected);
   });
 
-  test("With one modifiers", () => {
-    const result = classModifiers("class", "mod");
-    const expected = "class class--mod";
+  test("With string modifiers", () => {
+    const result = classModifiers("class", "mod1", "mod2", "mod3");
+    const expected = "class class--mod1 class--mod2 class--mod3";
 
     expect(result).toBe(expected);
   });
 
-  test("With many modifiers", () => {
-    const result = classModifiers("class", "mod1", "mod2", "mod3");
-    const expected = "class class--mod1 class--mod2 class--mod3";
+  test("With key value object modifiers", () => {
+    const result = classModifiers("class", {
+      mod1: true,
+      mod2: false,
+      mod3: true
+    });
+    const expected = "class class--mod1 class--mod3";
+
+    expect(result).toBe(expected);
+  });
+
+  test("With mixed modifiers", () => {
+    const result = classModifiers(
+      "class",
+      "mod1",
+      undefined,
+      {
+        mod2: false,
+        mod3: true
+      },
+      undefined,
+      "mod4"
+    );
+    const expected = "class class--mod1 class--mod3 class--mod4";
 
     expect(result).toBe(expected);
   });

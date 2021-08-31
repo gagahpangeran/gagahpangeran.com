@@ -12,8 +12,10 @@ export default function Navbar() {
     <nav className="navbar">
       <ul className="navbar__content">
         {links.map(link => (
-          <li key={link} className="navbar__content__link">
-            <Link to={`/${link.toLowerCase()}`}>{link}</Link>
+          <li key={link} className="navbar__item">
+            <Link className="navbar__link" to={`/${link.toLowerCase()}`}>
+              {link}
+            </Link>
           </li>
         ))}
       </ul>

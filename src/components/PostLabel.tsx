@@ -5,6 +5,7 @@
 import { Link } from "gatsby";
 import kebabCase from "lodash.kebabcase";
 import React from "react";
+import classModifiers from "../utils/css";
 import { langMap } from "../utils/data";
 
 interface Props {
@@ -32,12 +33,15 @@ const PostLabel = ({ categories, tags, lang }: Props) => {
         <Link
           key={`${type}-${kebabCase(item)}`}
           to={`/blog/${type}/${kebabCase(item)}/`}
-          className={`post-label__link ${type}`}
+          className={classModifiers("post-label__link", type)}
         >
           {item}
         </Link>
       ))}
-      <Link to={`/lang/${lang}/`} className={`post-label__link lang`}>
+      <Link
+        to={`/lang/${lang}/`}
+        className="post-label__link post-label__link--lang"
+      >
         {langMap.get(lang) ?? "English"}
       </Link>
     </div>

@@ -3,96 +3,78 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .page-nav {
-  %absolute100 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-
-  %transition {
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-  }
+  --title-color-main: var(--white);
+  --title-color-small: var(--gray);
+  --title-item-justify-content: flex-start;
+  --title-overlay-opacity: 0.8;
 
   margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &__image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
 
   &__link {
-    @extend %transition;
-    transition-property: border-color;
+    @include transition(border-color);
     height: 100px;
     display: block;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    margin-bottom: 16px;
     border: 2px solid var(--white);
 
     &:hover {
       border-color: var(--blue);
     }
 
-    &.older {
-      text-align: right;
+    &--older {
+      --title-item-justify-content: flex-end;
+    }
+  }
+
+  &__title {
+    @include full-size-absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    &::before {
+      @include full-size-absolute;
+      @include transition(opacity);
+      content: "";
+      background-color: var(--black);
+      opacity: var(--title-overlay-opacity);
     }
 
-    &__image {
-      display: block;
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
+    &:hover {
+      --title-color-main: var(--blue);
+      --title-color-small: var(--white);
+      --title-overlay-opacity: 0.7;
+    }
+  }
+
+  &__title-item {
+    @include transition(color);
+    display: flex;
+    justify-content: var(--title-item-justify-content);
+    position: relative;
+
+    &--main {
+      font-weight: bolder;
+      color: var(--title-color-main);
     }
 
-    &__title {
-      @extend %absolute100;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0 20px;
-      box-sizing: border-box;
-
-      &::before {
-        @extend %absolute100;
-        content: "";
-        background-color: var(--black);
-        opacity: 0.8;
-        transition: 0.2s opacity ease-in-out;
-      }
-
-      &:hover {
-        &::before {
-          opacity: 0.7;
-        }
-
-        h4 {
-          color: var(--blue);
-        }
-
-        h5 {
-          color: var(--white);
-        }
-      }
-
-      h5 {
-        @extend %transition;
-        transition-property: color;
-        display: block;
-        z-index: 999;
-        color: var(--gray);
-
-        span {
-          margin: 0 8px;
-        }
-      }
-
-      h4 {
-        @extend %transition;
-        transition-property: color;
-        font-weight: bolder;
-        z-index: 999;
-        color: var(--white);
-      }
+    &--small {
+      color: var(--title-color-small);
+      gap: 8px;
     }
   }
 }

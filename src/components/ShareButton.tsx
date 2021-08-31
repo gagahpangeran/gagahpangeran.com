@@ -5,6 +5,7 @@
 import { faCopy, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
+import classModifiers from "../utils/css";
 
 interface Props {
   link: string;
@@ -12,7 +13,6 @@ interface Props {
 
 const ShareButton = ({ link }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
-  const detailsRef = useRef<HTMLDetailsElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const desc = [
@@ -30,14 +30,21 @@ const ShareButton = ({ link }: Props) => {
   };
 
   return (
-    <details ref={detailsRef} className="share-button">
-      <summary>Share This Post</summary>
-      <div className={`share-button__desc ${isCopied ? "copied" : ""}`}>
-        {desc[isCopied ? 1 : 0]}
-      </div>
-      <div className={`share-button__link ${isCopied ? "copied" : ""}`}>
-        <input ref={inputRef} type="text" defaultValue={link} />
-        <button onClick={handleClick}>
+    <details className={classModifiers("share-button", { copied: isCopied })}>
+      <summary className="share-button__summary">Share This Post</summary>
+      <div className="share-button__desc">{desc[isCopied ? 1 : 0]}</div>
+
+      <div className="share-button__link">
+        <input
+          className="share-button__link-item share-button__link-item--input"
+          ref={inputRef}
+          type="text"
+          defaultValue={link}
+        />
+        <button
+          className="share-button__link-item share-button__link-item--button"
+          onClick={handleClick}
+        >
           <FontAwesomeIcon icon={isCopied ? faClipboardCheck : faCopy} />
         </button>
       </div>

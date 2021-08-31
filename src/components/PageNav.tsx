@@ -11,6 +11,7 @@ import {
   StaticImage
 } from "gatsby-plugin-image";
 import React from "react";
+import classModifiers from "../utils/css";
 
 interface NavData {
   slug: string;
@@ -47,24 +48,29 @@ const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
   const { slug, image, title } = data;
 
   return (
-    <Link to={slug} className={`page-nav__link ${type.toLowerCase()}`}>
+    <Link
+      to={slug}
+      className={classModifiers("page-nav__link", type.toLowerCase())}
+    >
       {image === undefined ? (
         getStaticImage(type === "Newer")
       ) : (
         <GatsbyImage
           image={image}
-          className="page-nav__link__image"
+          className="page-nav__image"
           alt={title}
           title={title}
         />
       )}
-      <div className="page-nav__link__title">
-        <h5>
+      <div className="page-nav__title">
+        <h5 className="page-nav__title-item page-nav__title-item--small">
           {type === "Newer" && <FontAwesomeIcon icon={faCaretLeft} />}
-          <span>{`${type} ${suffix}`}</span>
+          {`${type} ${suffix}`}
           {type === "Older" && <FontAwesomeIcon icon={faCaretRight} />}
         </h5>
-        <h4>{title}</h4>
+        <h4 className="page-nav__title-item page-nav__title-item--main">
+          {title}
+        </h4>
       </div>
     </Link>
   );

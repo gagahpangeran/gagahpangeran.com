@@ -21,24 +21,20 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    gap: 20px;
     list-style: none;
 
     @media screen and (max-width: 720px) {
       padding: 0 16px;
     }
+  }
 
-    &__link {
-      display: flex;
-      margin-right: 20px;
+  &__item {
+    display: flex;
+  }
 
-      a {
-        display: block;
-        font-weight: bold;
-
-        @media screen and (max-width: 500px) {
-          margin: 0 4px;
-        }
-      }
-    }
+  &__link {
+    display: block;
+    font-weight: bold;
   }
 }

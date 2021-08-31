@@ -38,7 +38,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
       <article className="post">
         <time className="post__date">
           <FontAwesomeIcon icon={faClock} />
-          <span>{date}</span>
+          {date}
         </time>
         <PostLabel categories={categories} tags={tags} lang={lang} />
         <ShareButton link={`${siteUrl}${slug}`} />

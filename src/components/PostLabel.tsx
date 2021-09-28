@@ -39,7 +39,7 @@ const PostLabel = ({ categories, tags, lang }: Props) => {
         </Link>
       ))}
       <Link
-        to={`/lang/${lang}/`}
+        to={`/blog/lang/${lang}/`}
         className="post-label__link post-label__link--lang"
       >
         {langMap.get(lang) ?? "English"}

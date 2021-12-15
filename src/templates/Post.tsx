@@ -73,7 +73,6 @@ export const pageQuery = graphql`
       title
       description
       date(formatString: "MMMM DD, YYYY")
-      categories
       tags
       lang
       featuredImage {

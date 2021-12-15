@@ -14,9 +14,6 @@ import { createPaginatedPageData, getIdPageContext } from "./src/utils/gatsby";
 // TODO: Automate to generate these interface bellow
 interface GatsbyNodeQuery {
   allPosts: MDNode;
-  allCategories: {
-    group: GroupInfo[];
-  };
   allTags: {
     group: GroupInfo[];
   };
@@ -59,12 +56,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
         filter: { fields: { type: { eq: "blog" } } }
       ) {
         ...MDNode
-      }
-
-      allCategories: allMarkdownRemark {
-        group(field: frontmatter___categories) {
-          ...GroupInfo
-        }
       }
 
       allTags: allMarkdownRemark {
@@ -116,7 +107,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   const posts = result.data?.allPosts.nodes ?? [];
-  const categories = result.data?.allCategories.group ?? [];
   const tags = result.data?.allTags.group ?? [];
   const langs = result.data?.allLang.group ?? [];
   const changelogs = result.data.allChangelog.nodes ?? [];
@@ -146,15 +136,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     basePath: "/blog/"
   });
 
-  const categoriesPageData = categories.flatMap(category =>
-    createPaginatedPageData({
-      postCount: category.totalCount,
-      filterValue: category.fieldValue,
-      type: "Category",
-      basePath: `/blog/category/${kebabCase(category.fieldValue)}/`
-    })
-  );
-
   const tagsPageData = tags.flatMap(tag =>
     createPaginatedPageData({
       postCount: tag.totalCount,
@@ -173,12 +154,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     })
   );
 
-  const allPageData = [
-    ...indexPageData,
-    ...categoriesPageData,
-    ...tagsPageData,
-    ...langsPageData
-  ];
+  const allPageData = [...indexPageData, ...tagsPageData, ...langsPageData];
 
   allPageData.forEach(data => {
     reporter.info(`Creating page ${data.path}, type ${data.context.type}`);

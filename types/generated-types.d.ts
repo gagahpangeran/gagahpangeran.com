@@ -784,7 +784,6 @@ type ImageSharpResize = {
 };
 
 type Frontmatter = {
-  readonly categories: ReadonlyArray<Scalars['String']>;
   readonly date: Scalars['Date'];
   readonly description: Scalars['String'];
   readonly lang: Scalars['String'];
@@ -1158,7 +1157,6 @@ type MarkdownRemarkFilterInput = {
 };
 
 type FrontmatterFilterInput = {
-  readonly categories: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly lang: Maybe<StringQueryOperatorInput>;
@@ -1422,7 +1420,6 @@ type FileFieldsEnum =
   | 'publicURL'
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
-  | 'childrenMarkdownRemark.frontmatter.categories'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.lang'
@@ -1521,7 +1518,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.owner'
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
-  | 'childMarkdownRemark.frontmatter.categories'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.lang'
@@ -3520,7 +3516,6 @@ type MarkdownRemarkEdge = {
 
 type MarkdownRemarkFieldsEnum =
   | 'id'
-  | 'frontmatter.categories'
   | 'frontmatter.date'
   | 'frontmatter.description'
   | 'frontmatter.lang'
@@ -3964,15 +3959,15 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
-
 type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
+
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html'>

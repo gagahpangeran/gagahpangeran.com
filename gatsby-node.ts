@@ -235,7 +235,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     }
 
     type Frontmatter {
-      categories: [String!]!
       date: Date! @dateformat
       description: String!
       lang: String!

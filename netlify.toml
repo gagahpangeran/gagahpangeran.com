@@ -3,6 +3,11 @@
   to = "/home"
   status = 301
 
+[[redirects]]
+  from = "/blog/category/*"
+  to = "/blog/tag/:splat"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

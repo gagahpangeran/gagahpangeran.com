@@ -9,8 +9,7 @@ description:
   "Currently I'm still revamping and fixing this blog after my VPS died and also
   causing this blog's backend, that using wordpress, died."
 featuredImage: ./img/wp-md.png
-categories: ["Story", "Tech"]
-tags: ["Blog Revamp", "Markdown", "Gatsby"]
+tags: ["Story", "Tech", "Blog Revamp", "Markdown", "Gatsby"]
 lang: en
 ---
 

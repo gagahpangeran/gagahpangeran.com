@@ -28,16 +28,12 @@
       text-decoration: none;
     }
 
-    &--category {
-      background-color: var(--green);
-    }
-
     &--lang {
       background-color: var(--pink);
     }
 
     &--tag {
-      background-color: var(--purple);
+      background-color: var(--green);
     }
   }
 }

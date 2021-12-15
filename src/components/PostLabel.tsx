@@ -5,37 +5,23 @@
 import { Link } from "gatsby";
 import kebabCase from "lodash.kebabcase";
 import React from "react";
-import classModifiers from "../utils/css";
 import { langMap } from "../utils/data";
 
 interface Props {
-  categories: readonly string[];
   tags: readonly string[];
   lang: string;
 }
 
-const PostLabel = ({ categories, tags, lang }: Props) => {
-  const list = categories
-    .map(item => ({
-      type: "category",
-      item
-    }))
-    .concat(
-      tags.map(tag => ({
-        type: "tag",
-        item: tag
-      }))
-    );
-
+const PostLabel = ({ tags, lang }: Props) => {
   return (
     <div className="post-label">
-      {list.map(({ type, item }) => (
+      {tags.map(tag => (
         <Link
-          key={`${type}-${kebabCase(item)}`}
-          to={`/blog/${type}/${kebabCase(item)}/`}
-          className={classModifiers("post-label__link", type)}
+          key={tag}
+          to={`/blog/tag/${kebabCase(tag)}/`}
+          className="post-label__link post-label__link--tag"
         >
-          {item}
+          {tag}
         </Link>
       ))}
       <Link

@@ -16,7 +16,6 @@ const PostCard = ({
   description,
   slug,
   image,
-  categories,
   tags,
   lang
 }: ReturnType<typeof getPostData>) => {
@@ -40,7 +39,7 @@ const PostCard = ({
         </div>
       </Link>
       <div className="post-card__info">
-        <PostLabel categories={categories} tags={tags} lang={lang} />
+        <PostLabel tags={tags} lang={lang} />
         <div
           className="post-card__summary"
           dangerouslySetInnerHTML={{ __html: description }}

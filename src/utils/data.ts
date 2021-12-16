@@ -30,11 +30,15 @@ export const postKeyMap: {
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   const { id, html, fields, frontmatter } = data;
 
+  if (html == null) {
+    throw new Error("Post does not have any html content");
+  }
+
   return {
     id,
     ...frontmatter,
     slug: fields.slug,
-    html: html ?? "",
+    html,
     image: frontmatter?.featuredImage?.childImageSharp
       ?.gatsbyImageData as unknown as IGatsbyImageData,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? ""

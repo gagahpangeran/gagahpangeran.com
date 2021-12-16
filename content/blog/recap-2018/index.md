@@ -16,6 +16,8 @@ lang: "id"
 Recap kehidupan gue selama 2018 kemarin akhirnya ditulis juga. Jadi kali ini gue
 akan menulis tentang apa saja yang gue lakukan di 2018 kemarin.
 
+<!-- excerpt -->
+
 ## Ikutan 30 Hari bercerita
 
 Jadi di Instagram ada event yang namanya 30 hari bercerita. Untuk mengembalikan

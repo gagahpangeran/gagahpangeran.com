@@ -20,6 +20,8 @@ dapat juara 3 di lomba Secure Code Warrior atau disingkat SCW. Jadi apa sih itu
 SCW? Apakah ada hubungannya dengan SJW? Gimana caranya gue bisa menang padahal
 dikejar-kejar deadline PPL? Nah gini ceritanya.
 
+<!-- excerpt -->
+
 ## Pendaftaran
 
 Jadi gue baru tahu lomba SCW dari grup Lomba Hunter Fasilkom, di hari minggu 2

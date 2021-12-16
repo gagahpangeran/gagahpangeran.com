@@ -16,6 +16,8 @@ lang: "en"
 Currently I'm still revamping and fixing this blog after my VPS died and also
 causing this blog's backend, that using wordpress, died.
 
+<!-- excerpt -->
+
 The effect is many of the images did not load because it is hosted in wordpress.
 Fortunately, because Gatsby pull out all data from wordpress when built, the
 post is saved and I still have the images of all post in my hard drive.

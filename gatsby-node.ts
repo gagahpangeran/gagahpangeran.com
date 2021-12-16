@@ -232,6 +232,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       frontmatter: Frontmatter!
       fields: Fields!
       html: String!
+      excerpt: String!
     }
 
     type Frontmatter {

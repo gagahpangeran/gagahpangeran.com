@@ -3963,13 +3963,13 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type PostDetailFragment = (
-  Pick<MarkdownRemark, 'id' | 'html'>
+  Pick<MarkdownRemark, 'id' | 'html' | 'excerpt'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
     Pick<Frontmatter, 'title' | 'description' | 'date' | 'tags' | 'lang'>
     & { readonly featuredImage: Maybe<(
@@ -4000,6 +4000,11 @@ type ChangelogTemplateQuery = { readonly changelog: Maybe<(
     & { readonly fields: Pick<Fields, 'slug'> }
   )>, readonly newerChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }>, readonly olderChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }> };
 
+type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
+
 type PostTemplateQueryVariables = Exact<{
   id: Scalars['String'];
   newerId: Maybe<Scalars['String']>;
@@ -4008,11 +4013,6 @@ type PostTemplateQueryVariables = Exact<{
 
 
 type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
-
-type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

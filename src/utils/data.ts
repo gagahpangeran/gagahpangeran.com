@@ -28,11 +28,16 @@ export const postKeyMap: {
 };
 
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
-  const { id, html, fields, frontmatter } = data;
+  const { id, html, excerpt, fields, frontmatter } = data;
+
+  if (excerpt == null) {
+    throw new Error("Post does not have any excerpt");
+  }
 
   return {
     id,
     ...frontmatter,
+    description: excerpt,
     slug: fields.slug,
     html: html ?? "",
     image: frontmatter?.featuredImage?.childImageSharp

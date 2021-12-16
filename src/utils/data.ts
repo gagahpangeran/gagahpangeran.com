@@ -9,7 +9,7 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
-export type BlogPageContextType = "Blog" | "Category" | "Tag" | "Language";
+export type BlogPageContextType = "Blog" | "Tag" | "Language";
 
 export interface BlogPageContext {
   type: BlogPageContextType;
@@ -23,7 +23,6 @@ export const postKeyMap: {
   [key in BlogPageContextType]: keyof GatsbyTypes.BlogTemplateQuery;
 } = {
   Blog: "posts",
-  Category: "categories",
   Tag: "tags",
   Language: "langs"
 };

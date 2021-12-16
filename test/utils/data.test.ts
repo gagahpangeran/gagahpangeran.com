@@ -21,22 +21,6 @@ describe("Test getBlogMetaData function", () => {
     expect(result).toMatchObject(expectedResult);
   });
 
-  test("Category type", () => {
-    const result = getBlogMetaData({
-      type: "Category",
-      filterValue: "Story"
-    });
-
-    const expectedResult = {
-      pageTitle: "Story",
-      pageDesc: `Show All Posts in Category "Story"`,
-      title: `Category "Story"`,
-      desc: `All Posts in Category "Story"`
-    };
-
-    expect(result).toMatchObject(expectedResult);
-  });
-
   test("Tags type", () => {
     const result = getBlogMetaData({
       type: "Tag",

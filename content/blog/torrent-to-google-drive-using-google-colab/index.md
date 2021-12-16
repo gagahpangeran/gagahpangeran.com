@@ -9,8 +9,7 @@ description:
   "Have you ever thought of downloading a Torrent and saving it directly to
   Google Drive? I found one of the tricks, using Google Colab."
 featuredImage: "./img/torrent-to-gdrive.png"
-categories: ["Tech"]
-tags: ["Google Colab", "Google Drive", "Torrent"]
+tags: ["Tech", "Google Colab", "Google Drive", "Torrent"]
 lang: "en"
 ---
 

@@ -16,18 +16,8 @@ import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
   const { siteUrl } = data.site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
-  const {
-    title,
-    description,
-    date,
-    categories,
-    tags,
-    lang,
-    slug,
-    imageUrl,
-    image,
-    html
-  } = getPostData(data.post as GatsbyTypes.PostDetailFragment);
+  const { title, description, date, tags, lang, slug, imageUrl, image, html } =
+    getPostData(data.post as GatsbyTypes.PostDetailFragment);
 
   const newerPost = data.newerPost ? getPostData(data.newerPost) : null;
   const olderPost = data.olderPost ? getPostData(data.olderPost) : null;
@@ -40,7 +30,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
           <FontAwesomeIcon icon={faClock} />
           {date}
         </time>
-        <PostLabel categories={categories} tags={tags} lang={lang} />
+        <PostLabel tags={tags} lang={lang} />
         <ShareButton link={`${siteUrl}${slug}`} />
         <a href={imageUrl} target="_blank" rel="noopener noreferrer">
           <GatsbyImage image={image} alt={title} title={title} />
@@ -83,7 +73,6 @@ export const pageQuery = graphql`
       title
       description
       date(formatString: "MMMM DD, YYYY")
-      categories
       tags
       lang
       featuredImage {

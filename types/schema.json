@@ -7424,22 +7424,6 @@
             "deprecationReason": null
           },
           {
-            "name": "description",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "lang",
             "description": null,
             "args": [],
@@ -10839,18 +10823,6 @@
             "deprecationReason": null
           },
           {
-            "name": "description",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringQueryOperatorInput",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "lang",
             "description": null,
             "type": {
@@ -13180,12 +13152,6 @@
             "deprecationReason": null
           },
           {
-            "name": "childrenMarkdownRemark___frontmatter___description",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "childrenMarkdownRemark___frontmatter___lang",
             "description": null,
             "isDeprecated": false,
@@ -13763,12 +13729,6 @@
           },
           {
             "name": "childMarkdownRemark___frontmatter___date",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "childMarkdownRemark___frontmatter___description",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -27801,12 +27761,6 @@
           },
           {
             "name": "frontmatter___date",
-            "description": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "frontmatter___description",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

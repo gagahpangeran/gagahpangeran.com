@@ -72,7 +72,6 @@ export const pageQuery = graphql`
     excerpt
     frontmatter {
       title
-      description
       date(formatString: "MMMM DD, YYYY")
       tags
       lang

@@ -13,6 +13,12 @@ interface Props {
 }
 
 const PostLabel = ({ tags, lang }: Props) => {
+  const language = langMap.get(lang);
+
+  if (language == null) {
+    throw new Error("Language is not valid");
+  }
+
   return (
     <div className="post-label">
       {tags.map(tag => (
@@ -28,7 +34,7 @@ const PostLabel = ({ tags, lang }: Props) => {
         to={`/blog/lang/${lang}/`}
         className="post-label__link post-label__link--lang"
       >
-        {langMap.get(lang) ?? "English"}
+        {language}
       </Link>
     </div>
   );

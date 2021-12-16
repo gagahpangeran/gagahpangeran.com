@@ -50,7 +50,13 @@ export function getBlogMetaData({
   filterValue
 }: Omit<BlogPageContext, "basePath" | "page" | "numPages">) {
   if (type === "Language") {
-    filterValue = langMap.get(filterValue) ?? "English";
+    const lang = langMap.get(filterValue);
+
+    if (lang == null) {
+      throw new Error("Language is not valid");
+    }
+
+    filterValue = lang;
   }
 
   let title = type;

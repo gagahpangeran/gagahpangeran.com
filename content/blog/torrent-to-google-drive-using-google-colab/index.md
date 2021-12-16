@@ -3,14 +3,14 @@
 # Licensed under CC-BY-NC 4.0.
 # Read the LICENSE file inside the 'content' directory for full license text.
 
-title: Torrent to Google Drive Using Google Colab
+title: "Torrent to Google Drive Using Google Colab"
 date: "2019-07-29T20:59:00+07:00"
 description:
   "Have you ever thought of downloading a Torrent and saving it directly to
   Google Drive? I found one of the tricks, using Google Colab."
-featuredImage: ./img/torrent-to-gdrive.png
+featuredImage: "./img/torrent-to-gdrive.png"
 tags: ["Tech", "Google Colab", "Google Drive", "Torrent"]
-lang: en
+lang: "en"
 ---
 
 Have you ever thought of downloading a Torrent and saving it directly to Google

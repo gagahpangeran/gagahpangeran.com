@@ -3,14 +3,14 @@
 # Licensed under CC-BY-NC 4.0.
 # Read the LICENSE file inside the 'content' directory for full license text.
 
-title: Blog Revamp
+title: "Blog Revamp"
 date: "2021-02-17T15:16:00+07:00"
 description:
   "Currently I'm still revamping and fixing this blog after my VPS died and also
   causing this blog's backend, that using wordpress, died."
-featuredImage: ./img/wp-md.png
+featuredImage: "./img/wp-md.png"
 tags: ["Story", "Tech", "Blog Revamp", "Markdown", "Gatsby"]
-lang: en
+lang: "en"
 ---
 
 Currently I'm still revamping and fixing this blog after my VPS died and also

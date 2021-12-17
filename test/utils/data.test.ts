@@ -52,4 +52,14 @@ describe("Test getBlogMetaData function", () => {
 
     expect(result).toMatchObject(expectedResult);
   });
+
+  test("Language type invalid", () => {
+    const result = () =>
+      getBlogMetaData({
+        type: "Language",
+        filterValue: "xx"
+      });
+
+    expect(result).toThrowError("Language is not valid");
+  });
 });

@@ -5,11 +5,6 @@
 
 title: "Klik-klik Berhadiah di Secure Code Warrior"
 date: "2020-03-20T18:35:00+07:00"
-description:
-  "Jadi ceritanya minggu lalu gue dan Distra dapat juara 3 di lomba Secure Code
-  Warrior atau disingkat SCW. Jadi apa sih itu SCW? Apakah ada hubungannya
-  dengan SJW? Gimana caranya gue bisa menang padahal dikejar-kejar deadline PPL?
-  Nah gini ceritanya."
 featuredImage: "./img/scw.png"
 tags: ["Story", "Competition", "DevOpsDay Jakarta", "Secure Code Warrior"]
 lang: "id"
@@ -19,6 +14,8 @@ Jadi ceritanya minggu lalu gue dan [Distra](https://twitter.com/ramadistra/)
 dapat juara 3 di lomba Secure Code Warrior atau disingkat SCW. Jadi apa sih itu
 SCW? Apakah ada hubungannya dengan SJW? Gimana caranya gue bisa menang padahal
 dikejar-kejar deadline PPL? Nah gini ceritanya.
+
+<!-- excerpt -->
 
 ## Pendaftaran
 

@@ -5,9 +5,6 @@
 
 title: "Torrent to Google Drive Using Google Colab"
 date: "2019-07-29T20:59:00+07:00"
-description:
-  "Have you ever thought of downloading a Torrent and saving it directly to
-  Google Drive? I found one of the tricks, using Google Colab."
 featuredImage: "./img/torrent-to-gdrive.png"
 tags: ["Tech", "Google Colab", "Google Drive", "Torrent"]
 lang: "en"
@@ -15,6 +12,8 @@ lang: "en"
 
 Have you ever thought of downloading a Torrent and saving it directly to Google
 Drive? I found one of the tricks, using Google Colab.
+
+<!-- excerpt -->
 
 First, this is my new blog and all my old posts have been archived. Now I use
 Gatsby js + WordPress to build this blog. You can find many tutorials on the

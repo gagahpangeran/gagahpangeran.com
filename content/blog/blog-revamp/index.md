@@ -5,9 +5,6 @@
 
 title: "Blog Revamp"
 date: "2021-02-17T15:16:00+07:00"
-description:
-  "Currently I'm still revamping and fixing this blog after my VPS died and also
-  causing this blog's backend, that using wordpress, died."
 featuredImage: "./img/wp-md.png"
 tags: ["Story", "Tech", "Blog Revamp", "Markdown", "Gatsby"]
 lang: "en"
@@ -15,6 +12,8 @@ lang: "en"
 
 Currently I'm still revamping and fixing this blog after my VPS died and also
 causing this blog's backend, that using wordpress, died.
+
+<!-- excerpt -->
 
 The effect is many of the images did not load because it is hosted in wordpress.
 Fortunately, because Gatsby pull out all data from wordpress when built, the

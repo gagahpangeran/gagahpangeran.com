@@ -5,9 +5,6 @@
 
 title: "Recap 2018"
 date: "2019-01-01T20:21:00+07:00"
-description:
-  "Recap kehidupan gue selama 2018 kemarin akhirnya ditulis juga. Jadi kali ini
-  gue akan menulis tentang apa saja yang gue lakukan di 2018 kemarin."
 featuredImage: "./img/misan-evergarden.jpg"
 tags: ["Story", "Fasilkom", "College"]
 lang: "id"
@@ -15,6 +12,8 @@ lang: "id"
 
 Recap kehidupan gue selama 2018 kemarin akhirnya ditulis juga. Jadi kali ini gue
 akan menulis tentang apa saja yang gue lakukan di 2018 kemarin.
+
+<!-- excerpt -->
 
 ## Ikutan 30 Hari bercerita
 

@@ -5,14 +5,21 @@
 .share-button {
   --button-color: var(--pink);
   --desc-color: var(--white);
-  --desc-font-weight: normal;
+  --desc-font-weight: bold;
 
   margin-bottom: 12px;
 
-  &--copied {
+  &--failed {
+    --desc-color: var(--pink);
+  }
+
+  &--idle {
+    --desc-font-weight: normal;
+  }
+
+  &--success {
     --button-color: var(--green);
     --desc-color: var(--green);
-    --desc-font-weight: bold;
   }
 
   &__desc {

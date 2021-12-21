@@ -31,12 +31,14 @@ const ShareButton = ({ link }: Props) => {
       await navigator.clipboard.writeText(inputRef.current?.value ?? "");
 
       setCopyState("success");
-      inputRef.current?.blur();
     } catch (error) {
       setCopyState("failed");
     }
 
-    setTimeout(() => setCopyState("idle"), 3000);
+    setTimeout(() => {
+      inputRef.current?.blur();
+      setCopyState("idle");
+    }, 3000);
   };
 
   return (

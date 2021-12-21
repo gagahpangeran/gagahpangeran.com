@@ -25,13 +25,18 @@ const ShareButton = ({ link }: Props) => {
 
   const handleClick = async () => {
     try {
-      inputRef.current?.select();
-      inputRef.current?.setSelectionRange(0, 99999);
+      if (inputRef.current == null) {
+        throw new Error("Input ref is null");
+      }
 
-      await navigator.clipboard.writeText(inputRef.current?.value ?? "");
+      inputRef.current.select();
+      inputRef.current.setSelectionRange(0, 99999);
+
+      await navigator.clipboard.writeText(inputRef.current.value);
 
       setCopyState("success");
     } catch (error) {
+      console.error(error);
       setCopyState("failed");
     }
 

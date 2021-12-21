@@ -20,13 +20,20 @@ const ShareButton = ({ link }: Props) => {
     "Link copied! Now you can paste and share it anywhere."
   ];
 
-  const handleClick = () => {
-    inputRef.current?.select();
-    inputRef.current?.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    setIsCopied(true);
-    inputRef.current?.blur();
-    setTimeout(() => setIsCopied(false), 3000);
+  const handleClick = async () => {
+    try {
+      inputRef.current?.select();
+      inputRef.current?.setSelectionRange(0, 99999);
+
+      await navigator.clipboard.writeText(inputRef.current?.value ?? "");
+
+      setIsCopied(true);
+      inputRef.current?.blur();
+
+      setTimeout(() => setIsCopied(false), 3000);
+    } catch (error) {
+      // Do nothing
+    }
   };
 
   return (

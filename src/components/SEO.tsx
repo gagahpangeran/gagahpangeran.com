@@ -3,7 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 interface Props {
@@ -39,6 +39,8 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
   const metaTitle = `${title} | ${siteMetadata.title}`;
 
   return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     <Helmet
       htmlAttributes={{
         lang

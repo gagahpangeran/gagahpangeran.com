@@ -264,6 +264,7 @@ type Site = Node & {
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly jsxRuntime: Maybe<Scalars['String']>;
+  readonly trailingSlash: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
@@ -836,6 +837,7 @@ type Query_siteArgs = {
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   jsxRuntime: Maybe<StringQueryOperatorInput>;
+  trailingSlash: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
@@ -2097,6 +2099,7 @@ type SiteFieldsEnum =
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
+  | 'trailingSlash'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -2233,6 +2236,7 @@ type SiteFilterInput = {
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly jsxRuntime: Maybe<StringQueryOperatorInput>;
+  readonly trailingSlash: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
@@ -3576,6 +3580,11 @@ type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
 
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
+
 type PostDetailFragment = (
   Pick<MarkdownRemark, 'id' | 'html' | 'excerpt'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
@@ -3595,11 +3604,6 @@ type BlogTemplateQueryVariables = Exact<{
 
 
 type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
-
-type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type ChangelogTemplateQueryVariables = Exact<{
   id: Scalars['String'];

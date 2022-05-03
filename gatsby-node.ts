@@ -232,11 +232,11 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       frontmatter: Frontmatter!
       fields: Fields!
       html: String!
+      excerpt: String!
     }
 
     type Frontmatter {
       date: Date! @dateformat
-      description: String!
       lang: String!
       tags: [String!]!
       title: String!

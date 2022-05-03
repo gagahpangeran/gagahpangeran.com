@@ -69,9 +69,9 @@ export const pageQuery = graphql`
     fields {
       slug
     }
+    excerpt
     frontmatter {
       title
-      description
       date(formatString: "MMMM DD, YYYY")
       tags
       lang

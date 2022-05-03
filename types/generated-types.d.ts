@@ -350,6 +350,7 @@ type SitePluginPluginOptions = {
   readonly plugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPlugins>>>;
   readonly path: Maybe<Scalars['String']>;
   readonly name: Maybe<Scalars['String']>;
+  readonly excerpt_separator: Maybe<Scalars['String']>;
   readonly maxWidth: Maybe<Scalars['Int']>;
   readonly showCaptions: Maybe<Scalars['Boolean']>;
   readonly backgroundColor: Maybe<Scalars['String']>;
@@ -785,7 +786,6 @@ type ImageSharpResize = {
 
 type Frontmatter = {
   readonly date: Scalars['Date'];
-  readonly description: Scalars['String'];
   readonly lang: Scalars['String'];
   readonly tags: ReadonlyArray<Scalars['String']>;
   readonly title: Scalars['String'];
@@ -1158,7 +1158,6 @@ type MarkdownRemarkFilterInput = {
 
 type FrontmatterFilterInput = {
   readonly date: Maybe<DateQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
   readonly lang: Maybe<StringQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
@@ -1421,7 +1420,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.date'
-  | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.lang'
   | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.title'
@@ -1519,7 +1517,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.date'
-  | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.lang'
   | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.title'
@@ -2587,6 +2584,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
+  readonly excerpt_separator: Maybe<StringQueryOperatorInput>;
   readonly maxWidth: Maybe<IntQueryOperatorInput>;
   readonly showCaptions: Maybe<BooleanQueryOperatorInput>;
   readonly backgroundColor: Maybe<StringQueryOperatorInput>;
@@ -2865,6 +2863,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.plugins.pluginFilepath'
   | 'pluginCreator.pluginOptions.path'
   | 'pluginCreator.pluginOptions.name'
+  | 'pluginCreator.pluginOptions.excerpt_separator'
   | 'pluginCreator.pluginOptions.maxWidth'
   | 'pluginCreator.pluginOptions.showCaptions'
   | 'pluginCreator.pluginOptions.backgroundColor'
@@ -3096,6 +3095,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.plugins.pluginFilepath'
   | 'pluginOptions.path'
   | 'pluginOptions.name'
+  | 'pluginOptions.excerpt_separator'
   | 'pluginOptions.maxWidth'
   | 'pluginOptions.showCaptions'
   | 'pluginOptions.backgroundColor'
@@ -3517,7 +3517,6 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.date'
-  | 'frontmatter.description'
   | 'frontmatter.lang'
   | 'frontmatter.tags'
   | 'frontmatter.title'
@@ -3969,35 +3968,6 @@ type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
 
 type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
-type PostDetailFragment = (
-  Pick<MarkdownRemark, 'id' | 'html'>
-  & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
-    Pick<Frontmatter, 'title' | 'description' | 'date' | 'tags' | 'lang'>
-    & { readonly featuredImage: Maybe<(
-      Pick<File, 'publicURL'>
-      & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
-    )> }
-  ) }
-);
-
-type BlogTemplateQueryVariables = Exact<{
-  skip: Maybe<Scalars['Int']>;
-  limit: Maybe<Scalars['Int']>;
-  filterValue: Maybe<Scalars['String']>;
-}>;
-
-
-type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
-
-type PostTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: Maybe<Scalars['String']>;
-  olderId: Maybe<Scalars['String']>;
-}>;
-
-
-type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
-
 type ChangelogTemplateQueryVariables = Exact<{
   id: Scalars['String'];
   newerId: Maybe<Scalars['String']>;
@@ -4009,6 +3979,35 @@ type ChangelogTemplateQuery = { readonly changelog: Maybe<(
     Pick<MarkdownRemark, 'html'>
     & { readonly fields: Pick<Fields, 'slug'> }
   )>, readonly newerChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }>, readonly olderChangelog: Maybe<{ readonly fields: Pick<Fields, 'slug'> }> };
+
+type PostDetailFragment = (
+  Pick<MarkdownRemark, 'id' | 'html' | 'excerpt'>
+  & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
+    Pick<Frontmatter, 'title' | 'date' | 'tags' | 'lang'>
+    & { readonly featuredImage: Maybe<(
+      Pick<File, 'publicURL'>
+      & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
+    )> }
+  ) }
+);
+
+type PostTemplateQueryVariables = Exact<{
+  id: Scalars['String'];
+  newerId: Maybe<Scalars['String']>;
+  olderId: Maybe<Scalars['String']>;
+}>;
+
+
+type PostTemplateQuery = { readonly post: Maybe<PostDetailFragment>, readonly newerPost: Maybe<PostDetailFragment>, readonly olderPost: Maybe<PostDetailFragment>, readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'siteUrl'> }> };
+
+type BlogTemplateQueryVariables = Exact<{
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  filterValue: Maybe<Scalars['String']>;
+}>;
+
+
+type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

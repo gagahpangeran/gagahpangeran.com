@@ -49,11 +49,11 @@
     "gatsby-transformer-remark": "^5.4.0",
     "gatsby-transformer-sharp": "^4.4.0",
     "lodash.kebabcase": "^4.1.1",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.28.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "sass": "^1.45.0"
+    "sass": "^1.51.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.1",

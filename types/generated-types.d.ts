@@ -686,7 +686,6 @@ type ImageSharpResize = {
 
 type Frontmatter = {
   readonly date: Scalars['Date'];
-  readonly description: Scalars['String'];
   readonly lang: Scalars['String'];
   readonly tags: ReadonlyArray<Scalars['String']>;
   readonly title: Scalars['String'];
@@ -1055,7 +1054,6 @@ type MarkdownRemarkFilterInput = {
 
 type FrontmatterFilterInput = {
   readonly date: Maybe<DateQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
   readonly lang: Maybe<StringQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
@@ -1318,7 +1316,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.date'
-  | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.lang'
   | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.title'
@@ -1416,7 +1413,6 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.date'
-  | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.lang'
   | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.title'
@@ -3134,7 +3130,6 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.date'
-  | 'frontmatter.description'
   | 'frontmatter.lang'
   | 'frontmatter.tags'
   | 'frontmatter.title'
@@ -3581,15 +3576,10 @@ type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteMetaDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Pick<SiteSiteMetadata, 'title' | 'description' | 'siteUrl' | 'image'> }> };
 
-type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
-
 type PostDetailFragment = (
-  Pick<MarkdownRemark, 'id' | 'html'>
+  Pick<MarkdownRemark, 'id' | 'html' | 'excerpt'>
   & { readonly fields: Pick<Fields, 'slug'>, readonly frontmatter: (
-    Pick<Frontmatter, 'title' | 'description' | 'date' | 'tags' | 'lang'>
+    Pick<Frontmatter, 'title' | 'date' | 'tags' | 'lang'>
     & { readonly featuredImage: Maybe<(
       Pick<File, 'publicURL'>
       & { readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }
@@ -3605,6 +3595,11 @@ type BlogTemplateQueryVariables = Exact<{
 
 
 type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly tags: { readonly nodes: ReadonlyArray<PostDetailFragment> }, readonly langs: { readonly nodes: ReadonlyArray<PostDetailFragment> } };
+
+type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: Pick<Fields, 'slug'> }> } };
 
 type ChangelogTemplateQueryVariables = Exact<{
   id: Scalars['String'];

@@ -28,13 +28,22 @@ export const postKeyMap: {
 };
 
 export function getPostData(data: GatsbyTypes.PostDetailFragment) {
-  const { id, html, fields, frontmatter } = data;
+  const { id, html, excerpt, fields, frontmatter } = data;
+
+  if (excerpt == null) {
+    throw new Error("Post does not have any excerpt");
+  }
+
+  if (html == null) {
+    throw new Error("Post does not have any html content");
+  }
 
   return {
     id,
     ...frontmatter,
+    description: excerpt,
     slug: fields.slug,
-    html: html ?? "",
+    html,
     image: frontmatter?.featuredImage?.childImageSharp
       ?.gatsbyImageData as unknown as IGatsbyImageData,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? ""
@@ -46,7 +55,13 @@ export function getBlogMetaData({
   filterValue
 }: Omit<BlogPageContext, "basePath" | "page" | "numPages">) {
   if (type === "Language") {
-    filterValue = langMap.get(filterValue) ?? "English";
+    const lang = langMap.get(filterValue);
+
+    if (lang == null) {
+      throw new Error("Language is not valid");
+    }
+
+    filterValue = lang;
   }
 
   let title = type;

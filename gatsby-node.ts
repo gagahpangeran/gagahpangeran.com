@@ -5,7 +5,7 @@
 import path from "path";
 import kebabCase from "lodash.kebabcase";
 import { createFilePath } from "gatsby-source-filesystem";
-import { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
+import type { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
 import { createPaginatedPageData, getIdPageContext } from "./src/utils/gatsby";
 
 // Current plugin `gatsby-plugin-typegen` can't generate types from graphql
@@ -210,10 +210,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({
 };
 
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
-  ({
-    actions
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  CreateSchemaCustomizationArgs): any => {
+  ({ actions }: CreateSchemaCustomizationArgs) => {
     const { createTypes } = actions;
 
     createTypes(`

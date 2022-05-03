@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from "gatsby";
 
 export const siteMetadata: GatsbyConfig["siteMetadata"] = {
   title: `GPR`,

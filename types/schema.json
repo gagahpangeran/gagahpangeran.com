@@ -2393,6 +2393,18 @@
             "deprecationReason": null
           },
           {
+            "name": "trailingSlash",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "args": [],
@@ -7582,6 +7594,18 @@
                 "deprecationReason": null
               },
               {
+                "name": "trailingSlash",
+                "description": null,
+                "type": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "StringQueryOperatorInput",
+                  "ofType": null
+                },
+                "defaultValue": null,
+                "isDeprecated": false,
+                "deprecationReason": null
+              },
+              {
                 "name": "id",
                 "description": null,
                 "type": {
@@ -12246,20 +12270,20 @@
           {
             "name": "childrenMarkdownRemark___rawMarkdownBody",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___fileAbsolutePath",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___htmlAst",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___excerptAst",
@@ -12294,8 +12318,8 @@
           {
             "name": "childrenMarkdownRemark___timeToRead",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___tableOfContents",
@@ -12306,242 +12330,242 @@
           {
             "name": "childrenMarkdownRemark___wordCount___paragraphs",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___wordCount___sentences",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___wordCount___words",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenMarkdownRemark___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___id",
@@ -12828,20 +12852,20 @@
           {
             "name": "childMarkdownRemark___rawMarkdownBody",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___fileAbsolutePath",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___htmlAst",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___excerptAst",
@@ -12876,8 +12900,8 @@
           {
             "name": "childMarkdownRemark___timeToRead",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___tableOfContents",
@@ -12888,242 +12912,242 @@
           {
             "name": "childMarkdownRemark___wordCount___paragraphs",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___wordCount___sentences",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___wordCount___words",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childMarkdownRemark___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp",
@@ -13272,20 +13296,20 @@
           {
             "name": "childrenImageSharp___original___width",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___original___height",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___original___src",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___resize___src",
@@ -13326,230 +13350,230 @@
           {
             "name": "childrenImageSharp___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childrenImageSharp___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___fixed___base64",
@@ -13692,20 +13716,20 @@
           {
             "name": "childImageSharp___original___width",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___original___height",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___original___src",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___resize___src",
@@ -13746,230 +13770,230 @@
           {
             "name": "childImageSharp___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "childImageSharp___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "id",
@@ -17178,6 +17202,12 @@
             "deprecationReason": null
           },
           {
+            "name": "trailingSlash",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "id",
             "description": null,
             "isDeprecated": false,
@@ -18090,6 +18120,18 @@
           },
           {
             "name": "jsxRuntime",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "trailingSlash",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -24640,20 +24682,20 @@
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___rawMarkdownBody",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___fileAbsolutePath",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___htmlAst",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___excerptAst",
@@ -24670,8 +24712,8 @@
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___timeToRead",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___tableOfContents",
@@ -24682,8 +24724,8 @@
           {
             "name": "frontmatter___featuredImage___childrenMarkdownRemark___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___id",
@@ -24706,20 +24748,20 @@
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___rawMarkdownBody",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___fileAbsolutePath",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___htmlAst",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___excerptAst",
@@ -24736,8 +24778,8 @@
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___timeToRead",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___tableOfContents",
@@ -24748,8 +24790,8 @@
           {
             "name": "frontmatter___featuredImage___childMarkdownRemark___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childrenImageSharp",
@@ -24766,14 +24808,14 @@
           {
             "name": "frontmatter___featuredImage___childrenImageSharp___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childrenImageSharp___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childImageSharp___gatsbyImageData",
@@ -24784,14 +24826,14 @@
           {
             "name": "frontmatter___featuredImage___childImageSharp___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___childImageSharp___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "frontmatter___featuredImage___id",
@@ -24904,20 +24946,20 @@
           {
             "name": "rawMarkdownBody",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "fileAbsolutePath",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "htmlAst",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "excerptAst",
@@ -24952,8 +24994,8 @@
           {
             "name": "timeToRead",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "tableOfContents",
@@ -24964,530 +25006,530 @@
           {
             "name": "wordCount___paragraphs",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "wordCount___sentences",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "wordCount___words",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -26336,20 +26378,20 @@
           {
             "name": "original___width",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "original___height",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "original___src",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "resize___src",
@@ -26390,518 +26432,518 @@
           {
             "name": "id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___parent___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___parent___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___parent___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___children___id",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___children___children",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "children___internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___content",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___contentDigest",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___description",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___fieldOwners",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___ignoreType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___mediaType",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___owner",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           },
           {
             "name": "internal___type",
             "description": null,
-            "isDeprecated": true,
-            "deprecationReason": "Sorting on fields that need arguments to resolve is deprecated."
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null

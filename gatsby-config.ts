@@ -66,7 +66,7 @@ export const plugins: GatsbyConfig["plugins"] = [
     options: {
       name: `GPR's Blog`,
       short_name: `GPR's Blog`,
-      start_url: `/`,
+      start_url: `/home`,
       background_color: `#000000`,
       theme_color: `#000000`,
       display: `minimal-ui`,

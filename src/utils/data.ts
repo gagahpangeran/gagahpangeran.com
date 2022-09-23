@@ -41,7 +41,7 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
   return {
     id,
     ...frontmatter,
-    description: excerpt,
+    description: excerpt.replaceAll("\n", " "),
     slug: fields.slug,
     html,
     image: frontmatter?.featuredImage?.childImageSharp

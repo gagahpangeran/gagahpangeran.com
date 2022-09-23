@@ -17,7 +17,6 @@ export const graphqlTypegen: GatsbyConfig["graphqlTypegen"] = {
 };
 
 export const plugins: GatsbyConfig["plugins"] = [
-  `gatsby-plugin-react-helmet`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {

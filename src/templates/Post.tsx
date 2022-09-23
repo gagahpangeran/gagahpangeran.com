@@ -24,7 +24,7 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
 
   return (
     <Layout mainTitle={title}>
-      <SEO title={title} description={description} />
+      <SEO title={title} description={description} thumbnail={imageUrl} />
       <article className="post">
         <time className="post__date">
           <FontAwesomeIcon icon={faClock} />

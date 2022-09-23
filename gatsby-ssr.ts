@@ -2,17 +2,16 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement } from "react";
-import { GatsbySSR, PreRenderHTMLArgs } from "gatsby";
+import type { ReactElement } from "react";
+import type { GatsbySSR, PreRenderHTMLArgs } from "gatsby";
 
 // This is workaround for
-// https://github.com/gagahpangeran/blog.gagahpangeran.com/issues/83
+// https://github.com/gagahpangeran/gagahpangeran.com/issues/83
 // Code is copied and adapted to typescript from
 // https://github.com/gatsbyjs/gatsby/issues/1526#issuecomment-639993049
 export const onPreRenderHTML: GatsbySSR["onPreRenderHTML"] = ({
   getHeadComponents
-}: PreRenderHTMLArgs): any => {
+}: PreRenderHTMLArgs) => {
   if (process.env.NODE_ENV !== "production") {
     return;
   }

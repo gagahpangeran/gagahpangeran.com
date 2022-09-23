@@ -13,6 +13,12 @@
   --blue: #0096d6;
   --pink: #e53170;
   --orange: #f75c03;
+
+  --image-border-radius: 12px;
+
+  @media screen and (max-width: 480px) {
+    --image-border-radius: 0;
+  }
 }
 
 * {
@@ -142,7 +148,7 @@ body,
 }
 
 .gatsby-image-wrapper {
-  border-radius: 12px;
+  border-radius: var(--image-border-radius);
 }
 
 main.html {
@@ -155,7 +161,7 @@ main.html {
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--image-border-radius);
   }
 
   p {

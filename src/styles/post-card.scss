@@ -7,17 +7,13 @@
   --title-text-decoration: none;
   --z-index-overlay: 2;
   --z-index-date: 3;
-  --post-card-border-radius: 12px;
 
   background-color: var(--bg-dark);
-  border-radius: var(--post-card-border-radius);
+  border-radius: var(--image-border-radius);
   margin: 20px 0;
 
   @media screen and (max-width: 480px) {
-    --post-card-border-radius: 0;
-
-    margin-left: -16px;
-    margin-right: -16px;
+    margin: 8px -16px;
   }
 
   &__date {
@@ -84,7 +80,7 @@
     @include full-size;
     display: block;
     overflow: hidden;
-    border-radius: var(--post-card-border-radius);
+    border-radius: var(--image-border-radius);
     position: relative;
     height: 320px;
 

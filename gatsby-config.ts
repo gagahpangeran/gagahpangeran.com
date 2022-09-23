@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { GatsbyConfig } from "gatsby";
+import type { GatsbyConfig } from "gatsby";
 
 export const siteMetadata: GatsbyConfig["siteMetadata"] = {
   title: `GPR`,
@@ -66,7 +66,7 @@ export const plugins: GatsbyConfig["plugins"] = [
     options: {
       name: `GPR's Blog`,
       short_name: `GPR's Blog`,
-      start_url: `/`,
+      start_url: `/home`,
       background_color: `#000000`,
       theme_color: `#000000`,
       display: `minimal-ui`,

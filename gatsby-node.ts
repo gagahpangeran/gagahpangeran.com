@@ -109,7 +109,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const posts = result.data?.allPosts.nodes ?? [];
   const tags = result.data?.allTags.group ?? [];
   const langs = result.data?.allLang.group ?? [];
-  const changelogs = result.data.allChangelog.nodes ?? [];
+  const changelogs = result.data?.allChangelog.nodes ?? [];
 
   if (posts.length <= 0) {
     reporter.warn(`There is no posts!`);

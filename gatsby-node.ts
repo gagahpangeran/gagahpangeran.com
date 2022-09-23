@@ -48,7 +48,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const ChangelogTemplate = path.resolve(`./src/templates/Changelog.tsx`);
 
   // See `GatsbyNodeQuery` interface above
-  const result = await graphql<GatsbyNodeQuery>(`
+  const result = await graphql<Queries.GatsbyNodeQuery>(`
     query GatsbyNode {
       allPosts: allMarkdownRemark(
         limit: 1000

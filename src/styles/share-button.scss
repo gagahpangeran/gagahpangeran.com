@@ -6,11 +6,13 @@
   --button-color: var(--pink);
   --desc-color: var(--white);
   --desc-font-weight: bold;
+  --input-bg: var(--white);
 
   margin-bottom: 12px;
 
   &--failed {
     --desc-color: var(--pink);
+    --input-bg: var(--gray);
   }
 
   &--idle {
@@ -20,6 +22,7 @@
   &--success {
     --button-color: var(--green);
     --desc-color: var(--green);
+    --input-bg: var(--gray);
   }
 
   &__desc {
@@ -56,6 +59,8 @@
       border-radius: 4px 0 0 4px;
       box-sizing: border-box;
       flex: 1 0 auto;
+      color: var(--black);
+      background: var(--input-bg);
     }
   }
 

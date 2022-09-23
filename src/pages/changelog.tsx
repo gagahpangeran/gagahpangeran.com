@@ -7,15 +7,14 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
+const title = "Changelog";
+const desc = "All release changelog";
+
 const changelog: React.FC<PageProps<Queries.ChangelogQuery>> = ({ data }) => {
   const allChangelog = data.allChangelog.nodes ?? [];
 
-  const title = "Changelog";
-  const desc = "All release changelog";
-
   return (
     <Layout mainTitle={title} subTitle={desc}>
-      <SEO title={title} description={desc} />
       <main className="html">
         <ul>
           {allChangelog.map(({ fields: { slug } }) => (
@@ -28,6 +27,8 @@ const changelog: React.FC<PageProps<Queries.ChangelogQuery>> = ({ data }) => {
     </Layout>
   );
 };
+
+export const Head = () => <SEO title={title} description={desc} />;
 
 export default changelog;
 

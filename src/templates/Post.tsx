@@ -4,7 +4,7 @@
 
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadProps, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import PostLabel from "../components/PostLabel";
@@ -16,8 +16,9 @@ import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
   const siteUrl = data.site?.siteMetadata.siteUrl;
-  const { title, description, date, tags, lang, slug, imageUrl, image, html } =
-    getPostData(data.post);
+  const { title, date, tags, lang, slug, imageUrl, image, html } = getPostData(
+    data.post
+  );
 
   if (siteUrl == null) {
     throw Error("siteUrl not found");
@@ -32,7 +33,6 @@ const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
 
   return (
     <Layout mainTitle={title}>
-      <SEO title={title} description={description} thumbnail={imageUrl} />
       <article className="post">
         <time className="post__date">
           <FontAwesomeIcon icon={faClock} />
@@ -54,6 +54,13 @@ const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
       <PageNav newerData={newerPost} olderData={olderPost} suffix="Post" />
     </Layout>
   );
+};
+
+export const Head: React.FC<HeadProps<Queries.PostTemplateQuery>> = ({
+  data
+}) => {
+  const { title, description, imageUrl } = getPostData(data.post);
+  return <SEO title={title} description={description} thumbnail={imageUrl} />;
 };
 
 export default Post;

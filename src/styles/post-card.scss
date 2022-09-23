@@ -5,6 +5,8 @@
 .post-card {
   --thumbnail-overlay-opacity: 0.5;
   --title-text-decoration: none;
+  --z-index-overlay: 2;
+  --z-index-date: 3;
 
   background-color: var(--bg-dark);
   border-radius: 20px;
@@ -19,10 +21,16 @@
     border-radius: 8px;
     font-size: 1.125rem;
     background-color: var(--orange);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: var(--z-index-date);
+    margin: 16px 24px;
 
     @media screen and (max-width: 480px) {
       font-size: 1rem;
       font-weight: normal;
+      margin: 16px;
     }
   }
 
@@ -77,6 +85,7 @@
       content: "";
       background-color: var(--black);
       opacity: var(--thumbnail-overlay-opacity);
+      z-index: var(--z-index-overlay);
     }
 
     @media screen and (max-width: 480px) {

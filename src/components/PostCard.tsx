@@ -29,12 +29,12 @@ const PostCard = ({
             alt={title}
             title={title}
           />
-        </div>
-        <div className="post-card__meta">
           <time className="post-card__date">
             <FontAwesomeIcon icon={faClock} />
             {date}
           </time>
+        </div>
+        <div className="post-card__meta">
           <h3 className="post-card__title">{title}</h3>
         </div>
       </Link>

@@ -29,9 +29,6 @@ const ShareButton = ({ link }: Props) => {
         throw new Error("Input ref is null");
       }
 
-      inputRef.current.select();
-      inputRef.current.setSelectionRange(0, 99999);
-
       await navigator.clipboard.writeText(inputRef.current.value);
 
       setCopyState("success");

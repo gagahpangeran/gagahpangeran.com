@@ -3737,10 +3737,10 @@ type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteMetaDataQuery = { readonly site: { readonly siteMetadata: { readonly title: string, readonly description: string, readonly siteUrl: string, readonly image: string } } | null };
 
-type GatsbyNodeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type GatsbyNodeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type GatsbyNodeQueryQuery = { readonly allPosts: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> }, readonly allTags: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allLang: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> } };
+type GatsbyNodeQuery = { readonly allPosts: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> }, readonly allTags: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allLang: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> } };
 
 type MDNodeFragment = { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> };
 

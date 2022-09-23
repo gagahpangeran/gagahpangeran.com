@@ -3,7 +3,7 @@
 // Read the LICENSE file in the repository root for full license text
 
 import type { ReactElement } from "react";
-import type { GatsbySSR, PreRenderHTMLArgs } from "gatsby";
+import type { GatsbySSR, PreRenderHTMLArgs, RenderBodyArgs } from "gatsby";
 
 // This is workaround for
 // https://github.com/gagahpangeran/gagahpangeran.com/issues/83
@@ -30,4 +30,10 @@ export const onPreRenderHTML: GatsbySSR["onPreRenderHTML"] = ({
       delete el.props["dangerouslySetInnerHTML"];
     }
   });
+};
+
+export const onRenderBody: GatsbySSR["onRenderBody"] = ({
+  setHtmlAttributes
+}: RenderBodyArgs) => {
+  setHtmlAttributes({ lang: "en" });
 };

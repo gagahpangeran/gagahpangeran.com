@@ -5,10 +5,16 @@
 .post-card {
   --thumbnail-overlay-opacity: 0.5;
   --title-text-decoration: none;
+  --z-index-overlay: 2;
+  --z-index-date: 3;
 
   background-color: var(--bg-dark);
-  border-radius: 20px;
+  border-radius: var(--image-border-radius);
   margin: 20px 0;
+
+  @include mobile {
+    margin: 8px -16px;
+  }
 
   &__date {
     display: inline-flex;
@@ -19,22 +25,22 @@
     border-radius: 8px;
     font-size: 1.125rem;
     background-color: var(--orange);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: var(--z-index-date);
+    margin: 16px 24px;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       font-size: 1rem;
       font-weight: normal;
+      margin: 16px;
     }
   }
 
   &__header {
-    height: 240px;
-    position: relative;
     display: block;
     color: var(--white);
-
-    @media screen and (max-width: 480px) {
-      height: 180px;
-    }
 
     &:hover {
       --thumbnail-overlay-opacity: 0.4;
@@ -43,10 +49,11 @@
   }
 
   &__info {
-    padding: 16px 24px;
+    padding: 0 24px 16px;
 
-    @media screen and (max-width: 480px) {
-      padding: 16px;
+    @include mobile {
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 
@@ -57,13 +64,10 @@
   }
 
   &__meta {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     max-width: 100%;
     margin: 12px 24px;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       margin: 8px 16px;
     }
   }
@@ -76,8 +80,9 @@
     @include full-size;
     display: block;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: var(--image-border-radius);
     position: relative;
+    height: 320px;
 
     &::after {
       @include full-size-absolute;
@@ -85,6 +90,11 @@
       content: "";
       background-color: var(--black);
       opacity: var(--thumbnail-overlay-opacity);
+      z-index: var(--z-index-overlay);
+    }
+
+    @include mobile {
+      height: 240px;
     }
   }
 

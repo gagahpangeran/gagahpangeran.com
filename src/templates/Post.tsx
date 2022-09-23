@@ -33,7 +33,12 @@ const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
         <PostLabel tags={tags} lang={lang} />
         <ShareButton link={`${siteUrl}${slug}`} />
         <a href={imageUrl} target="_blank" rel="noopener noreferrer">
-          <GatsbyImage image={image} alt={title} title={title} />
+          <GatsbyImage
+            class="post__featured-image"
+            image={image}
+            alt={title}
+            title={title}
+          />
         </a>
         <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
       </article>

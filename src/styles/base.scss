@@ -13,6 +13,12 @@
   --blue: #0096d6;
   --pink: #e53170;
   --orange: #f75c03;
+
+  --image-border-radius: 12px;
+
+  @include mobile {
+    --image-border-radius: 0;
+  }
 }
 
 * {
@@ -27,7 +33,7 @@ body {
   background-color: var(--bg-light);
   color: var(--white);
 
-  @media screen and (max-width: 480px) {
+  @include mobile {
     font-size: 1.125rem;
   }
 }
@@ -76,7 +82,7 @@ h6 {
   font-size: 0.8rem;
 }
 
-@media screen and (max-width: 500px) {
+@include mobile {
   h1 {
     font-size: 2.25rem;
   }
@@ -117,12 +123,12 @@ iframe {
   display: flex;
   flex-direction: column;
 
-  @media screen and (max-width: 720px) {
+  @include mobile(tablet) {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  @media screen and (max-width: 500px) {
+  @include mobile {
     padding-top: 48px;
   }
 
@@ -142,7 +148,7 @@ body,
 }
 
 .gatsby-image-wrapper {
-  border-radius: 12px;
+  border-radius: var(--image-border-radius);
 }
 
 main.html {
@@ -155,7 +161,7 @@ main.html {
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--image-border-radius);
   }
 
   p {
@@ -172,6 +178,8 @@ main.html {
     color: var(--gray);
     font-style: italic;
     font-size: 1rem;
+    margin-top: 8px;
+    padding: 0 16px;
   }
 
   ul,

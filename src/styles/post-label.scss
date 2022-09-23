@@ -8,7 +8,7 @@
   gap: 8px;
   margin-bottom: 8px;
 
-  @media screen and (max-width: 480px) {
+  @include mobile {
     gap: 4px;
   }
 
@@ -18,7 +18,7 @@
     border-radius: 4px;
     display: inline-block;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       padding: 4px 8px;
       font-size: 1rem;
     }

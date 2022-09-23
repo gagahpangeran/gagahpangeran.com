@@ -38,9 +38,8 @@ const ShareButton = ({ link }: Props) => {
     }
 
     setTimeout(() => {
-      inputRef.current?.blur();
       setCopyState("idle");
-    }, 3000);
+    }, 1500);
   };
 
   return (

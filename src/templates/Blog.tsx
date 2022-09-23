@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadProps, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
 import Pagination from "../components/Pagination";
@@ -19,12 +19,11 @@ const Blog: React.FC<PageProps<Queries.BlogTemplateQuery, BlogPageContext>> = ({
   data,
   pageContext
 }) => {
-  const { title, desc, pageTitle, pageDesc } = getBlogMetaData(pageContext);
+  const { pageTitle, pageDesc } = getBlogMetaData(pageContext);
   const posts = data[postKeyMap[pageContext.type]].nodes;
 
   return (
     <Layout mainTitle={pageTitle} subTitle={pageDesc}>
-      <SEO title={title} description={desc} />
       {posts.map(post => (
         <PostCard key={post.id} {...getPostData(post)} />
       ))}
@@ -36,6 +35,13 @@ const Blog: React.FC<PageProps<Queries.BlogTemplateQuery, BlogPageContext>> = ({
       />
     </Layout>
   );
+};
+
+export const Head: React.FC<
+  HeadProps<Queries.BlogTemplateQuery, BlogPageContext>
+> = ({ pageContext }) => {
+  const { title, desc } = getBlogMetaData(pageContext);
+  return <SEO title={title} description={desc} />;
 };
 
 export default Blog;

@@ -11,6 +11,11 @@ export const siteMetadata: GatsbyConfig["siteMetadata"] = {
   siteUrl: "https://gagahpangeran.com"
 };
 
+export const graphqlTypegen: GatsbyConfig["graphqlTypegen"] = {
+  generateOnBuild: true,
+  typesOutputPath: `types/generated-types.d.ts`
+};
+
 export const plugins: GatsbyConfig["plugins"] = [
   `gatsby-plugin-react-helmet`,
   {

@@ -15,9 +15,10 @@ import {
   postKeyMap
 } from "../utils/data";
 
-const Blog: React.FC<
-  PageProps<GatsbyTypes.BlogTemplateQuery, BlogPageContext>
-> = ({ data, pageContext }) => {
+const Blog: React.FC<PageProps<Queries.BlogTemplateQuery, BlogPageContext>> = ({
+  data,
+  pageContext
+}) => {
   const { title, desc, pageTitle, pageDesc } = getBlogMetaData(pageContext);
   const posts = data[postKeyMap[pageContext.type]].nodes;
 

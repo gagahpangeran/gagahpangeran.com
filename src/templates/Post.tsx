@@ -14,10 +14,18 @@ import SEO from "../components/SEO";
 import ShareButton from "../components/ShareButton";
 import { getPostData } from "../utils/data";
 
-const Post: React.FC<PageProps<GatsbyTypes.PostTemplateQuery>> = ({ data }) => {
-  const { siteUrl } = data.site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
+const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
+  const siteUrl = data.site?.siteMetadata.siteUrl;
   const { title, description, date, tags, lang, slug, imageUrl, image, html } =
-    getPostData(data.post as GatsbyTypes.PostDetailFragment);
+    getPostData(data.post);
+
+  if (siteUrl == null) {
+    throw Error("siteUrl not found");
+  }
+
+  if (image == null) {
+    throw Error(`Image of post '${title}' not found`);
+  }
 
   const newerPost = data.newerPost ? getPostData(data.newerPost) : null;
   const olderPost = data.olderPost ? getPostData(data.olderPost) : null;

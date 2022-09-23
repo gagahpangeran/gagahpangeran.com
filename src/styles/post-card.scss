@@ -27,14 +27,8 @@
   }
 
   &__header {
-    height: 240px;
-    position: relative;
     display: block;
     color: var(--white);
-
-    @media screen and (max-width: 480px) {
-      height: 180px;
-    }
 
     &:hover {
       --thumbnail-overlay-opacity: 0.4;
@@ -57,9 +51,6 @@
   }
 
   &__meta {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     max-width: 100%;
     margin: 12px 24px;
 
@@ -78,6 +69,7 @@
     overflow: hidden;
     border-radius: 20px;
     position: relative;
+    height: 320px;
 
     &::after {
       @include full-size-absolute;
@@ -85,6 +77,10 @@
       content: "";
       background-color: var(--black);
       opacity: var(--thumbnail-overlay-opacity);
+    }
+
+    @media screen and (max-width: 480px) {
+      height: 180px;
     }
   }
 

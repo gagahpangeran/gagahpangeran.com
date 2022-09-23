@@ -4,6 +4,7 @@
 
 .share-button {
   --button-color: var(--pink);
+  --copy-button-title: "Copy";
   --desc-color: var(--white);
   --desc-font-weight: bold;
   --input-bg: var(--white);
@@ -11,6 +12,7 @@
   margin-bottom: 12px;
 
   &--failed {
+    --copy-button-title: "Failed!";
     --desc-color: var(--pink);
     --input-bg: var(--gray);
   }
@@ -21,6 +23,7 @@
 
   &--success {
     --button-color: var(--green);
+    --copy-button-title: "Copied!";
     --desc-color: var(--green);
     --input-bg: var(--gray);
   }
@@ -53,6 +56,44 @@
       font-weight: bold;
       cursor: pointer;
       width: 48px;
+      position: relative;
+
+      &::after {
+        content: var(--copy-button-title);
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        margin: 0 4px 12px;
+        padding: 4px 8px;
+        font-size: 0.8rem;
+        font-weight: normal;
+        background: var(--button-color);
+        border-radius: 4px 4px 0 4px;
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        right: 0;
+        width: 0;
+        height: 0;
+        margin: 4px;
+        border: 4px solid transparent;
+        border-top-color: var(--button-color);
+        border-right-color: var(--button-color);
+        display: none;
+      }
+
+      &:hover::after,
+      &:hover::before {
+        display: block;
+
+        @include mobile(tablet) {
+          display: none;
+        }
+      }
     }
 
     &--input {

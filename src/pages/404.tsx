@@ -13,7 +13,6 @@ const NotFoundPage = () => {
 
   return (
     <Layout mainTitle={title}>
-      <SEO title="Not found" />
       <main className="not-found">
         <h3 className="not-found__desc">{desc}</h3>
         <Link className="not-found__link" to="/home/">
@@ -23,5 +22,7 @@ const NotFoundPage = () => {
     </Layout>
   );
 };
+
+export const Head = () => <SEO title="Not found" />;
 
 export default NotFoundPage;

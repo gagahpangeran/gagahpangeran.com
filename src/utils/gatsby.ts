@@ -44,7 +44,10 @@ export function createPaginatedPageData({
   }));
 }
 
-export function getIdPageContext(posts: { id: string }[], index: number) {
+export function getIdPageContext(
+  posts: Queries.MDNodeFragment["nodes"],
+  index: number
+) {
   return {
     newerId: index === 0 ? null : posts[index - 1].id,
     olderId: index === posts.length - 1 ? null : posts[index + 1].id

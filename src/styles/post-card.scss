@@ -13,6 +13,13 @@
   border-radius: var(--post-card-border-radius);
   margin: 20px 0;
 
+  @media screen and (max-width: 480px) {
+    --post-card-border-radius: 0;
+
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
   &__date {
     display: inline-flex;
     align-items: center;

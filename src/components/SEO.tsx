@@ -31,10 +31,16 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
   );
 
   const siteMetadata = site?.siteMetadata;
-  const siteTitle = siteMetadata?.title ?? "No Title";
-  const siteDescription = siteMetadata?.description ?? "No Description";
-  const siteUrl = siteMetadata?.siteUrl ?? "https://example.com";
-  const siteImage = siteMetadata?.image ?? "image.jpg";
+  if (siteMetadata == null) {
+    throw Error("Site metadata not found");
+  }
+
+  const {
+    title: siteTitle,
+    description: siteDescription,
+    image: siteImage,
+    siteUrl
+  } = siteMetadata;
 
   const metaDescription = description ?? siteDescription;
   const metaImage = `${siteUrl}/${thumbnail ?? siteImage}`;

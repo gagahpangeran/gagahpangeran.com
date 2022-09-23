@@ -15,7 +15,7 @@
     border: 4px solid var(--blue);
     margin-bottom: 16px;
 
-    @media screen and (max-width: 720px) {
+    @include mobile(tablet) {
       max-width: 200px;
     }
   }

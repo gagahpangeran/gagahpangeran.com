@@ -14,7 +14,7 @@ $block: 'pre[class*="language-"]';
   font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
     monospace;
 
-  @media screen and (max-width: 480px) {
+  @include mobile {
     font-size: 1rem;
   }
 

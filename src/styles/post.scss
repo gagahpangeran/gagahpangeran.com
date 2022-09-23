@@ -6,7 +6,7 @@
   &__title {
     margin-bottom: 12px;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       margin-bottom: 4px;
     }
   }
@@ -22,7 +22,7 @@
 
   &__featured-image,
   .gatsby-resp-image-figure {
-    @media screen and (max-width: 480px) {
+    @include mobile {
       margin-left: -16px;
       margin-right: -16px;
     }

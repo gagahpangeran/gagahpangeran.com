@@ -19,7 +19,7 @@ const getPageNavData = (slug?: string) => {
   };
 };
 
-const Changelog: React.FC<PageProps<GatsbyTypes.ChangelogTemplateQuery>> = ({
+const Changelog: React.FC<PageProps<Queries.ChangelogTemplateQuery>> = ({
   data
 }) => {
   const slug = data.changelog?.fields.slug ?? "";

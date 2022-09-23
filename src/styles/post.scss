@@ -19,4 +19,12 @@
     color: var(--gray);
     margin-bottom: 12px;
   }
+
+  &__featured-image,
+  .gatsby-resp-image-figure {
+    @media screen and (max-width: 480px) {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+  }
 }

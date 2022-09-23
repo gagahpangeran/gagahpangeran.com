@@ -141,7 +141,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       postCount: tag.totalCount,
       filterValue: tag.fieldValue,
       type: "Tag",
-      basePath: `/blog/tag/${kebabCase(tag.fieldValue)}/`
+      basePath: `/blog/tag/${kebabCase(tag.fieldValue ?? "")}/`
     })
   );
 
@@ -150,7 +150,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       postCount: lang.totalCount,
       filterValue: lang.fieldValue,
       type: "Language",
-      basePath: `/blog/lang/${kebabCase(lang.fieldValue)}/`
+      basePath: `/blog/lang/${kebabCase(lang.fieldValue ?? "")}/`
     })
   );
 

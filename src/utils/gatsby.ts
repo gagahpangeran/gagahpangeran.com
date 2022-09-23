@@ -8,7 +8,7 @@ export interface PaginatedPageDataArgs {
   postCount: number;
   type: BlogPageContextType;
   basePath: string;
-  filterValue?: string;
+  filterValue?: string | null;
 }
 
 export interface PaginatedBlogPageContext extends BlogPageContext {
@@ -24,7 +24,7 @@ export interface PaginatedPageDataType {
 export function createPaginatedPageData({
   basePath,
   postCount,
-  filterValue = "",
+  filterValue,
   type
 }: PaginatedPageDataArgs): PaginatedPageDataType[] {
   const postPerPage = 5;
@@ -38,7 +38,7 @@ export function createPaginatedPageData({
       page: index + 1,
       basePath,
       numPages,
-      filterValue,
+      filterValue: filterValue ?? "",
       type
     }
   }));

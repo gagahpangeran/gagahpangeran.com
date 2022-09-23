@@ -53,15 +53,6 @@ export const plugins: GatsbyConfig["plugins"] = [
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-typescript`,
   {
-    resolve: "gatsby-plugin-typegen",
-    options: {
-      outputPath: `./types/generated-types.d.ts`,
-      emitSchema: {
-        "./types/schema.json": true
-      }
-    }
-  },
-  {
     resolve: `gatsby-plugin-manifest`,
     options: {
       name: `GPR's Blog`,

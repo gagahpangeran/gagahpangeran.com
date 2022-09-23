@@ -81,7 +81,7 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
           content: metaDescription
         },
         {
-          name: `twitter:image`,
+          name: `twitter:image:src`,
           content: metaImage
         }
       ].concat(meta)}

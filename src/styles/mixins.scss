@@ -2,6 +2,9 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+$mobile-breakpoint: 480px;
+$tablet-breakpoint: 720px;
+
 @mixin full-size {
   width: 100%;
   height: 100%;
@@ -19,4 +22,24 @@
   transition-property: $property;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+}
+
+@mixin max-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin mobile($size: mobile) {
+  @if $size == mobile {
+    @media (max-width: $mobile-breakpoint) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (max-width: $tablet-breakpoint) {
+      @content;
+    }
+  }
 }

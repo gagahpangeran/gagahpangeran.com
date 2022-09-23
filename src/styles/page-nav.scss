@@ -6,6 +6,7 @@
   --title-color-main: var(--white);
   --title-color-small: var(--gray);
   --title-item-justify-content: flex-start;
+  --title-item-text-align: left;
   --title-overlay-opacity: 0.8;
 
   margin: 20px 0;
@@ -35,6 +36,7 @@
 
     &--older {
       --title-item-justify-content: flex-end;
+      --title-item-text-align: right;
     }
   }
 
@@ -63,9 +65,10 @@
 
   &__title-item {
     @include transition(color);
-    display: flex;
+    @include max-2-lines;
     justify-content: var(--title-item-justify-content);
     position: relative;
+    text-align: var(--title-item-text-align);
 
     &--main {
       font-weight: bolder;

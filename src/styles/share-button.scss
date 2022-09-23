@@ -32,7 +32,7 @@
     display: flex;
     font-size: 1.25rem;
 
-    @media screen and (max-width: 480px) {
+    @include mobile {
       font-size: 1rem;
     }
   }

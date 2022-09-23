@@ -2,8 +2,6 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { IGatsbyImageData } from "gatsby-plugin-image";
-
 export const langMap = new Map([
   ["id", "Bahasa Indonesia"],
   ["en", "English"]
@@ -20,14 +18,18 @@ export interface BlogPageContext {
 }
 
 export const postKeyMap: {
-  [key in BlogPageContextType]: keyof GatsbyTypes.BlogTemplateQuery;
+  [key in BlogPageContextType]: keyof Queries.BlogTemplateQuery;
 } = {
   Blog: "posts",
   Tag: "tags",
   Language: "langs"
 };
 
-export function getPostData(data: GatsbyTypes.PostDetailFragment) {
+export function getPostData(data: Queries.PostDetailFragment | null) {
+  if (data == null) {
+    throw new Error("Post does not have any data");
+  }
+
   const { id, html, excerpt, fields, frontmatter } = data;
 
   if (excerpt == null) {
@@ -44,8 +46,7 @@ export function getPostData(data: GatsbyTypes.PostDetailFragment) {
     description: excerpt.replaceAll("\n", " "),
     slug: fields.slug,
     html,
-    image: frontmatter?.featuredImage?.childImageSharp
-      ?.gatsbyImageData as unknown as IGatsbyImageData,
+    image: frontmatter.featuredImage?.childImageSharp?.gatsbyImageData,
     imageUrl: frontmatter?.featuredImage?.publicURL ?? ""
   };
 }

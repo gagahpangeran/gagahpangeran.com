@@ -87,7 +87,11 @@ describe("Test createPaginatedPageData function", () => {
   });
 });
 
-const postsMockData = [{ id: "abc" }, { id: "def" }, { id: "ghi" }];
+const postsMockData: Queries.MDNodeFragment["nodes"] = [
+  { id: "abc", fields: { slug: "abc" } },
+  { id: "def", fields: { slug: "def" } },
+  { id: "ghi", fields: { slug: "ghi" } }
+];
 
 describe("Test getIdPageContext function", () => {
   test("First index", () => {

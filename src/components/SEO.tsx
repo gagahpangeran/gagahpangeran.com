@@ -15,7 +15,7 @@ interface Props {
 }
 
 function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
-  const { site } = useStaticQuery<GatsbyTypes.SiteMetaDataQuery>(
+  const { site } = useStaticQuery<Queries.SiteMetaDataQuery>(
     graphql`
       query SiteMetaData {
         site {
@@ -30,13 +30,21 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
     `
   );
 
-  const siteMetadata = site?.siteMetadata as GatsbyTypes.SiteSiteMetadata;
+  const siteMetadata = site?.siteMetadata;
+  if (siteMetadata == null) {
+    throw Error("Site metadata not found");
+  }
 
-  const metaDescription = description ?? siteMetadata.description;
-  const metaImage = `${siteMetadata.siteUrl}/${
-    thumbnail ?? siteMetadata.image
-  }`;
-  const metaTitle = `${title} | ${siteMetadata.title}`;
+  const {
+    title: siteTitle,
+    description: siteDescription,
+    image: siteImage,
+    siteUrl
+  } = siteMetadata;
+
+  const metaDescription = description ?? siteDescription;
+  const metaImage = `${siteUrl}/${thumbnail ?? siteImage}`;
+  const metaTitle = `${title} | ${siteTitle}`;
 
   return (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -46,7 +54,7 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
         lang
       }}
       title={title}
-      titleTemplate={`%s | ${siteMetadata.title}`}
+      titleTemplate={`%s | ${siteTitle}`}
       meta={[
         {
           name: `description`,

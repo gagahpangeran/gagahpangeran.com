@@ -8,7 +8,7 @@ export interface PaginatedPageDataArgs {
   postCount: number;
   type: BlogPageContextType;
   basePath: string;
-  filterValue?: string;
+  filterValue?: string | null;
 }
 
 export interface PaginatedBlogPageContext extends BlogPageContext {
@@ -24,7 +24,7 @@ export interface PaginatedPageDataType {
 export function createPaginatedPageData({
   basePath,
   postCount,
-  filterValue = "",
+  filterValue,
   type
 }: PaginatedPageDataArgs): PaginatedPageDataType[] {
   const postPerPage = 5;
@@ -38,13 +38,16 @@ export function createPaginatedPageData({
       page: index + 1,
       basePath,
       numPages,
-      filterValue,
+      filterValue: filterValue ?? "",
       type
     }
   }));
 }
 
-export function getIdPageContext(posts: { id: string }[], index: number) {
+export function getIdPageContext(
+  posts: Queries.MDNodeFragment["nodes"],
+  index: number
+) {
   return {
     newerId: index === 0 ? null : posts[index - 1].id,
     olderId: index === posts.length - 1 ? null : posts[index + 1].id

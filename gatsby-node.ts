@@ -8,34 +8,6 @@ import { createFilePath } from "gatsby-source-filesystem";
 import type { CreateSchemaCustomizationArgs, GatsbyNode } from "gatsby";
 import { createPaginatedPageData, getIdPageContext } from "./src/utils/gatsby";
 
-// Current plugin `gatsby-plugin-typegen` can't generate types from graphql
-// query inside `gatsby-node.ts` yet. There's plan in the future to support it.
-// For now just manually create the interface for it.
-// TODO: Automate to generate these interface bellow
-interface GatsbyNodeQuery {
-  allPosts: MDNode;
-  allTags: {
-    group: GroupInfo[];
-  };
-  allLang: {
-    group: GroupInfo[];
-  };
-  allChangelog: MDNode;
-}
-
-interface MDNode {
-  nodes: {
-    id: string;
-    fields: {
-      slug: string;
-    };
-  }[];
-}
-interface GroupInfo {
-  fieldValue: string;
-  totalCount: number;
-}
-
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
@@ -47,9 +19,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
   const ChangelogTemplate = path.resolve(`./src/templates/Changelog.tsx`);
 
-  // See `GatsbyNodeQuery` interface above
-  const result = await graphql<GatsbyNodeQuery>(`
-    query GatsbyNodeQuery {
+  const result = await graphql<Queries.GatsbyNodeQuery>(`
+    query GatsbyNode {
       allPosts: allMarkdownRemark(
         limit: 1000
         sort: { fields: frontmatter___date, order: DESC }
@@ -141,7 +112,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       postCount: tag.totalCount,
       filterValue: tag.fieldValue,
       type: "Tag",
-      basePath: `/blog/tag/${kebabCase(tag.fieldValue)}/`
+      basePath: `/blog/tag/${kebabCase(tag.fieldValue ?? "")}/`
     })
   );
 
@@ -150,7 +121,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       postCount: lang.totalCount,
       filterValue: lang.fieldValue,
       type: "Language",
-      basePath: `/blog/lang/${kebabCase(lang.fieldValue)}/`
+      basePath: `/blog/lang/${kebabCase(lang.fieldValue ?? "")}/`
     })
   );
 

@@ -7,9 +7,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 
-const changelog: React.FC<PageProps<GatsbyTypes.ChangelogQuery>> = ({
-  data
-}) => {
+const changelog: React.FC<PageProps<Queries.ChangelogQuery>> = ({ data }) => {
   const allChangelog = data.allChangelog.nodes ?? [];
 
   const title = "Changelog";

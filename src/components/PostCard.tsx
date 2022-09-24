@@ -19,6 +19,10 @@ const PostCard = ({
   tags,
   lang
 }: ReturnType<typeof getPostData>) => {
+  if (image == null) {
+    throw Error(`Image of post '${title}' not found`);
+  }
+
   return (
     <article className="post-card">
       <Link to={slug} title={title} className="post-card__header">

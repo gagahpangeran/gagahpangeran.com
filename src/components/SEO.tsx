@@ -3,18 +3,16 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import React from "react";
-import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 interface Props {
   description?: string;
-  lang?: string;
   meta?: [];
   title: string;
   thumbnail?: string;
 }
 
-function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
+function SEO({ description, meta = [], title, thumbnail }: Props) {
   const { site } = useStaticQuery<Queries.SiteMetaDataQuery>(
     graphql`
       query SiteMetaData {
@@ -46,54 +44,52 @@ function SEO({ description, lang = "en", meta = [], title, thumbnail }: Props) {
   const metaImage = `${siteUrl}/${thumbnail ?? siteImage}`;
   const metaTitle = `${title} | ${siteTitle}`;
 
+  const allMeta = [
+    {
+      name: `description`,
+      content: metaDescription
+    },
+    {
+      property: `og:title`,
+      content: metaTitle
+    },
+    {
+      property: `og:description`,
+      content: metaDescription
+    },
+    {
+      property: `og:type`,
+      content: `website`
+    },
+    {
+      property: `og:image`,
+      content: metaImage
+    },
+    {
+      name: `twitter:card`,
+      content: `summary_large_image`
+    },
+    {
+      name: `twitter:title`,
+      content: metaTitle
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription
+    },
+    {
+      name: `twitter:image:src`,
+      content: metaImage
+    }
+  ].concat(meta);
+
   return (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    <Helmet
-      htmlAttributes={{
-        lang
-      }}
-      title={title}
-      titleTemplate={`%s | ${siteTitle}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription
-        },
-        {
-          property: `og:title`,
-          content: metaTitle
-        },
-        {
-          property: `og:description`,
-          content: metaDescription
-        },
-        {
-          property: `og:type`,
-          content: `website`
-        },
-        {
-          property: `og:image`,
-          content: metaImage
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`
-        },
-        {
-          name: `twitter:title`,
-          content: metaTitle
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription
-        },
-        {
-          name: `twitter:image:src`,
-          content: metaImage
-        }
-      ].concat(meta)}
-    />
+    <>
+      <title>{metaTitle}</title>
+      {allMeta.map(metadata => (
+        <meta key={metadata.name} {...metadata} />
+      ))}
+    </>
   );
 }
 

@@ -12,7 +12,6 @@ const email = "gpr@gagahpangeran.com";
 const HomePage = () => {
   return (
     <Layout>
-      <SEO title="Home" />
       <main className="home">
         <div>
           <StaticImage
@@ -31,5 +30,7 @@ const HomePage = () => {
     </Layout>
   );
 };
+
+export const Head = () => <SEO title="Home" />;
 
 export default HomePage;

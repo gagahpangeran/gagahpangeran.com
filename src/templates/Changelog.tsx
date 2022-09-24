@@ -2,11 +2,12 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadProps, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
 import PageNav from "../components/PageNav";
 import SEO from "../components/SEO";
+import { getChangelogData } from "../utils/data";
 
 const getPageNavData = (slug?: string) => {
   if (slug === undefined) {
@@ -22,16 +23,10 @@ const getPageNavData = (slug?: string) => {
 const Changelog: React.FC<PageProps<Queries.ChangelogTemplateQuery>> = ({
   data
 }) => {
-  const slug = data.changelog?.fields.slug ?? "";
-  const html = data.changelog?.html ?? "";
-  const newerSlug = data.newerChangelog?.fields.slug;
-  const olderSlug = data.olderChangelog?.fields.slug;
-
-  const [, , title] = slug.split("/");
+  const { title, html, newerSlug, olderSlug } = getChangelogData(data);
 
   return (
     <Layout mainTitle={title} subTitle={`All changes this release`}>
-      <SEO title={title} description={`Changelog ${title}`} />
       <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
       <PageNav
         newerData={getPageNavData(newerSlug)}
@@ -40,6 +35,13 @@ const Changelog: React.FC<PageProps<Queries.ChangelogTemplateQuery>> = ({
       />
     </Layout>
   );
+};
+
+export const Head: React.FC<HeadProps<Queries.ChangelogTemplateQuery>> = ({
+  data
+}) => {
+  const { title } = getChangelogData(data);
+  return <SEO title={title} description={`Changelog ${title}`} />;
 };
 
 export default Changelog;

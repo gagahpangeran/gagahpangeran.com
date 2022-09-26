@@ -2,27 +2,42 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-import { graphql, Link, PageProps } from "gatsby";
+import { GetServerData, Link, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import { getAllReleases } from "../utils/github";
+
+type ServerDataProps = {
+  allReleases: string[];
+};
 
 const title = "Changelog";
 const desc = "All release changelog";
 
-const changelog: React.FC<PageProps<Queries.ChangelogQuery>> = ({ data }) => {
-  const allChangelog = data.allChangelog.nodes ?? [];
+const renderChangelogList = (data: string[]) => {
+  if (data.length === 0) {
+    return <>There is no changelog.</>;
+  }
 
+  return (
+    <ul>
+      {data.map(slug => (
+        <li key={slug}>
+          <Link to={`/changelog/${slug}/`}>{slug}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const changelog: React.FC<
+  PageProps<unknown, unknown, unknown, ServerDataProps>
+> = ({ serverData }) => {
   return (
     <Layout mainTitle={title} subTitle={desc}>
       <main className="html">
-        <ul>
-          {allChangelog.map(({ fields: { slug } }) => (
-            <li key={slug}>
-              <Link to={slug}>{slug.split("/")[2]}</Link>
-            </li>
-          ))}
-        </ul>
+        {renderChangelogList(serverData.allReleases)}
       </main>
     </Layout>
   );
@@ -32,22 +47,13 @@ export const Head = () => <SEO title={title} description={desc} />;
 
 export default changelog;
 
-export const pageQuery = graphql`
-  query Changelog {
-    allChangelog: allMarkdownRemark(
-      filter: {
-        fields: {
-          type: { eq: "changelog" }
-          slug: { nin: ["/changelog/Home/", "/changelog/Next/"] }
-        }
-      }
-      sort: { fields: fields___slug, order: DESC }
-    ) {
-      nodes {
-        fields {
-          slug
-        }
-      }
+export const getServerData: GetServerData<ServerDataProps> = async () => {
+  const allReleases = await getAllReleases();
+
+  return {
+    status: 200,
+    props: {
+      allReleases
     }
-  }
-`;
+  };
+};

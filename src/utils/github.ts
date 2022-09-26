@@ -18,7 +18,7 @@ function getConstant() {
   return { BASE_URL, USER, REPO };
 }
 
-type ReleaseData = [{ name: string }] | undefined;
+type AllReleaseData = [{ name: string }] | undefined;
 
 export async function getAllReleases() {
   const { BASE_URL, USER, REPO } = getConstant();
@@ -27,7 +27,7 @@ export async function getAllReleases() {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases`;
     const response = await fetch(endpoint);
 
-    const data: ReleaseData = await response.json();
+    const data: AllReleaseData = await response.json();
     const allReleases = data?.map(({ name }) => name) ?? [];
 
     return allReleases;

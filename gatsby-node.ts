@@ -17,6 +17,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
+  const VersionTemplate = path.resolve(`./src/templates/Version.tsx`);
 
   const result = await graphql<Queries.GatsbyNodeQuery>(`
     query GatsbyNode {
@@ -120,6 +121,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
       ...data,
       component: BlogTemplate
     });
+  });
+
+  createPage({
+    path: `/changelog/:version`,
+    matchPath: `/changelog/:version`,
+    component: VersionTemplate
   });
 };
 

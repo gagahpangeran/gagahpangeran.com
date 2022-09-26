@@ -17,7 +17,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   const PostTemplate = path.resolve(`./src/templates/Post.tsx`);
   const BlogTemplate = path.resolve(`./src/templates/Blog.tsx`);
-  const ChangelogTemplate = path.resolve(`./src/templates/Changelog.tsx`);
 
   const result = await graphql<Queries.GatsbyNodeQuery>(`
     query GatsbyNode {
@@ -39,18 +38,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
         group(field: frontmatter___lang) {
           ...GroupInfo
         }
-      }
-
-      allChangelog: allMarkdownRemark(
-        filter: {
-          fields: {
-            type: { eq: "changelog" }
-            slug: { nin: ["/changelog/Home/", "/changelog/Next/"] }
-          }
-        }
-        sort: { fields: fields___slug, order: DESC }
-      ) {
-        ...MDNode
       }
     }
 
@@ -80,7 +67,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const posts = result.data?.allPosts.nodes ?? [];
   const tags = result.data?.allTags.group ?? [];
   const langs = result.data?.allLang.group ?? [];
-  const changelogs = result.data?.allChangelog.nodes ?? [];
 
   if (posts.length <= 0) {
     reporter.warn(`There is no posts!`);
@@ -133,24 +119,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
     createPage({
       ...data,
       component: BlogTemplate
-    });
-  });
-
-  if (changelogs.length <= 0) {
-    reporter.warn(`There is no changelogs`);
-  }
-
-  changelogs.forEach((changelog, index) => {
-    const path = changelog.fields.slug;
-    reporter.info(`Creating page ${path}, type Changelog`);
-
-    createPage({
-      path,
-      component: ChangelogTemplate,
-      context: {
-        id: changelog.id,
-        ...getIdPageContext(changelogs, index)
-      }
     });
   });
 };

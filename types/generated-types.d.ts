@@ -3681,15 +3681,6 @@ type BlogTemplateQueryVariables = Exact<{
 
 type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly html: string | null, readonly excerpt: string | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly lang: string, readonly featuredImage: { readonly publicURL: string | null, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> }, readonly tags: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly html: string | null, readonly excerpt: string | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly lang: string, readonly featuredImage: { readonly publicURL: string | null, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> }, readonly langs: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly html: string | null, readonly excerpt: string | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly lang: string, readonly featuredImage: { readonly publicURL: string | null, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> } };
 
-type ChangelogTemplateQueryVariables = Exact<{
-  id: Scalars['String'];
-  newerId: InputMaybe<Scalars['String']>;
-  olderId: InputMaybe<Scalars['String']>;
-}>;
-
-
-type ChangelogTemplateQuery = { readonly changelog: { readonly html: string | null, readonly fields: { readonly slug: string } } | null, readonly newerChangelog: { readonly fields: { readonly slug: string } } | null, readonly olderChangelog: { readonly fields: { readonly slug: string } } | null };
-
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
 type GatsbyImageSharpFixed_noBase64Fragment = { readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
@@ -3735,7 +3726,7 @@ type SiteMetaDataQuery = { readonly site: { readonly siteMetadata: { readonly ti
 type GatsbyNodeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type GatsbyNodeQuery = { readonly allPosts: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> }, readonly allTags: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allLang: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> } };
+type GatsbyNodeQuery = { readonly allPosts: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> }, readonly allTags: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> }, readonly allLang: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> } };
 
 type MDNodeFragment = { readonly nodes: ReadonlyArray<{ readonly id: string, readonly fields: { readonly slug: string } }> };
 

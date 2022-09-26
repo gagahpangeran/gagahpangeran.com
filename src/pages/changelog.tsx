@@ -31,7 +31,7 @@ const renderChangelogList = (data: string[]) => {
   );
 };
 
-const changelog: React.FC<
+const ChangelogPage: React.FC<
   PageProps<unknown, unknown, unknown, ServerDataProps>
 > = ({ serverData }) => {
   return (
@@ -45,7 +45,7 @@ const changelog: React.FC<
 
 export const Head = () => <SEO title={title} description={desc} />;
 
-export default changelog;
+export default ChangelogPage;
 
 export const getServerData: GetServerData<ServerDataProps> = async () => {
   const allReleases = await getAllReleases();

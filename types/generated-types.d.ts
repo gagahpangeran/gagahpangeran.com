@@ -3681,11 +3681,6 @@ type BlogTemplateQueryVariables = Exact<{
 
 type BlogTemplateQuery = { readonly posts: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly html: string | null, readonly excerpt: string | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly lang: string, readonly featuredImage: { readonly publicURL: string | null, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> }, readonly tags: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly html: string | null, readonly excerpt: string | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly lang: string, readonly featuredImage: { readonly publicURL: string | null, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> }, readonly langs: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly html: string | null, readonly excerpt: string | null, readonly fields: { readonly slug: string }, readonly frontmatter: { readonly title: string, readonly date: string, readonly tags: ReadonlyArray<string>, readonly lang: string, readonly featuredImage: { readonly publicURL: string | null, readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } }> } };
 
-type ChangelogQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type ChangelogQuery = { readonly allChangelog: { readonly nodes: ReadonlyArray<{ readonly fields: { readonly slug: string } }> } };
-
 type ChangelogTemplateQueryVariables = Exact<{
   id: Scalars['String'];
   newerId: InputMaybe<Scalars['String']>;

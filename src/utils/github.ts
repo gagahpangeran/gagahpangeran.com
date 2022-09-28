@@ -26,11 +26,15 @@ export function getGithubContants() {
 type AllReleaseData = [{ name: string }] | undefined;
 
 export async function getAllReleases() {
-  const { BASE_URL, USER, REPO } = getGithubContants();
+  const { BASE_URL, USER, REPO, TOKEN } = getGithubContants();
 
   try {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases`;
-    const response = await fetch(endpoint);
+    const response = await fetch(endpoint, {
+      headers: {
+        Authorization: TOKEN
+      }
+    });
 
     const data: AllReleaseData = await response.json();
     const allReleases = data?.map(({ name }) => name) ?? [];
@@ -44,11 +48,15 @@ export async function getAllReleases() {
 type ReleaseData = { body: string } | undefined;
 
 export async function getReleaseContent(version: string) {
-  const { BASE_URL, USER, REPO } = getGithubContants();
+  const { BASE_URL, USER, REPO, TOKEN } = getGithubContants();
 
   try {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases/tags/${version}`;
-    const response = await fetch(endpoint);
+    const response = await fetch(endpoint, {
+      headers: {
+        Authorization: TOKEN
+      }
+    });
 
     const data: ReleaseData = await response.json();
     const content = data?.body;

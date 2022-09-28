@@ -35,3 +35,21 @@ export async function getAllReleases() {
     throw Error("Failed to fetch all github releases");
   }
 }
+
+type ReleaseData = { body: string } | undefined;
+
+export async function getReleaseContent(version: string) {
+  const { BASE_URL, USER, REPO } = getConstant();
+
+  try {
+    const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases/tags/${version}`;
+    const response = await fetch(endpoint);
+
+    const data: ReleaseData = await response.json();
+    const content = data?.body;
+
+    return content;
+  } catch (error) {
+    throw Error("Failed to fetch github releases");
+  }
+}

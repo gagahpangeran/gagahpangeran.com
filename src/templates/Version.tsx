@@ -4,13 +4,17 @@
 
 import { GetServerData, HeadProps, PageProps } from "gatsby";
 import React from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import remarkGithub from "remark-github";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { getReleaseContent } from "../utils/github";
+import { getGithubContants, getReleaseContent } from "../utils/github";
 
 type ServerDataProps = {
   version: string;
   content: string;
+  repository: string;
 };
 
 const desc = "All changes in this release";
@@ -18,11 +22,17 @@ const desc = "All changes in this release";
 const Version: React.FC<
   PageProps<unknown, unknown, unknown, ServerDataProps>
 > = ({ serverData }) => {
-  const { version } = serverData;
+  const { version, content, repository } = serverData;
 
   return (
     <Layout mainTitle={version} subTitle={desc}>
-      <main className="html">{version}</main>
+      <main className="html">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm, [remarkGithub, { repository }]]}
+        >
+          {content}
+        </ReactMarkdown>
+      </main>
     </Layout>
   );
 };
@@ -41,12 +51,14 @@ export const getServerData: GetServerData<ServerDataProps> = async ({
 
   if (typeof version === "string") {
     const content = await getReleaseContent(version);
+    const { USER, REPO } = getGithubContants();
 
     return {
       status: content == null ? 404 : 200,
       props: {
         version,
-        content: content ?? ""
+        content: content ?? "",
+        repository: `${USER}/${REPO}`
       }
     };
   }

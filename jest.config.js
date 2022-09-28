@@ -26,8 +26,10 @@ module.exports = {
   testEnvironmentOptions: {
     url: `http://localhost:8000`
   },
-  testPathIgnorePatterns: [`node_modules`, `.cache`],
-  transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
+  testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+  transformIgnorePatterns: [
+    `node_modules/(?!(gatsby|gatsby-script|gatsby-link)/)`
+  ],
   globals: {
     __PATH_PREFIX__: ``
   },

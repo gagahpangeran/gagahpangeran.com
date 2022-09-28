@@ -9,7 +9,7 @@ import remarkGfm from "remark-gfm";
 import remarkGithub from "remark-github";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
-import { getGithubContants, getReleaseContent } from "../utils/github";
+import { getGithubConstants, getReleaseContent } from "../utils/github";
 
 type ServerDataProps = {
   version: string;
@@ -51,7 +51,7 @@ export const getServerData: GetServerData<ServerDataProps> = async ({
 
   if (typeof version === "string") {
     const content = await getReleaseContent(version);
-    const { USER, REPO } = getGithubContants();
+    const { USER, REPO } = getGithubConstants();
 
     return {
       status: content == null ? 404 : 200,

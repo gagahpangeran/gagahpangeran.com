@@ -24,22 +24,6 @@ interface NavLinkProps {
   suffix: string;
 }
 
-// Workaround because `src` props in `StaticImage` can't receive dynamic value
-// See : https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#restrictions-on-using-staticimage
-const getStaticImage = (isNewer: boolean) => {
-  const props = {
-    alt: "Page Nav Background",
-    className: "page-nav__link__image",
-    width: 720
-  };
-
-  if (isNewer) {
-    return <StaticImage src="../assets/flower.jpg" {...props} />;
-  }
-
-  return <StaticImage src="../assets/smoke.jpg" {...props} />;
-};
-
 const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
   if (data === null) {
     return null;
@@ -52,9 +36,7 @@ const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
       to={slug}
       className={classModifiers("page-nav__link", type.toLowerCase())}
     >
-      {image === undefined ? (
-        getStaticImage(type === "Newer")
-      ) : (
+      {image !== undefined && (
         <GatsbyImage
           image={image}
           className="page-nav__image"

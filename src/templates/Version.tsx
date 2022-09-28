@@ -6,9 +6,11 @@ import { GetServerData, HeadProps, PageProps } from "gatsby";
 import React from "react";
 import Layout from "../components/Layout";
 import SEO from "../components/SEO";
+import { getReleaseContent } from "../utils/github";
 
 type ServerDataProps = {
   version: string;
+  content: string;
 };
 
 const desc = "All changes in this release";
@@ -38,10 +40,13 @@ export const getServerData: GetServerData<ServerDataProps> = async ({
   const version = params?.version;
 
   if (typeof version === "string") {
+    const content = await getReleaseContent(version);
+
     return {
-      status: 200,
+      status: content == null ? 404 : 200,
       props: {
-        version
+        version,
+        content: content ?? ""
       }
     };
   }

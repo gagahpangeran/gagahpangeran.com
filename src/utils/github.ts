@@ -32,7 +32,7 @@ export async function getAllReleases() {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases`;
     const response = await fetch(endpoint, {
       headers: {
-        Authorization: TOKEN
+        Authorization: `Bearer ${TOKEN}`
       }
     });
 
@@ -54,7 +54,7 @@ export async function getReleaseContent(version: string) {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases/tags/${version}`;
     const response = await fetch(endpoint, {
       headers: {
-        Authorization: TOKEN
+        Authorization: `Bearer ${TOKEN}`
       }
     });
 

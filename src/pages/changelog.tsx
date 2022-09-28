@@ -21,10 +21,12 @@ const renderChangelogList = (data: string[]) => {
   }
 
   return (
-    <ul>
+    <ul className="changelog__list">
       {data.map(slug => (
-        <li key={slug}>
-          <Link to={`/changelog/${slug}/`}>{slug}</Link>
+        <li key={slug} className="changelog__item">
+          <Link to={`/changelog/${slug}/`} className="changelog__link">
+            {slug}
+          </Link>
         </li>
       ))}
     </ul>
@@ -36,7 +38,7 @@ const ChangelogPage: React.FC<
 > = ({ serverData }) => {
   return (
     <Layout mainTitle={title} subTitle={desc}>
-      <main className="html">
+      <main className="changelog">
         {renderChangelogList(serverData.allReleases)}
       </main>
     </Layout>

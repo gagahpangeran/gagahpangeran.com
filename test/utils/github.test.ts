@@ -2,12 +2,21 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getGithubConstants } from "../../src/utils/github";
+import { getAllReleases, getGithubConstants } from "../../src/utils/github";
+
+const globalFetch = global.fetch;
+const mockFetch = jest.fn();
 
 beforeEach(() => {
   process.env.GITHUB_USERNAME = "user";
   process.env.GITHUB_REPO = "repo";
   process.env.GITHUB_TOKEN = "token";
+
+  global.fetch = mockFetch;
+});
+
+afterEach(() => {
+  global.fetch = globalFetch;
 });
 
 describe("Test getGithubConstants function", () => {
@@ -39,5 +48,39 @@ describe("Test getGithubConstants function", () => {
     delete process.env.GITHUB_TOKEN;
 
     expect(() => getGithubConstants()).toThrowError("Github token not found");
+  });
+});
+
+describe("Test getAllReleases function", () => {
+  test("success", async () => {
+    mockFetch.mockResolvedValueOnce({
+      json: jest
+        .fn()
+        .mockResolvedValueOnce([
+          { name: "2022.01.23" },
+          { name: "2021.11.09" },
+          { name: "2021.05.27" },
+          { name: "2020.03.11" }
+        ])
+    });
+
+    const allReleases = await getAllReleases();
+
+    expect(allReleases).toEqual(
+      expect.arrayContaining([
+        "2022.01.23",
+        "2021.11.09",
+        "2021.05.27",
+        "2020.03.11"
+      ])
+    );
+  });
+
+  test("failed", async () => {
+    mockFetch.mockRejectedValueOnce(new Error());
+
+    expect(async () => {
+      await getAllReleases();
+    }).rejects.toThrowError("Failed to fetch all github releases");
   });
 });

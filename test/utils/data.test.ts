@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getBlogMetaData } from "../../src/utils/data";
+import { getBlogMetaData, getChangelogVersionData } from "../../src/utils/data";
 
 describe("Test getBlogMetaData function", () => {
   test("Index type", () => {
@@ -61,5 +61,48 @@ describe("Test getBlogMetaData function", () => {
       });
 
     expect(result).toThrowError("Language is not valid");
+  });
+});
+
+describe("Test getChangelogVersionData", () => {
+  const allReleasesMockData = ["2022.01.04", "2021.10.28", "2021.08.12"];
+
+  test("First entry", () => {
+    const result = getChangelogVersionData("2022.01.04", allReleasesMockData);
+
+    expect(result).toMatchObject({
+      newerData: null,
+      olderData: {
+        slug: `/changelog/2021.10.28/`,
+        title: `2021.10.28`
+      }
+    });
+  });
+
+  test("Last entry", () => {
+    const result = getChangelogVersionData("2021.08.12", allReleasesMockData);
+
+    expect(result).toMatchObject({
+      newerData: {
+        slug: `/changelog/2021.10.28/`,
+        title: `2021.10.28`
+      },
+      olderData: null
+    });
+  });
+
+  test("Middle entry", () => {
+    const result = getChangelogVersionData("2021.10.28", allReleasesMockData);
+
+    expect(result).toMatchObject({
+      newerData: {
+        slug: `/changelog/2022.01.04/`,
+        title: `2022.01.04`
+      },
+      olderData: {
+        slug: `/changelog/2021.08.12/`,
+        title: `2021.08.12`
+      }
+    });
   });
 });

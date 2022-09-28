@@ -3,16 +3,37 @@
 // Read the LICENSE file in the repository root for full license text.
 
 .page-nav {
+  --flex-direction: column;
+  --item-gap: 20px;
+  --item-width: 100%;
+  --link-height: 100px;
   --title-color-main: var(--white);
   --title-color-small: var(--gray);
   --title-item-justify-content: flex-start;
+  --title-item-main-font-size: 1.25rem;
   --title-item-text-align: left;
   --title-overlay-opacity: 0.8;
+  --title-padding: 20px;
+
+  &--small {
+    --flex-direction: row;
+    --item-gap: 16px;
+    --item-width: 50%;
+    --link-height: 50px;
+    --title-padding: 12px;
+
+    @include mobile {
+      --item-gap: 8px;
+      --link-height: 40px;
+      --title-item-main-font-size: 1rem;
+      --title-padding: 8px;
+    }
+  }
 
   margin: 20px 0;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: var(--flex-direction);
+  gap: var(--item-gap);
 
   &__image {
     display: block;
@@ -21,9 +42,13 @@
     height: 100%;
   }
 
+  &__item {
+    width: var(--item-width);
+  }
+
   &__link {
     @include transition(border-color);
-    height: 100px;
+    height: var(--link-height);
     display: block;
     position: relative;
     overflow: hidden;
@@ -45,7 +70,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 20px;
+    padding: 0 var(--title-padding);
     box-sizing: border-box;
 
     &::before {
@@ -63,6 +88,16 @@
     }
   }
 
+  &__title-icon {
+    &--newer {
+      margin-right: 4px;
+    }
+
+    &--older {
+      margin-left: 4px;
+    }
+  }
+
   &__title-item {
     @include transition(color);
     @include max-2-lines;
@@ -73,6 +108,7 @@
     &--main {
       font-weight: bolder;
       color: var(--title-color-main);
+      font-size: var(--title-item-main-font-size);
     }
 
     &--small {

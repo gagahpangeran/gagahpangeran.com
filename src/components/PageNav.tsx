@@ -5,13 +5,18 @@
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "gatsby";
-import {
-  GatsbyImage,
-  IGatsbyImageData,
-  StaticImage
-} from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import classModifiers from "../utils/css";
+
+type SizeType = "big" | "small";
+
+interface Props {
+  newerData: NavData | null;
+  olderData: NavData | null;
+  suffix?: string;
+  size?: SizeType;
+}
 
 interface NavData {
   slug: string;
@@ -22,9 +27,10 @@ interface NavLinkProps {
   type: "Newer" | "Older";
   data: NavData | null;
   suffix: string;
+  size: SizeType;
 }
 
-const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
+const PageNavLink = ({ type, data, suffix, size }: NavLinkProps) => {
   if (data === null) {
     return null;
   }
@@ -45,30 +51,69 @@ const PageNavLink = ({ type, data, suffix }: NavLinkProps) => {
         />
       )}
       <div className="page-nav__title">
-        <h5 className="page-nav__title-item page-nav__title-item--small">
-          {type === "Newer" && <FontAwesomeIcon icon={faCaretLeft} />}
-          {`${type} ${suffix}`}
-          {type === "Older" && <FontAwesomeIcon icon={faCaretRight} />}
-        </h5>
+        {size === "big" && (
+          <h5 className="page-nav__title-item page-nav__title-item--small">
+            {type === "Newer" && (
+              <FontAwesomeIcon
+                icon={faCaretLeft}
+                className="page-nav__title-icon--newer"
+              />
+            )}
+            {`${type} ${suffix}`}
+            {type === "Older" && (
+              <FontAwesomeIcon
+                icon={faCaretRight}
+                className="page-nav__title-icon--older"
+              />
+            )}
+          </h5>
+        )}
+
         <h4 className="page-nav__title-item page-nav__title-item--main">
+          {size === "small" && type === "Newer" && (
+            <FontAwesomeIcon
+              icon={faCaretLeft}
+              className="page-nav__title-icon--newer"
+            />
+          )}
           {title}
+          {size === "small" && type === "Older" && (
+            <FontAwesomeIcon
+              icon={faCaretRight}
+              className="page-nav__title-icon--older"
+            />
+          )}
         </h4>
       </div>
     </Link>
   );
 };
 
-interface Props {
-  newerData: NavData | null;
-  olderData: NavData | null;
-  suffix: string;
-}
-
-const PageNav = ({ newerData, olderData, suffix }: Props) => {
+const PageNav = ({
+  newerData,
+  olderData,
+  suffix = "Post",
+  size = "big"
+}: Props) => {
   return (
-    <nav className="page-nav">
-      <PageNavLink type="Newer" data={newerData} suffix={suffix} />
-      <PageNavLink type="Older" data={olderData} suffix={suffix} />
+    <nav className={classModifiers("page-nav", size)}>
+      <div className="page-nav__item">
+        <PageNavLink
+          type="Newer"
+          data={newerData}
+          suffix={suffix}
+          size={size}
+        />
+      </div>
+
+      <div className="page-nav__item">
+        <PageNavLink
+          type="Older"
+          data={olderData}
+          suffix={suffix}
+          size={size}
+        />
+      </div>
     </nav>
   );
 };

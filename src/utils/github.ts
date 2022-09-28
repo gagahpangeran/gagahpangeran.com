@@ -6,6 +6,7 @@ export function getGithubContants() {
   const BASE_URL = `https://api.github.com`;
   const USER = process.env.GITHUB_USERNAME;
   const REPO = process.env.GITHUB_REPO;
+  const TOKEN = process.env.GITHUB_TOKEN;
 
   if (USER == null) {
     throw Error("Github username not found");
@@ -15,7 +16,11 @@ export function getGithubContants() {
     throw Error("Github repository not found");
   }
 
-  return { BASE_URL, USER, REPO };
+  if (TOKEN == null) {
+    throw Error("Github token not found");
+  }
+
+  return { BASE_URL, USER, REPO, TOKEN };
 }
 
 type AllReleaseData = [{ name: string }] | undefined;

@@ -2,7 +2,11 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getAllReleases, getGithubConstants } from "../../src/utils/github";
+import {
+  getAllReleases,
+  getGithubConstants,
+  getReleaseContent
+} from "../../src/utils/github";
 
 const globalFetch = global.fetch;
 const mockFetch = jest.fn();
@@ -82,5 +86,26 @@ describe("Test getAllReleases function", () => {
     expect(async () => {
       await getAllReleases();
     }).rejects.toThrowError("Failed to fetch all github releases");
+  });
+});
+
+describe("Test getReleaseContent function", () => {
+  test("success", async () => {
+    mockFetch.mockResolvedValueOnce({
+      json: jest.fn().mockResolvedValueOnce({
+        body: "# This is content"
+      })
+    });
+
+    const content = await getReleaseContent("2022.01.02");
+    expect(content).toBe("# This is content");
+  });
+
+  test("failed", async () => {
+    mockFetch.mockRejectedValueOnce(new Error());
+
+    expect(async () => {
+      await getReleaseContent("2022.01.02");
+    }).rejects.toThrowError("Failed to fetch github releases");
   });
 });

@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-function getConstant() {
+export function getGithubContants() {
   const BASE_URL = `https://api.github.com`;
   const USER = process.env.GITHUB_USERNAME;
   const REPO = process.env.GITHUB_REPO;
@@ -21,7 +21,7 @@ function getConstant() {
 type AllReleaseData = [{ name: string }] | undefined;
 
 export async function getAllReleases() {
-  const { BASE_URL, USER, REPO } = getConstant();
+  const { BASE_URL, USER, REPO } = getGithubContants();
 
   try {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases`;
@@ -39,7 +39,7 @@ export async function getAllReleases() {
 type ReleaseData = { body: string } | undefined;
 
 export async function getReleaseContent(version: string) {
-  const { BASE_URL, USER, REPO } = getConstant();
+  const { BASE_URL, USER, REPO } = getGithubContants();
 
   try {
     const endpoint = `${BASE_URL}/repos/${USER}/${REPO}/releases/tags/${version}`;

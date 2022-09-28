@@ -49,7 +49,7 @@ const Version: React.FC<
         </ReactMarkdown>
       </main>
 
-      <PageNav newerData={newerData} olderData={olderData} suffix="Version" />
+      <PageNav newerData={newerData} olderData={olderData} size="small" />
     </Layout>
   );
 };

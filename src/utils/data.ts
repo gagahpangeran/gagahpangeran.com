@@ -78,20 +78,3 @@ export function getBlogMetaData({
     desc: `All Posts in ${title}`
   };
 }
-
-export function getChangelogData(data: Queries.ChangelogTemplateQuery) {
-  const slug = data.changelog?.fields.slug ?? "";
-  const html = data.changelog?.html ?? "";
-  const newerSlug = data.newerChangelog?.fields.slug;
-  const olderSlug = data.olderChangelog?.fields.slug;
-
-  const [, , title] = slug.split("/");
-
-  return {
-    title,
-    html,
-    slug,
-    newerSlug,
-    olderSlug
-  };
-}

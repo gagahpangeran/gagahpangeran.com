@@ -17,9 +17,9 @@ $tablet-breakpoint: 720px;
   left: 0;
 }
 
-@mixin transition($property) {
-  will-change: $property;
-  transition-property: $property;
+@mixin transition($properties...) {
+  will-change: $properties;
+  transition-property: $properties;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }

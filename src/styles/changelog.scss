@@ -10,20 +10,30 @@
   }
 
   &__link {
-    @include transition(background-color);
+    @include transition(border-color, color);
     display: block;
     padding: 16px;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--white);
     border-radius: 12px;
-    background-color: var(--blue);
+    background-color: var(--bg-dark);
     color: var(--white);
-
-    &:hover {
-      background-color: transparent;
-    }
 
     @include mobile {
       padding: 8px;
+    }
+
+    &:hover {
+      border-color: var(--blue);
+      text-decoration: none;
+      color: var(--blue);
+    }
+
+    & > h4 {
+      font-weight: bolder;
+
+      @include mobile {
+        font-size: 1rem;
+      }
     }
   }
 

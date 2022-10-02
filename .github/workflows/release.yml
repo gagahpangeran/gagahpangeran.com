@@ -16,27 +16,10 @@ jobs:
           submodules: recursive
 
       - name: Install NodeJS
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Get local node modules directory path
-        id: yarn-node-modules-path
-        run: echo "::set-output name=dir::$(pwd)/node_modules"
-
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            ${{ steps.yarn-node-modules-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          node-version: "16.x"
+          cache: "yarn"
 
       - name: Install netlify cli
         run: yarn global add netlify-cli

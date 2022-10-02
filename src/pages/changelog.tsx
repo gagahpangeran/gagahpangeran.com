@@ -25,7 +25,7 @@ const renderChangelogList = (data: string[]) => {
       {data.map(slug => (
         <li key={slug} className="changelog__item">
           <Link to={`/changelog/${slug}/`} className="changelog__link">
-            {slug}
+            <h4>{slug}</h4>
           </Link>
         </li>
       ))}

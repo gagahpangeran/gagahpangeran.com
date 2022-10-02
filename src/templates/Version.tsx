@@ -36,8 +36,6 @@ const Version: React.FC<
   PageProps<unknown, unknown, unknown, ServerDataProps>
 > = ({ serverData }) => {
   const { version, content, repository, newerData, olderData } = serverData;
-  console.log({ newerData });
-  console.log({ olderData });
 
   return (
     <Layout mainTitle={version} subTitle={desc}>

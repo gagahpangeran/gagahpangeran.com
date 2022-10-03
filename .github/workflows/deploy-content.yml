@@ -9,6 +9,9 @@ jobs:
     if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'update-content')
     name: Update and deploy content
     runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     steps:
       - name: Fetch all tags
         uses: actions/checkout@v3
@@ -20,6 +23,14 @@ jobs:
 
       - name: Get latest change in content directory from master branch
         run: git checkout master content/
+
+      - name: Cache netlify
+        uses: actions/cache@v3
+        with:
+          path: ./.netlify
+          key: ${{ runner.os }}-netlify-${{ hashFiles('**/netlify.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-netlify-
 
       - name: Install NodeJS
         uses: actions/setup-node@v3
@@ -37,7 +48,4 @@ jobs:
         run: yarn build
 
       - name: Deploy to netlify
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: netlify deploy --prod --dir=public
+        run: netlify deploy --prod

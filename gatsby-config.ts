@@ -60,6 +60,7 @@ export const plugins: GatsbyConfig["plugins"] = [
   `gatsby-plugin-sass`,
   `gatsby-plugin-catch-links`,
   `gatsby-plugin-typescript`,
+  `gatsby-plugin-netlify`,
   {
     resolve: `gatsby-plugin-manifest`,
     options: {

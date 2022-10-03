@@ -13,7 +13,6 @@ jobs:
       - name: Fetch all tags
         uses: actions/checkout@v3
         with:
-          submodules: recursive
           fetch-depth: 0
 
       - name: Checkout to latest tags

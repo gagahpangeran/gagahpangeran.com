@@ -39,7 +39,7 @@ jobs:
         run: yarn build
 
       - name: Deploy to netlify
-        run: netlify deploy --prod --dir=public
+        run: netlify deploy --prod
 
   release:
     needs: deploy

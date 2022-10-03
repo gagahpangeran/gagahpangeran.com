@@ -24,6 +24,14 @@ jobs:
       - name: Get latest change in content directory from master branch
         run: git checkout master content/
 
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
+
       - name: Cache netlify
         uses: actions/cache@v3
         with:

@@ -21,9 +21,6 @@ jobs:
       - name: Get latest change in content directory from master branch
         run: git checkout master content/
 
-      - name: Setup build env
-        run: echo ${{ secrets.BUILD_ENV }} > .env
-
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
@@ -44,6 +41,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: netlify deploy --prod --dir=public
-
-      - name: Remove build env
-        run: rm .env

@@ -12,9 +12,6 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v3
 
-      - name: Setup build env
-        run: echo ${{ secrets.BUILD_ENV }} > .env
-
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:
@@ -35,9 +32,6 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: netlify deploy --prod --dir=public
-
-      - name: Remove build env
-        run: rm .env
 
   release:
     needs: deploy

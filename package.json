@@ -7,8 +7,8 @@
   "scripts": {
     "build": "gatsby build",
     "build:clean": "yarn clean && yarn build",
-    "develop": "gatsby develop",
     "clean": "gatsby clean",
+    "develop": "gatsby develop",
     "format": "yarn format:prettier && yarn format:eslint",
     "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
     "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
@@ -16,13 +16,13 @@
     "lint": "yarn lint:prettier && yarn lint:eslint",
     "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
+    "prepare": "husky install",
     "start": "gatsby develop",
     "start:clean": "yarn clean && yarn start",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "test": "jest",
-    "test:cov": "yarn test --coverage",
-    "prepare": "husky install"
+    "test:cov": "yarn test --coverage"
   },
   "dependencies": {
     "@fontsource/fira-code": "^4.5.11",

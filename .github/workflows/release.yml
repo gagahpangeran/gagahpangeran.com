@@ -44,7 +44,7 @@ jobs:
         run: yarn
 
       - name: Build app
-        run: yarn build
+        run: netlify build
 
       - name: Deploy to netlify
         run: netlify deploy --prod

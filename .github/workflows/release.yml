@@ -15,6 +15,14 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v3
 
+      - name: Cache netlify
+        uses: actions/cache@v3
+        with:
+          path: ./.netlify
+          key: ${{ runner.os }}-netlify-${{ hashFiles('**/netlify.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-netlify-
+
       - name: Install NodeJS
         uses: actions/setup-node@v3
         with:

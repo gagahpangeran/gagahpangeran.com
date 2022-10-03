@@ -8,7 +8,7 @@
     "build": "gatsby build",
     "build:clean": "yarn clean && yarn build",
     "develop": "gatsby develop",
-    "clean": "rm -rf ./public && rm -rf ./.cache",
+    "clean": "gatsby clean",
     "format": "yarn format:prettier && yarn format:eslint",
     "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
     "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",

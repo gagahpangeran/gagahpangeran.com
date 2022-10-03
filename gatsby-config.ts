@@ -17,7 +17,6 @@ export const siteMetadata: GatsbyConfig["siteMetadata"] = {
 };
 
 export const graphqlTypegen: GatsbyConfig["graphqlTypegen"] = {
-  generateOnBuild: true,
   typesOutputPath: `types/generated-types.d.ts`
 };
 

@@ -28,6 +28,11 @@
   padding: 0;
 }
 
+html {
+  scroll-padding-top: var(--navbar-height);
+  overflow: auto;
+}
+
 body {
   font-size: 1.25rem;
   font-weight: 400;

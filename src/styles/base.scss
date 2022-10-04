@@ -15,9 +15,11 @@
   --orange: #f75c03;
 
   --image-border-radius: 12px;
+  --navbar-height: 64px;
 
   @include mobile {
     --image-border-radius: 0;
+    --navbar-height: 48px;
   }
 }
 
@@ -118,7 +120,7 @@ iframe {
 .wrapper {
   max-width: 720px;
   margin: 0 auto;
-  padding-top: 64px;
+  padding-top: var(--navbar-height);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -126,10 +128,6 @@ iframe {
   @include mobile(tablet) {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  @include mobile {
-    padding-top: 48px;
   }
 
   .content {

@@ -5,6 +5,13 @@
 .markdown {
   flex: 1 0 auto;
 
+  // Hide default title from github release page
+  &--page-version {
+    h2 {
+      display: none;
+    }
+  }
+
   h2 {
     color: var(--gray);
   }

@@ -39,7 +39,7 @@ const Version: React.FC<
 
   return (
     <Layout mainTitle={version} subTitle={desc}>
-      <main className="markdown">
+      <main className="markdown markdown--page-version">
         <ReactMarkdown
           remarkPlugins={[remarkGfm, [remarkGithub, { repository }]]}
         >

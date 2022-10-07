@@ -4,16 +4,12 @@
 
 .navbar {
   background-color: var(--bg-light);
-  height: 64px;
+  height: var(--navbar-height);
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 99999;
-
-  @include mobile {
-    height: 48px;
-  }
 
   &__content {
     max-width: 720px;

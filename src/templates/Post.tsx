@@ -48,7 +48,7 @@ const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
             title={title}
           />
         </a>
-        <main className="html" dangerouslySetInnerHTML={{ __html: html }} />
+        <main className="markdown" dangerouslySetInnerHTML={{ __html: html }} />
       </article>
 
       <PageNav newerData={newerPost} olderData={olderPost} suffix="Post" />

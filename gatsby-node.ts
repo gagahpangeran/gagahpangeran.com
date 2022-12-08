@@ -23,20 +23,18 @@ export const createPages: GatsbyNode["createPages"] = async ({
     query GatsbyNode {
       allPosts: allMarkdownRemark(
         limit: 1000
-        sort: { fields: frontmatter___date, order: DESC }
+        sort: { frontmatter: { date: DESC } }
         filter: { fields: { type: { eq: "blog" } } }
       ) {
         ...MDNode
       }
-
       allTags: allMarkdownRemark {
-        group(field: frontmatter___tags) {
+        group(field: { frontmatter: { tags: SELECT } }) {
           ...GroupInfo
         }
       }
-
       allLang: allMarkdownRemark {
-        group(field: frontmatter___lang) {
+        group(field: { frontmatter: { lang: SELECT } }) {
           ...GroupInfo
         }
       }

@@ -49,7 +49,7 @@ export default Blog;
 export const pageQuery = graphql`
   query BlogTemplate($skip: Int, $limit: Int, $filterValue: String) {
     posts: allMarkdownRemark(
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
       skip: $skip
       limit: $limit
       filter: { fields: { type: { eq: "blog" } } }
@@ -58,10 +58,9 @@ export const pageQuery = graphql`
         ...PostDetail
       }
     }
-
     tags: allMarkdownRemark(
       filter: { frontmatter: { tags: { eq: $filterValue } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
       skip: $skip
       limit: $limit
     ) {
@@ -69,10 +68,9 @@ export const pageQuery = graphql`
         ...PostDetail
       }
     }
-
     langs: allMarkdownRemark(
       filter: { frontmatter: { lang: { eq: $filterValue } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { frontmatter: { date: DESC } }
       skip: $skip
       limit: $limit
     ) {

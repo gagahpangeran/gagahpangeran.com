@@ -12,6 +12,12 @@
     }
   }
 
+  blockquote {
+    padding-left: 12px;
+    border-left: 2px solid var(--gray);
+    color: var(--gray);
+  }
+
   figcaption {
     font-weight: bold;
     color: var(--gray);

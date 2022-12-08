@@ -12,6 +12,19 @@
     }
   }
 
+  figcaption {
+    font-weight: bold;
+    color: var(--gray);
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: 8px;
+    padding: 0 16px;
+  }
+
+  figure {
+    text-align: center;
+  }
+
   h2 {
     color: var(--gray);
   }
@@ -22,26 +35,8 @@
     border-radius: var(--image-border-radius);
   }
 
-  p {
-    margin: 16px 0;
-    line-height: 150%;
-  }
-
-  figure {
-    text-align: center;
-  }
-
-  figcaption {
-    font-weight: bold;
-    color: var(--gray);
-    font-style: italic;
-    font-size: 1rem;
-    margin-top: 8px;
-    padding: 0 16px;
-  }
-
-  ul,
-  ol {
+  ol,
+  ul {
     margin-left: 24px;
 
     li {
@@ -52,6 +47,11 @@
         color: var(--gray);
       }
     }
+  }
+
+  p {
+    margin: 16px 0;
+    line-height: 150%;
   }
 
   &__header-link {

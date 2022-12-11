@@ -13,6 +13,7 @@ import PostLabel from "./PostLabel";
 const PostCard = ({
   title,
   date,
+  datetime,
   description,
   slug,
   image,
@@ -33,7 +34,7 @@ const PostCard = ({
             alt={title}
             title={title}
           />
-          <time className="post-card__date">
+          <time className="post-card__date" dateTime={datetime}>
             <FontAwesomeIcon icon={faClock} />
             {date}
           </time>

@@ -6,3 +6,4 @@ node_modules
 .github
 types
 coverage
+.netlify

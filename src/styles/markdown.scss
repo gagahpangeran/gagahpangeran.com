@@ -12,23 +12,10 @@
     }
   }
 
-  h2 {
+  blockquote {
+    padding-left: 12px;
+    border-left: 2px solid var(--gray);
     color: var(--gray);
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--image-border-radius);
-  }
-
-  p {
-    margin: 16px 0;
-    line-height: 150%;
-  }
-
-  figure {
-    text-align: center;
   }
 
   figcaption {
@@ -40,8 +27,22 @@
     padding: 0 16px;
   }
 
-  ul,
-  ol {
+  figure {
+    text-align: center;
+  }
+
+  h2 {
+    color: var(--gray);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--image-border-radius);
+  }
+
+  ol,
+  ul {
     margin-left: 24px;
 
     li {
@@ -52,6 +53,11 @@
         color: var(--gray);
       }
     }
+  }
+
+  p {
+    margin: 16px 0;
+    line-height: 150%;
   }
 
   &__header-link {

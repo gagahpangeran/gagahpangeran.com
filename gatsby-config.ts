@@ -16,6 +16,8 @@ export const siteMetadata: GatsbyConfig["siteMetadata"] = {
   siteUrl: "https://gagahpangeran.com"
 };
 
+export const trailingSlash: GatsbyConfig["trailingSlash"] = "always";
+
 export const graphqlTypegen: GatsbyConfig["graphqlTypegen"] = {
   typesOutputPath: `types/generated-types.d.ts`
 };

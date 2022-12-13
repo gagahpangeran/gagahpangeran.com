@@ -16,9 +16,8 @@ import { getPostData } from "../utils/data";
 
 const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
   const siteUrl = data.site?.siteMetadata.siteUrl;
-  const { title, date, tags, lang, slug, imageUrl, image, html } = getPostData(
-    data.post
-  );
+  const { title, date, datetime, tags, lang, slug, imageUrl, image, html } =
+    getPostData(data.post);
 
   if (siteUrl == null) {
     throw Error("siteUrl not found");
@@ -34,7 +33,7 @@ const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
   return (
     <Layout mainTitle={title}>
       <article className="post">
-        <time className="post__date">
+        <time className="post__date" dateTime={datetime}>
           <FontAwesomeIcon icon={faClock} />
           {date}
         </time>
@@ -93,6 +92,7 @@ export const pageQuery = graphql`
     frontmatter {
       title
       date(formatString: "MMMM DD, YYYY")
+      datetime: date
       tags
       lang
       featuredImage {

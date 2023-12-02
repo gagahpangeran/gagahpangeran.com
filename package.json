@@ -25,9 +25,9 @@
     "test:cov": "yarn test --coverage"
   },
   "dependencies": {
-    "@fontsource/fira-code": "^4.5.12",
-    "@fontsource/lato": "^4.5.10",
-    "@fontsource/rubik": "^4.5.11",
+    "@fontsource/fira-code": "^5.0.15",
+    "@fontsource/lato": "^5.0.17",
+    "@fontsource/rubik": "^5.0.17",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",

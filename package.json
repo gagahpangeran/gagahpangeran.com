@@ -55,7 +55,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.4",
     "remark-github": "^11.2.4",
-    "sass": "^1.56.1"
+    "sass": "^1.69.5"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",

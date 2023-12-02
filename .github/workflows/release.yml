@@ -38,7 +38,7 @@ jobs:
           cache: "yarn"
 
       - name: Install netlify cli
-        run: yarn global add netlify-cli
+        run: yarn global --ignore-optional add netlify-cli
 
       - name: Install dependencies
         run: yarn

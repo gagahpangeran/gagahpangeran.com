@@ -45,13 +45,11 @@ Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
 
 **Game 1**
 
-```
 | red | green | blue |
-| --- | ----- | ---- |
-| 0   | 3     | 4    |
-| 1   | 2     | 6    |
-| 0   | 2     | 0    |
-```
+| :-: | :---: | :--: |
+|  0  |   3   |  4   |
+|  1  |   2   |  6   |
+|  0  |   2   |  0   |
 
 For the first part, I need to check for each row, the count of each colors does
 not exceed certain given number. If all row is pass then that game is

@@ -60,6 +60,21 @@
     line-height: 150%;
   }
 
+  table {
+    border-collapse: collapse;
+  }
+
+  thead {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  th,
+  td {
+    border: 1px solid var(--gray);
+    padding: 8px 12px;
+  }
+
   &__header-link {
     fill: var(--gray);
     margin-left: 8px;

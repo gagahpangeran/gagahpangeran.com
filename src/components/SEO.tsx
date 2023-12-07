@@ -13,20 +13,18 @@ interface Props {
 }
 
 function SEO({ description, meta = [], title, thumbnail }: Props) {
-  const { site } = useStaticQuery<Queries.SiteMetaDataQuery>(
-    graphql`
-      query SiteMetaData {
-        site {
-          siteMetadata {
-            title
-            description
-            siteUrl
-            image
-          }
+  const { site } = useStaticQuery<Queries.SiteMetaDataQuery>(graphql`
+    query SiteMetaData {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+          image
         }
       }
-    `
-  );
+    }
+  `);
 
   const siteMetadata = site?.siteMetadata;
   if (siteMetadata == null) {

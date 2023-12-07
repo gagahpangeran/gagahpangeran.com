@@ -28,6 +28,10 @@ $block: 'pre[class*="language-"]';
   scrollbar-width: thin;
   scrollbar-color: var(--gray) var(--white);
 
+  &.language-text {
+    font-variant-ligatures: none;
+  }
+
   &::-webkit-scrollbar {
     width: 10px;
     background-color: var(--white);

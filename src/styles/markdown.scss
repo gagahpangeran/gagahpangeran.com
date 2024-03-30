@@ -18,6 +18,10 @@
     color: var(--gray);
   }
 
+  details {
+    margin: 16px 0;
+  }
+
   figcaption {
     font-weight: bold;
     color: var(--gray);
@@ -60,6 +64,11 @@
     line-height: 150%;
   }
 
+  summary {
+    color: var(--green);
+    cursor: pointer;
+  }
+
   table {
     border-collapse: collapse;
   }
@@ -73,6 +82,11 @@
   td {
     border: 1px solid var(--gray);
     padding: 8px 12px;
+  }
+
+  video {
+    width: 90%;
+    height: auto;
   }
 
   &__header-link {
@@ -89,5 +103,10 @@
         opacity: 1;
       }
     }
+  }
+
+  &__video-container {
+    text-align: center;
+    margin: 16px 0;
   }
 }

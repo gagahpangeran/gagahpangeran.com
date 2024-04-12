@@ -6,7 +6,7 @@
 title: "Bukber 2024"
 date: "2024-04-06T12:00:00+07:00"
 featuredImage: "./img/bukber1.png"
-tags: ["Story"]
+tags: ["Story", "Bukber", "Ramadhan", "Puasa"]
 lang: "id"
 ---
 

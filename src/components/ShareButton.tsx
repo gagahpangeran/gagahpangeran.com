@@ -11,6 +11,10 @@ interface Props {
   link: string;
 }
 
+interface NativeButtonProps extends Props {
+  title: string;
+}
+
 type CopyState = "idle" | "success" | "failed";
 
 const desc: Record<CopyState, string> = {
@@ -65,6 +69,23 @@ const CopyShareButton = ({ link }: Props) => {
       </div>
     </details>
   );
+};
+
+const NativeShareButton = ({ link, title }: NativeButtonProps) => {
+  const data = {
+    title,
+    link
+  };
+
+  const handleClick = async () => {
+    try {
+      await navigator.share(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return <button onClick={handleClick}>Share</button>;
 };
 
 const ShareButton = ({ link }: Props) => {

@@ -56,8 +56,13 @@ const questions: Parameters<typeof prompts>[0] = [
   }
 ];
 
+function onCancel() {
+  console.log("Canceling process...");
+  process.exit(0);
+}
+
 async function main() {
-  const response = await prompts(questions);
+  const response = await prompts(questions, { onCancel });
   console.log(response);
 }
 

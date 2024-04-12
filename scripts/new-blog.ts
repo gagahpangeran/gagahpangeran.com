@@ -1,5 +1,14 @@
 import prompts from "prompts";
 
+type Response = {
+  title: string;
+  slug: string;
+  date: Date;
+  tags: string[];
+  lang: "id" | "en";
+  confirm: boolean;
+};
+
 function slugify(title: string) {
   return title
     .toLowerCase()

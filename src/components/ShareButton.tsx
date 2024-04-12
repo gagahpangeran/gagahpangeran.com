@@ -100,10 +100,18 @@ const ShareButton = ({ link, title }: Props) => {
     setErrorState(true);
   };
 
-  return errorState ? (
-    <CopyShareButton link={link} />
-  ) : (
-    <NativeShareButton link={link} title={title} toggleError={toggleError} />
+  return (
+    <div className="share-button">
+      {errorState ? (
+        <CopyShareButton link={link} />
+      ) : (
+        <NativeShareButton
+          link={link}
+          title={title}
+          toggleError={toggleError}
+        />
+      )}
+    </div>
   );
 };
 

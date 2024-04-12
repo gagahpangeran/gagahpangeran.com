@@ -1,5 +1,12 @@
 import prompts from "prompts";
 
+function slugify(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^0-9a-z ]/gi, "")
+    .replace(/ /gi, "-");
+}
+
 const questions = () =>
   prompts([
     {
@@ -7,6 +14,12 @@ const questions = () =>
       name: "title",
       message: "Title",
       initial: "New Blog"
+    },
+    {
+      type: "text",
+      name: "slug",
+      message: "Slug",
+      initial: slugify
     }
   ]);
 

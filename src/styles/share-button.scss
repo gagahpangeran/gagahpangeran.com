@@ -4,6 +4,22 @@
 
 .share-button {
   margin-bottom: 12px;
+  font-size: 1rem;
+
+  @include mobile {
+    font-size: 0.8rem;
+  }
+
+  &__native {
+    @include button-label;
+
+    background: var(--blue);
+    border: none;
+
+    &__text {
+      margin-left: 8px;
+    }
+  }
 
   &__copy {
     --button-color: var(--pink);
@@ -37,11 +53,6 @@
 
     &__link {
       display: flex;
-      font-size: 1.25rem;
-
-      @include mobile {
-        font-size: 1rem;
-      }
     }
 
     &__link-item {

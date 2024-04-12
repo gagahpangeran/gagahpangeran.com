@@ -48,19 +48,18 @@ const CopyShareButton = ({ link }: Props) => {
   };
 
   return (
-    <details className={classModifiers("share-button", copyState)}>
-      <summary className="share-button__summary">Share This Post</summary>
-      <div className="share-button__desc">{desc[copyState]}</div>
+    <div className={classModifiers("share-button__copy", copyState)}>
+      <div className="share-button__copy__desc">{desc[copyState]}</div>
 
-      <div className="share-button__link">
+      <div className="share-button__copy__link">
         <input
-          className="share-button__link-item share-button__link-item--input"
+          className="share-button__copy__link-item share-button__copy__link-item--input"
           ref={inputRef}
           type="text"
           defaultValue={link}
         />
         <button
-          className="share-button__link-item share-button__link-item--button"
+          className="share-button__copy__link-item share-button__copy__link-item--button"
           onClick={handleClick}
         >
           <FontAwesomeIcon
@@ -68,7 +67,7 @@ const CopyShareButton = ({ link }: Props) => {
           />
         </button>
       </div>
-    </details>
+    </div>
   );
 };
 

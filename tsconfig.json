@@ -17,6 +17,7 @@
     "jsx": "react"
   },
   "include": [
+    "./scripts/**/*",
     "./src/**/*",
     "./test/**/*",
     "./types/**/*",

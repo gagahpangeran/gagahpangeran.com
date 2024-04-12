@@ -16,6 +16,7 @@
     "lint": "yarn lint:prettier && yarn lint:eslint",
     "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
+    "new:blog": "tsx ./scripts/new-blog.ts",
     "prepare": "husky install",
     "start": "gatsby develop",
     "start:clean": "yarn clean && yarn start",
@@ -63,6 +64,7 @@
     "@testing-library/react": "^14.1.2",
     "@types/jest": "^29.5.10",
     "@types/lodash.kebabcase": "^4.1.9",
+    "@types/prompts": "^2.4.9",
     "@types/react": "^18.2.40",
     "@types/react-dom": "^18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
@@ -79,6 +81,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
+    "prompts": "^2.4.2",
+    "tsx": "^4.7.2",
     "typescript": "^5.3.2"
   },
   "keywords": [

@@ -16,7 +16,7 @@
     "lint": "yarn lint:prettier && yarn lint:eslint",
     "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
-    "new:blog": "node ./scripts/new-blog.ts",
+    "new:blog": "tsx ./scripts/new-blog.ts",
     "prepare": "husky install",
     "start": "gatsby develop",
     "start:clean": "yarn clean && yarn start",

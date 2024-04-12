@@ -9,9 +9,6 @@ import classModifiers from "../utils/css";
 
 interface Props {
   link: string;
-}
-
-interface NativeButtonProps extends Props {
   title: string;
 }
 
@@ -71,7 +68,7 @@ const CopyShareButton = ({ link }: Props) => {
   );
 };
 
-const NativeShareButton = ({ link, title }: NativeButtonProps) => {
+const NativeShareButton = ({ link, title }: Props) => {
   const data = {
     title,
     link
@@ -88,8 +85,8 @@ const NativeShareButton = ({ link, title }: NativeButtonProps) => {
   return <button onClick={handleClick}>Share</button>;
 };
 
-const ShareButton = ({ link }: Props) => {
-  return <CopyShareButton link={link} />;
+const ShareButton = ({ link, title }: Props) => {
+  return <NativeShareButton link={link} title={title} />;
 };
 
 export default ShareButton;

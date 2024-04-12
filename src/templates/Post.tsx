@@ -38,7 +38,7 @@ const Post: React.FC<PageProps<Queries.PostTemplateQuery>> = ({ data }) => {
           {date}
         </time>
         <PostLabel tags={tags} lang={lang} />
-        <ShareButton link={`${siteUrl}${slug}`} />
+        <ShareButton link={`${siteUrl}${slug}`} title={title} />
         <a href={imageUrl} target="_blank" rel="noopener noreferrer">
           <GatsbyImage
             class="post__featured-image"

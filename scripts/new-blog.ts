@@ -145,6 +145,8 @@ async function main() {
   createDir(targetDir);
   createPost(targetDir, response as Response);
   createThumbnail(currentDir, targetDir);
+
+  console.log(`Success create new blog post in ${targetDir}`);
 }
 
 main();

@@ -19,7 +19,7 @@ const desc: Record<CopyState, string> = {
   failed: "Failed to copy link to clipboard. Please select and copy manually."
 };
 
-const ShareButton = ({ link }: Props) => {
+const CopyShareButton = ({ link }: Props) => {
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -65,6 +65,10 @@ const ShareButton = ({ link }: Props) => {
       </div>
     </details>
   );
+};
+
+const ShareButton = ({ link }: Props) => {
+  return <CopyShareButton link={link} />;
 };
 
 export default ShareButton;

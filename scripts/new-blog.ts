@@ -33,6 +33,21 @@ const questions = () =>
       message: "Tags",
       initial: "Story",
       separator: ","
+    },
+    {
+      type: "select",
+      name: "lang",
+      message: "Language",
+      choices: [
+        {
+          title: "Bahasa Indonesia",
+          value: "id"
+        },
+        {
+          title: "English",
+          value: "en"
+        }
+      ]
     }
   ]);
 

@@ -116,6 +116,21 @@ Post body here.
   }
 }
 
+function createThumbnail(currentDir: string, targetDir: string) {
+  const srcFile = `${currentDir}/static/logo.png`;
+  const thumbDir = `${targetDir}/img`;
+  const thumbFile = `${thumbDir}/thumbnail.png`;
+
+  try {
+    createDir(thumbDir);
+    fs.copyFileSync(srcFile, thumbFile);
+  } catch (err) {
+    console.error(err);
+    console.error(`Failed to create ${thumbFile}`);
+    process.exit(1);
+  }
+}
+
 async function main() {
   const response = await prompts(questions, { onCancel });
   const { slug, confirm } = response as Response;
@@ -129,6 +144,7 @@ async function main() {
 
   createDir(targetDir);
   createPost(targetDir, response as Response);
+  createThumbnail(currentDir, targetDir);
 }
 
 main();

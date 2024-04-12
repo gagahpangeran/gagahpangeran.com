@@ -9,7 +9,7 @@ import classModifiers from "../utils/css";
 
 interface Props {
   link: string;
-  title: string;
+  title?: string;
 }
 
 interface NativeShareButtonProps extends Props {
@@ -100,7 +100,9 @@ const ShareButton = ({ link, title }: Props) => {
     setErrorState(true);
   };
 
-  return (
+  return errorState ? (
+    <CopyShareButton link={link} />
+  ) : (
     <NativeShareButton link={link} title={title} toggleError={toggleError} />
   );
 };

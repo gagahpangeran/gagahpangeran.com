@@ -1,4 +1,5 @@
 import prompts from "prompts";
+import fs from "fs";
 
 type Response = {
   title: string;
@@ -70,9 +71,27 @@ function onCancel() {
   process.exit(0);
 }
 
+function createDir(targetDir: string) {
+  if (fs.existsSync(targetDir)) {
+    console.error(`Directory ${targetDir} already exist!`);
+    process.exit(1);
+  }
+
+  fs.mkdirSync(targetDir);
+}
+
 async function main() {
   const response = await prompts(questions, { onCancel });
-  console.log(response);
+  const { title, slug, date, tags, lang, confirm } = response as Response;
+
+  if (!confirm) {
+    onCancel();
+  }
+
+  const currentDir = process.cwd();
+  const targetDir = `${currentDir}/content/blog/${slug}`;
+
+  createDir(targetDir);
 }
 
 main();

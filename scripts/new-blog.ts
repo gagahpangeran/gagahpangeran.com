@@ -48,6 +48,12 @@ const questions = () =>
           value: "en"
         }
       ]
+    },
+    {
+      type: "confirm",
+      name: "confirm",
+      message: "Create new blog?",
+      initial: true
     }
   ]);
 

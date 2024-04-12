@@ -2,7 +2,11 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { faCopy, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCopy,
+  faClipboardCheck,
+  faShareNodes
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import classModifiers from "../utils/css";
@@ -89,7 +93,12 @@ const NativeShareButton = ({
     }
   };
 
-  return <button onClick={handleClick}>Share</button>;
+  return (
+    <button className="share-button__native" onClick={handleClick}>
+      <FontAwesomeIcon icon={faShareNodes} />
+      <span className="share-button__native__text">Share This Post</span>
+    </button>
+  );
 };
 
 const ShareButton = ({ link, title }: Props) => {

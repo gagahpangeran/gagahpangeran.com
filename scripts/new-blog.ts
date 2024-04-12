@@ -26,6 +26,13 @@ const questions = () =>
       name: "date",
       message: "Date",
       initial: new Date()
+    },
+    {
+      type: "list",
+      name: "tags",
+      message: "Tags",
+      initial: "Story",
+      separator: ","
     }
   ]);
 

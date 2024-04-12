@@ -14,7 +14,7 @@ function slugify(title: string) {
   return title
     .toLowerCase()
     .replace(/[^0-9a-z ]/gi, "")
-    .replace(/ /gi, "-");
+    .replace(/ +/gi, "-");
 }
 
 const questions: Parameters<typeof prompts>[0] = [

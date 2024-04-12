@@ -80,9 +80,45 @@ function createDir(targetDir: string) {
   fs.mkdirSync(targetDir);
 }
 
+function createPost(targetDir: string, data: Response) {
+  const filename = "index.md";
+  const targetFile = `${targetDir}/${filename}`;
+
+  try {
+    const { title, date, tags, lang } = data;
+    const dateStr = date.toISOString();
+    const tagsStr = tags.map(t => `"${t}"`).join(", ");
+
+    const content = `---
+# Copyright (c) Gagah Pangeran Rosfatiputra (GPR) <gpr@gagahpangeran.com>.
+# Licensed under CC-BY-NC 4.0.
+# Read the LICENSE file inside the 'content' directory for full license text.
+
+title: "${title}"
+date: "${dateStr}"
+featuredImage: "./img/thumbnail.png"
+tags: [${tagsStr}]
+lang: "${lang}"
+---
+
+Post excerpt here.
+
+<!-- excerpt -->
+
+Post body here.
+`;
+
+    fs.writeFileSync(targetFile, content);
+  } catch (err) {
+    console.error(err);
+    console.error(`Failed to create ${targetFile}`);
+    process.exit(1);
+  }
+}
+
 async function main() {
   const response = await prompts(questions, { onCancel });
-  const { title, slug, date, tags, lang, confirm } = response as Response;
+  const { slug, confirm } = response as Response;
 
   if (!confirm) {
     onCancel();
@@ -92,6 +128,7 @@ async function main() {
   const targetDir = `${currentDir}/content/blog/${slug}`;
 
   createDir(targetDir);
+  createPost(targetDir, response as Response);
 }
 
 main();

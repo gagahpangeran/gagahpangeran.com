@@ -43,3 +43,20 @@ $tablet-breakpoint: 720px;
     }
   }
 }
+
+@mixin button-label {
+  color: var(--white);
+  padding: 4px 12px;
+  border-radius: 4px;
+  display: inline-block;
+
+  @include mobile {
+    padding: 4px 8px;
+  }
+
+  &:hover {
+    color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
+  }
+}

@@ -12,6 +12,10 @@ interface Props {
   title: string;
 }
 
+interface NativeShareButtonProps extends Props {
+  toggleError: () => void;
+}
+
 type CopyState = "idle" | "success" | "failed";
 
 const desc: Record<CopyState, string> = {
@@ -68,7 +72,11 @@ const CopyShareButton = ({ link }: Props) => {
   );
 };
 
-const NativeShareButton = ({ link, title }: Props) => {
+const NativeShareButton = ({
+  link,
+  title,
+  toggleError
+}: NativeShareButtonProps) => {
   const data = {
     title,
     link
@@ -78,7 +86,7 @@ const NativeShareButton = ({ link, title }: Props) => {
     try {
       await navigator.share(data);
     } catch (error) {
-      console.error(error);
+      toggleError();
     }
   };
 
@@ -86,7 +94,15 @@ const NativeShareButton = ({ link, title }: Props) => {
 };
 
 const ShareButton = ({ link, title }: Props) => {
-  return <NativeShareButton link={link} title={title} />;
+  const [errorState, setErrorState] = useState(false);
+
+  const toggleError = () => {
+    setErrorState(true);
+  };
+
+  return (
+    <NativeShareButton link={link} title={title} toggleError={toggleError} />
+  );
 };
 
 export default ShareButton;

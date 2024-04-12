@@ -20,6 +20,12 @@ const questions = () =>
       name: "slug",
       message: "Slug",
       initial: slugify
+    },
+    {
+      type: "date",
+      name: "date",
+      message: "Date",
+      initial: new Date()
     }
   ]);
 

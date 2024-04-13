@@ -2,13 +2,22 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { faCopy, faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCopy,
+  faClipboardCheck,
+  faShareNodes
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import classModifiers from "../utils/css";
 
 interface Props {
   link: string;
+  title?: string;
+}
+
+interface NativeShareButtonProps extends Props {
+  toggleError: () => void;
 }
 
 type CopyState = "idle" | "success" | "failed";
@@ -19,7 +28,7 @@ const desc: Record<CopyState, string> = {
   failed: "Failed to copy link to clipboard. Please select and copy manually."
 };
 
-const ShareButton = ({ link }: Props) => {
+const CopyShareButton = ({ link }: Props) => {
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -43,19 +52,18 @@ const ShareButton = ({ link }: Props) => {
   };
 
   return (
-    <details className={classModifiers("share-button", copyState)}>
-      <summary className="share-button__summary">Share This Post</summary>
-      <div className="share-button__desc">{desc[copyState]}</div>
+    <div className={classModifiers("share-button__copy", copyState)}>
+      <div className="share-button__copy__desc">{desc[copyState]}</div>
 
-      <div className="share-button__link">
+      <div className="share-button__copy__link">
         <input
-          className="share-button__link-item share-button__link-item--input"
+          className="share-button__copy__link-item share-button__copy__link-item--input"
           ref={inputRef}
           type="text"
           defaultValue={link}
         />
         <button
-          className="share-button__link-item share-button__link-item--button"
+          className="share-button__copy__link-item share-button__copy__link-item--button"
           onClick={handleClick}
         >
           <FontAwesomeIcon
@@ -63,7 +71,55 @@ const ShareButton = ({ link }: Props) => {
           />
         </button>
       </div>
-    </details>
+    </div>
+  );
+};
+
+const NativeShareButton = ({
+  link,
+  title,
+  toggleError
+}: NativeShareButtonProps) => {
+  const data = {
+    title,
+    link
+  };
+
+  const handleClick = async () => {
+    try {
+      await navigator.share(data);
+    } catch (error) {
+      toggleError();
+    }
+  };
+
+  return (
+    <button className="share-button__native" onClick={handleClick}>
+      <FontAwesomeIcon icon={faShareNodes} />
+      <span className="share-button__native__text">Share This Post</span>
+    </button>
+  );
+};
+
+const ShareButton = ({ link, title }: Props) => {
+  const [errorState, setErrorState] = useState(false);
+
+  const toggleError = () => {
+    setErrorState(true);
+  };
+
+  return (
+    <div className="share-button">
+      {errorState ? (
+        <CopyShareButton link={link} />
+      ) : (
+        <NativeShareButton
+          link={link}
+          title={title}
+          toggleError={toggleError}
+        />
+      )}
+    </div>
   );
 };
 

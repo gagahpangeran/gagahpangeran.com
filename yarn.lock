@@ -1321,20 +1321,20 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.55.0.tgz#b721d52060f369aa259cf97392403cb9ce892ec6"
   integrity sha512-qQfo2mxH5yVom1kacMtZZJFVdW+E70mqHMJvVg6WTLo+VBuQJ4TojZlfWBjK0ve5BdEeNAVxOsl/nvNMpJOaJA==
 
-"@fontsource/fira-code@^5.0.15":
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/@fontsource/fira-code/-/fira-code-5.0.15.tgz#1a540ce5b6fc2db83c3c5912c76d10d8ff38aa2e"
-  integrity sha512-mcQQX2Pwlbt8NwBB+kCyldYy1eLY9hsLZ3EvWf2ciVTk1rmYZ734CU9v70qs7rTXrNLYKz8+Q9b7DLEgwsKW6A==
-
-"@fontsource/lato@^5.0.17":
+"@fontsource/fira-code@^5.0.17":
   version "5.0.17"
-  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-5.0.17.tgz#7c75c443da1e3ae203ed1977b6455bb15c62c106"
-  integrity sha512-K9znoLAeUsm4tqp6zYv/oXBxhVDUeYPjRz6Yc7rKyBOKKOS9eXxkEcxD8pT9klnvCky4/pYXKJ9lab01LXYSEA==
+  resolved "https://registry.yarnpkg.com/@fontsource/fira-code/-/fira-code-5.0.17.tgz#7b0c402548190ea55a613fe19b879a5f4ddaf8ab"
+  integrity sha512-Ai0qE5PWvm6ETny7ToAitwdhYtO3YrNIHoa0arPquXxpnlRSB+OsJfhKnfgDKm6WMmCnxKOfsIslbVw5PqQvvQ==
 
-"@fontsource/rubik@^5.0.17":
-  version "5.0.17"
-  resolved "https://registry.yarnpkg.com/@fontsource/rubik/-/rubik-5.0.17.tgz#d5051c5d523492c9f6ab33a558f26fee4697ef1c"
-  integrity sha512-42yGtxnj9UFY+A6nWbSWtcPYX3PXPYYQi1xKMzLLjis4wRhZ9VZANfWMbRToGPW+lRZvuSesCJ4uB+J2EDFvzQ==
+"@fontsource/lato@^5.0.20":
+  version "5.0.20"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-5.0.20.tgz#27721d42112da4da288447f8904e36c8ceef98ee"
+  integrity sha512-2ej7KDuTFoea6Q2hWjx3Png1+MdNcW4V6l7sw/vNauuxCv9xBIZCmpXnTz9eVdj/5Ui//jiWWiQk57mGwjCNwA==
+
+"@fontsource/rubik@^5.0.19":
+  version "5.0.19"
+  resolved "https://registry.yarnpkg.com/@fontsource/rubik/-/rubik-5.0.19.tgz#2cc651ed0705d8de3c11c0f9c195b9a7af67f283"
+  integrity sha512-U5vEMCMBrrXYQ+xBYE/1MbJ049lHpVfyIAc/8eMGk4PC6fkJvVMOBrfIcX05BgXogGBQ6lbxMB/8ZvihZMcefA==
 
 "@fortawesome/fontawesome-common-types@6.5.1":
   version "6.5.1"

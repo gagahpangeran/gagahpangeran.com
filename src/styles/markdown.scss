@@ -47,6 +47,8 @@
 
   ol,
   ul {
+    margin-top: 16px;
+    margin-bottom: 16px;
     margin-left: 24px;
 
     li {
@@ -67,6 +69,10 @@
   summary {
     color: var(--green);
     cursor: pointer;
+
+    & + * {
+      margin: 16px 0;
+    }
   }
 
   table {

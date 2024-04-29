@@ -10,4 +10,5 @@ import "@fontsource/lato/700.css";
 import "@fontsource/fira-code";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "prismjs/themes/prism-tomorrow.css";
+import "katex/dist/katex.min.css";
 import "./src/styles/index.scss";

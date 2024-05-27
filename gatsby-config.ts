@@ -62,6 +62,14 @@ export const plugins: GatsbyConfig["plugins"] = [
             strict: `ignore`
           }
         },
+        {
+          resolve: `gatsby-remark-table-of-contents`,
+          options: {
+            fromHeading: 2,
+            toHeading: 3,
+            className: "markdown__toc"
+          }
+        },
         `gatsby-remark-prismjs`,
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`,

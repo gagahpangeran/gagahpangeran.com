@@ -85,7 +85,7 @@ function SEO({ description, meta = [], title, thumbnail }: Props) {
     <>
       <title>{metaTitle}</title>
       {allMeta.map(metadata => (
-        <meta key={metadata.name} {...metadata} />
+        <meta key={metadata.name ?? metadata.property} {...metadata} />
       ))}
     </>
   );

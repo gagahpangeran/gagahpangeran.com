@@ -37,7 +37,7 @@ const Header = ({ mainTitle, subTitle }: HeaderProps) => {
   }
 
   return (
-    <header>
+    <header id="top">
       <h1>{mainTitle}</h1>
       {subTitle && <h2>{subTitle}</h2>}
     </header>

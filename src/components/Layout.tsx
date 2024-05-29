@@ -45,20 +45,12 @@ const Header = ({ mainTitle, subTitle }: HeaderProps) => {
 };
 
 const Footer = () => {
-  const goToTop = () => {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: "smooth"
-    });
-  };
-
   return (
     <footer>
       <h6>
         &copy; 2019-{new Date().getFullYear()} GPR •{" "}
         <Link to="/changelog/">Changelog</Link> •{" "}
-        <span onClick={goToTop}>Go To Top</span>
+        <Link to="#top">Go To Top</Link>
       </h6>
     </footer>
   );

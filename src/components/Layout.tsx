@@ -6,6 +6,7 @@ import { config as faConfig } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "gatsby";
 import React from "react";
 import Navbar from "./Navbar";
+import Header, { HeaderProps } from "./Header";
 
 interface Props extends HeaderProps {
   children: React.ReactNode;
@@ -25,24 +26,6 @@ const Layout = ({ children, ...headerProps }: Props) => {
 };
 
 export default Layout;
-
-interface HeaderProps {
-  mainTitle?: string;
-  subTitle?: string;
-}
-
-const Header = ({ mainTitle, subTitle }: HeaderProps) => {
-  if (mainTitle === undefined) {
-    return null;
-  }
-
-  return (
-    <header id="top">
-      <h1>{mainTitle}</h1>
-      {subTitle && <h2>{subTitle}</h2>}
-    </header>
-  );
-};
 
 const Footer = () => {
   return (

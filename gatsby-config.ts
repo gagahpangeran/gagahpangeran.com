@@ -67,7 +67,8 @@ export const plugins: GatsbyConfig["plugins"] = [
           options: {
             fromHeading: 2,
             toHeading: 3,
-            className: "markdown__toc"
+            className: "markdown__toc",
+            tight: true
           }
         },
         `gatsby-remark-prismjs`,

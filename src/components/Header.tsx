@@ -9,15 +9,19 @@ export interface HeaderProps {
   subTitle?: string;
 }
 
-export default function Header({ mainTitle, subTitle }: HeaderProps) {
-  if (mainTitle === undefined) {
-    return null;
-  }
+export default function Header(props: HeaderProps) {
+  const renderHeader = ({ mainTitle, subTitle }: HeaderProps) => {
+    if (mainTitle === undefined) {
+      return null;
+    }
 
-  return (
-    <header id="top">
-      <h1>{mainTitle}</h1>
-      {subTitle && <h2>{subTitle}</h2>}
-    </header>
-  );
+    return (
+      <>
+        <h1>{mainTitle}</h1>
+        {subTitle && <h2>{subTitle}</h2>}
+      </>
+    );
+  };
+
+  return <header id="top">{renderHeader(props)}</header>;
 }

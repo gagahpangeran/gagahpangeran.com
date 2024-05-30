@@ -80,9 +80,9 @@ const NativeShareButton = ({
   title,
   toggleError
 }: NativeShareButtonProps) => {
-  const data = {
+  const data: ShareData = {
     title,
-    link
+    url: link
   };
 
   const handleClick = async () => {

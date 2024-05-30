@@ -35,6 +35,12 @@ in the [closing section](#closing-and-some-story).
 Overall, I like the challenges, especially bbsqli. Because I could solve it
 using only my phone and also I learn something new about SQL Quine.
 
+Here is the table of content of this writeup.
+
+```toc
+exclude: Closing And Some Story
+```
+
 ## Misc
 
 I only solve bonus challenge in misc. So nothing interesting here.

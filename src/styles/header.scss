@@ -1,6 +1,10 @@
 header {
   margin-bottom: 12px;
 
+  &:empty {
+    margin: 0;
+  }
+
   h1 {
     font-weight: bolder;
     overflow-wrap: break-word;

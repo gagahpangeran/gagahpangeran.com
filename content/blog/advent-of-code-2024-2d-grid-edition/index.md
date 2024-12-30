@@ -4,7 +4,7 @@
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: "Advent of Code 2024: 2D Grid Edition"
-date: "2024-12-29T23:45:00+07:00"
+date: "2024-12-30T16:00:00+07:00"
 featuredImage: "./img/aoc-2024.png"
 tags: ["Advent of Code", "Tech"]
 lang: "en"

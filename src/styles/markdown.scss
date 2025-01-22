@@ -53,11 +53,6 @@
 
     li {
       margin-bottom: 8px;
-
-      p:not(:first-child) {
-        font-style: italic;
-        color: var(--gray);
-      }
     }
   }
 

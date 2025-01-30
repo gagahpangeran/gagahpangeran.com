@@ -2,12 +2,16 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import { type Metadata } from "next";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "@/styles/index.scss";
 
-export const metadata = {
-  title: "GPR",
+export const metadata: Metadata = {
+  title: {
+    template: "%s | GPR",
+    default: "GPR"
+  },
   description: "Low Budget Programmer"
 };
 

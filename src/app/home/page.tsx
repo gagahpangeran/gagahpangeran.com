@@ -2,8 +2,13 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import { type Metadata } from "next";
 import Image from "next/image";
 import icon from "@/app/icon.png";
+
+export const metadata: Metadata = {
+  title: "Home"
+};
 
 const email = "gpr@gagahpangeran.com";
 

@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "build:clean": "yarn clean && yarn build",
     "clean": "gatsby clean",
+    "dev": "next dev",
     "develop": "gatsby develop",
     "format": "yarn format:prettier && yarn format:eslint",
     "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",

@@ -3,6 +3,7 @@
 // Read the LICENSE file in the repository root for full license text
 
 import Link from "next/link";
+import Page from "@/templates/Page";
 import { getAllReleases } from "@/utils/github";
 
 const title = "Changelog";
@@ -29,5 +30,9 @@ const renderChangelogList = (data: string[]) => {
 export default async function ChangelogPage() {
   const allReleases = await getAllReleases();
 
-  return <main className="changelog">{renderChangelogList(allReleases)}</main>;
+  return (
+    <Page mainTitle={title} subTitle={desc}>
+      <main className="changelog">{renderChangelogList(allReleases)}</main>;
+    </Page>
+  );
 }

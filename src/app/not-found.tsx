@@ -4,6 +4,7 @@
 
 import { type Metadata } from "next";
 import Link from "next/link";
+import Page from "@/templates/Page";
 
 export const metadata: Metadata = {
   title: "Not Found"
@@ -14,11 +15,13 @@ export default function NotFoundPage() {
   const desc = "The page doesn't exist (or maybe I haven't build it yet 😜)";
 
   return (
-    <main className="not-found">
-      <h3 className="not-found__desc">{desc}</h3>
-      <Link className="not-found__link" href="/home/">
-        Back to home
-      </Link>
-    </main>
+    <Page mainTitle={title}>
+      <main className="not-found">
+        <h3 className="not-found__desc">{desc}</h3>
+        <Link className="not-found__link" href="/home/">
+          Back to home
+        </Link>
+      </main>
+    </Page>
   );
 }

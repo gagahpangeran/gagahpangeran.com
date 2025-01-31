@@ -38,7 +38,7 @@ export default function RootLayout({
       <body className={`${latoFont.variable} ${rubikFont.variable}`}>
         <div className="wrapper">
           <Navbar />
-          <div className="content">{children}</div>
+          {children}
           <Footer />
         </div>
       </body>

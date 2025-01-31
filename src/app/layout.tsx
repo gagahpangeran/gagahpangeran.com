@@ -3,6 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { type Metadata } from "next";
+import { Lato, Rubik } from "next/font/google";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "@/styles/index.scss";
@@ -15,6 +16,18 @@ export const metadata: Metadata = {
   description: "Low Budget Programmer"
 };
 
+const latoFont = Lato({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-lato"
+});
+
+const rubikFont = Rubik({
+  subsets: ["latin"],
+  weight: ["300", "500", "800"],
+  variable: "--font-rubik"
+});
+
 export default function RootLayout({
   children
 }: {
@@ -22,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${latoFont.variable} ${rubikFont.variable}`}>
         <div className="wrapper">
           <Navbar />
           <div className="content">{children}</div>

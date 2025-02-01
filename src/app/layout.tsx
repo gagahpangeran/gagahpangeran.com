@@ -4,9 +4,14 @@
 
 import { type Metadata } from "next";
 import { Lato, Rubik } from "next/font/google";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@/styles/index.scss";
+
+config.autoAddCss = false;
 
 export const metadata: Metadata = {
   title: {

@@ -53,6 +53,7 @@
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-remark": "^6.13.1",
     "gatsby-transformer-sharp": "^5.13.1",
+    "gray-matter": "^4.0.3",
     "katex": "^0.16.10",
     "lodash.kebabcase": "^4.1.1",
     "next": "^15.1.6",

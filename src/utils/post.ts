@@ -34,11 +34,7 @@ export interface PostData extends FrontmatterData {
 
 const postsDirectory = join(process.cwd(), "content/blog");
 
-export function getAllPosts(page: number) {
-  if (page <= 0) {
-    throw new Error("Page number must be positive.");
-  }
-
+export function getAllPosts(page?: number) {
   const dateComparator = (post1: PostData, post2: PostData) =>
     new Date(post1.date) > new Date(post2.date) ? -1 : 1;
 
@@ -49,6 +45,14 @@ export function getAllPosts(page: number) {
     .map(getPostBySlug)
     .filter(filterFn)
     .sort(dateComparator);
+
+  if (page == null) {
+    return { posts: allPosts, totalPage: 0 };
+  }
+
+  if (page <= 0) {
+    throw new Error("Page number must be positive.");
+  }
 
   const postPerPage = 5;
   const totalPage = Math.ceil(allPosts.length / postPerPage);

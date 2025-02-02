@@ -18,9 +18,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function BlogPagination({
   params
 }: {
-  params: Promise<{ page: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const page = Number((await params).page);
+  const { slug } = await params;
+  const page = Number(slug);
 
   if (isNaN(page) || page < 0) {
     notFound();

@@ -21,7 +21,7 @@ interface Props {
 interface NavData {
   slug: string;
   title: string;
-  image: ImageData;
+  image?: ImageData;
 }
 interface NavLinkProps {
   type: "Newer" | "Older";

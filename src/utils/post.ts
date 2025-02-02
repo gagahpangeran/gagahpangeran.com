@@ -32,13 +32,42 @@ export interface PostData extends FrontmatterData {
   image: ImageData;
 }
 
+interface GetAllPostsParams {
+  page?: number;
+  type?: "tag" | "lang";
+  value?: string;
+}
+
 const postsDirectory = join(process.cwd(), "content/blog");
 
-export function getAllPosts(page?: number) {
+export function getAllPosts({ page, type, value }: GetAllPostsParams) {
   const dateComparator = (post1: PostData, post2: PostData) =>
     new Date(post1.date) > new Date(post2.date) ? -1 : 1;
 
-  const filterFn = (post: PostData | null) => post != null;
+  const filterFn = (post: PostData | null): post is PostData => {
+    if (post == null) {
+      return false;
+    }
+
+    if (type != null) {
+      if (
+        type === "tag" &&
+        post.tags
+          .map(tag => tag.toLowerCase())
+          .includes(value?.replaceAll("-", " ").toLowerCase() ?? "")
+      ) {
+        return true;
+      }
+
+      if (type === "lang" && post.lang === value) {
+        return true;
+      }
+
+      return false;
+    }
+
+    return true;
+  };
 
   const slugs = fs.readdirSync(postsDirectory);
   const allPosts = slugs
@@ -114,7 +143,7 @@ export function getPostBySlug(slug: string): PostData | null {
 }
 
 export function getOlderNewerPost(slug: string) {
-  const { posts } = getAllPosts();
+  const { posts } = getAllPosts({});
   const len = posts.length;
 
   for (let i = 0; i < len; i++) {

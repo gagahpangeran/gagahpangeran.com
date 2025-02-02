@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function BlogPage({ page }: { page?: number }) {
   const pageNumber = page ?? 1;
-  const { posts, totalPage } = getAllPosts(pageNumber);
+  const { posts, totalPage } = getAllPosts({ page: pageNumber });
 
   const { pageTitle, pageDesc } = getBlogMetaData({
     type: "Blog",

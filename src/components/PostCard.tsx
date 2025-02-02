@@ -2,12 +2,11 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import Link from "next/link";
+import Image from "next/image";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
-import React from "react";
-import { getPostData } from "../utils/data";
+import { type PostData } from "@/utils/post";
 import PostLabel from "./PostLabel";
 
 const PostCard = ({
@@ -19,17 +18,13 @@ const PostCard = ({
   image,
   tags,
   lang
-}: ReturnType<typeof getPostData>) => {
-  if (image == null) {
-    throw Error(`Image of post '${title}' not found`);
-  }
-
+}: PostData) => {
   return (
     <article className="post-card">
-      <Link to={slug} title={title} className="post-card__header">
+      <Link href={slug} title={title} className="post-card__header">
         <div className="post-card__thumbnail">
-          <GatsbyImage
-            image={image}
+          <Image
+            {...image}
             className="post-card__image"
             alt={title}
             title={title}
@@ -45,10 +40,7 @@ const PostCard = ({
       </Link>
       <div className="post-card__info">
         <PostLabel tags={tags} lang={lang} />
-        <div
-          className="post-card__summary"
-          dangerouslySetInnerHTML={{ __html: description }}
-        />
+        <div className="post-card__summary">{description}</div>
       </div>
     </article>
   );

@@ -7,16 +7,22 @@ import Pagination from "@/components/Pagination";
 import PostCard from "@/components/PostCard";
 import Page from "./Page";
 
-export default function Blog({ page }: { page: number }) {
-  const { posts, totalPage } = getAllPosts(page);
+interface Props {
+  title: string;
+  description: string;
+  pageNumber: number;
+}
+
+export default function Blog({ title, description, pageNumber }: Props) {
+  const { posts, totalPage } = getAllPosts(pageNumber);
 
   return (
-    <Page mainTitle="Blog" subTitle="Show All Posts in Blog">
+    <Page mainTitle={title} subTitle={description}>
       {posts.map(post => (
         <PostCard key={post.slug} {...post} />
       ))}
 
-      <Pagination path="/blog/" numPages={totalPage} page={page} />
+      <Pagination path="/blog/" numPages={totalPage} page={pageNumber} />
     </Page>
   );
 }

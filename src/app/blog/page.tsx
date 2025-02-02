@@ -4,12 +4,23 @@
 
 import { type Metadata } from "next";
 import Blog from "@/templates/Blog";
+import { getBlogMetaData } from "@/utils/data";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "All Posts in Blog"
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, desc } = getBlogMetaData({ type: "Blog", filterValue: "" });
+  return {
+    title,
+    description: desc
+  };
+}
 
 export default function BlogPage({ page }: { page?: number }) {
-  return <Blog page={page ?? 1} />;
+  const { pageTitle, pageDesc } = getBlogMetaData({
+    type: "Blog",
+    filterValue: ""
+  });
+
+  return (
+    <Blog title={pageTitle} description={pageDesc} pageNumber={page ?? 1} />
+  );
 }

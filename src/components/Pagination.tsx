@@ -2,9 +2,8 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import React from "react";
-import { Link } from "gatsby";
-import classModifiers from "../utils/css";
+import Link from "next/link";
+import classModifiers from "@/utils/css";
 
 interface Props {
   numPages: number;
@@ -29,7 +28,7 @@ export default function Pagination({ numPages, page, path }: Props) {
           >
             <Link
               className="pagination__link"
-              to={`${path}${index === 0 ? "" : `${index + 1}/`}`}
+              href={`${path}${index === 0 ? "" : `${index + 1}/`}`}
             >
               {index + 1}
             </Link>

@@ -113,6 +113,22 @@ export function getPostBySlug(slug: string): PostData | null {
   return postData;
 }
 
+export function getOlderNewerPost(slug: string) {
+  const { posts } = getAllPosts();
+  const len = posts.length;
+
+  for (let i = 0; i < len; i++) {
+    if (posts[i].slug === slug) {
+      const newerPost = i - 1 >= 0 ? posts[i - 1] : null;
+      const olderPost = i + 1 < len ? posts[i + 1] : null;
+
+      return { newerPost, olderPost };
+    }
+  }
+
+  return null;
+}
+
 function getImageData(imagePath: string): ImageData {
   const fullPath = join(postsDirectory, imagePath);
   const { width, height } = imageSize(fullPath);

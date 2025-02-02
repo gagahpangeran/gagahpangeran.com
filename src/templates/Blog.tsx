@@ -13,6 +13,7 @@ interface Props {
   posts: PostData[];
   pageNumber: number;
   totalPage: number;
+  paginationPath: string;
 }
 
 export default function Blog({
@@ -20,7 +21,8 @@ export default function Blog({
   description,
   posts,
   pageNumber,
-  totalPage
+  totalPage,
+  paginationPath
 }: Props) {
   return (
     <Page mainTitle={title} subTitle={description}>
@@ -28,7 +30,11 @@ export default function Blog({
         <PostCard key={post.slug} {...post} />
       ))}
 
-      <Pagination path="/blog/" numPages={totalPage} page={pageNumber} />
+      <Pagination
+        path={paginationPath}
+        numPages={totalPage}
+        page={pageNumber}
+      />
     </Page>
   );
 }

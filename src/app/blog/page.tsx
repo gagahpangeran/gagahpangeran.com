@@ -31,6 +31,7 @@ export default function BlogPage({ page }: { page?: number }) {
       posts={posts}
       pageNumber={pageNumber}
       totalPage={totalPage}
+      paginationPath="/blog/"
     />
   );
 }

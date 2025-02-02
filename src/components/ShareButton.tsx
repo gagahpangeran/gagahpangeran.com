@@ -2,6 +2,8 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+"use client";
+
 import {
   faCopy,
   faClipboardCheck,

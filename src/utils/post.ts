@@ -42,8 +42,13 @@ export function getAllPosts(page: number) {
   const dateComparator = (post1: PostData, post2: PostData) =>
     new Date(post1.date) > new Date(post2.date) ? -1 : 1;
 
+  const filterFn = (post: PostData | null) => post != null;
+
   const slugs = fs.readdirSync(postsDirectory);
-  const allPosts = slugs.map(getPostBySlug).sort(dateComparator);
+  const allPosts = slugs
+    .map(getPostBySlug)
+    .filter(filterFn)
+    .sort(dateComparator);
 
   const postPerPage = 5;
   const totalPage = Math.ceil(allPosts.length / postPerPage);
@@ -54,8 +59,13 @@ export function getAllPosts(page: number) {
   return { posts, totalPage };
 }
 
-export function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string): PostData | null {
   const markdownPath = join(postsDirectory, slug, "index.md");
+
+  if (!fs.existsSync(markdownPath)) {
+    return null;
+  }
+
   const fileContent = fs.readFileSync(markdownPath, "utf8");
   const grayMatter = matter(fileContent, {
     excerpt_separator: "<!-- excerpt -->"
@@ -66,11 +76,13 @@ export function getPostBySlug(slug: string) {
   const excerpt = grayMatter.excerpt?.trim() ?? "";
 
   if (content.length === 0) {
-    throw new Error("Post does not have any content.");
+    console.error("Post does not have any content.");
+    return null;
   }
 
   if (excerpt.length === 0) {
-    throw new Error("Post does not have any excerpt.");
+    console.error("Post does not have any excerpt.");
+    return null;
   }
 
   const date = new Date(frontmatter.date).toLocaleDateString("en-US", {

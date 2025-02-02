@@ -2,12 +2,12 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import Link from "next/link";
+import Image from "next/image";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "gatsby";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
-import React from "react";
-import classModifiers from "../utils/css";
+import { type ImageData } from "@/utils/post";
+import classModifiers from "@/utils/css";
 
 type SizeType = "big" | "small";
 
@@ -21,7 +21,7 @@ interface Props {
 interface NavData {
   slug: string;
   title: string;
-  image?: IGatsbyImageData;
+  image: ImageData;
 }
 interface NavLinkProps {
   type: "Newer" | "Older";
@@ -39,12 +39,12 @@ const PageNavLink = ({ type, data, suffix, size }: NavLinkProps) => {
 
   return (
     <Link
-      to={slug}
+      href={slug}
       className={classModifiers("page-nav__link", type.toLowerCase())}
     >
       {image !== undefined && (
-        <GatsbyImage
-          image={image}
+        <Image
+          {...image}
           className="page-nav__image"
           alt={title}
           title={title}

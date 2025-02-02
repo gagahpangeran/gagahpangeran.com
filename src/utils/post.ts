@@ -9,7 +9,7 @@ import imageSize from "image-size";
 
 type Language = "en" | "id";
 
-interface ImageData {
+export interface ImageData {
   src: string;
   width: number;
   height: number;

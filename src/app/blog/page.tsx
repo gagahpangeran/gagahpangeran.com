@@ -5,6 +5,7 @@
 import { type Metadata } from "next";
 import Blog from "@/templates/Blog";
 import { getBlogMetaData } from "@/utils/data";
+import { getAllPosts } from "@/utils/post";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { title, desc } = getBlogMetaData({ type: "Blog", filterValue: "" });
@@ -15,12 +16,21 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function BlogPage({ page }: { page?: number }) {
+  const pageNumber = page ?? 1;
+  const { posts, totalPage } = getAllPosts(pageNumber);
+
   const { pageTitle, pageDesc } = getBlogMetaData({
     type: "Blog",
     filterValue: ""
   });
 
   return (
-    <Blog title={pageTitle} description={pageDesc} pageNumber={page ?? 1} />
+    <Blog
+      title={pageTitle}
+      description={pageDesc}
+      posts={posts}
+      pageNumber={pageNumber}
+      totalPage={totalPage}
+    />
   );
 }

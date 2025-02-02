@@ -158,6 +158,12 @@ export function getOlderNewerPost(slug: string) {
   return null;
 }
 
+export function getAllPostTags() {
+  const { posts } = getAllPosts({});
+  const tags = Array.from(new Set(posts.map(post => post.tags).flat()));
+  return tags;
+}
+
 function getImageData(imagePath: string): ImageData {
   const fullPath = join(postsDirectory, imagePath);
   const { width, height } = imageSize(fullPath);

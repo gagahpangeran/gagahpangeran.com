@@ -2,6 +2,8 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import { getAllPostTags } from "./post";
+
 export const langMap = new Map([
   ["id", "Bahasa Indonesia"],
   ["en", "English"]
@@ -59,10 +61,24 @@ export function getBlogMetaData({
     const lang = langMap.get(filterValue);
 
     if (lang == null) {
-      throw new Error("Language is not valid");
+      throw new Error(`Language ${filterValue} is not valid`);
     }
 
     filterValue = lang;
+  }
+
+  if (type === "Tag") {
+    const tags = getAllPostTags();
+    const tag = tags.find(
+      tag =>
+        tag.toLowerCase() === filterValue.replaceAll("-", " ").toLowerCase()
+    );
+
+    if (tag == null) {
+      throw new Error(`Tag ${filterValue} not found`);
+    }
+
+    filterValue = tag;
   }
 
   let title = type;

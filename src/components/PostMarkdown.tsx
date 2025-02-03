@@ -4,10 +4,13 @@
 
 import path from "path";
 import Image from "next/image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { getImageData } from "@/utils/post";
 import rehypeUnwrapImages from "rehype-unwrap-images";
+import rehypeSlug from "rehype-slug";
+import { getImageData } from "@/utils/post";
 
 interface Props {
   children: string | null | undefined;
@@ -26,6 +29,26 @@ export default function PostMarkdown({ children, slug }: Props) {
           <figcaption>{props.title}</figcaption>
         </figure>
       );
+    },
+    h2(props) {
+      return (
+        <h2 id={props.id}>
+          {String(props.children)}
+          <a href={`#${props.id}`} className="markdown__header-link">
+            <FontAwesomeIcon icon={faLink} />
+          </a>
+        </h2>
+      );
+    },
+    h3(props) {
+      return (
+        <h3 id={props.id}>
+          {String(props.children)}
+          <a href={`#${props.id}`} className="markdown__header-link">
+            <FontAwesomeIcon icon={faLink} />
+          </a>
+        </h3>
+      );
     }
   };
 
@@ -33,7 +56,7 @@ export default function PostMarkdown({ children, slug }: Props) {
     <ReactMarkdown
       className="markdown"
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeUnwrapImages]}
+      rehypePlugins={[rehypeUnwrapImages, rehypeSlug]}
       components={markdownComponent}
     >
       {children}

@@ -3,6 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import path from "path";
+import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
@@ -12,7 +13,7 @@ import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypeSlug from "rehype-slug";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import { getImageData } from "@/utils/post";
+import { getFileUrl, getImageData } from "@/utils/post";
 
 interface Props {
   children: string | null | undefined;
@@ -21,6 +22,24 @@ interface Props {
 
 export default function PostMarkdown({ children, slug }: Props) {
   const markdownComponent: Partial<Components> = {
+    a(props) {
+      const url = props.href ?? "";
+
+      if (url.startsWith("/")) {
+        return <Link href={url}>{props.children as React.ReactNode}</Link>;
+      }
+
+      if (url.startsWith("./")) {
+        const href = getFileUrl(path.join("blog", slug, url));
+        return <a href={href}>{props.children as React.ReactNode}</a>;
+      }
+
+      return (
+        <a href={url} target="_blank" rel="nofollow noopener noreferrer">
+          {props.children as React.ReactNode}
+        </a>
+      );
+    },
     img(props) {
       const image = getImageData(path.join(slug, props.src ?? ""));
       return (

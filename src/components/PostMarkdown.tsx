@@ -10,6 +10,8 @@ import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypeSlug from "rehype-slug";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 import { getImageData } from "@/utils/post";
 
 interface Props {
@@ -55,8 +57,12 @@ export default function PostMarkdown({ children, slug }: Props) {
   return (
     <ReactMarkdown
       className="markdown"
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeUnwrapImages, rehypeSlug]}
+      remarkPlugins={[remarkGfm, remarkMath]}
+      rehypePlugins={[
+        rehypeUnwrapImages,
+        rehypeSlug,
+        [rehypeKatex, { strict: "ignore" }]
+      ]}
       components={markdownComponent}
     >
       {children}

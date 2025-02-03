@@ -164,6 +164,10 @@ export function getAllPostTags() {
   return tags;
 }
 
+export function getFileUrl(filePath: string) {
+  return join("/api/files/", filePath);
+}
+
 export function getImageData(imagePath: string): ImageData {
   const fullPath = join(postsDirectory, imagePath);
   const { width, height } = imageSize(fullPath);
@@ -176,7 +180,7 @@ export function getImageData(imagePath: string): ImageData {
     throw new Error(`Image ${imagePath} has no height.`);
   }
 
-  const src = join("/api/files/blog", imagePath);
+  const src = getFileUrl(join("blog", imagePath));
 
   return {
     width,

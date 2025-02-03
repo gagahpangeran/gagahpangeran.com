@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "katex/dist/katex.min.css";
 import "@/styles/index.scss";
 
 config.autoAddCss = false;

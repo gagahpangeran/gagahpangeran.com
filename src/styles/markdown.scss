@@ -39,6 +39,12 @@
     color: var(--gray);
   }
 
+  h2,
+  h3 {
+    display: flex;
+    align-items: center;
+  }
+
   img {
     max-width: 100%;
     height: auto;
@@ -91,14 +97,14 @@
   }
 
   &__header-link {
-    fill: var(--gray);
     margin-left: 8px;
+    display: inline-block;
+    color: var(--gray);
+    font-size: 0.6em;
 
     svg {
       @include transition(opacity);
-      transform: scale(1.5);
-      visibility: visible !important;
-      opacity: 0.6;
+      opacity: 0.5;
 
       &:hover {
         opacity: 1;

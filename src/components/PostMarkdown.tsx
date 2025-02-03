@@ -10,6 +10,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeUnwrapImages from "rehype-unwrap-images";
+import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -78,6 +79,7 @@ export default function PostMarkdown({ children, slug }: Props) {
       className="markdown"
       remarkPlugins={[remarkGfm, remarkMath]}
       rehypePlugins={[
+        rehypeRaw,
         rehypeUnwrapImages,
         rehypeSlug,
         [rehypeKatex, { strict: "ignore" }]

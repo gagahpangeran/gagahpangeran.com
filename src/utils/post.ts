@@ -164,7 +164,7 @@ export function getAllPostTags() {
   return tags;
 }
 
-function getImageData(imagePath: string): ImageData {
+export function getImageData(imagePath: string): ImageData {
   const fullPath = join(postsDirectory, imagePath);
   const { width, height } = imageSize(fullPath);
 

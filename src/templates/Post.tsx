@@ -5,10 +5,10 @@
 import Image from "next/image";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ReactMarkdown from "react-markdown";
 import PostLabel from "@/components/PostLabel";
 import ShareButton from "@/components/ShareButton";
 import PageNav from "@/components/PageNav";
+import PostMarkdown from "@/components/PostMarkdown";
 import { getOlderNewerPost, type PostData } from "@/utils/post";
 import Page from "./Page";
 
@@ -37,7 +37,7 @@ export default function Post({ post }: Props) {
             title={title}
           />
         </a>
-        <ReactMarkdown className="markdown">{content}</ReactMarkdown>
+        <PostMarkdown slug={slug}>{content}</PostMarkdown>
       </article>
 
       {otherPost && (

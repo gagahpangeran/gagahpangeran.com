@@ -52,6 +52,10 @@ export default function PostMarkdown({ children, slug }: Props) {
         </figure>
       );
     },
+    source(props) {
+      const src = getFileUrl(path.join("blog", slug, props.src ?? ""));
+      return <source src={src} type={props.type} />;
+    },
     h2(props) {
       return (
         <h2 id={props.id}>

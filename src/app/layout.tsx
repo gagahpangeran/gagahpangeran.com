@@ -10,6 +10,7 @@ import Navbar from "@/components/Navbar";
 import { classAll } from "@/utils/css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import "prismjs/themes/prism-tomorrow.css";
 import "katex/dist/katex.min.css";
 import "@/styles/index.scss";
 

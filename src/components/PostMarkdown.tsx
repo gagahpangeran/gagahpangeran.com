@@ -14,6 +14,7 @@ import rehypeRaw from "rehype-raw";
 import rehypeSlug from "rehype-slug";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { getFileUrl, getImageData } from "@/utils/post";
 
 interface Props {
@@ -22,7 +23,7 @@ interface Props {
 }
 
 export default function PostMarkdown({ children, slug }: Props) {
-  const markdownComponent: Partial<Components> = {
+  const markdownComponents: Components = {
     a(props) {
       const url = props.href ?? "";
 
@@ -75,6 +76,29 @@ export default function PostMarkdown({ children, slug }: Props) {
           </a>
         </h3>
       );
+    },
+    code(props) {
+      const { children, className } = props;
+      const match = /language-(\w+)/.exec(className ?? "");
+      if (match) {
+        const language = match[1];
+
+        return (
+          // @ts-expect-error TODO: fix this type error
+          <SyntaxHighlighter
+            language={language}
+            style={{}}
+            className={`language-${language}`}
+            useInlineStyles={false}
+          >
+            {String(children)}
+          </SyntaxHighlighter>
+        );
+      }
+
+      return (
+        <code className={`language-text`}>{children as React.ReactNode}</code>
+      );
     }
   };
 
@@ -88,7 +112,7 @@ export default function PostMarkdown({ children, slug }: Props) {
         rehypeSlug,
         [rehypeKatex, { strict: "ignore" }]
       ]}
-      components={markdownComponent}
+      components={markdownComponents}
     >
       {children}
     </ReactMarkdown>

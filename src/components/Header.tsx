@@ -2,8 +2,6 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import React from "react";
-
 export interface HeaderProps {
   mainTitle?: string;
   subTitle?: string;
@@ -23,5 +21,5 @@ export default function Header(props: HeaderProps) {
     );
   };
 
-  return <header id="top">{renderHeader(props)}</header>;
+  return <header id="header">{renderHeader(props)}</header>;
 }

@@ -10,7 +10,7 @@ export default function Footer() {
       <h6>
         &copy; 2019-{new Date().getFullYear()} GPR •{" "}
         <Link href="/changelog/">Changelog</Link> •{" "}
-        <Link href="#top">Go To Top</Link>
+        <a href="#header">Go To Top</a>
       </h6>
     </footer>
   );

@@ -3,10 +3,11 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { type Metadata } from "next";
-import { Lato, Rubik } from "next/font/google";
+import { Lato, Rubik, Fira_Code } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { classAll } from "@/utils/css";
 
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "katex/dist/katex.min.css";
@@ -34,6 +35,11 @@ const rubikFont = Rubik({
   variable: "--font-rubik"
 });
 
+const firaCodeFont = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-fira-code"
+});
+
 export default function RootLayout({
   children
 }: {
@@ -41,7 +47,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${latoFont.variable} ${rubikFont.variable}`}>
+      <body
+        className={classAll([
+          latoFont.variable,
+          rubikFont.variable,
+          firaCodeFont.variable
+        ])}
+      >
         <div className="wrapper">
           <Navbar />
           {children}

@@ -11,8 +11,8 @@ $block: 'pre[class*="language-"]';
 #{$inline},
 #{$block} {
   font-size: 1.125rem;
-  font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono",
-    monospace;
+  font-family: var(--font-fira-code), Consolas, Monaco, "Andale Mono",
+    "Ubuntu Mono", monospace;
 
   @include mobile {
     font-size: 1rem;

@@ -26,3 +26,7 @@ export default function classModifiers(
 
   return withModifiers;
 }
+
+export function classAll(...classNames: Array<string | string[]>) {
+  return classNames.flat().join(" ");
+}

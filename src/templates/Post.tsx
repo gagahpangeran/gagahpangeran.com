@@ -28,7 +28,7 @@ export default function Post({ post }: Props) {
           {date}
         </time>
         <PostLabel tags={tags} lang={lang} />
-        <ShareButton link={slug} title={title} />
+        <ShareButton title={title} />
         <a href={image.src} target="_blank" rel="noopener noreferrer">
           <Image
             {...image}

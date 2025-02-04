@@ -9,54 +9,14 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
-export type BlogPageContextType = "Blog" | "Tag" | "Language";
+type BlogPageType = "Blog" | "Tag" | "Language";
 
-export interface BlogPageContext {
-  type: BlogPageContextType;
+interface BlogMetadataParams {
+  type: BlogPageType;
   filterValue: string;
-  basePath: string;
-  page: number;
-  numPages: number;
 }
 
-export const postKeyMap: {
-  [key in BlogPageContextType]: keyof Queries.BlogTemplateQuery;
-} = {
-  Blog: "posts",
-  Tag: "tags",
-  Language: "langs"
-};
-
-export function getPostData(data: Queries.PostDetailFragment | null) {
-  if (data == null) {
-    throw new Error("Post does not have any data");
-  }
-
-  const { id, html, excerpt, fields, frontmatter } = data;
-
-  if (excerpt == null) {
-    throw new Error("Post does not have any excerpt");
-  }
-
-  if (html == null) {
-    throw new Error("Post does not have any html content");
-  }
-
-  return {
-    id,
-    ...frontmatter,
-    description: excerpt.replaceAll("\n", " "),
-    slug: fields.slug,
-    html,
-    image: frontmatter.featuredImage?.childImageSharp?.gatsbyImageData,
-    imageUrl: frontmatter?.featuredImage?.publicURL ?? ""
-  };
-}
-
-export function getBlogMetaData({
-  type,
-  filterValue
-}: Omit<BlogPageContext, "basePath" | "page" | "numPages">) {
+export function getBlogMetaData({ type, filterValue }: BlogMetadataParams) {
   if (type === "Language") {
     const lang = langMap.get(filterValue);
 

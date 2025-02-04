@@ -1,15 +1,14 @@
 {
   "name": "gpr",
   "private": true,
-  "description": "GPR's website built using Gatsby and Markdown",
+  "description": "GPR's website built using NextJS and Markdown",
   "version": "0.1.0",
   "author": "GPR <gpr@gagahpangeran.com>",
   "scripts": {
-    "build": "gatsby build",
+    "build": "next build",
     "build:clean": "yarn clean && yarn build",
-    "clean": "gatsby clean",
+    "clean": "rm -rf ./.next",
     "dev": "next dev",
-    "develop": "gatsby develop",
     "format": "yarn format:prettier && yarn format:eslint",
     "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
     "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
@@ -19,9 +18,7 @@
     "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
     "new:blog": "tsx ./scripts/new-blog.ts",
     "prepare": "husky",
-    "start": "gatsby develop",
-    "start:clean": "yarn clean && yarn start",
-    "serve": "gatsby serve",
+    "start": "next start",
     "type-check": "tsc --noEmit",
     "test": "jest",
     "test:cov": "yarn test --coverage"
@@ -80,9 +77,6 @@
     "tsx": "^4.7.2",
     "typescript": "^5.4.5"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,md,scss}": [

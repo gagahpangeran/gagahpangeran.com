@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
-import classModifiers from "../utils/css";
+import { classModifiers } from "@/utils/css";
 
 interface Props {
   link: string;

@@ -7,7 +7,7 @@ import Image from "next/image";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { type ImageData } from "@/utils/post";
-import classModifiers from "@/utils/css";
+import { classModifiers } from "@/utils/css";
 
 type SizeType = "big" | "small";
 

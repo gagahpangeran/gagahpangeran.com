@@ -3,7 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import Link from "next/link";
-import classModifiers from "@/utils/css";
+import { classModifiers } from "@/utils/css";
 
 interface Props {
   numPages: number;

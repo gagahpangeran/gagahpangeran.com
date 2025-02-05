@@ -30,7 +30,6 @@
     "./scripts/**/*",
     "./src/**/*",
     "./test/**/*",
-    "./types/**/*",
     ".next/types/**/*.ts"
   ],
   "exclude": ["node_modules", "public", ".cache"]

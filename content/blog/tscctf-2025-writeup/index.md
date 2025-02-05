@@ -24,9 +24,24 @@ also find my other CTF writeup under [CTF][ctftag] tag.
 
 ---
 
-```toc
-exclude: Closing
-```
+- [Welcome](#welcome)
+  - [Give you a free flag](#give-you-a-free-flag)
+  - [Please Join Our Discord!!!](#please-join-our-discord)
+  - [Feedback Form](#feedback-form)
+- [Reverse](#reverse)
+  - [What_Happened](#what_happened)
+  - [Chill Checker](#chill-checker)
+  - [Gateway to the Reverse](#gateway-to-the-reverse)
+- [Crypto](#crypto)
+  - [Very Simple Login](#very-simple-login)
+  - [Classic](#classic)
+- [Pwn](#pwn)
+  - [gamble_bad_bad](#gamble_bad_bad)
+  - [Localstack](#localstack)
+  - [窗戶麵包](#窗戶麵包)
+- [Web](#web)
+  - [book](#book)
+  - [Beautiful World](#beautiful-world)
 
 ---
 

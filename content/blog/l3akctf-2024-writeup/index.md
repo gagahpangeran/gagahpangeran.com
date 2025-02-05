@@ -37,9 +37,20 @@ using only my phone and also I learn something new about SQL Quine.
 
 Here is the table of content of this writeup.
 
-```toc
-exclude: Closing And Some Story
-```
+- [Misc](#misc)
+  - [Sanity Check](#sanity-check)
+  - [Survey](#survey)
+- [Rev](#rev)
+  - [Hidden](#hidden)
+  - [Angry](#angry)
+- [Crypto](#crypto)
+  - [Really Simple Algorithm](#really-simple-algorithm)
+  - [Related](#related)
+- [Web](#web)
+  - [Simple calculator](#simple-calculator)
+  - [I'm the CEO](#im-the-ceo)
+  - [BatBot](#batbot)
+  - [bbsqli](#bbsqli)
 
 ## Misc
 

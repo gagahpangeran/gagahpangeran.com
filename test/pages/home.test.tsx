@@ -3,10 +3,9 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { render } from "@testing-library/react";
-import React from "react";
-import HomePage from "../../src/pages/home";
+import HomePage from "@/app/home/page";
 
-describe("Test 404 Page", () => {
+describe("Test Home Page", () => {
   it("Should render as expected", () => {
     const { getByText } = render(<HomePage />);
 

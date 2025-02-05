@@ -3,8 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { render } from "@testing-library/react";
-import React from "react";
-import NotFoundPage from "../../src/pages/404";
+import NotFoundPage from "@/app/not-found";
 
 describe("Test 404 Page", () => {
   it("Should render as expected", () => {

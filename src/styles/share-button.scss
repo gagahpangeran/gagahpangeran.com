@@ -2,11 +2,13 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .share-button {
   margin-bottom: 12px;
   font-size: 1rem;
 
-  @include mobile {
+  @include mixins.mobile {
     font-size: 0.8rem;
   }
 
@@ -14,7 +16,7 @@
     background: var(--blue);
     border: none;
 
-    @include button-label;
+    @include mixins.button-label;
 
     &__text {
       margin-left: 8px;
@@ -102,7 +104,7 @@
         &:hover::before {
           display: block;
 
-          @include mobile(tablet) {
+          @include mixins.mobile(tablet) {
             display: none;
           }
         }

@@ -36,11 +36,13 @@ export default function PostMarkdown({ children, slug }: Props) {
         return <a href={href}>{props.children as React.ReactNode}</a>;
       }
 
-      return (
+      if (url.startsWith("http")) {
         <a href={url} target="_blank" rel="nofollow noopener noreferrer">
           {props.children as React.ReactNode}
-        </a>
-      );
+        </a>;
+      }
+
+      return <a href={url}>{props.children as React.ReactNode}</a>;
     },
     img(props) {
       const image = getImageData(path.join(slug, props.src ?? ""));

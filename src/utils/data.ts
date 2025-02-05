@@ -80,3 +80,32 @@ export function getChangelogVersionData(
     olderData: generateChangelogData(olderVersion)
   };
 }
+
+export function getOtherMetadata(
+  title: string,
+  description?: string,
+  image?: string
+) {
+  title = `${title} | GPR`;
+  description ??= "Low Budget Programmer";
+  image ??= `/logo.png`;
+
+  const openGraph = {
+    title,
+    description,
+    type: "website",
+    images: [{ url: image }]
+  };
+
+  const twitter = {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [image]
+  };
+
+  return {
+    openGraph,
+    twitter
+  };
+}

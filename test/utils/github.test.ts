@@ -85,7 +85,7 @@ describe("Test getAllReleases function", () => {
 
     expect(async () => {
       await getAllReleases();
-    }).rejects.toThrowError("Failed to fetch all github releases");
+    }).rejects.toThrow("Failed to fetch all github releases");
   });
 });
 
@@ -106,6 +106,6 @@ describe("Test getReleaseContent function", () => {
 
     expect(async () => {
       await getReleaseContent("2022.01.02");
-    }).rejects.toThrowError("Failed to fetch github releases");
+    }).rejects.toThrow("Failed to fetch github releases");
   });
 });

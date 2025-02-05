@@ -3,6 +3,12 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { getBlogMetaData, getChangelogVersionData } from "../../src/utils/data";
+import * as UtilPost from "@/utils/post";
+
+jest.mock("@/utils/post", () => ({
+  ...jest.requireActual("@/utils/post"),
+  getAllPostTags: jest.fn()
+}));
 
 describe("Test getBlogMetaData function", () => {
   test("Index type", () => {
@@ -22,6 +28,8 @@ describe("Test getBlogMetaData function", () => {
   });
 
   test("Tags type", () => {
+    (UtilPost.getAllPostTags as jest.Mock).mockReturnValue(["Cloud", "Story"]);
+
     const result = getBlogMetaData({
       type: "Tag",
       filterValue: "Cloud"
@@ -60,7 +68,7 @@ describe("Test getBlogMetaData function", () => {
         filterValue: "xx"
       });
 
-    expect(result).toThrowError("Language is not valid");
+    expect(result).toThrow("Language xx is not valid");
   });
 });
 

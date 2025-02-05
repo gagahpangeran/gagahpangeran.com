@@ -28,28 +28,50 @@ export default function PostMarkdown({ children, slug }: Props) {
       const url = props.href ?? "";
 
       if (url.startsWith("/")) {
-        return <Link href={url}>{props.children as React.ReactNode}</Link>;
+        return (
+          <Link {...props} href={url}>
+            {props.children}
+          </Link>
+        );
       }
 
       if (url.startsWith("./")) {
         const href = getFileUrl(path.join("blog", slug, url));
-        return <a href={href}>{props.children as React.ReactNode}</a>;
+        return (
+          <a {...props} href={href}>
+            {props.children}
+          </a>
+        );
       }
 
       if (url.startsWith("http")) {
-        <a href={url} target="_blank" rel="nofollow noopener noreferrer">
-          {props.children as React.ReactNode}
+        <a
+          {...props}
+          href={url}
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          {props.children}
         </a>;
       }
 
-      return <a href={url}>{props.children as React.ReactNode}</a>;
+      return (
+        <a {...props} href={url}>
+          {props.children}
+        </a>
+      );
     },
     img(props) {
       const image = getImageData(path.join(slug, props.src ?? ""));
       return (
         <figure>
           <a href={image.src} target="_blank" rel="noopener noreferrer">
-            <Image {...image} alt={props.alt ?? ""} title={props.title} />
+            <Image
+              {...props}
+              {...image}
+              alt={props.alt ?? ""}
+              title={props.title}
+            />
           </a>
           <figcaption>{props.title}</figcaption>
         </figure>
@@ -57,11 +79,11 @@ export default function PostMarkdown({ children, slug }: Props) {
     },
     source(props) {
       const src = getFileUrl(path.join("blog", slug, props.src ?? ""));
-      return <source src={src} type={props.type} />;
+      return <source {...props} src={src} type={props.type} />;
     },
     h2(props) {
       return (
-        <h2 id={props.id}>
+        <h2 {...props} id={props.id}>
           {String(props.children)}
           <a href={`#${props.id}`} className="markdown__header-link">
             <FontAwesomeIcon icon={faLink} />
@@ -71,7 +93,7 @@ export default function PostMarkdown({ children, slug }: Props) {
     },
     h3(props) {
       return (
-        <h3 id={props.id}>
+        <h3 {...props} id={props.id}>
           {String(props.children)}
           <a href={`#${props.id}`} className="markdown__header-link">
             <FontAwesomeIcon icon={faLink} />
@@ -80,7 +102,7 @@ export default function PostMarkdown({ children, slug }: Props) {
       );
     },
     code(props) {
-      const { children, className } = props;
+      const { children, className, ...rest } = props;
       const match = /language-(\w+)/.exec(className ?? "");
       if (match) {
         const language = match[1];
@@ -88,6 +110,7 @@ export default function PostMarkdown({ children, slug }: Props) {
         return (
           // @ts-expect-error TODO: fix this type error
           <SyntaxHighlighter
+            {...rest}
             language={language}
             style={{}}
             className={`language-${language}`}
@@ -99,7 +122,9 @@ export default function PostMarkdown({ children, slug }: Props) {
       }
 
       return (
-        <code className={`language-text`}>{children as React.ReactNode}</code>
+        <code {...props} className={`language-text`}>
+          {children}
+        </code>
       );
     }
   };

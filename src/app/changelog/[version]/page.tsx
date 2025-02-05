@@ -2,13 +2,13 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-import { Metadata } from "next";
+import { type Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkGithub from "remark-github";
 import PageNav from "@/components/PageNav";
 import Page from "@/templates/Page";
-import { getChangelogVersionData } from "@/utils/data";
+import { getChangelogVersionData, getOtherMetadata } from "@/utils/data";
 import {
   getAllReleases,
   getGithubConstants,
@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: version,
-    description: desc
+    description: desc,
+    ...getOtherMetadata(version, desc)
   };
 }
 

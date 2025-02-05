@@ -4,14 +4,15 @@
 
 import { type Metadata } from "next";
 import Blog from "@/templates/Blog";
-import { getBlogMetaData } from "@/utils/data";
+import { getBlogMetaData, getOtherMetadata } from "@/utils/data";
 import { getAllPosts } from "@/utils/post";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { title, desc } = getBlogMetaData({ type: "Blog", filterValue: "" });
   return {
     title,
-    description: desc
+    description: desc,
+    ...getOtherMetadata(title, desc)
   };
 }
 

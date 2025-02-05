@@ -5,7 +5,7 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPost from "@/templates/Post";
-import { getBlogMetaData } from "@/utils/data";
+import { getBlogMetaData, getOtherMetadata } from "@/utils/data";
 import { getPostBySlug } from "@/utils/post";
 import Blog from "../page";
 
@@ -21,10 +21,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const postData = getPostBySlug(slug);
 
     if (postData != null) {
-      const { title, description } = postData;
+      const { title, description, image } = postData;
       return {
         title,
-        description
+        description,
+        ...getOtherMetadata(title, description, image.src)
       };
     }
   }
@@ -32,7 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { title, desc } = getBlogMetaData({ type: "Blog", filterValue: "" });
   return {
     title,
-    description: desc
+    description: desc,
+    ...getOtherMetadata(title, desc)
   };
 }
 

@@ -6,9 +6,11 @@ import { type Metadata } from "next";
 import Image from "next/image";
 import icon from "@/app/icon.png";
 import Page from "@/templates/Page";
+import { getOtherMetadata } from "@/utils/data";
 
 export const metadata: Metadata = {
-  title: "Home"
+  title: "Home",
+  ...getOtherMetadata("Home")
 };
 
 const email = "gpr@gagahpangeran.com";

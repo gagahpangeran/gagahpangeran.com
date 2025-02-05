@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { classModifiers, classAll } from "../../src/utils/css";
+import { classModifiers, classAll } from "@/utils/css";
 
 describe("Test classModifiers function", () => {
   test("Without modifiers", () => {

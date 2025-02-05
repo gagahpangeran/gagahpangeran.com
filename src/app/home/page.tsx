@@ -4,7 +4,6 @@
 
 import { type Metadata } from "next";
 import Image from "next/image";
-import icon from "@/app/icon.png";
 import Page from "@/templates/Page";
 import { getOtherMetadata } from "@/utils/data";
 
@@ -21,9 +20,10 @@ export default function HomePage() {
       <main className="home">
         <div>
           <Image
-            src={icon}
+            src="/logo.png"
             alt="GPR Logo"
             width={360}
+            height={360}
             className="home__image"
           />
           <h1 className="home__title">Gagah Pangeran Rosfatiputra</h1>

@@ -8,11 +8,11 @@ import { getPageMetadata, getOtherMetadata } from "@/utils/data";
 import { getAllPosts } from "@/utils/post";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, desc } = getPageMetadata({ type: "Blog", filterValue: "" });
+  const { title, description } = getPageMetadata({ type: "Blog" });
   return {
     title,
-    description: desc,
-    ...getOtherMetadata(title, desc)
+    description,
+    ...getOtherMetadata(title, description)
   };
 }
 
@@ -20,15 +20,15 @@ export default function BlogPage() {
   const pageNumber = 1;
   const { posts, totalPage } = getAllPosts({ page: pageNumber });
 
-  const { pageTitle, pageDesc } = getPageMetadata({
+  const { title, description } = getPageMetadata({
     type: "Blog",
     filterValue: ""
   });
 
   return (
     <Blog
-      title={pageTitle}
-      description={pageDesc}
+      title={title}
+      description={description}
       posts={posts}
       pageNumber={pageNumber}
       totalPage={totalPage}

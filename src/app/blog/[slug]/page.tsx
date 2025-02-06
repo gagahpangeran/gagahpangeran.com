@@ -30,11 +30,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
-  const { title, desc } = getPageMetadata({ type: "Blog", filterValue: "" });
+  const { title, description } = getPageMetadata({ type: "Blog" });
   return {
     title,
-    description: desc,
-    ...getOtherMetadata(title, desc)
+    description,
+    ...getOtherMetadata(title, description)
   };
 }
 
@@ -53,15 +53,15 @@ export default async function BlogPagination({ params }: Props) {
   }
 
   const { posts, totalPage } = getAllPosts({ page });
-  const { pageTitle, pageDesc } = getPageMetadata({
+  const { title, description } = getPageMetadata({
     type: "Blog",
     filterValue: ""
   });
 
   return (
     <Blog
-      title={pageTitle}
-      description={pageDesc}
+      title={title}
+      description={description}
       posts={posts}
       pageNumber={page}
       totalPage={totalPage}

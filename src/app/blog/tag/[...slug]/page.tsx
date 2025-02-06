@@ -16,15 +16,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const value = slug[0];
 
-  const { title, desc } = getPageMetadata({
+  const { title, description } = getPageMetadata({
     type: "Tag",
     filterValue: value
   });
 
   return {
     title,
-    description: desc,
-    ...getOtherMetadata(title, desc)
+    description,
+    ...getOtherMetadata(title, description)
   };
 }
 
@@ -48,15 +48,15 @@ export default async function BlogTag({ params }: Props) {
     value
   });
 
-  const { pageTitle, pageDesc } = getPageMetadata({
+  const { title, description } = getPageMetadata({
     type: "Tag",
     filterValue: value
   });
 
   return (
     <Blog
-      title={pageTitle}
-      description={pageDesc}
+      title={title}
+      description={description}
       posts={posts}
       pageNumber={page}
       totalPage={totalPage}

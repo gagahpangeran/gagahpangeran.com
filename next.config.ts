@@ -8,6 +8,11 @@ const nextConfig: NextConfig = {
         source: "/",
         destination: "/home",
         permanent: true
+      },
+      {
+        source: "/blog/category/:slug",
+        destination: "/blog/tag/:slug",
+        permanent: true
       }
     ];
   }

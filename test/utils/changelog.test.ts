@@ -4,7 +4,7 @@
 
 import {
   getAllReleases,
-  getChangelogVersionData,
+  getNewerOlderVersion,
   getGithubConstants,
   getReleaseContent
 } from "@/utils/changelog";
@@ -108,10 +108,20 @@ describe("Test getReleaseContent function", () => {
 });
 
 describe("Test getChangelogVersionData", () => {
-  const allReleasesMockData = ["2022.01.04", "2021.10.28", "2021.08.12"];
+  beforeAll(() => {
+    mockFetch.mockResolvedValue({
+      json: jest
+        .fn()
+        .mockResolvedValue([
+          { name: "2022.01.04" },
+          { name: "2021.10.28" },
+          { name: "2021.08.12" }
+        ])
+    });
+  });
 
-  test("First entry", () => {
-    const result = getChangelogVersionData("2022.01.04", allReleasesMockData);
+  test("First entry", async () => {
+    const result = await getNewerOlderVersion("2022.01.04");
 
     expect(result).toMatchObject({
       newerData: null,
@@ -122,8 +132,8 @@ describe("Test getChangelogVersionData", () => {
     });
   });
 
-  test("Last entry", () => {
-    const result = getChangelogVersionData("2021.08.12", allReleasesMockData);
+  test("Last entry", async () => {
+    const result = await getNewerOlderVersion("2021.08.12");
 
     expect(result).toMatchObject({
       newerData: {
@@ -134,8 +144,8 @@ describe("Test getChangelogVersionData", () => {
     });
   });
 
-  test("Middle entry", () => {
-    const result = getChangelogVersionData("2021.10.28", allReleasesMockData);
+  test("Middle entry", async () => {
+    const result = await getNewerOlderVersion("2021.10.28");
 
     expect(result).toMatchObject({
       newerData: {

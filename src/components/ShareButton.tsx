@@ -91,7 +91,7 @@ const NativeShareButton = ({
   const handleClick = async () => {
     try {
       await navigator.share(data);
-    } catch (error) {
+    } catch {
       toggleError();
     }
   };
@@ -112,7 +112,7 @@ const ShareButton = ({ title }: Props) => {
     if (typeof window !== "undefined") {
       setUrl(window.location.href);
     }
-  });
+  }, []);
 
   const toggleError = () => {
     setErrorState(true);

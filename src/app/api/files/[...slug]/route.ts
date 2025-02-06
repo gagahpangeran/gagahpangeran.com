@@ -17,7 +17,7 @@ export async function GET(
     const imageBuffer = fs.readFileSync(imagePath);
     const response = new NextResponse(imageBuffer);
     return response;
-  } catch (error) {
+  } catch {
     return new NextResponse("Image not found", { status: 404 });
   }
 }

@@ -40,7 +40,7 @@ export async function getAllReleases() {
     const allReleases = data?.map(({ name }) => name) ?? [];
 
     return allReleases;
-  } catch (error) {
+  } catch {
     throw Error("Failed to fetch all github releases");
   }
 }
@@ -62,7 +62,7 @@ export async function getReleaseContent(version: string) {
     const content = data?.body;
 
     return content;
-  } catch (error) {
+  } catch {
     throw Error("Failed to fetch github releases");
   }
 }

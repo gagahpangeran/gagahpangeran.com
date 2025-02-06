@@ -6,7 +6,7 @@ import {
   getAllReleases,
   getGithubConstants,
   getReleaseContent
-} from "../../src/utils/github";
+} from "@/utils/changelog";
 
 const globalFetch = global.fetch;
 const mockFetch = jest.fn();

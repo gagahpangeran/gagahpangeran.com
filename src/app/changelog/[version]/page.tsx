@@ -13,7 +13,7 @@ import {
   getAllReleases,
   getGithubConstants,
   getReleaseContent
-} from "@/utils/github";
+} from "@/utils/changelog";
 
 interface Props {
   params: Promise<{ version: string }>;

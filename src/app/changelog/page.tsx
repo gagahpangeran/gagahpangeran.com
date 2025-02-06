@@ -4,7 +4,7 @@
 
 import Link from "next/link";
 import Page from "@/templates/Page";
-import { getAllReleases } from "@/utils/github";
+import { getAllReleases } from "@/utils/changelog";
 
 const title = "Changelog";
 const desc = "All release changelog";

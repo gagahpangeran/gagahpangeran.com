@@ -11,11 +11,11 @@
     "dev": "next dev",
     "format": "yarn format:prettier && yarn format:eslint",
     "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
-    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
+    "format:prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,scss,mjs}\"",
     "install:clean": "rm -rf ./node_modules && yarn",
     "lint": "yarn lint:prettier && yarn lint:eslint",
     "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
-    "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss}\"",
+    "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss,mjs}\"",
     "new:blog": "tsx ./scripts/new-blog.ts",
     "prepare": "husky",
     "start": "next start",
@@ -78,7 +78,7 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,scss}": [
+    "*.{js,jsx,ts,tsx,json,md,scss,mjs}": [
       "prettier --write"
     ],
     "*.{ts,tsx}": [

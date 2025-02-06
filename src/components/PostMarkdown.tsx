@@ -102,15 +102,13 @@ export default function PostMarkdown({ children, slug }: Props) {
       );
     },
     code(props) {
-      const { children, className, ...rest } = props;
+      const { children, className } = props;
       const match = /language-(\w+)/.exec(className ?? "");
       if (match) {
         const language = match[1];
 
         return (
-          // @ts-expect-error TODO: fix this type error
           <SyntaxHighlighter
-            {...rest}
             language={language}
             style={{}}
             className={`language-${language}`}

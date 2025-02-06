@@ -10,24 +10,19 @@ jest.mock("@/utils/post", () => ({
   getAllPostTags: jest.fn()
 }));
 
-describe("Test getBlogMetaData function", () => {
-  test("Index type", () => {
-    const result = getPageMetadata({
-      type: "Blog",
-      filterValue: ""
-    });
+describe("Test getPageMetadata function", () => {
+  test("Blog type", () => {
+    const result = getPageMetadata({ type: "Blog" });
 
     const expectedResult = {
-      pageTitle: "Blog",
-      pageDesc: `Show All Posts in Blog`,
-      title: `Blog`,
-      desc: `All Posts in Blog`
+      title: "Blog",
+      description: `All Posts in Blog`
     };
 
     expect(result).toMatchObject(expectedResult);
   });
 
-  test("Tags type", () => {
+  test("Tag type", () => {
     (UtilPost.getAllPostTags as jest.Mock).mockReturnValue(["Cloud", "Story"]);
 
     const result = getPageMetadata({
@@ -36,10 +31,8 @@ describe("Test getBlogMetaData function", () => {
     });
 
     const expectedResult = {
-      pageTitle: "Cloud",
-      pageDesc: `Show All Posts in Tag "Cloud"`,
-      title: `Tag "Cloud"`,
-      desc: `All Posts in Tag "Cloud"`
+      title: "Cloud",
+      description: `All Posts in Tag "Cloud"`
     };
 
     expect(result).toMatchObject(expectedResult);
@@ -52,10 +45,8 @@ describe("Test getBlogMetaData function", () => {
     });
 
     const expectedResult = {
-      pageTitle: "English",
-      pageDesc: `Show All Posts in Language "English"`,
-      title: `Language "English"`,
-      desc: `All Posts in Language "English"`
+      title: "English",
+      description: `All Posts in Language "English"`
     };
 
     expect(result).toMatchObject(expectedResult);

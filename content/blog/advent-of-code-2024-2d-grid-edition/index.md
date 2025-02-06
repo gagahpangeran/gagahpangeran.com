@@ -47,13 +47,11 @@ vertical and horizontal velocity after certain time on the 2D grid.
 The interesting thing is in part 2, I have to find easter egg in the form of
 christmas tree formation of these robots on the 2D Grid.
 
-<!-- ! FIX THIS: markdown code block can't be parsed inside html tag -->
-<!-- ! Better solution is to make resizable or expandable code block -->
 <details>
 <summary>Here is the easter egg.</summary>
-<div class="gatsby-highlight" data-language="txt">
-<pre class="language-txt">
-<code class="language-txt">.............................*.......................................................................
+
+```txt
+.............................*.......................................................................
 ......................................................................................*..............
 ..............*...........*..........................................................................
 ..................*...............................*.....................*............................
@@ -156,8 +154,8 @@ christmas tree formation of these robots on the 2D Grid.
 .....................................................................................................
 ..................................*............................*.......................*.............
 .........................................................*...........................................
-</code></pre>
-</div>
+```
+
 </details>
 
 [**Day 16: Reindeer Maze**][day16]

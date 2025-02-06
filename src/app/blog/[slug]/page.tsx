@@ -5,9 +5,9 @@
 import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPost from "@/templates/Post";
+import Blog from "@/templates/Blog";
 import { getBlogMetaData, getOtherMetadata } from "@/utils/data";
-import { getPostBySlug } from "@/utils/post";
-import Blog from "../page";
+import { getAllPosts, getPostBySlug } from "@/utils/post";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -52,5 +52,20 @@ export default async function BlogPagination({ params }: Props) {
     return <BlogPost post={postData} />;
   }
 
-  return <Blog page={page} />;
+  const { posts, totalPage } = getAllPosts({ page });
+  const { pageTitle, pageDesc } = getBlogMetaData({
+    type: "Blog",
+    filterValue: ""
+  });
+
+  return (
+    <Blog
+      title={pageTitle}
+      description={pageDesc}
+      posts={posts}
+      pageNumber={page}
+      totalPage={totalPage}
+      paginationPath="/blog/"
+    />
+  );
 }

@@ -4,7 +4,7 @@
 
 import { type Metadata } from "next";
 import Blog from "@/templates/Blog";
-import { getBlogMetaData, getOtherMetadata } from "@/utils/data";
+import { getPageMetadata, getOtherMetadata } from "@/utils/data";
 import { getAllPosts } from "@/utils/post";
 import { notFound } from "next/navigation";
 
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const value = slug[0];
 
-  const { title, desc } = getBlogMetaData({
+  const { title, desc } = getPageMetadata({
     type: "Language",
     filterValue: value
   });
@@ -48,7 +48,7 @@ export default async function BlogTag({ params }: Props) {
     value
   });
 
-  const { pageTitle, pageDesc } = getBlogMetaData({
+  const { pageTitle, pageDesc } = getPageMetadata({
     type: "Language",
     filterValue: value
   });

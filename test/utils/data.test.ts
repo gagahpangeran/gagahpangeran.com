@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getBlogMetaData } from "@/utils/data";
+import { getPageMetadata } from "@/utils/data";
 import * as UtilPost from "@/utils/post";
 
 jest.mock("@/utils/post", () => ({
@@ -12,7 +12,7 @@ jest.mock("@/utils/post", () => ({
 
 describe("Test getBlogMetaData function", () => {
   test("Index type", () => {
-    const result = getBlogMetaData({
+    const result = getPageMetadata({
       type: "Blog",
       filterValue: ""
     });
@@ -30,7 +30,7 @@ describe("Test getBlogMetaData function", () => {
   test("Tags type", () => {
     (UtilPost.getAllPostTags as jest.Mock).mockReturnValue(["Cloud", "Story"]);
 
-    const result = getBlogMetaData({
+    const result = getPageMetadata({
       type: "Tag",
       filterValue: "Cloud"
     });
@@ -46,7 +46,7 @@ describe("Test getBlogMetaData function", () => {
   });
 
   test("Language type", () => {
-    const result = getBlogMetaData({
+    const result = getPageMetadata({
       type: "Language",
       filterValue: "en"
     });
@@ -63,7 +63,7 @@ describe("Test getBlogMetaData function", () => {
 
   test("Language type invalid", () => {
     const result = () =>
-      getBlogMetaData({
+      getPageMetadata({
         type: "Language",
         filterValue: "xx"
       });

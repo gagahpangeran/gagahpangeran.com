@@ -9,14 +9,14 @@ export const langMap = new Map([
   ["en", "English"]
 ]);
 
-type BlogPageType = "Blog" | "Tag" | "Language";
+type PageType = "Blog" | "Tag" | "Language";
 
-interface BlogMetadataParams {
-  type: BlogPageType;
+interface PageMetadataParams {
+  type: PageType;
   filterValue: string;
 }
 
-export function getBlogMetaData({ type, filterValue }: BlogMetadataParams) {
+export function getPageMetadata({ type, filterValue }: PageMetadataParams) {
   if (type === "Language") {
     const lang = langMap.get(filterValue);
 

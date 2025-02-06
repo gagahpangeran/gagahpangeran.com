@@ -6,7 +6,7 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPost from "@/templates/Post";
 import Blog from "@/templates/Blog";
-import { getBlogMetaData, getOtherMetadata } from "@/utils/data";
+import { getPageMetadata, getOtherMetadata } from "@/utils/data";
 import { getAllPosts, getPostBySlug } from "@/utils/post";
 
 interface Props {
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
   }
 
-  const { title, desc } = getBlogMetaData({ type: "Blog", filterValue: "" });
+  const { title, desc } = getPageMetadata({ type: "Blog", filterValue: "" });
   return {
     title,
     description: desc,
@@ -53,7 +53,7 @@ export default async function BlogPagination({ params }: Props) {
   }
 
   const { posts, totalPage } = getAllPosts({ page });
-  const { pageTitle, pageDesc } = getBlogMetaData({
+  const { pageTitle, pageDesc } = getPageMetadata({
     type: "Blog",
     filterValue: ""
   });

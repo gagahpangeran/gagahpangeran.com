@@ -66,3 +66,29 @@ export async function getReleaseContent(version: string) {
     throw Error("Failed to fetch github releases");
   }
 }
+
+export function getChangelogVersionData(
+  currentVersion: string,
+  allReleases: string[]
+) {
+  const index = allReleases.findIndex(version => version === currentVersion);
+  const newerVersion = index === 0 ? null : allReleases[index - 1];
+  const olderVersion =
+    index === allReleases.length - 1 ? null : allReleases[index + 1];
+
+  const generateChangelogData = (version: string | null) => {
+    if (version == null) {
+      return null;
+    }
+
+    return {
+      slug: `/changelog/${version}/`,
+      title: version
+    };
+  };
+
+  return {
+    newerData: generateChangelogData(newerVersion),
+    olderData: generateChangelogData(olderVersion)
+  };
+}

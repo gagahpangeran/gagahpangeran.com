@@ -8,9 +8,10 @@ import remarkGfm from "remark-gfm";
 import remarkGithub from "remark-github";
 import PageNav from "@/components/PageNav";
 import Page from "@/templates/Page";
-import { getChangelogVersionData, getOtherMetadata } from "@/utils/data";
+import { getOtherMetadata } from "@/utils/data";
 import {
   getAllReleases,
+  getChangelogVersionData,
   getGithubConstants,
   getReleaseContent
 } from "@/utils/changelog";

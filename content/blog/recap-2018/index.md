@@ -176,8 +176,6 @@ lupa bawa charger laptop dan Cahya maag nya kambuh, dan juga pas lomba ternyata
 Rey belum tau apa itu nc (netcat). Tapi takdir berkata lain, tim kami juara 1
 meskipun persiapannya retard.
 
-<!-- TODO: insert CTF image -->
-
 ![CTF Ristek](./img/ctf-ristek.jpg "Wajah bahagia meskipun retard")
 
 Tahun kemaren di Pekan Ristek gue udah juara 3 di lomba Code in the Dark sama

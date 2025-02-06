@@ -67,10 +67,9 @@ export async function getReleaseContent(version: string) {
   }
 }
 
-export function getChangelogVersionData(
-  currentVersion: string,
-  allReleases: string[]
-) {
+export async function getNewerOlderVersion(currentVersion: string) {
+  const allReleases = await getAllReleases();
+
   const index = allReleases.findIndex(version => version === currentVersion);
   const newerVersion = index === 0 ? null : allReleases[index - 1];
   const olderVersion =

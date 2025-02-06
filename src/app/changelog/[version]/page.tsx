@@ -10,8 +10,7 @@ import PageNav from "@/components/PageNav";
 import Page from "@/templates/Page";
 import { getOtherMetadata } from "@/utils/data";
 import {
-  getAllReleases,
-  getChangelogVersionData,
+  getNewerOlderVersion,
   getGithubConstants,
   getReleaseContent
 } from "@/utils/changelog";
@@ -35,12 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function VersionPage({ params }: Props) {
   const { version } = await params;
   const content = await getReleaseContent(version);
-  const allReleases = await getAllReleases();
 
-  const { olderData, newerData } = getChangelogVersionData(
-    version,
-    allReleases
-  );
+  const { olderData, newerData } = await getNewerOlderVersion(version);
 
   const { USER, REPO } = getGithubConstants();
   const repository = `${USER}/${REPO}`;

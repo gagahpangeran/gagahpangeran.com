@@ -13,10 +13,13 @@ type PageType = "Blog" | "Tag" | "Language";
 
 interface PageMetadataParams {
   type: PageType;
-  filterValue: string;
+  filterValue?: string;
 }
 
-export function getPageMetadata({ type, filterValue }: PageMetadataParams) {
+export function getPageMetadata({
+  type,
+  filterValue = ""
+}: PageMetadataParams) {
   if (type === "Language") {
     const lang = langMap.get(filterValue);
 
@@ -41,17 +44,12 @@ export function getPageMetadata({ type, filterValue }: PageMetadataParams) {
     filterValue = tag;
   }
 
-  let title = type;
-
-  if (type !== "Blog") {
-    title += ` "${filterValue}"`;
-  }
+  const title = type === "Blog" ? type : filterValue;
+  const description = `All Posts in ${type}${type === "Blog" ? "" : ` "${filterValue}"`}`;
 
   return {
-    pageTitle: type === "Blog" ? title : filterValue,
-    pageDesc: `Show All Posts in ${title}`,
     title,
-    desc: `All Posts in ${title}`
+    description
   };
 }
 

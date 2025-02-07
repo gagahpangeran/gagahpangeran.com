@@ -4,7 +4,7 @@
 
 import { type Metadata } from "next";
 import Blog from "@/templates/Blog";
-import { getPageMetadata, notFoundMetadata } from "@/utils/data";
+import { getPageMetadata, notFoundMetadata } from "@/utils/metadata";
 import { getAllPosts } from "@/utils/post";
 import { notFound } from "next/navigation";
 

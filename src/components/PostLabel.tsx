@@ -4,7 +4,7 @@
 
 import Link from "next/link";
 import kebabCase from "lodash.kebabcase";
-import { langMap } from "@/utils/data";
+import { langMap } from "@/utils/metadata";
 
 interface Props {
   tags: readonly string[];

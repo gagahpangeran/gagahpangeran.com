@@ -5,7 +5,7 @@
 import { type Metadata } from "next";
 import Image from "next/image";
 import Page from "@/templates/Page";
-import { getOtherMetadata } from "@/utils/data";
+import { getOtherMetadata } from "@/utils/metadata";
 
 export const metadata: Metadata = {
   title: "Home",

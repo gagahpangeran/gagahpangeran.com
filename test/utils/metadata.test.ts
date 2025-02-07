@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getOtherMetadata, getPageMetadata } from "@/utils/data";
+import { getOtherMetadata, getPageMetadata } from "@/utils/metadata";
 import * as UtilPost from "@/utils/post";
 
 jest.mock("@/utils/post", () => ({

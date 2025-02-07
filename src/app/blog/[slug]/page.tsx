@@ -10,7 +10,7 @@ import {
   getPageMetadata,
   getOtherMetadata,
   notFoundMetadata
-} from "@/utils/data";
+} from "@/utils/metadata";
 import { getAllPosts, getPostBySlug } from "@/utils/post";
 
 interface Props {

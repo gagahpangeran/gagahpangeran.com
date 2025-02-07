@@ -5,7 +5,7 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import Page from "@/templates/Page";
-import { notFoundMetadata } from "@/utils/data";
+import { notFoundMetadata } from "@/utils/metadata";
 
 export const metadata: Metadata = notFoundMetadata;
 

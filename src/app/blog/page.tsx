@@ -4,26 +4,31 @@
 
 import { type Metadata } from "next";
 import Blog from "@/templates/Blog";
-import { getPageMetadata, getOtherMetadata } from "@/utils/data";
+import { getPageMetadata, notFoundMetadata } from "@/utils/data";
 import { getAllPosts } from "@/utils/post";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description } = getPageMetadata({ type: "Blog" });
-  return {
-    title,
-    description,
-    ...getOtherMetadata(title, description)
-  };
+  const metadata = getPageMetadata({ type: "Blog" });
+
+  if (metadata == null) {
+    return notFoundMetadata;
+  }
+
+  return metadata;
 }
 
 export default function BlogPage() {
   const pageNumber = 1;
   const { posts, totalPage } = getAllPosts({ page: pageNumber });
 
-  const { title, description } = getPageMetadata({
-    type: "Blog",
-    filterValue: ""
-  });
+  const metadata = getPageMetadata({ type: "Blog" });
+
+  if (posts.length === 0 || metadata == null) {
+    notFound();
+  }
+
+  const { title, description } = metadata;
 
   return (
     <Blog

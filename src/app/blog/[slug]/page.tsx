@@ -6,7 +6,11 @@ import { type Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPost from "@/templates/Post";
 import Blog from "@/templates/Blog";
-import { getPageMetadata, getOtherMetadata } from "@/utils/data";
+import {
+  getPageMetadata,
+  getOtherMetadata,
+  notFoundMetadata
+} from "@/utils/data";
 import { getAllPosts, getPostBySlug } from "@/utils/post";
 
 interface Props {
@@ -20,22 +24,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (isNaN(page) || page < 0) {
     const postData = getPostBySlug(slug);
 
-    if (postData != null) {
-      const { title, description, image } = postData;
-      return {
-        title,
-        description,
-        ...getOtherMetadata(title, description, image.src)
-      };
+    if (postData == null) {
+      return notFoundMetadata;
     }
+
+    const { title, description, image } = postData;
+    return {
+      title,
+      description,
+      ...getOtherMetadata(title, description, image.src)
+    };
   }
 
-  const { title, description } = getPageMetadata({ type: "Blog" });
-  return {
-    title,
-    description,
-    ...getOtherMetadata(title, description)
-  };
+  const metadata = getPageMetadata({ type: "Blog" });
+
+  if (metadata == null) {
+    return notFoundMetadata;
+  }
+
+  return metadata;
 }
 
 export default async function BlogPagination({ params }: Props) {
@@ -53,10 +60,16 @@ export default async function BlogPagination({ params }: Props) {
   }
 
   const { posts, totalPage } = getAllPosts({ page });
-  const { title, description } = getPageMetadata({
+  const metadata = getPageMetadata({
     type: "Blog",
     filterValue: ""
   });
+
+  if (posts.length === 0 || metadata == null) {
+    notFound();
+  }
+
+  const { title, description } = metadata;
 
   return (
     <Blog

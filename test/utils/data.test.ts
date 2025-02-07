@@ -38,6 +38,17 @@ describe("Test getPageMetadata function", () => {
     expect(result).toMatchObject(expectedResult);
   });
 
+  test("Tag type invalid", () => {
+    (UtilPost.getAllPostTags as jest.Mock).mockReturnValue(["Cloud", "Story"]);
+
+    const result = getPageMetadata({
+      type: "Tag",
+      filterValue: "Programming"
+    });
+
+    expect(result).toBeNull();
+  });
+
   test("Language type", () => {
     const result = getPageMetadata({
       type: "Language",

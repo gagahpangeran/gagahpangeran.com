@@ -15,7 +15,7 @@ import rehypeSlug from "rehype-slug";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { getFileUrl, getImageData } from "@/utils/post";
+import { getFileUrl, getImageData } from "@/utils/file";
 
 interface Props {
   children: string | null | undefined;

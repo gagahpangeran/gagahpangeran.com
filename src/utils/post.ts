@@ -5,15 +5,9 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import imageSize from "image-size";
+import { type ImageData, blogPostsDirectory, getImageData } from "./file";
 
 type Language = "en" | "id";
-
-export interface ImageData {
-  src: string;
-  width: number;
-  height: number;
-}
 
 interface FrontmatterData {
   date: string;
@@ -37,8 +31,6 @@ interface GetAllPostsParams {
   type?: "tag" | "lang";
   value?: string;
 }
-
-const postsDirectory = join(process.cwd(), "content/blog");
 
 export function getAllPosts({ page, type, value }: GetAllPostsParams) {
   const dateComparator = (post1: PostData, post2: PostData) =>
@@ -69,7 +61,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams) {
     return true;
   };
 
-  const slugs = fs.readdirSync(postsDirectory);
+  const slugs = fs.readdirSync(blogPostsDirectory);
   const allPosts = slugs
     .map(getPostBySlug)
     .filter(filterFn)
@@ -93,7 +85,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams) {
 }
 
 export function getPostBySlug(slug: string): PostData | null {
-  const markdownPath = join(postsDirectory, slug, "index.md");
+  const markdownPath = join(blogPostsDirectory, slug, "index.md");
 
   if (!fs.existsSync(markdownPath)) {
     return null;
@@ -162,29 +154,4 @@ export function getAllPostTags() {
   const { posts } = getAllPosts({});
   const tags = Array.from(new Set(posts.map(post => post.tags).flat()));
   return tags;
-}
-
-export function getFileUrl(filePath: string) {
-  return join("/api/files/", filePath);
-}
-
-export function getImageData(imagePath: string): ImageData {
-  const fullPath = join(postsDirectory, imagePath);
-  const { width, height } = imageSize(fullPath);
-
-  if (width === undefined) {
-    throw new Error(`Image ${imagePath} has no width.`);
-  }
-
-  if (height === undefined) {
-    throw new Error(`Image ${imagePath} has no height.`);
-  }
-
-  const src = getFileUrl(join("blog", imagePath));
-
-  return {
-    width,
-    height,
-    src
-  };
 }

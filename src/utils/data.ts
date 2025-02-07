@@ -20,36 +20,49 @@ export function getPageMetadata({
   type,
   filterValue = ""
 }: PageMetadataParams) {
-  if (type === "Language") {
-    const lang = langMap.get(filterValue);
+  let metadata = null;
 
-    if (lang == null) {
-      throw new Error(`Language ${filterValue} is not valid`);
-    }
+  switch (type) {
+    case "Blog":
+      metadata = {
+        title: "Blog",
+        description: "All Posts in Blog"
+      };
+      break;
 
-    filterValue = lang;
+    case "Language":
+      const lang = langMap.get(filterValue);
+      if (lang != null) {
+        metadata = {
+          title: lang,
+          description: `All Posts in Language "${lang}"`
+        };
+      }
+      break;
+
+    case "Tag":
+      const tags = getAllPostTags();
+      const tag = tags.find(
+        tag =>
+          tag.toLowerCase() === filterValue.replaceAll("-", " ").toLowerCase()
+      );
+
+      if (tag != null) {
+        metadata = {
+          title: tag,
+          description: `All Posts in Tag "${tag}"`
+        };
+      }
+      break;
   }
 
-  if (type === "Tag") {
-    const tags = getAllPostTags();
-    const tag = tags.find(
-      tag =>
-        tag.toLowerCase() === filterValue.replaceAll("-", " ").toLowerCase()
-    );
-
-    if (tag == null) {
-      throw new Error(`Tag ${filterValue} not found`);
-    }
-
-    filterValue = tag;
+  if (metadata == null) {
+    return null;
   }
-
-  const title = type === "Blog" ? type : filterValue;
-  const description = `All Posts in ${type}${type === "Blog" ? "" : ` "${filterValue}"`}`;
 
   return {
-    title,
-    description
+    ...metadata,
+    ...getOtherMetadata(metadata.title, metadata.description)
   };
 }
 

@@ -53,12 +53,11 @@ describe("Test getPageMetadata function", () => {
   });
 
   test("Language type invalid", () => {
-    const result = () =>
-      getPageMetadata({
-        type: "Language",
-        filterValue: "xx"
-      });
+    const result = getPageMetadata({
+      type: "Language",
+      filterValue: "xx"
+    });
 
-    expect(result).toThrow("Language xx is not valid");
+    expect(result).toBeNull();
   });
 });

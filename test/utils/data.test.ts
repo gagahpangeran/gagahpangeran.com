@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getPageMetadata } from "@/utils/data";
+import { getOtherMetadata, getPageMetadata } from "@/utils/data";
 import * as UtilPost from "@/utils/post";
 
 jest.mock("@/utils/post", () => ({
@@ -59,5 +59,71 @@ describe("Test getPageMetadata function", () => {
     });
 
     expect(result).toBeNull();
+  });
+});
+
+describe("Test getOtherMetadata function", () => {
+  test("Only title", () => {
+    const expectedMetadata = {
+      openGraph: {
+        title: "Home | GPR",
+        description: "Low Budget Programmer",
+        type: "website",
+        images: [{ url: "/logo.png" }]
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Home | GPR",
+        description: "Low Budget Programmer",
+        images: ["/logo.png"]
+      }
+    };
+
+    const result = getOtherMetadata("Home");
+    expect(result).toMatchObject(expectedMetadata);
+  });
+
+  test("Title and description", () => {
+    const expectedMetadata = {
+      openGraph: {
+        title: "Blog | GPR",
+        description: "All Posts in Blog",
+        type: "website",
+        images: [{ url: "/logo.png" }]
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Blog | GPR",
+        description: "All Posts in Blog",
+        images: ["/logo.png"]
+      }
+    };
+
+    const result = getOtherMetadata("Blog", "All Posts in Blog");
+    expect(result).toMatchObject(expectedMetadata);
+  });
+
+  test("Title, description, and image", () => {
+    const expectedMetadata = {
+      openGraph: {
+        title: "My First Post | GPR",
+        description: "This is my first post.",
+        type: "website",
+        images: [{ url: "/blog/my-first-post/img/thumbnail.png" }]
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "My First Post | GPR",
+        description: "This is my first post.",
+        images: ["/blog/my-first-post/img/thumbnail.png"]
+      }
+    };
+
+    const result = getOtherMetadata(
+      "My First Post",
+      "This is my first post.",
+      "/blog/my-first-post/img/thumbnail.png"
+    );
+    expect(result).toMatchObject(expectedMetadata);
   });
 });

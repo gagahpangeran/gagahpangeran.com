@@ -94,3 +94,8 @@ export function getOtherMetadata(
     twitter
   };
 }
+
+export const notFoundMetadata = {
+  title: "Not Found",
+  ...getOtherMetadata("Not Found")
+};

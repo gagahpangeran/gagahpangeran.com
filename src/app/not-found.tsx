@@ -5,12 +5,9 @@
 import { type Metadata } from "next";
 import Link from "next/link";
 import Page from "@/templates/Page";
-import { getOtherMetadata } from "@/utils/data";
+import { notFoundMetadata } from "@/utils/data";
 
-export const metadata: Metadata = {
-  title: "Not Found",
-  ...getOtherMetadata("Not Found")
-};
+export const metadata: Metadata = notFoundMetadata;
 
 export default function NotFoundPage() {
   const title = "Sorry, not found 😢";

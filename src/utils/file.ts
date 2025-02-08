@@ -2,10 +2,12 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-import { join } from "path";
+import path from "path";
 import imageSize from "image-size";
 
-export const blogPostsDirectory = join(process.cwd(), "content/blog");
+export function getContentDir() {
+  return path.join(process.cwd(), process.env.CONTENT_DIR ?? "content");
+}
 
 export interface ImageData {
   src: string;
@@ -14,7 +16,7 @@ export interface ImageData {
 }
 
 export function getImageData(imagePath: string): ImageData {
-  const fullPath = join(blogPostsDirectory, imagePath);
+  const fullPath = path.join(getContentDir(), imagePath);
   const { width, height } = imageSize(fullPath);
 
   if (width === undefined) {
@@ -25,7 +27,7 @@ export function getImageData(imagePath: string): ImageData {
     throw new Error(`Image ${imagePath} has no height.`);
   }
 
-  const src = getFileUrl(join("blog", imagePath));
+  const src = getFileUrl(imagePath);
 
   return {
     width,
@@ -35,5 +37,5 @@ export function getImageData(imagePath: string): ImageData {
 }
 
 export function getFileUrl(filePath: string) {
-  return join("/api/files/", filePath);
+  return path.join("/api/files/", filePath);
 }

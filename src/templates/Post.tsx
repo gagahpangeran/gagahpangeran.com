@@ -9,7 +9,7 @@ import PostLabel from "@/components/PostLabel";
 import ShareButton from "@/components/ShareButton";
 import PageNav from "@/components/PageNav";
 import PostMarkdown from "@/components/PostMarkdown";
-import { getOlderNewerPost, type PostData } from "@/utils/post";
+import { getNewerOlderPost, type PostData } from "@/utils/post";
 import Page from "./Page";
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 
 export default function Post({ post }: Props) {
   const { title, date, datetime, tags, lang, image, content, slug } = post;
-  const otherPost = getOlderNewerPost(slug);
+  const { newerPost, olderPost } = getNewerOlderPost(slug);
 
   return (
     <Page mainTitle={title}>
@@ -40,12 +40,7 @@ export default function Post({ post }: Props) {
         <PostMarkdown slug={slug}>{content}</PostMarkdown>
       </article>
 
-      {otherPost && (
-        <PageNav
-          newerData={otherPost.newerPost}
-          olderData={otherPost.olderPost}
-        />
-      )}
+      <PageNav newerData={newerPost} olderData={olderPost} />
     </Page>
   );
 }

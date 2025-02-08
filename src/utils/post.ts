@@ -136,20 +136,14 @@ export function getPostBySlug(slug: string): PostData | null {
   return postData;
 }
 
-export function getOlderNewerPost(slug: string) {
+export function getNewerOlderPost(slug: string) {
   const { posts } = getAllPosts({});
-  const len = posts.length;
 
-  for (let i = 0; i < len; i++) {
-    if (posts[i].slug === slug) {
-      const newerPost = i - 1 >= 0 ? posts[i - 1] : null;
-      const olderPost = i + 1 < len ? posts[i + 1] : null;
+  const index = posts.findIndex(post => post.slug === slug);
+  const newerPost = index === 0 ? null : posts[index - 1];
+  const olderPost = index === posts.length - 1 ? null : posts[index + 1];
 
-      return { newerPost, olderPost };
-    }
-  }
-
-  return null;
+  return { newerPost, olderPost };
 }
 
 export function getAllPostTags() {

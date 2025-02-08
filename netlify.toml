@@ -2,11 +2,6 @@
   publish = ".next"
   command = "yarn build"
 
-[[redirects]]
-  from = "/blog/category/*"
-  to = "/blog/tag/:splat"
-  status = 301
-
 [[headers]]
   for = "/*"
   [headers.values]

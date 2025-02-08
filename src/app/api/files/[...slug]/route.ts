@@ -3,8 +3,7 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { type NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { getFileBuffer } from "@/utils/file";
 
 export async function GET(
   _: NextRequest,
@@ -13,9 +12,8 @@ export async function GET(
   const { slug } = await params;
 
   try {
-    const imagePath = path.join(process.cwd(), "content", ...slug);
-    const imageBuffer = fs.readFileSync(imagePath);
-    const response = new NextResponse(imageBuffer);
+    const fileBuffer = getFileBuffer(slug.join("/"));
+    const response = new NextResponse(fileBuffer);
     return response;
   } catch {
     return new NextResponse("Image not found", { status: 404 });

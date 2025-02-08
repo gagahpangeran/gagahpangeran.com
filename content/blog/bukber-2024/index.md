@@ -55,7 +55,7 @@ ngomongin di belakang, akhirnya kita kasih tau mereka di Discord.
 
 ![Discord Chat](./img/discord.png "Pemberitahuan Gosip")
 
-![Para Penggosip](./img/penggosip.jpg "Para Penggosip Handal")
+![Para Penggosip](./img/penggosip.png "Para Penggosip Handal")
 
 Makanan utama yang kita pesan sama kayak tahun lalu, nasi kebuli dari Emados.
 

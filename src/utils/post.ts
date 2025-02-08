@@ -3,9 +3,9 @@
 // Read the LICENSE file in the repository root for full license text
 
 import fs from "fs";
-import { join } from "path";
+import path from "path";
 import matter from "gray-matter";
-import { type ImageData, blogPostsDirectory, getImageData } from "./file";
+import { type ImageData, getContentDir, getImageData } from "./file";
 
 type Language = "en" | "id";
 
@@ -61,8 +61,9 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams) {
     return true;
   };
 
-  const slugs = fs.readdirSync(blogPostsDirectory);
-  const allPosts = slugs
+  const blogDir = path.join(getContentDir(), "blog");
+  const allPostDirs = fs.readdirSync(blogDir);
+  const allPosts = allPostDirs
     .map(getPostBySlug)
     .filter(filterFn)
     .sort(dateComparator);
@@ -85,7 +86,8 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams) {
 }
 
 export function getPostBySlug(slug: string): PostData | null {
-  const markdownPath = join(blogPostsDirectory, slug, "index.md");
+  slug = `/blog/${slug}/`;
+  const markdownPath = path.join(getContentDir(), slug, "index.md");
 
   if (!fs.existsSync(markdownPath)) {
     return null;
@@ -117,7 +119,7 @@ export function getPostBySlug(slug: string): PostData | null {
   });
   const description = excerpt.replaceAll("\n", " ");
 
-  const imgPath = join(slug, frontmatter.featuredImage);
+  const imgPath = path.join(slug, frontmatter.featuredImage);
   const image = getImageData(imgPath);
 
   const postData: PostData = {

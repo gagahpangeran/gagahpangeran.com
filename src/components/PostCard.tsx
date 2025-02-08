@@ -21,7 +21,7 @@ const PostCard = ({
 }: PostData) => {
   return (
     <article className="post-card">
-      <Link href={`/blog/${slug}`} title={title} className="post-card__header">
+      <Link href={slug} title={title} className="post-card__header">
         <div className="post-card__thumbnail">
           <Image
             {...image}

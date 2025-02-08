@@ -36,7 +36,7 @@ export default function PostMarkdown({ children, slug }: Props) {
       }
 
       if (url.startsWith("./")) {
-        const href = getFileUrl(path.join("blog", slug, url));
+        const href = getFileUrl(path.join(slug, url));
         return (
           <a {...props} href={href}>
             {props.children}
@@ -78,7 +78,7 @@ export default function PostMarkdown({ children, slug }: Props) {
       );
     },
     source(props) {
-      const src = getFileUrl(path.join("blog", slug, props.src ?? ""));
+      const src = getFileUrl(path.join(slug, props.src ?? ""));
       return <source {...props} src={src} type={props.type} />;
     },
     h2(props) {

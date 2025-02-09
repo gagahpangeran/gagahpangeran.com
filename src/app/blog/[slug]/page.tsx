@@ -62,7 +62,7 @@ export default async function BlogPagination({ params }: Props) {
   const { posts, totalPage } = getAllPosts({ page });
   const metadata = getPageMetadata({ type: "Blog" });
 
-  if (posts.length === 0 || metadata == null) {
+  if (metadata == null) {
     notFound();
   }
 

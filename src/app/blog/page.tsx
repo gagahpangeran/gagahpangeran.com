@@ -24,7 +24,7 @@ export default function BlogPage() {
 
   const metadata = getPageMetadata({ type: "Blog" });
 
-  if (posts.length === 0 || metadata == null) {
+  if (metadata == null) {
     notFound();
   }
 

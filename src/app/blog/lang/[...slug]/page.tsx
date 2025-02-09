@@ -53,7 +53,7 @@ export default async function BlogLang({ params }: Props) {
     filterValue: langValue
   });
 
-  if (posts.length === 0 || metadata == null) {
+  if (metadata == null) {
     notFound();
   }
 

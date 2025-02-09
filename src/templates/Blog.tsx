@@ -26,15 +26,21 @@ export default function Blog({
 }: Props) {
   return (
     <Page mainTitle={title} subTitle={description}>
-      {posts.map(post => (
-        <PostCard key={post.slug} {...post} />
-      ))}
+      {posts.length === 0 ? (
+        <h3>There is no post.</h3>
+      ) : (
+        <>
+          {posts.map(post => (
+            <PostCard key={post.slug} {...post} />
+          ))}
 
-      <Pagination
-        path={paginationPath}
-        numPages={totalPage}
-        page={pageNumber}
-      />
+          <Pagination
+            path={paginationPath}
+            numPages={totalPage}
+            page={pageNumber}
+          />
+        </>
+      )}
     </Page>
   );
 }

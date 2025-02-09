@@ -53,7 +53,7 @@ export default async function BlogTag({ params }: Props) {
     filterValue: tagValue
   });
 
-  if (posts.length === 0 || metadata == null) {
+  if (metadata == null) {
     notFound();
   }
 

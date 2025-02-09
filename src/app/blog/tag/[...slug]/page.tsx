@@ -14,11 +14,11 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const value = slug[0];
+  const tagValue = slug[0];
 
   const metadata = getPageMetadata({
     type: "Tag",
-    filterValue: value
+    filterValue: tagValue
   });
 
   if (metadata == null) {
@@ -35,7 +35,7 @@ export default async function BlogTag({ params }: Props) {
     notFound();
   }
 
-  const value = slug[0];
+  const tagValue = slug[0];
   const page = Number(slug[1] ?? 1);
 
   if (isNaN(page) || page < 0) {
@@ -45,12 +45,12 @@ export default async function BlogTag({ params }: Props) {
   const { posts, totalPage } = getAllPosts({
     page,
     type: "tag",
-    value
+    value: tagValue
   });
 
   const metadata = getPageMetadata({
     type: "Tag",
-    filterValue: value
+    filterValue: tagValue
   });
 
   if (posts.length === 0 || metadata == null) {
@@ -66,7 +66,7 @@ export default async function BlogTag({ params }: Props) {
       posts={posts}
       pageNumber={page}
       totalPage={totalPage}
-      paginationPath={`/blog/tag/${slug[0]}/`}
+      paginationPath={`/blog/tag/${tagValue}/`}
     />
   );
 }

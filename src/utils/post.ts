@@ -32,7 +32,7 @@ interface GetAllPostsParams {
   value?: string;
 }
 
-export function getAllPosts({ page, type, value }: GetAllPostsParams) {
+export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
   const dateComparator = (post1: PostData, post2: PostData) =>
     new Date(post1.date) > new Date(post2.date) ? -1 : 1;
 
@@ -137,7 +137,7 @@ export function getPostBySlug(slug: string): PostData | null {
 }
 
 export function getNewerOlderPost(slug: string) {
-  const { posts } = getAllPosts({});
+  const { posts } = getAllPosts();
 
   const index = posts.findIndex(post => post.slug === slug);
   const newerPost = index === 0 ? null : posts[index - 1];
@@ -147,7 +147,7 @@ export function getNewerOlderPost(slug: string) {
 }
 
 export function getAllPostTags() {
-  const { posts } = getAllPosts({});
+  const { posts } = getAllPosts();
   const tags = Array.from(new Set(posts.map(post => post.tags).flat()));
   return tags;
 }

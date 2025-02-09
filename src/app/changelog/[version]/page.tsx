@@ -42,8 +42,9 @@ export default async function VersionPage({ params }: Props) {
 
   return (
     <Page mainTitle={version} subTitle={desc}>
-      <main className="markdown markdown--page-version">
+      <main>
         <ReactMarkdown
+          className="markdown markdown--page-version"
           remarkPlugins={[remarkGfm, [remarkGithub, { repository }]]}
         >
           {content}

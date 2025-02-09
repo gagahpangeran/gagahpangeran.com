@@ -69,7 +69,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
     .sort(dateComparator);
 
   if (page == null) {
-    return { posts: allPosts, totalPage: 0 };
+    return { posts: allPosts, totalPage: 1 };
   }
 
   if (page <= 0) {

@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return metadata;
 }
 
-export default async function BlogTag({ params }: Props) {
+export default async function BlogLang({ params }: Props) {
   const { slug } = await params;
 
   if (slug.length > 2) {

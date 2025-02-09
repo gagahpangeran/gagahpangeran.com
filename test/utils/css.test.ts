@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import classModifiers from "../../src/utils/css";
+import { classModifiers, classAll } from "@/utils/css";
 
 describe("Test classModifiers function", () => {
   test("Without modifiers", () => {
@@ -43,6 +43,29 @@ describe("Test classModifiers function", () => {
       "mod4"
     );
     const expected = "class class--mod1 class--mod3 class--mod4";
+
+    expect(result).toBe(expected);
+  });
+});
+
+describe("Test classAll function", () => {
+  test("Class name strings only", () => {
+    const result = classAll("class1", "class2", "class3");
+    const expected = "class1 class2 class3";
+
+    expect(result).toBe(expected);
+  });
+
+  test("Class name array only", () => {
+    const result = classAll(["class1", "class2", "class3"]);
+    const expected = "class1 class2 class3";
+
+    expect(result).toBe(expected);
+  });
+
+  test("Class name mixed string and array", () => {
+    const result = classAll("class1", ["class2", "class3"], "class4");
+    const expected = "class1 class2 class3 class4";
 
     expect(result).toBe(expected);
   });

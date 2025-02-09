@@ -4,10 +4,7 @@
 
 type Modifiers = string | { [key: string]: boolean } | undefined;
 
-export default function classModifiers(
-  className: string,
-  ...modifiers: Modifiers[]
-) {
+export function classModifiers(className: string, ...modifiers: Modifiers[]) {
   let withModifiers = className;
 
   modifiers.forEach(mod => {
@@ -25,4 +22,8 @@ export default function classModifiers(
   });
 
   return withModifiers;
+}
+
+export function classAll(...classNames: Array<string | string[]>) {
+  return classNames.flat().join(" ");
 }

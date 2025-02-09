@@ -56,7 +56,6 @@ typings/
 
 # gatsby files
 .cache/
-public
 
 # Mac files
 .DS_Store
@@ -71,3 +70,17 @@ yarn-error.log
 .vscode/
 
 .netlify/
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

@@ -2,6 +2,8 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .home {
   text-align: center;
   box-sizing: border-box;
@@ -15,7 +17,7 @@
     border: 4px solid var(--blue);
     margin-bottom: 16px;
 
-    @include mobile(tablet) {
+    @include mixins.mobile(tablet) {
       max-width: 200px;
     }
   }

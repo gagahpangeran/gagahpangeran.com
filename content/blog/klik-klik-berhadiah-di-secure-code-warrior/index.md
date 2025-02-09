@@ -316,7 +316,7 @@ Sorenya abis sprint review gue nanya ke Distra apakah kita lolos ke final apa
 enggak. Mungkin aja kan tiba-tiba ada 5 tim yang tiba-tiba naik di atas tim
 kita. Ternyata tim Kuhaku lolos ke final.
 
-[![Lolos Ke Final](./img/ig1.png)](https://www.instagram.com/p/B9ZVdgUAT-o)
+![Lolos Ke Final](./img/ig1.png "Source: https://www.instagram.com/p/B9ZVdgUAT-o")
 
 ## Sebelum Final
 
@@ -483,7 +483,7 @@ Code Warrior. Kita dipanggil satu-satu ke depan buat penyerahan hadiah.
 
 Di IG DevOpsDays yang dipake malah foto gue lagi ngelihat entah kemana.
 
-[![Bingung](./img/ig2.png "Gue (paling kiri) sedang melihat masa depan")](https://www.instagram.com/p/B9nW-V3AGhG)
+![Bingung](./img/ig2.png "Gue (paling kiri) sedang melihat masa depan. Source: https://www.instagram.com/p/B9nW-V3AGhG")
 
 Abis foto-foto, kita memutuskan untuk langsung balik karena hadiahnya nanti akan
 ditransfer.

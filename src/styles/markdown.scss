@@ -2,15 +2,10 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .markdown {
   flex: 1 0 auto;
-
-  // Hide default title from github release page
-  &--page-version {
-    h2 {
-      display: none;
-    }
-  }
 
   blockquote {
     padding-left: 12px;
@@ -33,6 +28,11 @@
 
   figure {
     text-align: center;
+
+    @include mixins.mobile {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
   }
 
   h2 {
@@ -91,14 +91,14 @@
   }
 
   &__header-link {
-    fill: var(--gray);
     margin-left: 8px;
+    display: inline-block;
+    color: var(--gray);
+    font-size: 0.6em;
 
     svg {
-      @include transition(opacity);
-      transform: scale(1.5);
-      visibility: visible !important;
-      opacity: 0.6;
+      @include mixins.transition(opacity);
+      opacity: 0.5;
 
       &:hover {
         opacity: 1;
@@ -113,5 +113,12 @@
 
   .math-display {
     overflow-y: scroll;
+  }
+
+  // Hide default title from github release page
+  &--page-version {
+    h2 {
+      display: none;
+    }
   }
 }

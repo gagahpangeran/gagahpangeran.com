@@ -117,7 +117,7 @@ Post body here.
 }
 
 function createThumbnail(currentDir: string, targetDir: string) {
-  const srcFile = `${currentDir}/static/logo.png`;
+  const srcFile = `${currentDir}/public/logo.png`;
   const thumbDir = `${targetDir}/img`;
   const thumbFile = `${thumbDir}/thumbnail.png`;
 

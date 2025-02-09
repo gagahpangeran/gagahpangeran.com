@@ -2,6 +2,8 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .page-nav {
   --flex-direction: column;
   --item-gap: 20px;
@@ -15,6 +17,11 @@
   --title-overlay-opacity: 0.8;
   --title-padding: 20px;
 
+  margin: 20px 0;
+  display: flex;
+  flex-direction: var(--flex-direction);
+  gap: var(--item-gap);
+
   &--small {
     --flex-direction: row;
     --item-gap: 16px;
@@ -22,18 +29,13 @@
     --link-height: 50px;
     --title-padding: 12px;
 
-    @include mobile {
+    @include mixins.mobile {
       --item-gap: 8px;
       --link-height: 40px;
       --title-item-main-font-size: 1rem;
       --title-padding: 8px;
     }
   }
-
-  margin: 20px 0;
-  display: flex;
-  flex-direction: var(--flex-direction);
-  gap: var(--item-gap);
 
   &__image {
     display: block;
@@ -47,7 +49,7 @@
   }
 
   &__link {
-    @include transition(border-color);
+    @include mixins.transition(border-color);
     height: var(--link-height);
     display: block;
     position: relative;
@@ -66,7 +68,7 @@
   }
 
   &__title {
-    @include full-size-absolute;
+    @include mixins.full-size-absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,8 +76,8 @@
     box-sizing: border-box;
 
     &::before {
-      @include full-size-absolute;
-      @include transition(opacity);
+      @include mixins.full-size-absolute;
+      @include mixins.transition(opacity);
       content: "";
       background-color: var(--black);
       opacity: var(--title-overlay-opacity);
@@ -99,8 +101,8 @@
   }
 
   &__title-item {
-    @include transition(color);
-    @include max-2-lines;
+    @include mixins.transition(color);
+    @include mixins.max-2-lines;
     justify-content: var(--title-item-justify-content);
     position: relative;
     text-align: var(--title-item-text-align);

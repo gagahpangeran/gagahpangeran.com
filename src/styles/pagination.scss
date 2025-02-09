@@ -2,12 +2,14 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .pagination {
   text-align: center;
   display: flex;
 
   &__item {
-    @include transition(background-color);
+    @include mixins.transition(background-color);
     border-radius: 8px;
 
     &--active {

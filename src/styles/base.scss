@@ -2,6 +2,8 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 :root {
   --bg-dark: #16161a;
   --bg-light: #242629;
@@ -17,7 +19,7 @@
   --image-border-radius: 12px;
   --navbar-height: 64px;
 
-  @include mobile {
+  @include mixins.mobile {
     --image-border-radius: 0;
     --navbar-height: 48px;
   }
@@ -37,11 +39,11 @@ html {
 body {
   font-size: 1.25rem;
   font-weight: 400;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-lato), sans-serif;
   background-color: var(--bg-light);
   color: var(--white);
 
-  @include mobile {
+  @include mixins.mobile {
     font-size: 1.125rem;
   }
 }
@@ -62,7 +64,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
+  font-family: var(--font-rubik), sans-serif;
   font-weight: 500;
 }
 
@@ -90,7 +92,7 @@ h6 {
   font-size: 0.8rem;
 }
 
-@include mobile {
+@include mixins.mobile {
   h1 {
     font-size: 2.25rem;
   }
@@ -123,6 +125,11 @@ iframe {
   max-width: 100%;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .wrapper {
   max-width: 720px;
   margin: 0 auto;
@@ -131,7 +138,7 @@ iframe {
   display: flex;
   flex-direction: column;
 
-  @include mobile(tablet) {
+  @include mixins.mobile(tablet) {
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -145,12 +152,6 @@ iframe {
 
 html,
 body,
-#___gatsby,
-#gatsby-focus-wrapper,
 .wrapper {
   height: 100%;
-}
-
-.gatsby-image-wrapper {
-  border-radius: var(--image-border-radius);
 }

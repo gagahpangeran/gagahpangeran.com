@@ -2,11 +2,13 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .post {
   &__title {
     margin-bottom: 12px;
 
-    @include mobile {
+    @include mixins.mobile {
       margin-bottom: 4px;
     }
   }
@@ -20,9 +22,12 @@
     margin-bottom: 12px;
   }
 
-  &__featured-image,
-  .gatsby-resp-image-figure {
-    @include mobile {
+  &__featured-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--image-border-radius);
+
+    @include mixins.mobile {
       margin-left: -16px;
       margin-right: -16px;
     }

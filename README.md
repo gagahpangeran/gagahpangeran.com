@@ -1,6 +1,6 @@
 # GPR's Website
 
-Using gatsby and markdown to build my website.
+Using NextJS and markdown to build my website.
 
 ## Live
 

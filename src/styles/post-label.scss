@@ -2,19 +2,21 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .post-label {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 8px;
 
-  @include mobile {
+  @include mixins.mobile {
     gap: 4px;
     font-size: 1rem;
   }
 
   &__link {
-    @include button-label;
+    @include mixins.button-label;
 
     &--lang {
       background-color: var(--pink);

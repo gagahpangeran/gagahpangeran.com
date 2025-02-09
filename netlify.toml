@@ -1,22 +1,6 @@
 [build]
-  publish = "public"
+  publish = ".next"
   command = "yarn build"
-
-[functions]
-  included_files = [".cache/page-ssr/**", ".cache/data/**"]
-
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
-
-[[redirects]]
-  from = "/"
-  to = "/home"
-  status = 301
-
-[[redirects]]
-  from = "/blog/category/*"
-  to = "/blog/tag/:splat"
-  status = 301
 
 [[headers]]
   for = "/*"

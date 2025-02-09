@@ -2,15 +2,17 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+@use "mixins";
+
 .changelog {
   padding: 8px 0;
 
-  @include mobile {
+  @include mixins.mobile {
     font-size: 1rem;
   }
 
   &__link {
-    @include transition(border-color, color);
+    @include mixins.transition(border-color, color);
     display: block;
     padding: 16px;
     border: 2px solid var(--white);
@@ -18,7 +20,7 @@
     background-color: var(--bg-dark);
     color: var(--white);
 
-    @include mobile {
+    @include mixins.mobile {
       padding: 8px;
     }
 
@@ -31,7 +33,7 @@
     & > h4 {
       font-weight: bolder;
 
-      @include mobile {
+      @include mixins.mobile {
         font-size: 1rem;
       }
     }
@@ -43,7 +45,7 @@
     grid-template-columns: auto auto;
     gap: 16px;
 
-    @include mobile {
+    @include mixins.mobile {
       gap: 8px;
     }
   }

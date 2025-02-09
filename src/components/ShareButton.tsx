@@ -2,21 +2,24 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+"use client";
+
 import {
   faCopy,
   faClipboardCheck,
   faShareNodes
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useRef, useState } from "react";
-import classModifiers from "../utils/css";
+import { useEffect, useRef, useState } from "react";
+import { classModifiers } from "@/utils/css";
 
 interface Props {
-  link: string;
   title?: string;
 }
 
-interface NativeShareButtonProps extends Props {
+interface NativeShareButtonProps {
+  url: string;
+  title?: string;
   toggleError: () => void;
 }
 
@@ -28,7 +31,7 @@ const desc: Record<CopyState, string> = {
   failed: "Failed to copy link to clipboard. Please select and copy manually."
 };
 
-const CopyShareButton = ({ link }: Props) => {
+const CopyShareButton = ({ url }: { url: string }) => {
   const [copyState, setCopyState] = useState<CopyState>("idle");
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -60,7 +63,7 @@ const CopyShareButton = ({ link }: Props) => {
           className="share-button__copy__link-item share-button__copy__link-item--input"
           ref={inputRef}
           type="text"
-          defaultValue={link}
+          defaultValue={url}
         />
         <button
           className="share-button__copy__link-item share-button__copy__link-item--button"
@@ -76,19 +79,19 @@ const CopyShareButton = ({ link }: Props) => {
 };
 
 const NativeShareButton = ({
-  link,
+  url,
   title,
   toggleError
 }: NativeShareButtonProps) => {
   const data: ShareData = {
     title,
-    url: link
+    url
   };
 
   const handleClick = async () => {
     try {
       await navigator.share(data);
-    } catch (error) {
+    } catch {
       toggleError();
     }
   };
@@ -101,25 +104,34 @@ const NativeShareButton = ({
   );
 };
 
-const ShareButton = ({ link, title }: Props) => {
+const ShareButton = ({ title }: Props) => {
+  const [url, setUrl] = useState<string | undefined>();
   const [errorState, setErrorState] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setUrl(window.location.href);
+    }
+  }, []);
 
   const toggleError = () => {
     setErrorState(true);
   };
 
   return (
-    <div className="share-button">
-      {errorState ? (
-        <CopyShareButton link={link} />
-      ) : (
-        <NativeShareButton
-          link={link}
-          title={title}
-          toggleError={toggleError}
-        />
-      )}
-    </div>
+    url && (
+      <div className="share-button">
+        {errorState ? (
+          <CopyShareButton url={url} />
+        ) : (
+          <NativeShareButton
+            url={url}
+            title={title}
+            toggleError={toggleError}
+          />
+        )}
+      </div>
+    )
   );
 };
 

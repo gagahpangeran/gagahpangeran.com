@@ -24,9 +24,24 @@ also find my other CTF writeup under [CTF][ctftag] tag.
 
 ---
 
-```toc
-exclude: Closing
-```
+- [Welcome](#welcome)
+  - [Give you a free flag](#give-you-a-free-flag)
+  - [Please Join Our Discord!!!](#please-join-our-discord)
+  - [Feedback Form](#feedback-form)
+- [Reverse](#reverse)
+  - [What_Happened](#what_happened)
+  - [Chill Checker](#chill-checker)
+  - [Gateway to the Reverse](#gateway-to-the-reverse)
+- [Crypto](#crypto)
+  - [Very Simple Login](#very-simple-login)
+  - [Classic](#classic)
+- [Pwn](#pwn)
+  - [gamble_bad_bad](#gamble_bad_bad)
+  - [Localstack](#localstack)
+  - [窗戶麵包](#窗戶麵包)
+- [Web](#web)
+  - [book](#book)
+  - [Beautiful World](#beautiful-world)
 
 ---
 
@@ -104,9 +119,8 @@ TSC{W3llc0me_t0_TSC2O2SIlIllI}
 
 _Score: 50 (261 Solves)_
 
-想要我的 Flag 嗎？想要的話就送給你吧！自己去找吧，我把它埋藏在那裡了 於是...許多
-人爭相前往「TSCCTF Discord」，並追逐著這個夢想 所以，當時的年代可以說是一個「大
-資安時代」！
+想要我的 Flag 嗎？想要的話就送給你吧！自己去找吧，我把它埋藏在那裡了 於是...許多人爭相前往「TSCCTF
+Discord」，並追逐著這個夢想 所以，當時的年代可以說是一個「大資安時代」！
 
 Author: 哥爾·D·Kazma
 

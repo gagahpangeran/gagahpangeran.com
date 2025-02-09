@@ -40,7 +40,7 @@ export default function Post({ post }: Props) {
         <PostMarkdown slug={slug}>{content}</PostMarkdown>
       </article>
 
-      <PageNav newerData={newerPost} olderData={olderPost} />
+      <PageNav newerData={newerPost} olderData={olderPost} suffix="Post" />
     </Page>
   );
 }

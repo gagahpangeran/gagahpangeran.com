@@ -28,12 +28,10 @@ export function getImageData(imagePath: string): ImageData {
     throw new Error(`Image ${imagePath} has no height.`);
   }
 
-  const src = getFileUrl(imagePath);
-
   return {
     width,
     height,
-    src
+    src: imagePath
   };
 }
 

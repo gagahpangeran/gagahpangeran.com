@@ -7,7 +7,7 @@
   "scripts": {
     "build": "next build",
     "build:clean": "yarn clean && yarn build",
-    "clean": "rm -rf ./.next",
+    "clean": "rm -rf ./.next && rm -rf ./public/blog",
     "dev": "next dev",
     "format": "yarn format:prettier && yarn format:eslint",
     "format:eslint": "eslint --fix  \"**/*.{ts,tsx}\"",
@@ -17,6 +17,8 @@
     "lint:eslint": "eslint --quiet \"**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md,scss,mjs}\"",
     "new:blog": "tsx ./scripts/new-blog.ts",
+    "prebuild": "tsx ./scripts/move-assets.ts",
+    "predev": "tsx ./scripts/move-assets.ts",
     "prepare": "husky",
     "start": "next start",
     "type-check": "tsc --noEmit",

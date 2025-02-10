@@ -10,6 +10,14 @@ jest.mock("@/utils/post", () => ({
   getAllPostTags: jest.fn()
 }));
 
+beforeAll(() => {
+  process.env.SITE_URL = "https://example.com";
+});
+
+afterAll(() => {
+  process.env.SITE_URL = undefined;
+});
+
 describe("Test getPageMetadata function", () => {
   test("Blog type", () => {
     const result = getPageMetadata({ type: "Blog" });
@@ -80,13 +88,13 @@ describe("Test getOtherMetadata function", () => {
         title: "Home | GPR",
         description: "Low Budget Programmer",
         type: "website",
-        images: [{ url: "/logo.png" }]
+        images: [{ url: "https://example.com/logo.png" }]
       },
       twitter: {
         card: "summary_large_image",
         title: "Home | GPR",
         description: "Low Budget Programmer",
-        images: ["/logo.png"]
+        images: ["https://example.com/logo.png"]
       }
     };
 
@@ -100,13 +108,13 @@ describe("Test getOtherMetadata function", () => {
         title: "Blog | GPR",
         description: "All Posts in Blog",
         type: "website",
-        images: [{ url: "/logo.png" }]
+        images: [{ url: "https://example.com/logo.png" }]
       },
       twitter: {
         card: "summary_large_image",
         title: "Blog | GPR",
         description: "All Posts in Blog",
-        images: ["/logo.png"]
+        images: ["https://example.com/logo.png"]
       }
     };
 
@@ -120,13 +128,15 @@ describe("Test getOtherMetadata function", () => {
         title: "My First Post | GPR",
         description: "This is my first post.",
         type: "website",
-        images: [{ url: "/blog/my-first-post/img/thumbnail.png" }]
+        images: [
+          { url: "https://example.com/blog/my-first-post/img/thumbnail.png" }
+        ]
       },
       twitter: {
         card: "summary_large_image",
         title: "My First Post | GPR",
         description: "This is my first post.",
-        images: ["/blog/my-first-post/img/thumbnail.png"]
+        images: ["https://example.com/blog/my-first-post/img/thumbnail.png"]
       }
     };
 

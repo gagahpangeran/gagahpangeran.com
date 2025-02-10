@@ -17,7 +17,7 @@ describe("Test getImageData function", () => {
     const expected = {
       width: 512,
       height: 512,
-      src: "/api/files/blog/my-post/img/thumbnail.png"
+      src: "/blog/my-post/img/thumbnail.png"
     };
 
     const result = getImageData("/blog/my-post/img/thumbnail.png");

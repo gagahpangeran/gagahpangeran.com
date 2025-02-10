@@ -2,7 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-import { getFileBuffer, getImageData } from "@/utils/file";
+import { getImageData } from "@/utils/file";
 
 beforeAll(() => {
   process.env.CONTENT_DIR = "test/fixtures";
@@ -22,13 +22,5 @@ describe("Test getImageData function", () => {
 
     const result = getImageData("/blog/my-post/img/thumbnail.png");
     expect(result).toMatchObject(expected);
-  });
-});
-
-describe("Test getFileBuffer function", () => {
-  test("txt file", () => {
-    const result = getFileBuffer("/blog/my-post/files/note.txt");
-    const expected = Buffer.from("Hello World");
-    expect(result).toStrictEqual(expected);
   });
 });

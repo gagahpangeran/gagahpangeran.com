@@ -35,10 +35,6 @@ export function getImageData(imagePath: string): ImageData {
   };
 }
 
-export function getFileUrl(filePath: string) {
-  return path.join("/api/files/", filePath);
-}
-
 export function getFileBuffer(filePath: string) {
   const fullPath = path.join(getContentDir(), filePath);
   return fs.readFileSync(fullPath);

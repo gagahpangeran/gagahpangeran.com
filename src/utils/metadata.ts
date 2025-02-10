@@ -71,9 +71,11 @@ export function getOtherMetadata(
   description?: string,
   image?: string
 ) {
+  const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
+
   title = `${title} | GPR`;
   description ??= "Low Budget Programmer";
-  image ??= `/logo.png`;
+  image = `${siteUrl}${image ?? "/logo.png"}`;
 
   const openGraph = {
     title,

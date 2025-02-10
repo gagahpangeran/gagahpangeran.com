@@ -2,6 +2,9 @@
   publish = ".next"
   command = "yarn build"
 
+[functions]
+  included_files = ["content/**"]
+
 [[headers]]
   for = "/*"
   [headers.values]

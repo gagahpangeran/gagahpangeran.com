@@ -2,7 +2,6 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text
 
-import fs from "fs";
 import path from "path";
 import imageSize from "image-size";
 
@@ -28,20 +27,9 @@ export function getImageData(imagePath: string): ImageData {
     throw new Error(`Image ${imagePath} has no height.`);
   }
 
-  const src = getFileUrl(imagePath);
-
   return {
     width,
     height,
-    src
+    src: imagePath
   };
-}
-
-export function getFileUrl(filePath: string) {
-  return path.join("/api/files/", filePath);
-}
-
-export function getFileBuffer(filePath: string) {
-  const fullPath = path.join(getContentDir(), filePath);
-  return fs.readFileSync(fullPath);
 }

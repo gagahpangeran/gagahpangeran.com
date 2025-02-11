@@ -15,7 +15,7 @@ import rehypeSlug from "rehype-slug";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { getFileUrl, getImageData } from "@/utils/file";
+import { getImageData } from "@/utils/file";
 
 interface Props {
   children: string | null | undefined;
@@ -36,7 +36,7 @@ export default function PostMarkdown({ children, slug }: Props) {
       }
 
       if (url.startsWith("./")) {
-        const href = getFileUrl(path.join(slug, url));
+        const href = path.join(slug, url);
         return (
           <a {...props} href={href}>
             {props.children}
@@ -78,7 +78,7 @@ export default function PostMarkdown({ children, slug }: Props) {
       );
     },
     source(props) {
-      const src = getFileUrl(path.join(slug, props.src ?? ""));
+      const src = path.join(slug, props.src ?? "");
       return <source {...props} src={src} type={props.type} />;
     },
     h2(props) {

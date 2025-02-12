@@ -1,13 +1,10 @@
-name: Update Post Content
+name: Test Build
 on:
-  pull_request:
-    paths: ["content/**"]
-    types: [closed]
+  workflow_dispatch
 
 jobs:
-  deploy:
-    if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'update-content')
-    name: Update and deploy content
+  build:
+    name: Build
     runs-on: ubuntu-latest
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
@@ -15,23 +12,13 @@ jobs:
       GH_USERNAME: ${{ secrets.GH_USERNAME }}
       GH_REPO: ${{ secrets.GH_REPO }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      CONTENT_DIR: ${{ env.CONTENT_DIR }}
-      SITE_URL: ${{ env.SITE_URL }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     steps:
-      - name: Fetch all tags
+      - name: Checkout master
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Checkout to latest tags
-        run: git checkout $(git describe --tags $(git rev-list --tags --max-count=1))
-
-      - name: Get latest change in content directory from master branch
-        run: git checkout master content/
 
       - name: Cache node modules
         uses: actions/cache@v4
@@ -52,7 +39,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
           cache: "yarn"
 
       - name: Install netlify cli
@@ -63,6 +50,3 @@ jobs:
 
       - name: Build app
         run: netlify build
-
-      - name: Deploy to netlify
-        run: netlify deploy --prod

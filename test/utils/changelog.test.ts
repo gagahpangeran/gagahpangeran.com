@@ -13,9 +13,9 @@ const globalFetch = global.fetch;
 const mockFetch = jest.fn();
 
 beforeEach(() => {
-  process.env.GITHUB_USERNAME = "user";
-  process.env.GITHUB_REPO = "repo";
-  process.env.GITHUB_TOKEN = "token";
+  process.env.GH_USERNAME = "user";
+  process.env.GH_REPO = "repo";
+  process.env.GH_TOKEN = "token";
 
   global.fetch = mockFetch;
 });
@@ -34,19 +34,19 @@ describe("Test getGithubConstants function", () => {
   });
 
   test("USER env variable is not set", () => {
-    delete process.env.GITHUB_USERNAME;
+    delete process.env.GH_USERNAME;
 
     expect(() => getGithubConstants()).toThrow("Github username not found");
   });
 
   test("REPO env variable is not set", () => {
-    delete process.env.GITHUB_REPO;
+    delete process.env.GH_REPO;
 
     expect(() => getGithubConstants()).toThrow("Github repository not found");
   });
 
   test("TOKEN env variable is not set", () => {
-    delete process.env.GITHUB_TOKEN;
+    delete process.env.GH_TOKEN;
 
     expect(() => getGithubConstants()).toThrow("Github token not found");
   });

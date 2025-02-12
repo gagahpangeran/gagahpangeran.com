@@ -11,6 +11,9 @@ jobs:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      GH_USERNAME: ${{ secrets.GH_USERNAME }}
+      GH_REPO: ${{ secrets.GH_REPO }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout master
         uses: actions/checkout@v4

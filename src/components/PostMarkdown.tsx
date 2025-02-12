@@ -28,50 +28,28 @@ export default function PostMarkdown({ children, slug }: Props) {
       const url = props.href ?? "";
 
       if (url.startsWith("/")) {
-        return (
-          <Link {...props} href={url}>
-            {props.children}
-          </Link>
-        );
+        return <Link href={url}>{props.children}</Link>;
       }
 
       if (url.startsWith("./")) {
         const href = path.join(slug, url);
-        return (
-          <a {...props} href={href}>
-            {props.children}
-          </a>
-        );
+        return <a href={href}>{props.children}</a>;
       }
 
       if (url.startsWith("http")) {
-        <a
-          {...props}
-          href={url}
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-        >
+        <a href={url} target="_blank" rel="nofollow noopener noreferrer">
           {props.children}
         </a>;
       }
 
-      return (
-        <a {...props} href={url}>
-          {props.children}
-        </a>
-      );
+      return <a href={url}>{props.children}</a>;
     },
     img(props) {
       const image = getImageData(path.join(slug, props.src ?? ""));
       return (
         <figure>
           <a href={image.src} target="_blank" rel="noopener noreferrer">
-            <Image
-              {...props}
-              {...image}
-              alt={props.alt ?? ""}
-              title={props.title}
-            />
+            <Image {...image} alt={props.alt ?? ""} title={props.title} />
           </a>
           <figcaption>{props.title}</figcaption>
         </figure>
@@ -79,11 +57,11 @@ export default function PostMarkdown({ children, slug }: Props) {
     },
     source(props) {
       const src = path.join(slug, props.src ?? "");
-      return <source {...props} src={src} type={props.type} />;
+      return <source src={src} type={props.type} />;
     },
     h2(props) {
       return (
-        <h2 {...props} id={props.id}>
+        <h2 id={props.id}>
           {String(props.children)}
           <a href={`#${props.id}`} className="markdown__header-link">
             <FontAwesomeIcon icon={faLink} />
@@ -93,7 +71,7 @@ export default function PostMarkdown({ children, slug }: Props) {
     },
     h3(props) {
       return (
-        <h3 {...props} id={props.id}>
+        <h3 id={props.id}>
           {String(props.children)}
           <a href={`#${props.id}`} className="markdown__header-link">
             <FontAwesomeIcon icon={faLink} />
@@ -119,11 +97,7 @@ export default function PostMarkdown({ children, slug }: Props) {
         );
       }
 
-      return (
-        <code {...props} className={`language-text`}>
-          {children}
-        </code>
-      );
+      return <code className={`language-text`}>{children}</code>;
     }
   };
 

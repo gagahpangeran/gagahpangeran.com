@@ -86,3 +86,5 @@ yarn-error.log
 next-env.d.ts
 
 public/blog
+# Sentry Config File
+.env.sentry-build-plugin

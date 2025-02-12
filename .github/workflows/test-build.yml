@@ -12,8 +12,6 @@ jobs:
       GH_USERNAME: ${{ secrets.GH_USERNAME }}
       GH_REPO: ${{ secrets.GH_REPO }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      CONTENT_DIR: ${{ env.CONTENT_DIR }}
-      SITE_URL: ${{ env.SITE_URL }}
       SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
       SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}

@@ -1,0 +1,54 @@
+name: Test Build
+on:
+  pull_request
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      GH_USERNAME: ${{ secrets.GH_USERNAME }}
+      GH_REPO: ${{ secrets.GH_REPO }}
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      CONTENT_DIR: ${{ env.CONTENT_DIR }}
+      SITE_URL: ${{ env.SITE_URL }}
+      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-
+
+      - name: Cache netlify
+        uses: actions/cache@v4
+        with:
+          path: ./.netlify
+          key: ${{ runner.os }}-netlify-${{ hashFiles('**/netlify.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-netlify-
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+          cache: "yarn"
+
+      - name: Install netlify cli
+        run: yarn global --ignore-optional add netlify-cli
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build app
+        run: netlify build

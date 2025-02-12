@@ -14,6 +14,8 @@ jobs:
       GH_USERNAME: ${{ secrets.GH_USERNAME }}
       GH_REPO: ${{ secrets.GH_REPO }}
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      CONTENT_DIR: ${{ env.CONTENT_DIR }}
+      SITE_URL: ${{ env.SITE_URL }}
     steps:
       - name: Checkout master
         uses: actions/checkout@v4

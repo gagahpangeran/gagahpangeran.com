@@ -4,9 +4,9 @@
 
 export function getGithubConstants() {
   const BASE_URL = `https://api.github.com`;
-  const USER = process.env.GITHUB_USERNAME;
-  const REPO = process.env.GITHUB_REPO;
-  const TOKEN = process.env.GITHUB_TOKEN;
+  const USER = process.env.GH_USERNAME;
+  const REPO = process.env.GH_REPO;
+  const TOKEN = process.env.GH_TOKEN;
 
   if (USER == null) {
     throw Error("Github username not found");

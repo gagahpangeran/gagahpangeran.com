@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { type ImageData, getContentDir, getImageData } from "./file";
+import { stripInlineMarkdown } from "./markdown";
 
 type Language = "en" | "id";
 
@@ -117,7 +118,7 @@ export function getPostBySlug(slug: string): PostData | null {
     month: "long",
     day: "2-digit"
   });
-  const description = excerpt.replaceAll("\n", " ");
+  const description = stripInlineMarkdown(excerpt.replaceAll("\n", " "));
 
   const imgPath = path.join(slug, frontmatter.featuredImage);
   const image = getImageData(imgPath);

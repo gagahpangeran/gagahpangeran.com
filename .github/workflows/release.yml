@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     name: Build and deploy website
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -61,7 +61,7 @@ jobs:
   release:
     needs: deploy
     name: Create release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout master
         uses: actions/checkout@v4

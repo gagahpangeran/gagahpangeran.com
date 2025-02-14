@@ -8,7 +8,7 @@ jobs:
   deploy:
     if: github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'update-content')
     name: Update and deploy content
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -52,7 +52,7 @@ jobs:
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
           cache: "yarn"
 
       - name: Install netlify cli

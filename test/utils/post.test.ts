@@ -2,7 +2,43 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getPostBySlug, type PostData } from "@/utils/post";
+import { getAllPosts, getPostBySlug, type PostData } from "@/utils/post";
+
+describe("test getAllPosts function", () => {
+  test("All posts", () => {
+    const { posts, totalPage } = getAllPosts();
+
+    const expected = [
+      {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      },
+      {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      },
+      {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    ];
+
+    expect(totalPage).toBe(1);
+    expect(posts).toMatchObject(expected);
+  });
+});
 
 describe("test getPostBySlug function", () => {
   test("Simple blog post", () => {

@@ -141,6 +141,11 @@ export function getNewerOlderPost(slug: string) {
   const { posts } = getAllPosts();
 
   const index = posts.findIndex(post => post.slug === slug);
+
+  if (index === -1) {
+    return { newerPost: null, olderPost: null };
+  }
+
   const newerPost = index === 0 ? null : posts[index - 1];
   const olderPost = index === posts.length - 1 ? null : posts[index + 1];
 

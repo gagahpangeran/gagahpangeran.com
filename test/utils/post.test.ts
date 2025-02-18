@@ -38,6 +38,22 @@ describe("test getAllPosts function", () => {
     expect(totalPage).toBe(1);
     expect(posts).toMatchObject(expected);
   });
+
+  test("Filter by tag", () => {
+    const { posts } = getAllPosts({ page: 1, type: "tag", value: "Lorem" });
+    const expected = [
+      {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    ];
+
+    expect(posts).toMatchObject(expected);
+  });
 });
 
 describe("test getPostBySlug function", () => {

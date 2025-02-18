@@ -4,14 +4,6 @@
 
 import { getPostBySlug, type PostData } from "@/utils/post";
 
-beforeAll(() => {
-  process.env.CONTENT_DIR = "test/fixtures";
-});
-
-afterAll(() => {
-  process.env.CONTENT_DIR = undefined;
-});
-
 describe("test getPostBySlug function", () => {
   test("Simple blog post", () => {
     const expected: PostData = {

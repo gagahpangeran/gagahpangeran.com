@@ -5,6 +5,7 @@
 import {
   getAllPosts,
   getAllPostTags,
+  getNewerOlderPost,
   getPostBySlug,
   type PostData
 } from "@/utils/post";
@@ -135,6 +136,71 @@ laoreet. Habitasse varius leo sapien; quisque senectus platea.
   test("Not found post", () => {
     const result = getPostBySlug("not-found-post");
     expect(result).toBeNull();
+  });
+});
+
+describe("test getNewerOlderPost function", () => {
+  test("Middle post", () => {
+    const expected = {
+      newerPost: {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      },
+      olderPost: {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    };
+
+    const result = getNewerOlderPost("/blog/my-post/");
+    expect(result).toMatchObject(expected);
+  });
+
+  test("Newest post", () => {
+    const expected = {
+      newerPost: null,
+      olderPost: {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      }
+    };
+
+    const result = getNewerOlderPost("/blog/dolor-sit-amet/");
+    expect(result).toMatchObject(expected);
+  });
+
+  test("Oldest post", () => {
+    const expected = {
+      newerPost: {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      },
+      olderPost: null
+    };
+
+    const result = getNewerOlderPost("/blog/lorem-ipsum/");
+    expect(result).toMatchObject(expected);
+  });
+
+  test("Not found post", () => {
+    const result = getNewerOlderPost("/blog/not-found-post/");
+    expect(result).toMatchObject({ newerPost: null, olderPost: null });
   });
 });
 

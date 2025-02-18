@@ -2,7 +2,12 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getAllPosts, getPostBySlug, type PostData } from "@/utils/post";
+import {
+  getAllPosts,
+  getAllPostTags,
+  getPostBySlug,
+  type PostData
+} from "@/utils/post";
 
 describe("test getAllPosts function", () => {
   test("All posts", () => {
@@ -130,5 +135,21 @@ laoreet. Habitasse varius leo sapien; quisque senectus platea.
   test("Not found post", () => {
     const result = getPostBySlug("not-found-post");
     expect(result).toBeNull();
+  });
+});
+
+describe("test getAllPostTags function", () => {
+  test("Get all tags", () => {
+    const result = getAllPostTags();
+    const expected = [
+      "Story",
+      "Cloud",
+      "Lorem",
+      "Ipsum",
+      "Dolor",
+      "Sit",
+      "Amet"
+    ];
+    expect(result.sort()).toMatchObject(expected.sort());
   });
 });

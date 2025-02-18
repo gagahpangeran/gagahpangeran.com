@@ -70,6 +70,12 @@ describe("test getAllPosts function", () => {
 
     expect(posts).toMatchObject(expected);
   });
+
+  test("Invalid page number", () => {
+    expect(() => getAllPosts({ page: -1 })).toThrow(
+      "Page number must be positive."
+    );
+  });
 });
 
 describe("test getPostBySlug function", () => {

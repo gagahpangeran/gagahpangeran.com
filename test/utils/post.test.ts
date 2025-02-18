@@ -52,4 +52,9 @@ laoreet. Habitasse varius leo sapien; quisque senectus platea.
     const result = getPostBySlug("my-post");
     expect(result).toMatchObject(expected);
   });
+
+  test("Not found post", () => {
+    const result = getPostBySlug("not-found-post");
+    expect(result).toBeNull();
+  });
 });

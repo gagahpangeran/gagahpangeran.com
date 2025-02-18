@@ -54,6 +54,22 @@ describe("test getAllPosts function", () => {
 
     expect(posts).toMatchObject(expected);
   });
+
+  test("Filter by lang", () => {
+    const { posts } = getAllPosts({ page: 1, type: "lang", value: "id" });
+    const expected = [
+      {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      }
+    ];
+
+    expect(posts).toMatchObject(expected);
+  });
 });
 
 describe("test getPostBySlug function", () => {

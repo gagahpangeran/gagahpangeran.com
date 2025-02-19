@@ -2,14 +2,86 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
-import { getPostBySlug, type PostData } from "@/utils/post";
+import {
+  getAllPosts,
+  getAllPostTags,
+  getNewerOlderPost,
+  getPostBySlug,
+  type PostData
+} from "@/utils/post";
 
-beforeAll(() => {
-  process.env.CONTENT_DIR = "test/fixtures";
-});
+describe("test getAllPosts function", () => {
+  test("All posts", () => {
+    const { posts, totalPage } = getAllPosts();
 
-afterAll(() => {
-  process.env.CONTENT_DIR = undefined;
+    const expected = [
+      {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      },
+      {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      },
+      {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    ];
+
+    expect(totalPage).toBe(1);
+    expect(posts).toMatchObject(expected);
+  });
+
+  test("Filter by tag", () => {
+    const { posts } = getAllPosts({ page: 1, type: "tag", value: "Lorem" });
+    const expected = [
+      {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    ];
+
+    expect(posts).toMatchObject(expected);
+  });
+
+  test("Filter by lang", () => {
+    const { posts } = getAllPosts({ page: 1, type: "lang", value: "id" });
+    const expected = [
+      {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      }
+    ];
+
+    expect(posts).toMatchObject(expected);
+  });
+
+  test("Invalid page number", () => {
+    expect(() => getAllPosts({ page: -1 })).toThrow(
+      "Page number must be positive."
+    );
+  });
 });
 
 describe("test getPostBySlug function", () => {
@@ -59,5 +131,91 @@ laoreet. Habitasse varius leo sapien; quisque senectus platea.
 
     const result = getPostBySlug("my-post");
     expect(result).toMatchObject(expected);
+  });
+
+  test("Not found post", () => {
+    const result = getPostBySlug("not-found-post");
+    expect(result).toBeNull();
+  });
+});
+
+describe("test getNewerOlderPost function", () => {
+  test("Middle post", () => {
+    const expected = {
+      newerPost: {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      },
+      olderPost: {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    };
+
+    const result = getNewerOlderPost("/blog/my-post/");
+    expect(result).toMatchObject(expected);
+  });
+
+  test("Newest post", () => {
+    const expected = {
+      newerPost: null,
+      olderPost: {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      }
+    };
+
+    const result = getNewerOlderPost("/blog/dolor-sit-amet/");
+    expect(result).toMatchObject(expected);
+  });
+
+  test("Oldest post", () => {
+    const expected = {
+      newerPost: {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      },
+      olderPost: null
+    };
+
+    const result = getNewerOlderPost("/blog/lorem-ipsum/");
+    expect(result).toMatchObject(expected);
+  });
+
+  test("Not found post", () => {
+    const result = getNewerOlderPost("/blog/not-found-post/");
+    expect(result).toMatchObject({ newerPost: null, olderPost: null });
+  });
+});
+
+describe("test getAllPostTags function", () => {
+  test("Get all tags", () => {
+    const result = getAllPostTags();
+    const expected = [
+      "Story",
+      "Cloud",
+      "Lorem",
+      "Ipsum",
+      "Dolor",
+      "Sit",
+      "Amet"
+    ];
+    expect(result.sort()).toMatchObject(expected.sort());
   });
 });

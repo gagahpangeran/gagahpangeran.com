@@ -3,12 +3,6 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { getOtherMetadata, getPageMetadata } from "@/utils/metadata";
-import * as UtilPost from "@/utils/post";
-
-jest.mock("@/utils/post", () => ({
-  ...jest.requireActual("@/utils/post"),
-  getAllPostTags: jest.fn()
-}));
 
 beforeAll(() => {
   process.env.SITE_URL = "https://example.com";
@@ -31,8 +25,6 @@ describe("Test getPageMetadata function", () => {
   });
 
   test("Tag type", () => {
-    (UtilPost.getAllPostTags as jest.Mock).mockReturnValue(["Cloud", "Story"]);
-
     const result = getPageMetadata({
       type: "Tag",
       filterValue: "Cloud"
@@ -47,8 +39,6 @@ describe("Test getPageMetadata function", () => {
   });
 
   test("Tag type invalid", () => {
-    (UtilPost.getAllPostTags as jest.Mock).mockReturnValue(["Cloud", "Story"]);
-
     const result = getPageMetadata({
       type: "Tag",
       filterValue: "Programming"

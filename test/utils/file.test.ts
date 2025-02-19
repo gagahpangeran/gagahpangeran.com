@@ -4,14 +4,6 @@
 
 import { getImageData } from "@/utils/file";
 
-beforeAll(() => {
-  process.env.CONTENT_DIR = "test/fixtures";
-});
-
-afterAll(() => {
-  process.env.CONTENT_DIR = undefined;
-});
-
 describe("Test getImageData function", () => {
   test("Regular image", () => {
     const expected = {

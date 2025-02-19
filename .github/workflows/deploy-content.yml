@@ -61,8 +61,5 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Build app
-        run: netlify build
-
-      - name: Deploy to netlify
-        run: netlify deploy --prod
+      - name: Build and Deploy to netlify
+        run: netlify deploy --prod --build --context production

@@ -5,6 +5,7 @@
 import { type Metadata } from "next";
 import { Lato, Rubik, Fira_Code } from "next/font/google";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import NextTopLoader from "nextjs-toploader";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { classAll } from "@/utils/css";
@@ -55,6 +56,7 @@ export default function RootLayout({
           firaCodeFont.variable
         ])}
       >
+        <NextTopLoader color="#0096d6" height={2} showForHashAnchor={false} />
         <div className="wrapper">
           <Navbar />
           {children}

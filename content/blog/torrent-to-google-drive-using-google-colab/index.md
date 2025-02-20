@@ -15,6 +15,13 @@ Drive? I found one of the tricks, using Google Colab.
 
 <!-- excerpt -->
 
+---
+
+_This is an old post. This tutorial might be not working at the time you read
+this post._
+
+---
+
 First, this is my new blog and all my old posts have been archived. Now I use
 Gatsby js + WordPress to build this blog. You can find many tutorials on the
 internet. This blog is still in developing and there are still many features

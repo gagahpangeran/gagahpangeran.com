@@ -662,7 +662,7 @@ overwrite the stack to jump to `print_flag` function.
 Let's look again the `main` function. We see that there is no guard for the
 `top` variable. So when we do `push` or `pop` operation, the `top` value can be
 negative or exceed `MAX_STACK_SIZE`. It means we can access another values
-outside the `stack` array. Let's check another values before the `stack.
+outside the `stack` array. Let's check another values before the `stack`.
 
 ```python
 from pwn import *

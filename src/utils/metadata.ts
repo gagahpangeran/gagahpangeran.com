@@ -2,6 +2,7 @@
 // Licensed under The MIT License.
 // Read the LICENSE file in the repository root for full license text.
 
+import { type ImageData } from "./file";
 import { getAllPostTags } from "./post";
 
 export const langMap = new Map([
@@ -69,26 +70,31 @@ export function getPageMetadata({
 export function getOtherMetadata(
   title: string,
   description?: string,
-  image?: string
+  imageData?: ImageData
 ) {
   const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
 
   title = `${title} | GPR`;
   description ??= "Low Budget Programmer";
-  image = `${siteUrl}${image ?? "/logo.png"}`;
+
+  const thumbnailImage = {
+    url: `${siteUrl}${imageData?.src ?? "/logo.png"}`,
+    width: imageData?.width ?? 256,
+    height: imageData?.height ?? 256
+  };
 
   const openGraph = {
     title,
     description,
     type: "website",
-    images: [{ url: image }]
+    images: [thumbnailImage]
   };
 
   const twitter = {
     card: "summary_large_image",
     title,
     description,
-    images: [image]
+    images: [thumbnailImage.url]
   };
 
   return {

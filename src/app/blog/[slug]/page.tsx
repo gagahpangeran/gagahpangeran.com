@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title,
       description,
-      ...getOtherMetadata(title, description, image.src)
+      ...getOtherMetadata(title, description, image)
     };
   }
 

@@ -78,7 +78,9 @@ describe("Test getOtherMetadata function", () => {
         title: "Home | GPR",
         description: "Low Budget Programmer",
         type: "website",
-        images: [{ url: "https://example.com/logo.png" }]
+        images: [
+          { url: "https://example.com/logo.png", width: 256, height: 256 }
+        ]
       },
       twitter: {
         card: "summary_large_image",
@@ -98,7 +100,9 @@ describe("Test getOtherMetadata function", () => {
         title: "Blog | GPR",
         description: "All Posts in Blog",
         type: "website",
-        images: [{ url: "https://example.com/logo.png" }]
+        images: [
+          { url: "https://example.com/logo.png", width: 256, height: 256 }
+        ]
       },
       twitter: {
         card: "summary_large_image",
@@ -119,7 +123,11 @@ describe("Test getOtherMetadata function", () => {
         description: "This is my first post.",
         type: "website",
         images: [
-          { url: "https://example.com/blog/my-first-post/img/thumbnail.png" }
+          {
+            url: "https://example.com/blog/my-first-post/img/thumbnail.png",
+            width: 512,
+            height: 512
+          }
         ]
       },
       twitter: {
@@ -130,11 +138,11 @@ describe("Test getOtherMetadata function", () => {
       }
     };
 
-    const result = getOtherMetadata(
-      "My First Post",
-      "This is my first post.",
-      "/blog/my-first-post/img/thumbnail.png"
-    );
+    const result = getOtherMetadata("My First Post", "This is my first post.", {
+      src: "/blog/my-first-post/img/thumbnail.png",
+      width: 512,
+      height: 512
+    });
     expect(result).toMatchObject(expectedMetadata);
   });
 });

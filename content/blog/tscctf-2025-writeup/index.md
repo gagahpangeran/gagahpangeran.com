@@ -4,7 +4,7 @@
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: "TSCCTF 2025 Writeup"
-date: "2025-02-22T23:50:00+07:00"
+date: "2025-01-22T23:50:00+07:00"
 featuredImage: "./img/hat.png"
 tags: ["CTF", "Writeup", "TSCCTF", "Taiwan", "Cryptography", "Reverse Engineer",
 "Pwn", "XSS", "Buffer Overflow"]

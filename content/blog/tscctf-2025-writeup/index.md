@@ -4,7 +4,7 @@
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: "TSCCTF 2025 Writeup"
-date: "2025-02-22T23:50:00+07:00"
+date: "2025-01-22T23:50:00+07:00"
 featuredImage: "./img/hat.png"
 tags: ["CTF", "Writeup", "TSCCTF", "Taiwan", "Cryptography", "Reverse Engineer",
 "Pwn", "XSS", "Buffer Overflow"]
@@ -662,7 +662,7 @@ overwrite the stack to jump to `print_flag` function.
 Let's look again the `main` function. We see that there is no guard for the
 `top` variable. So when we do `push` or `pop` operation, the `top` value can be
 negative or exceed `MAX_STACK_SIZE`. It means we can access another values
-outside the `stack` array. Let's check another values before the `stack.
+outside the `stack` array. Let's check another values before the `stack`.
 
 ```python
 from pwn import *

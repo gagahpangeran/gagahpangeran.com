@@ -22,14 +22,18 @@
     margin-bottom: 12px;
   }
 
-  &__featured-image {
-    width: 100%;
-    height: auto;
-    border-radius: var(--image-border-radius);
+  &__featured-image-wrapper {
+    text-align: center;
 
     @include mixins.mobile {
       margin-left: -16px;
       margin-right: -16px;
     }
+  }
+
+  &__featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--image-border-radius);
   }
 }

@@ -29,14 +29,16 @@ export default function Post({ post }: Props) {
         </time>
         <PostLabel tags={tags} lang={lang} />
         <ShareButton title={title} />
-        <a href={image.src} target="_blank" rel="noopener noreferrer">
-          <Image
-            {...image}
-            className="post__featured-image"
-            alt={title}
-            title={title}
-          />
-        </a>
+        <figure className="post__featured-image-wrapper">
+          <a href={image.src} target="_blank" rel="noopener noreferrer">
+            <Image
+              {...image}
+              className="post__featured-image"
+              alt={title}
+              title={title}
+            />
+          </a>
+        </figure>
 
         <main>
           <PostMarkdown slug={slug}>{content}</PostMarkdown>

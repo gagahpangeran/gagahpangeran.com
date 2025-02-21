@@ -37,9 +37,11 @@ export default function PostMarkdown({ children, slug }: Props) {
       }
 
       if (url.startsWith("http")) {
-        <a href={url} target="_blank" rel="nofollow noopener noreferrer">
-          {props.children}
-        </a>;
+        return (
+          <a href={url} target="_blank" rel="nofollow noopener noreferrer">
+            {props.children}
+          </a>
+        );
       }
 
       return <a href={url}>{props.children}</a>;

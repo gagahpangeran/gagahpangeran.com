@@ -46,6 +46,10 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
     }
 
     if (type != null) {
+      if (type == "blog") {
+        return true;
+      }
+
       if (
         type === "tag" &&
         post.tags

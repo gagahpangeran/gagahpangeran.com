@@ -3,8 +3,6 @@
 // Read the LICENSE file in the repository root for full license text
 
 import { type Metadata } from "next";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import remarkGithub from "remark-github";
 import PageNav from "@/components/PageNav";
 import Page from "@/templates/Page";
@@ -14,6 +12,7 @@ import {
   getGithubConstants,
   getReleaseContent
 } from "@/utils/changelog";
+import PostMarkdown from "@/components/PostMarkdown";
 
 interface Props {
   params: Promise<{ version: string }>;
@@ -43,12 +42,13 @@ export default async function VersionPage({ params }: Props) {
   return (
     <Page mainTitle={version} subTitle={desc}>
       <main>
-        <ReactMarkdown
+        <PostMarkdown
           className="markdown markdown--page-version"
-          remarkPlugins={[remarkGfm, [remarkGithub, { repository }]]}
+          slug={`/changelog/${version}/`}
+          remarkPlugins={[[remarkGithub, { repository }]]}
         >
           {content}
-        </ReactMarkdown>
+        </PostMarkdown>
       </main>
 
       <PageNav newerData={newerData} olderData={olderData} size="small" />

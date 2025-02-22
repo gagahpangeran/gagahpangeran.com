@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
-import ReactMarkdown, { type Components } from "react-markdown";
+import ReactMarkdown, { type Components, type Options } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypeRaw from "rehype-raw";
@@ -21,9 +21,15 @@ interface Props {
   className?: string;
   children: string | null | undefined;
   slug: string;
+  remarkPlugins?: Options["remarkPlugins"];
 }
 
-export default function PostMarkdown({ children, slug, className }: Props) {
+export default function PostMarkdown({
+  children,
+  slug,
+  className,
+  remarkPlugins
+}: Props) {
   const markdownComponents: Components = {
     a(props) {
       const url = props.href ?? "";
@@ -107,7 +113,7 @@ export default function PostMarkdown({ children, slug, className }: Props) {
   return (
     <ReactMarkdown
       className={className}
-      remarkPlugins={[remarkGfm, remarkMath]}
+      remarkPlugins={[...(remarkPlugins ?? []), remarkGfm, remarkMath]}
       rehypePlugins={[
         rehypeRaw,
         rehypeUnwrapImages,

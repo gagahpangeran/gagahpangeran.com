@@ -5,11 +5,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import kebabCase from "lodash.kebabcase";
 import { type ImageData, getContentDir, getImageData } from "./file";
 import { stripInlineMarkdown } from "./markdown";
 
-const ALL_LANG = ["en", "id"] as const;
+export const ALL_LANG = ["en", "id"] as const;
+export const POST_PER_PAGE = 5;
 
 export type PageType = "Blog" | "Tag" | "Language";
 
@@ -35,8 +35,6 @@ interface GetAllPostsParams {
   type?: PageType;
   value?: string;
 }
-
-const POST_PER_PAGE = 5;
 
 export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
   const dateComparator = (post1: PostData, post2: PostData) =>
@@ -160,33 +158,4 @@ export function getAllPostTags() {
   const { posts } = getAllPosts();
   const tags = Array.from(new Set(posts.map(post => post.tags).flat()));
   return tags;
-}
-
-export function getAllBlogRoutes() {
-  const createPaginatedRoutes = (basePath: string, postCount: number) => {
-    const totalPage = Math.ceil(postCount / POST_PER_PAGE);
-    return Array.from({ length: totalPage }).map(
-      (_, index) => `${basePath}${index > 0 ? `${index + 1}/` : ""}`
-    );
-  };
-
-  const { posts } = getAllPosts();
-  const postRoutes = posts.map(post => post.slug);
-  const blogRoutes = createPaginatedRoutes("/blog/", posts.length);
-
-  const allTags = getAllPostTags();
-  const tagRoutes = allTags.flatMap(tag => {
-    const { posts } = getAllPosts({ type: "Tag", value: tag });
-    const basePath = `/blog/tag/${kebabCase(tag)}/`;
-    return createPaginatedRoutes(basePath, posts.length);
-  });
-
-  const langRoutes = ALL_LANG.flatMap(lang => {
-    const { posts } = getAllPosts({ type: "Language", value: lang });
-    const basePath = `/blog/tag/${kebabCase(lang)}/`;
-    return createPaginatedRoutes(basePath, posts.length);
-  });
-
-  const allRoutes = [...blogRoutes, ...tagRoutes, ...langRoutes, ...postRoutes];
-  return allRoutes;
 }

@@ -6,6 +6,8 @@ import Link from "next/link";
 import Page from "@/templates/Page";
 import { getAllReleases } from "@/utils/changelog";
 
+export const revalidate = 0;
+
 const title = "Changelog";
 const desc = "All release changelog";
 

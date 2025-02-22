@@ -33,6 +33,8 @@ interface GetAllPostsParams {
   value?: string;
 }
 
+const POST_PER_PAGE = 5;
+
 export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
   const dateComparator = (post1: PostData, post2: PostData) =>
     new Date(post1.date) > new Date(post2.date) ? -1 : 1;
@@ -77,11 +79,10 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
     throw new Error("Page number must be positive.");
   }
 
-  const postPerPage = 5;
-  const totalPage = Math.ceil(allPosts.length / postPerPage);
+  const totalPage = Math.ceil(allPosts.length / POST_PER_PAGE);
 
-  const startIdx = (page - 1) * postPerPage;
-  const posts = allPosts.slice(startIdx, startIdx + postPerPage);
+  const startIdx = (page - 1) * POST_PER_PAGE;
+  const posts = allPosts.slice(startIdx, startIdx + POST_PER_PAGE);
 
   return { posts, totalPage };
 }

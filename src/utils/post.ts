@@ -8,13 +8,13 @@ import matter from "gray-matter";
 import { type ImageData, getContentDir, getImageData } from "./file";
 import { stripInlineMarkdown } from "./markdown";
 
-type Language = "en" | "id";
+const ALL_LANG = ["en", "id"] as const;
 
 interface FrontmatterData {
   date: string;
   featuredImage: string;
   tags: ReadonlyArray<string>;
-  lang: Language;
+  lang: (typeof ALL_LANG)[number];
   title: string;
 }
 

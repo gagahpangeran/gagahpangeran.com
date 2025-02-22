@@ -19,14 +19,14 @@ export function getAllBlogPageRoutes() {
 
   const allTags = getAllPostTags();
   const tagRoutes = allTags.flatMap(tag => {
-    const { posts } = getAllPosts({ type: "Tag", value: tag });
+    const { posts } = getAllPosts({ type: "tag", value: tag });
     const basePath = `/blog/tag/${kebabCase(tag)}/`;
     return createPaginatedRoutes(basePath, posts.length);
   });
 
   const langRoutes = ALL_LANG.flatMap(lang => {
-    const { posts } = getAllPosts({ type: "Language", value: lang });
-    const basePath = `/blog/tag/${kebabCase(lang)}/`;
+    const { posts } = getAllPosts({ type: "lang", value: lang });
+    const basePath = `/blog/lang/${kebabCase(lang)}/`;
     return createPaginatedRoutes(basePath, posts.length);
   });
 

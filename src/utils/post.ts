@@ -11,7 +11,7 @@ import { stripInlineMarkdown } from "./markdown";
 export const ALL_LANG = ["en", "id"] as const;
 export const POST_PER_PAGE = 5;
 
-export type PageType = "Blog" | "Tag" | "Language";
+export type PageType = "blog" | "tag" | "lang";
 
 interface FrontmatterData {
   date: string;
@@ -47,7 +47,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
 
     if (type != null) {
       if (
-        type === "Tag" &&
+        type === "tag" &&
         post.tags
           .map(tag => tag.toLowerCase())
           .includes(value?.replaceAll("-", " ").toLowerCase() ?? "")
@@ -55,7 +55,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
         return true;
       }
 
-      if (type === "Language" && post.lang === value) {
+      if (type === "lang" && post.lang === value) {
         return true;
       }
 

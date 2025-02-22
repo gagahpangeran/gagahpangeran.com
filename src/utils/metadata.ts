@@ -22,14 +22,14 @@ export function getPageMetadata({
   let metadata = null;
 
   switch (type) {
-    case "Blog":
+    case "blog":
       metadata = {
         title: "Blog",
         description: "All Posts in Blog"
       };
       break;
 
-    case "Language":
+    case "lang":
       const lang = langMap.get(filterValue);
       if (lang != null) {
         metadata = {
@@ -39,7 +39,7 @@ export function getPageMetadata({
       }
       break;
 
-    case "Tag":
+    case "tag":
       const tags = getAllPostTags();
       const tag = tags.find(
         tag =>

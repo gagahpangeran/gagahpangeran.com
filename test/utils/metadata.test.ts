@@ -14,7 +14,7 @@ afterAll(() => {
 
 describe("Test getPageMetadata function", () => {
   test("Blog type", () => {
-    const result = getPageMetadata({ type: "Blog" });
+    const result = getPageMetadata({ type: "blog" });
 
     const expectedResult = {
       title: "Blog",
@@ -26,7 +26,7 @@ describe("Test getPageMetadata function", () => {
 
   test("Tag type", () => {
     const result = getPageMetadata({
-      type: "Tag",
+      type: "tag",
       filterValue: "Cloud"
     });
 
@@ -40,7 +40,7 @@ describe("Test getPageMetadata function", () => {
 
   test("Tag type invalid", () => {
     const result = getPageMetadata({
-      type: "Tag",
+      type: "tag",
       filterValue: "Programming"
     });
 
@@ -49,7 +49,7 @@ describe("Test getPageMetadata function", () => {
 
   test("Language type", () => {
     const result = getPageMetadata({
-      type: "Language",
+      type: "lang",
       filterValue: "en"
     });
 
@@ -63,7 +63,7 @@ describe("Test getPageMetadata function", () => {
 
   test("Language type invalid", () => {
     const result = getPageMetadata({
-      type: "Language",
+      type: "lang",
       filterValue: "xx"
     });
 

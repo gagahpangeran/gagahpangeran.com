@@ -11,6 +11,8 @@ import { stripInlineMarkdown } from "./markdown";
 
 const ALL_LANG = ["en", "id"] as const;
 
+export type PageType = "Blog" | "Tag" | "Language";
+
 interface FrontmatterData {
   date: string;
   featuredImage: string;
@@ -30,7 +32,7 @@ export interface PostData extends FrontmatterData {
 
 interface GetAllPostsParams {
   page?: number;
-  type?: "tag" | "lang";
+  type?: PageType;
   value?: string;
 }
 
@@ -47,7 +49,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
 
     if (type != null) {
       if (
-        type === "tag" &&
+        type === "Tag" &&
         post.tags
           .map(tag => tag.toLowerCase())
           .includes(value?.replaceAll("-", " ").toLowerCase() ?? "")
@@ -55,7 +57,7 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
         return true;
       }
 
-      if (type === "lang" && post.lang === value) {
+      if (type === "Language" && post.lang === value) {
         return true;
       }
 
@@ -174,13 +176,13 @@ export function getAllBlogRoutes() {
 
   const allTags = getAllPostTags();
   const tagRoutes = allTags.flatMap(tag => {
-    const { posts } = getAllPosts({ type: "tag", value: tag });
+    const { posts } = getAllPosts({ type: "Tag", value: tag });
     const basePath = `/blog/tag/${kebabCase(tag)}/`;
     return createPaginatedRoutes(basePath, posts.length);
   });
 
   const langRoutes = ALL_LANG.flatMap(lang => {
-    const { posts } = getAllPosts({ type: "lang", value: lang });
+    const { posts } = getAllPosts({ type: "Language", value: lang });
     const basePath = `/blog/tag/${kebabCase(lang)}/`;
     return createPaginatedRoutes(basePath, posts.length);
   });

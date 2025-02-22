@@ -18,11 +18,12 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { getImageData } from "@/utils/file";
 
 interface Props {
+  className?: string;
   children: string | null | undefined;
   slug: string;
 }
 
-export default function PostMarkdown({ children, slug }: Props) {
+export default function PostMarkdown({ children, slug, className }: Props) {
   const markdownComponents: Components = {
     a(props) {
       const url = props.href ?? "";
@@ -105,7 +106,7 @@ export default function PostMarkdown({ children, slug }: Props) {
 
   return (
     <ReactMarkdown
-      className="markdown"
+      className={className}
       remarkPlugins={[remarkGfm, remarkMath]}
       rehypePlugins={[
         rehypeRaw,

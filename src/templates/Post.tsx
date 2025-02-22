@@ -41,7 +41,9 @@ export default function Post({ post }: Props) {
         </figure>
 
         <main>
-          <PostMarkdown slug={slug}>{content}</PostMarkdown>
+          <PostMarkdown className="markdown" slug={slug}>
+            {content}
+          </PostMarkdown>
         </main>
       </article>
 

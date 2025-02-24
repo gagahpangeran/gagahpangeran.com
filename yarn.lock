@@ -6654,10 +6654,9 @@ remark-gfm@^4.0.0:
     remark-stringify "^11.0.0"
     unified "^11.0.0"
 
-remark-github@^12.0.0:
+remark-github@gagahpangeran/remark-github#compare-autolink:
   version "12.0.0"
-  resolved "https://registry.yarnpkg.com/remark-github/-/remark-github-12.0.0.tgz#c089609226425e2222eb5a853e174e46e3b6e1b8"
-  integrity sha512-ByefQKFN184LeiGRCabfl7zUJsdlMYWEhiLX1gpmQ11yFg6xSuOTW7LVCv0oc1x+YvUMJW23NU36sJX2RWGgvg==
+  resolved "https://codeload.github.com/gagahpangeran/remark-github/tar.gz/223f2beb6eeb31729bc7a765dd634f15c8783180"
   dependencies:
     "@types/mdast" "^4.0.0"
     mdast-util-find-and-replace "^3.0.0"

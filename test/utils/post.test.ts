@@ -45,6 +45,38 @@ describe("test getAllPosts function", () => {
     expect(posts).toMatchObject(expected);
   });
 
+  test("Filter by blog", () => {
+    const expected = [
+      {
+        title: "Dolor Sit Amet",
+        date: "March 14, 2025",
+        featuredImage: "./img/solid.png",
+        tags: ["Dolor", "Sit", "Amet"],
+        lang: "id",
+        slug: "/blog/dolor-sit-amet/"
+      },
+      {
+        title: "Test Blog Post",
+        date: "January 29, 2025",
+        featuredImage: "./img/thumbnail.png",
+        tags: ["Story", "Cloud"],
+        lang: "en",
+        slug: "/blog/my-post/"
+      },
+      {
+        title: "Lorem Ipsum",
+        date: "December 14, 2024",
+        featuredImage: "./img/solid.png",
+        tags: ["Lorem", "Ipsum"],
+        lang: "en",
+        slug: "/blog/lorem-ipsum/"
+      }
+    ];
+
+    const { posts } = getAllPosts({ page: 1, type: "blog" });
+    expect(posts).toMatchObject(expected);
+  });
+
   test("Filter by tag", () => {
     const { posts } = getAllPosts({ page: 1, type: "tag", value: "Lorem" });
     const expected = [

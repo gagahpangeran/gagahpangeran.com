@@ -8,13 +8,16 @@ import matter from "gray-matter";
 import { type ImageData, getContentDir, getImageData } from "./file";
 import { stripInlineMarkdown } from "./markdown";
 
-type Language = "en" | "id";
+export const ALL_LANG = ["en", "id"] as const;
+export const POST_PER_PAGE = 5;
+
+export type PageType = "blog" | "tag" | "lang";
 
 interface FrontmatterData {
   date: string;
   featuredImage: string;
   tags: ReadonlyArray<string>;
-  lang: Language;
+  lang: (typeof ALL_LANG)[number];
   title: string;
 }
 
@@ -29,7 +32,7 @@ export interface PostData extends FrontmatterData {
 
 interface GetAllPostsParams {
   page?: number;
-  type?: "tag" | "lang";
+  type?: PageType;
   value?: string;
 }
 
@@ -43,6 +46,10 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
     }
 
     if (type != null) {
+      if (type == "blog") {
+        return true;
+      }
+
       if (
         type === "tag" &&
         post.tags
@@ -77,11 +84,10 @@ export function getAllPosts({ page, type, value }: GetAllPostsParams = {}) {
     throw new Error("Page number must be positive.");
   }
 
-  const postPerPage = 5;
-  const totalPage = Math.ceil(allPosts.length / postPerPage);
+  const totalPage = Math.ceil(allPosts.length / POST_PER_PAGE);
 
-  const startIdx = (page - 1) * postPerPage;
-  const posts = allPosts.slice(startIdx, startIdx + postPerPage);
+  const startIdx = (page - 1) * POST_PER_PAGE;
+  const posts = allPosts.slice(startIdx, startIdx + POST_PER_PAGE);
 
   return { posts, totalPage };
 }

@@ -3,14 +3,12 @@
 // Read the LICENSE file in the repository root for full license text.
 
 import { type ImageData } from "./file";
-import { getAllPostTags } from "./post";
+import { getAllPostTags, type PageType } from "./post";
 
 export const langMap = new Map([
   ["id", "Bahasa Indonesia"],
   ["en", "English"]
 ]);
-
-type PageType = "Blog" | "Tag" | "Language";
 
 interface PageMetadataParams {
   type: PageType;
@@ -24,14 +22,14 @@ export function getPageMetadata({
   let metadata = null;
 
   switch (type) {
-    case "Blog":
+    case "blog":
       metadata = {
         title: "Blog",
         description: "All Posts in Blog"
       };
       break;
 
-    case "Language":
+    case "lang":
       const lang = langMap.get(filterValue);
       if (lang != null) {
         metadata = {
@@ -41,7 +39,7 @@ export function getPageMetadata({
       }
       break;
 
-    case "Tag":
+    case "tag":
       const tags = getAllPostTags();
       const tag = tags.find(
         tag =>

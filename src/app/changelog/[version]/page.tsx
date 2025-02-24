@@ -3,7 +3,6 @@
 // Read the LICENSE file in the repository root for full license text
 
 import { type Metadata } from "next";
-import remarkGithub from "remark-github";
 import PageNav from "@/components/PageNav";
 import Page from "@/templates/Page";
 import { getOtherMetadata } from "@/utils/metadata";
@@ -13,6 +12,9 @@ import {
   getReleaseContent
 } from "@/utils/changelog";
 import PostMarkdown from "@/components/PostMarkdown";
+
+// @ts-expect-error this is fork version, so there is not type declaration.
+import remarkGithub from "remark-github";
 
 interface Props {
   params: Promise<{ version: string }>;

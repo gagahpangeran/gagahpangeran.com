@@ -53,6 +53,10 @@ $block: 'pre[class*="language-"]';
   background: var(--bg-dark);
 }
 
+a > #{$inline} {
+  color: inherit;
+}
+
 .token {
   &.string,
   &.char,

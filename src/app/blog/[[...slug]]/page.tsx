@@ -67,24 +67,12 @@ export default async function BlogPage({ params }: Props) {
     return <Post post={data.post} />;
   }
 
-  const { posts, totalPage, pageNumber, paginationPath, type, filterValue } =
-    data;
+  const { type, filterValue } = data;
 
   const metadata = getPageMetadata({ type, filterValue });
   if (metadata == null) {
     notFound();
   }
 
-  const { title, description } = metadata;
-
-  return (
-    <Blog
-      title={title}
-      description={description}
-      posts={posts}
-      pageNumber={pageNumber}
-      totalPage={totalPage}
-      paginationPath={paginationPath}
-    />
-  );
+  return <Blog {...metadata} {...data} />;
 }

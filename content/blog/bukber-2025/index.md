@@ -4,7 +4,7 @@
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: "bukber 2025"
-date: "2025-03-18T15:07:19.030Z"
+date: "2025-03-20T23:00:00+07:00"
 featuredImage: "./img/bukber1.jpg"
 tags: ["Story", "Bukber", "Ramadhan", "Puasa"]
 lang: "id"

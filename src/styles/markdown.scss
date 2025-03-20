@@ -28,6 +28,7 @@
 
   figure {
     text-align: center;
+    margin: 16px 0;
 
     @include mixins.mobile {
       margin-left: -16px;

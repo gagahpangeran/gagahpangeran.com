@@ -3,7 +3,7 @@
 # Licensed under CC-BY-NC 4.0.
 # Read the LICENSE file inside the 'content' directory for full license text.
 
-title: "bukber 2025"
+title: "Bukber 2025"
 date: "2025-03-20T23:00:00+07:00"
 featuredImage: "./img/bukber1.jpg"
 tags: ["Story", "Bukber", "Ramadhan", "Puasa"]

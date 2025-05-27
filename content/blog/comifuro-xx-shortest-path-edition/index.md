@@ -4,7 +4,7 @@
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: "Comifuro XX: Shortest Path Edition"
-date: "2025-05-25T13:45:57.574Z"
+date: "2025-05-27T09:00:00+07:00"
 featuredImage: "./img/comifuro-xx.jpg"
 tags: ["Story", "Comifuro", "Event"]
 lang: "id"

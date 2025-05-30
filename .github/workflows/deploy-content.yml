@@ -17,10 +17,6 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       CONTENT_DIR: ${{ secrets.CONTENT_DIR }}
       SITE_URL: ${{ secrets.SITE_URL }}
-      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-      SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     steps:
       - name: Fetch all tags
         uses: actions/checkout@v4

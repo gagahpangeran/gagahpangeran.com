@@ -419,8 +419,8 @@ other and their difference is $1$. So now we get the value of $A$.
 
 $$
 \begin{aligned}
-e_0 - e_1 &\equiv A \pmod{M}\\
-A &\equiv e_0 - e_1 \pmod{M}
+e_0 - e_1 &\equiv A &\pmod{M}\\
+A &\equiv e_0 - e_1 &\pmod{M}
 \end{aligned}
 $$
 
@@ -428,8 +428,8 @@ Now we can get back the value of $B$.
 
 $$
 \begin{aligned}
-e_0 &\equiv A f_0 + B \pmod{M}\\
-B &\equiv e_0 - A f_0 \pmod{M}
+e_0 &\equiv A f_0 + B &\pmod{M}\\
+B &\equiv e_0 - A f_0 &\pmod{M}
 \end{aligned}
 $$
 
@@ -437,9 +437,9 @@ Now we know the value of $A$ and $B$, we can reverse the formula above.
 
 $$
 \begin{aligned}
-e_i &\equiv A f_i + B \pmod{M}\\
-A f_i &\equiv e_i - B \pmod{M}\\
-f_i &\equiv (e_i - B) A^{-1} \pmod{M}
+e_i &\equiv A f_i + B &\pmod{M}\\
+A f_i &\equiv e_i - B &\pmod{M}\\
+f_i &\equiv (e_i - B) A^{-1} &\pmod{M}
 \end{aligned}
 $$
 

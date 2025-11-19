@@ -4,14 +4,14 @@
 # Read the LICENSE file inside the 'content' directory for full license text.
 
 title: "Karaoke, Nikahan, dan Comifuro"
-date: "2025-11-14T08:43:33.963Z"
-featuredImage: "./img/karaoke.png"
+date: "2025-11-19T22:00:00+07:00"
+featuredImage: "./img/comifuro.png"
 tags: ["Story", "Karaoke", "Nikahan", "Comifuro"]
 lang: "id"
 ---
 
-Minggu ini banyak banget acara dari mulai karaoke bareng, datang ke nikahan
-Irfan, sampe ke Comifuro bareng.
+Minggu kemaren banyak banget acara yang gue lakukan. Mulai dari karaoke bareng,
+datang ke nikahan Irfan, sampe ke Comifuro bareng.
 
 <!-- excerpt -->
 
@@ -90,6 +90,49 @@ sama paspampres.
 
 Abis Gibran datang, kami lanjut makan-makan dan kemudian foto sama mempelai.
 Abis itu kami langsung pulang buat lanjut pergi ke Comifuro.
+
+Sampe di ICE BSD, penukaran tiketnya udah lancar dan gak antre. Sebelum masuk
+kami foto-foto dulu di depan.
+
+![Bapak-bapak ke Comifuro](./img/cf1.png "Sekumpulan bapak-bapak berbatik ke Comifuro")
+
+Kami kemudian langsung ke _booth_-nya Kani buat ketemu sama dia. Kani juga
+kebetulan lagi pake batik. Jadilah kami semua foto bareng pake batik semua.
+
+![Berbatik ke Comifuro](./img/cf2.png "Masih sekumpulan bapak-bapak berbatik di Comifuro")
+
+Abis itu kami bubar buat beli keperluan masing-masing.
+
+Gue kemudian ke _booth_ Jagad Raya buat ketemu Mas Shani Budi dan beli komik
+Jagad Raya volume 3.
+
+![Foto bareng Shani](./img/jagadraya.png "Bertemu lagi dengan Mas Shani")
+
+Karena udah gak ada yang gue mau beli, akhirnya gue muter-muter aja Comifuro
+ngalor-ngidul gak jelas. Siapa tau nemu sesuatu yang bagus.
+
+Sekitar jam empat sore, gue ketemu sama Sidiq di depan Hall 8 ICE BSD. Kami
+sambil nungguin Dafa sama Ervan. Setelah ngumpul, kami memutuskan untuk pulang.
+Tapi hujan deras tiba-tiba datang dengan angin yang kencang banget. Jadinya kami
+nunggu sampe hujan sedikit reda.
+
+Sekitar jam 5 sore, hujan udah mulai reda. Kami kemudian pesan taksi online buat
+pulang bareng. Pertama kami ke kosan Sidiq yang dulu buat ngambil barangnya yang
+masih ada di sana. Kemudian kami lanjut pulang bareng ke rumahnya Dafa dulu.
+
+Sampe di Rumah Dafa, kami istirahat sebentar sambil ngobrolin tentang kerjaan
+Ervan sebagai PNS di suatu SD di Jakarta. Kemudian gue sama Ervan pamit pulang.
+Gue naik ojek online ke rumah gue karena jaraknya lumayan dekat, sedangkan Ervan
+pulang naik KRL karena stasiunnya dekat dari rumah Dafa.
+
+Sekalian kami juga pamit sama Sidiq yang nanti malamnya bakal terbang balik ke
+Makassar dan lanjut ke Soppeng. Mungkin gue masih akan lama lagi ketemu Sidiq,
+apalagi sebentar lagi dia bakal nikah dan gue gak bisa datang ke nikahannya.
+
+Setelah sampai rumah, gue langsung tidur karena badan gue capek banget.
+
+Mungkin itu aja buat cerita kali ini. Semoga bakal ada acara lain selanjutnya
+buat kami semua ngumpul bareng lagi.
 
 [soppeng]: https://id.wikipedia.org/wiki/Kabupaten_Soppeng
 [comifuro]: https://comifuro.net

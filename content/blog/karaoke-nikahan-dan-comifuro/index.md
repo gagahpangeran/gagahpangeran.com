@@ -53,6 +53,43 @@ tahun baru, jadinya sebagian besar pada gak bisa datang ke sana. Kata Sidiq
 mungkin abis nikahannya bakal ada perayaan sendiri buat kami yang di Jakarta.
 
 Kemudian hari Sabtunya kami ke nikahan Irfan, salah satu teman kuliah kami juga
-dulu.
+dulu. Hari nikahannya bareng sama hari [Comifuro][comifuro], jadi niatannya kami
+semua abis kondangan bakal langsung pergi ke CF. Acara nikahannya di gedung IPB
+Convention Hotel Botani Square di Bogor. Harusnya Irfan nikahannya di ICE BSD
+aja biar sebelahan sama Comifuro.
+
+Gue, Dafa, sama Sidiq naik KRL. Pas lewat stasiun Tanah Abang, kami ngelihat ada
+orang yang _cosplay_ dan kayaknya lagi transit buat ke arah stasiun Cisauk. Kami
+turun di stasiun Sudirman buat lanjut nyambung naik LRT stasiun Dukuh Atas. Kami
+juga ngelihat ada orang-orang yang _cosplay_ pas lagi jalan di jembatan yang
+nyambungin ke stasiun LRT.
+
+Ini pertama kali gue naik LRT, jadi berikut adalah foto-foto stasiun LRT Dukuh
+Atas.
+
+![Stasiun LRT Dukuh Atas](./img/lrt1.png "Stasiun LRT Dukuh Atas")
+
+![Stasiun LRT Dukuh Atas](./img/lrt2.png "Keberangkatan berikutnya jam 09:16")
+
+Kami naik LRT ke arah Harjamukti dan kami bakal dijemput sama Satrio di sana
+buat langsung naik mobil ke arah Bogor.
+
+Sampe di sana, kami ketemu Ariq, Bayu, sama Sayid yang udah datang duluan. Kami
+juga ketemu teman-teman alumni Fasilkom lain di nikahannya Irfan. Karena
+kayaknya banyak pejabat yang diundang, pas mau masuk gedungnya ada _metal
+detector_ sama _X-ray machine_.
+
+Abis kami salaman dan makan-makan, sekitar jam 12 siang tiba-tiba orang-orang
+pada rame. Ternyata ada Gibran datang ke nikahannya Irfan.
+
+Iya benar, Gibran sang Wakil Presiden Indonesia. Beliau kemudian langsung naik
+ke panggung buat foto sama mempelai. Abis itu Gibran langsung pulang dikawal
+sama paspampres.
+
+![Gibran](./img/gibran.png "Gibran tiba-tiba datang dan langsung foto bareng")
+
+Abis Gibran datang, kami lanjut makan-makan dan kemudian foto sama mempelai.
+Abis itu kami langsung pulang buat lanjut pergi ke Comifuro.
 
 [soppeng]: https://id.wikipedia.org/wiki/Kabupaten_Soppeng
+[comifuro]: https://comifuro.net

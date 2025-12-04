@@ -22,7 +22,8 @@ const eslintConfig = [
       ".github/*",
       "types/",
       "coverage/",
-      ".netlify/*"
+      ".netlify/*",
+      "next-env.d.ts"
     ]
   },
   {
